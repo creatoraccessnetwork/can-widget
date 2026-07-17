@@ -1,0 +1,508 @@
+{
+ "generated": "2026-07-17",
+ "partners": [
+  {
+   "n": "Fourthwall",
+   "v": [
+    50,
+    50
+   ],
+   "t": true,
+   "c": [
+    "Merchandise",
+    "Digital Products",
+    "Memberships & Community",
+    "Website & Bio Link",
+    "Monetization"
+   ]
+  },
+  {
+   "n": "Creator Wizard",
+   "v": [
+    106,
+    106
+   ],
+   "c": [
+    "Education",
+    "Brand Deals",
+    "Resources"
+   ]
+  },
+  {
+   "n": "Creators Guild of America",
+   "v": [
+    99,
+    99
+   ],
+   "t": true,
+   "c": [
+    "Brand Deals",
+    "Resources"
+   ]
+  },
+  {
+   "n": "ShopYourLikes",
+   "v": null,
+   "earn": true,
+   "t": true,
+   "c": [
+    "Affiliates",
+    "Monetization"
+   ]
+  },
+  {
+   "n": "Unbound Legal",
+   "v": [
+    896,
+    1646
+   ],
+   "t": true,
+   "c": [
+    "Legal",
+    "Business Infrastructure"
+   ]
+  },
+  {
+   "n": "SendOwl",
+   "v": [
+    280,
+    1144
+   ],
+   "t": true,
+   "c": [
+    "Digital Products",
+    "Memberships & Community",
+    "Monetization"
+   ]
+  },
+  {
+   "n": "Nas.com",
+   "v": [
+    54,
+    500
+   ],
+   "t": true,
+   "c": [
+    "Digital Products",
+    "Courses",
+    "Memberships & Community",
+    "Coaching",
+    "Monetization"
+   ]
+  },
+  {
+   "n": "EssentL Creator",
+   "v": [
+    450,
+    450
+   ],
+   "t": true,
+   "c": [
+    "Business Infrastructure",
+    "Insurance",
+    "Mental Health"
+   ]
+  },
+  {
+   "n": "Boring Stuff",
+   "v": [
+    600,
+    600
+   ],
+   "t": true,
+   "c": [
+    "Accounting",
+    "Business Infrastructure"
+   ]
+  },
+  {
+   "n": "Kajabi",
+   "v": [
+    358,
+    358
+   ],
+   "t": true,
+   "c": [
+    "Website & Bio Link",
+    "Digital Products",
+    "Courses",
+    "Memberships & Community",
+    "Coaching",
+    "Monetization"
+   ]
+  },
+  {
+   "n": "Slipstream",
+   "v": [
+    60,
+    60
+   ],
+   "t": true,
+   "c": [
+    "Music",
+    "Royalty-Free",
+    "YouTube"
+   ]
+  },
+  {
+   "n": "beehiiv",
+   "v": [
+    129,
+    1212
+   ],
+   "t": true,
+   "c": [
+    "Newsletter",
+    "Website & Bio Link",
+    "Digital Products",
+    "Monetization"
+   ]
+  },
+  {
+   "n": "Elevate.io",
+   "v": [
+    30,
+    75
+   ],
+   "t": true,
+   "c": [
+    "Video",
+    "Editing"
+   ]
+  },
+  {
+   "n": "Karat",
+   "v": [
+    250,
+    250
+   ],
+   "t": true,
+   "c": [
+    "Banking",
+    "Business Infrastructure"
+   ]
+  },
+  {
+   "n": ".store",
+   "v": [
+    200,
+    200
+   ],
+   "t": true,
+   "c": [
+    "Website & Bio Link",
+    "Business Infrastructure"
+   ]
+  },
+  {
+   "n": "FYPM",
+   "v": [
+    416,
+    416
+   ],
+   "t": true,
+   "c": [
+    "Brand Deals"
+   ]
+  },
+  {
+   "n": "Pop.store",
+   "v": [
+    35,
+    717
+   ],
+   "t": true,
+   "c": [
+    "Website & Bio Link",
+    "Courses",
+    "Digital Products",
+    "Memberships & Community",
+    "Coaching",
+    "Automation",
+    "AI",
+    "Instagram",
+    "Monetization"
+   ]
+  },
+  {
+   "n": "Mercury",
+   "v": [
+    400,
+    400
+   ],
+   "t": true,
+   "c": [
+    "Banking",
+    "Business Infrastructure"
+   ]
+  },
+  {
+   "n": "Growth in Reverse",
+   "v": [
+    50,
+    50
+   ],
+   "t": true,
+   "c": [
+    "Education",
+    "Newsletter",
+    "Growth"
+   ]
+  },
+  {
+   "n": "Wispr Flow",
+   "v": [
+    72,
+    90
+   ],
+   "c": [
+    "Productivity",
+    "AI"
+   ]
+  },
+  {
+   "n": "Epidemic Sound",
+   "v": [
+    50,
+    50
+   ],
+   "t": true,
+   "c": [
+    "Music",
+    "Royalty-Free",
+    "YouTube"
+   ]
+  },
+  {
+   "n": "Teachable",
+   "v": [
+    248,
+    500
+   ],
+   "t": true,
+   "c": [
+    "Digital Products",
+    "Courses",
+    "Memberships & Community",
+    "Coaching",
+    "Monetization"
+   ]
+  },
+  {
+   "n": "Hopp",
+   "v": [
+    36,
+    600
+   ],
+   "t": true,
+   "c": [
+    "Website & Bio Link"
+   ]
+  },
+  {
+   "n": "ClearPath",
+   "v": [
+    1500,
+    1500
+   ],
+   "t": true,
+   "c": [
+    "Accounting",
+    "Business Infrastructure"
+   ]
+  },
+  {
+   "n": "Pierson Ferdinand",
+   "v": [
+    150,
+    150
+   ],
+   "t": true,
+   "c": [
+    "Legal",
+    "Business Infrastructure"
+   ]
+  },
+  {
+   "n": "Insense",
+   "v": null,
+   "c": [
+    "Brand Deals",
+    "UGC",
+    "Monetization"
+   ]
+  },
+  {
+   "n": "Mighty Networks",
+   "v": [
+    316,
+    1416
+   ],
+   "t": true,
+   "c": [
+    "Memberships & Community",
+    "Digital Products",
+    "Courses",
+    "Coaching",
+    "Monetization"
+   ]
+  },
+  {
+   "n": "CreatorCare",
+   "v": null,
+   "t": true,
+   "c": [
+    "Mental Health"
+   ]
+  },
+  {
+   "n": "Thematic",
+   "v": [
+    60,
+    60
+   ],
+   "t": true,
+   "c": [
+    "Music",
+    "Royalty-Free",
+    "YouTube"
+   ]
+  },
+  {
+   "n": "Buy.Video",
+   "v": [
+    400,
+    1000
+   ],
+   "t": true,
+   "c": [
+    "Video",
+    "Digital Products",
+    "Monetization"
+   ]
+  },
+  {
+   "n": "Switcher Studios",
+   "v": [
+    200,
+    200
+   ],
+   "t": true,
+   "c": [
+    "Livestreaming",
+    "Video",
+    "Monetization"
+   ]
+  },
+  {
+   "n": "CreatorScore",
+   "v": [
+    40,
+    160
+   ],
+   "t": true,
+   "c": [
+    "Analytics",
+    "Brand Deals"
+   ]
+  },
+  {
+   "n": "Ratelle Law",
+   "v": [
+    900,
+    900
+   ],
+   "t": true,
+   "c": [
+    "Legal",
+    "Business Infrastructure",
+    "Resources"
+   ]
+  },
+  {
+   "n": "Dorian",
+   "v": null,
+   "earn": true,
+   "t": true,
+   "c": [
+    "Gaming",
+    "Monetization",
+    "Platforms"
+   ]
+  },
+  {
+   "n": "Revenews",
+   "v": [
+    1000,
+    1000
+   ],
+   "t": true,
+   "c": [
+    "Newsletter",
+    "Brand Deals",
+    "Monetization"
+   ]
+  },
+  {
+   "n": "DUPAY",
+   "v": [
+    60,
+    60
+   ],
+   "t": true,
+   "c": [
+    "Brand Deals",
+    "Legal",
+    "Business Infrastructure",
+    "Resources"
+   ]
+  },
+  {
+   "n": "EditHers",
+   "v": null,
+   "c": [
+    "Hiring",
+    "Business Infrastructure"
+   ]
+  }
+ ],
+ "logos": {
+  "Fourthwall": "https://cdn.commoninja.com/asset/1f312bbf-eb47-41f5-890c-9d5e4e39b7fc.png",
+  "Creator Wizard": "https://cdn.commoninja.com/asset/932da69e-34b0-475d-8018-cfbbf709c5f4.png",
+  "Creators Guild of America": "https://cdn.commoninja.com/asset/e67d4f36-c7aa-4257-8a6d-71ac3a703128.png",
+  "ShopYourLikes": "https://cdn.commoninja.com/asset/dcefc1df-a971-4315-a594-b32db8781973.png",
+  "Unbound Legal": "https://cdn.commoninja.com/asset/f401d169-92e9-4a4e-bd9c-d4fc7535db9d.jpg",
+  "SendOwl": "https://cdn.commoninja.com/asset/a9d50920-2603-4933-b6c3-00045721a847.png",
+  "Nas.com": "https://cdn.commoninja.com/asset/60e809e6-0aa3-45e9-8cf4-9e029220b3be.png",
+  "EssentL Creator": "https://cdn.commoninja.com/asset/3797119d-e8fb-414e-b0c4-37b6d4cb5eec.png",
+  "Boring Stuff": "https://cdn.commoninja.com/asset/d762d97f-370c-4862-9ed0-d0434728eeb3.png",
+  "Kajabi": "https://cdn.commoninja.com/asset/79542a92-4300-4f9c-bc34-29ba0410bad1.png",
+  "Slipstream": "https://cdn.commoninja.com/asset/1d2418e0-b38b-4ae7-b1ca-7f318402e502.jpg",
+  "beehiiv": "https://cdn.commoninja.com/asset/17226348-3ca7-4837-9a75-9f863e05dad5.png",
+  "Elevate.io": "https://cdn.commoninja.com/asset/ee1380b1-42d6-4d93-9b3e-917333012589.png",
+  "Karat": "https://cdn.commoninja.com/asset/1c8f0175-228c-4137-b063-47195ea7eb3b.png",
+  ".store": "https://cdn.commoninja.com/asset/1096651c-a59f-42d0-b9a0-3edd16434ebb.png",
+  "FYPM": "https://cdn.commoninja.com/asset/352db6dc-293b-4ceb-8f15-318cf84b75f4.png",
+  "Pop.store": "https://cdn.commoninja.com/asset/7bbccbda-fa40-4b79-bfbe-f433a634bec9.png",
+  "Mercury": "https://cdn.commoninja.com/asset/192714c1-3628-4441-b3bd-3876e687e3e5.png",
+  "Growth in Reverse": "https://cdn.commoninja.com/asset/a037d267-cfc9-4099-bac8-5ce1303643a5.png",
+  "Wispr Flow": "https://cdn.commoninja.com/asset/9fc7abfd-06f4-42b2-a037-72011fb19b3e.png",
+  "Epidemic Sound": "https://cdn.commoninja.com/asset/d4a0ac81-8de7-4857-9b3c-43d803fa9871.png",
+  "Teachable": "https://cdn.commoninja.com/asset/dbf2a3ca-a19d-44fe-a61e-3bff641ecc82.jpeg",
+  "Hopp": "https://cdn.commoninja.com/asset/6a5383c0-7402-4feb-ac32-85e526a82f1f.png",
+  "ClearPath": "https://cdn.commoninja.com/asset/4b70b4e5-e6d8-4918-a71c-14d3c3f89a00.png",
+  "Pierson Ferdinand": "https://cdn.commoninja.com/asset/efa9dd93-4d6d-4012-84b2-9d8dc6518d6b.jpg",
+  "Insense": "https://cdn.commoninja.com/asset/7b7f0900-39bb-4672-a3fe-34f11aa2eef7.png",
+  "Mighty Networks": "https://cdn.commoninja.com/asset/6bf52e53-86fe-419e-ab33-876d79d287b0.png",
+  "CreatorCare": "https://cdn.commoninja.com/asset/048ee7e9-3fbb-4589-aefe-5f76252c91b3.png",
+  "Thematic": "https://cdn.commoninja.com/asset/f42e7860-717e-4a27-a3e8-2714a8152586.png",
+  "Buy.Video": "https://cdn.commoninja.com/asset/ec692c8e-3ff5-4eb4-adee-196f3c05780f.png",
+  "Switcher Studios": "https://cdn.commoninja.com/asset/a1e6cf0b-41ec-4827-a74d-ae528816170b.png",
+  "CreatorScore": "https://cdn.commoninja.com/asset/6eebbca6-0b7e-4918-bc1b-32201328b1ce.png",
+  "Ratelle Law": "https://cdn.commoninja.com/asset/ba8a0432-228d-49d3-8e0c-44c9d4f512cb.png",
+  "Dorian": "https://cdn.commoninja.com/asset/1c1b028d-4f55-4989-b77f-8b6f1b1f8e3f.jpg",
+  "Revenews": "https://cdn.commoninja.com/asset/bb2d8089-e680-4e49-be71-14063bee93d6.png",
+  "DUPAY": "https://cdn.commoninja.com/asset/4ac8cbc0-639e-4d10-92ff-7066af0e1b2c.png",
+  "EditHers": "https://cdn.commoninja.com/asset/a567569b-dc20-4ae4-9b65-82cea76487fb.png"
+ }
+}

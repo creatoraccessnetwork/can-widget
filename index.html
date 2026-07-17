@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CAN widget - test harness</title>
+<style>body{margin:0;font-family:sans-serif}h4{margin:24px 16px 8px;color:#555}</style>
+
+<h4>Default (homepage-style)</h4>
+<div id="cansw-mount"></div>
+<script>
+/* pick a test config via ?test=cobrand or ?test=logo */
+var q = new URLSearchParams(location.search).get('test');
+if (q === 'cobrand') {
+  window.CANSW_OVERRIDES = {
+    defaultCategory: "Newsletter", joinUrl: "#section-checkout", dealsUrl: "",
+    cobrand: { mode: "photo",
+      image: "https://lh3.googleusercontent.com/d/1OJp9mL7J-kExivS8QSghWFKXYN-A2VVi",
+      name: "Rahim Jessani", title: "Founder, Bottom Up Media",
+      headline: "The Tools I'd Hand Every Creator Journalist",
+      lede: "The essential tools for news creators with amazing discounts through Creator Access Network." }
+  };
+} else if (q === 'logo') {
+  window.CANSW_OVERRIDES = {
+    defaultCategory: "Newsletter", joinUrl: "#section-checkout", dealsUrl: "",
+    cobrand: { mode: "logo",
+      image: "https://cdn.commoninja.com/asset/1c1b028d-4f55-4989-b77f-8b6f1b1f8e3f.jpg",
+      name: "Dorian",
+      headline: "Dorian creators: spend less on everything that runs your business.",
+      lede: "We partnered with Creator Access Network to get you the best deals anywhere on top Creator tools and services. See what you'd save." }
+  };
+}
+</script>
+<script src="cansw.js"></script>
