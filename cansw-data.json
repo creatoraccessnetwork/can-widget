@@ -1,5 +1,5 @@
 {
- "generated": "2026-07-17",
+ "generated": "2026-07-23",
  "partners": [
   {
    "n": "Fourthwall",
@@ -464,6 +464,34 @@
     "Hiring",
     "Business Infrastructure"
    ]
+  },
+  {
+   "n": "TopFan",
+   "v": null,
+   "earn": true,
+   "t": true,
+   "c": [
+    "Website & Bio Link",
+    "Platforms",
+    "Digital Products",
+    "Courses",
+    "Memberships & Community",
+    "Coaching",
+    "Merchandise",
+    "Monetization"
+   ]
+  },
+  {
+   "n": "Valim",
+   "v": [
+    2000,
+    2000
+   ],
+   "t": true,
+   "c": [
+    "Accounting",
+    "Business Infrastructure"
+   ]
   }
  ],
  "logos": {
@@ -503,6 +531,8 @@
   "Dorian": "https://cdn.commoninja.com/asset/1c1b028d-4f55-4989-b77f-8b6f1b1f8e3f.jpg",
   "Revenews": "https://cdn.commoninja.com/asset/bb2d8089-e680-4e49-be71-14063bee93d6.png",
   "DUPAY": "https://cdn.commoninja.com/asset/4ac8cbc0-639e-4d10-92ff-7066af0e1b2c.png",
-  "EditHers": "https://cdn.commoninja.com/asset/a567569b-dc20-4ae4-9b65-82cea76487fb.png"
+  "EditHers": "https://cdn.commoninja.com/asset/a567569b-dc20-4ae4-9b65-82cea76487fb.png",
+  "TopFan": "https://cdn.commoninja.com/asset/8fe364b7-4594-4c1a-8ca2-a1f8cb570965.png",
+  "Valim": "https://cdn.commoninja.com/asset/64492f65-c809-48a0-8a4d-b1e4ee265ecc.png"
  }
 }
