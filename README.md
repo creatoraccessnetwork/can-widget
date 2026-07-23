@@ -21,14 +21,23 @@ Added 2026-07-23. Off by default; enable per page with:
     <script>window.CANSW_OVERRIDES = {
       builder: true,             // show the email gate + calculator
       membershipCost: 49,        // dollars, used in the profit line
-      captureUrl: "https://hooks.zapier.com/hooks/catch/XXXX/YYYY/", // Zapier catch hook; "" = capture off
+      captureUrl: "https://www.creatoraccessnetwork.com/forms/2149650486/form_submissions", // "" = capture off
       captureTag: "homepage-hero" // per-page label sent with each captured email
     };</script>
 
-Visitors enter an email (posted as JSON {email, source, tag, page, at} to
-captureUrl), then browse partners by category, pick plan tiers, and see a live
-budget: savings + additional earnings (earn slider, flat 10% uplift) minus
-membership cost = profit. Unlock persists in localStorage (`cansw_unlocked`).
+Visitors enter an email, then browse partners by category, pick plan tiers,
+and see a live budget: savings + additional earnings (earn slider, flat 10%
+uplift) minus membership cost = profit. Unlock persists in localStorage
+(`cansw_unlocked`).
+
+Capture endpoints supported by captureUrl:
+- Kajabi form endpoint (URL contains "/forms/"): posted urlencoded as
+  form_submission[email/name/custom_5=tag/custom_6=page]. Standard setup:
+  form 2149650486 "Savings Widget Unlock" on the CAN site; submissions are
+  bridged into beehiiv daily by the `can-widget-email-bridge` scheduled task.
+- Anything else: posted as JSON {email, source, tag, page, at} (e.g. a
+  Zapier catch hook), Content-Type text/plain to avoid CORS preflight.
+Direct client-side posting to beehiiv is not possible (bot protection).
 
 ### Editing partner data (Lindsey)
 

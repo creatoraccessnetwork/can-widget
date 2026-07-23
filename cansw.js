@@ -310,18 +310,31 @@
     function fireCapture(email) {
       if (!CFG.captureUrl) return; /* no endpoint configured; gate still unlocks */
       try {
-        fetch(CFG.captureUrl, {
-          method: "POST",
-          mode: "no-cors",
-          credentials: "omit",
-          headers: { "Content-Type": "text/plain" }, /* simple type: no CORS preflight */
-          body: JSON.stringify({
+        var body, type;
+        if (CFG.captureUrl.indexOf("/forms/") > -1) {
+          /* Kajabi form endpoint: urlencoded fields; custom_5 = tag, custom_6 = page */
+          body = "form_submission%5Bname%5D=Widget%20Visitor" +
+            "&form_submission%5Bemail%5D=" + encodeURIComponent(email) +
+            "&form_submission%5Bcustom_5%5D=" + encodeURIComponent(CFG.captureTag) +
+            "&form_submission%5Bcustom_6%5D=" + encodeURIComponent(location.href);
+          type = "application/x-www-form-urlencoded";
+        } else {
+          /* generic webhook: JSON body as text/plain (simple type: no CORS preflight) */
+          body = JSON.stringify({
             email: email,
             source: "savings-widget",
             tag: CFG.captureTag,
             page: location.href,
             at: new Date().toISOString()
-          })
+          });
+          type = "text/plain";
+        }
+        fetch(CFG.captureUrl, {
+          method: "POST",
+          mode: "no-cors",
+          credentials: "omit",
+          headers: { "Content-Type": type },
+          body: body
         }).catch(function () {});
       } catch (e) {}
     }
