@@ -14,6 +14,15 @@
     "Memberships & Community",
     "Website & Bio Link",
     "Monetization"
+   ],
+   "deal": "$50 in free product samples",
+   "desc": "Merch platform where you design, sell, and ship products from a storefront that matches your brand.",
+   "plans": [
+    {
+     "name": "—",
+     "price": null,
+     "save": 50
+    }
    ]
   },
   {
@@ -26,6 +35,15 @@
     "Education",
     "Brand Deals",
     "Resources"
+   ],
+   "deal": "Free Sponsor Magnet eBook + 50% off the $10K Challenge",
+   "desc": "Brand deal education from Justin Moore, whose Sponsor Magnet book covers what he taught in his $2,000 course.",
+   "plans": [
+    {
+     "name": "—",
+     "price": null,
+     "save": 106
+    }
    ]
   },
   {
@@ -38,6 +56,16 @@
    "c": [
     "Brand Deals",
     "Resources"
+   ],
+   "deal": "Free membership for 1 year",
+   "desc": "Professional guild for Creators with an IMDb-style profile that proves to brands you're a pro.",
+   "plans": [
+    {
+     "name": "Associate membership",
+     "price": 99,
+     "per": "yr",
+     "save": 99
+    }
    ]
   },
   {
@@ -48,7 +76,9 @@
    "c": [
     "Affiliates",
     "Monetization"
-   ]
+   ],
+   "deal": "80/20 affiliate split, 10 points higher than standard",
+   "desc": "Affiliate platform with 20,000+ major brands like Nike, Walmart, and Ulta, where members keep a bigger share of every sale."
   },
   {
    "n": "Unbound Legal",
@@ -60,6 +90,20 @@
    "c": [
     "Legal",
     "Business Infrastructure"
+   ],
+   "deal": "15% off legal service packages",
+   "desc": "Legal services from Chelsey Mori, one of the best-known attorneys in the Creator Economy.",
+   "plans": [
+    {
+     "name": "15-hour package",
+     "price": 5975,
+     "save": 896
+    },
+    {
+     "name": "30-hour package",
+     "price": 10975,
+     "save": 1646
+    }
    ]
   },
   {
@@ -73,6 +117,28 @@
     "Digital Products",
     "Memberships & Community",
     "Monetization"
+   ],
+   "deal": "40% off for 18 months",
+   "desc": "Digital product and membership checkout that lets you sell through one link anywhere you post.",
+   "plans": [
+    {
+     "name": "Launch",
+     "price": 39,
+     "per": "mo",
+     "save": 280
+    },
+    {
+     "name": "Grow",
+     "price": 87,
+     "per": "mo",
+     "save": 626
+    },
+    {
+     "name": "Scale",
+     "price": 159,
+     "per": "mo",
+     "save": 1144
+    }
    ]
   },
   {
@@ -88,6 +154,22 @@
     "Memberships & Community",
     "Coaching",
     "Monetization"
+   ],
+   "deal": "50% off all plans for 1 year",
+   "desc": "Membership and digital product platform from Nas Daily founder Nuseir Yassin, simple enough to launch a paid membership in five minutes.",
+   "plans": [
+    {
+     "name": "Pro, annual",
+     "price": 249,
+     "per": "yr",
+     "save": 125
+    },
+    {
+     "name": "Platinum, annual",
+     "price": 799,
+     "per": "yr",
+     "save": 400
+    }
    ]
   },
   {
@@ -101,6 +183,15 @@
     "Business Infrastructure",
     "Insurance",
     "Mental Health"
+   ],
+   "deal": "50% off the service fee for 6 months",
+   "desc": "Health insurance and HR benefits service that brings corporate-quality coverage to Creators, often below public marketplace rates.",
+   "plans": [
+    {
+     "name": "—",
+     "price": null,
+     "save": 450
+    }
    ]
   },
   {
@@ -113,6 +204,15 @@
    "c": [
     "Accounting",
     "Business Infrastructure"
+   ],
+   "deal": "50% off your first 3 months",
+   "desc": "Accounting firm for Creators co-founded by YouTuber Jon Youshaei and Airrack's manager Zack Honarvar.",
+   "plans": [
+    {
+     "name": "—",
+     "price": null,
+     "save": 600
+    }
    ]
   },
   {
@@ -129,6 +229,28 @@
     "Memberships & Community",
     "Coaching",
     "Monetization"
+   ],
+   "deal": "Member-only deal on every paid plan",
+   "desc": "Course, coaching, and membership platform where Creators have earned over $10 billion selling digital products.",
+   "plans": [
+    {
+     "name": "Basic",
+     "price": 179,
+     "per": "mo",
+     "save": 358
+    },
+    {
+     "name": "Growth",
+     "price": 249,
+     "per": "mo",
+     "save": 498
+    },
+    {
+     "name": "Pro",
+     "price": 499,
+     "per": "mo",
+     "save": 998
+    }
    ]
   },
   {
@@ -142,6 +264,16 @@
     "Music",
     "Royalty-Free",
     "YouTube"
+   ],
+   "deal": "50% off the annual Creator plan",
+   "desc": "Royalty-free music library for Creators, the largest independent catalog you can use without copyright-strike risk.",
+   "plans": [
+    {
+     "name": "Creator, annual",
+     "price": 96,
+     "per": "yr",
+     "save": 60
+    }
    ]
   },
   {
@@ -156,6 +288,27 @@
     "Website & Bio Link",
     "Digital Products",
     "Monetization"
+   ],
+   "deal": "25% off paid plans for 1 year",
+   "desc": "Newsletter platform built by former Morning Brew employees with design, website, growth, and monetization tools.",
+   "plans": [
+    {
+     "name": "Scale, annual",
+     "price": 517,
+     "per": "yr",
+     "save": 129
+    },
+    {
+     "name": "Max, annual",
+     "price": 1151,
+     "per": "yr",
+     "save": 288
+    },
+    {
+     "name": "Larger lists (prices scale)",
+     "price": null,
+     "save": 1212
+    }
    ]
   },
   {
@@ -168,6 +321,22 @@
    "c": [
     "Video",
     "Editing"
+   ],
+   "deal": "3 months free",
+   "desc": "Collaborative video editing that works like a shared doc, so you and your editor skip the export-upload-download loop.",
+   "plans": [
+    {
+     "name": "Creator",
+     "price": 10,
+     "per": "mo",
+     "save": 30
+    },
+    {
+     "name": "Pro, annual",
+     "price": 300,
+     "per": "yr",
+     "save": 75
+    }
    ]
   },
   {
@@ -180,6 +349,15 @@
    "c": [
     "Banking",
     "Business Infrastructure"
+   ],
+   "deal": "Cash bonuses worth up to $250",
+   "desc": "Banking built for Creators, with a Premium plan that pays 1.75% interest on your checking account.",
+   "plans": [
+    {
+     "name": "—",
+     "price": null,
+     "save": 250
+    }
    ]
   },
   {
@@ -192,6 +370,15 @@
    "c": [
     "Website & Bio Link",
     "Business Infrastructure"
+   ],
+   "deal": "5 years of your .store domain free",
+   "desc": "Domain for your shop that separates your commerce from your content, the same way MrBeast's merch store does.",
+   "plans": [
+    {
+     "name": "—",
+     "price": null,
+     "save": 200
+    }
    ]
   },
   {
@@ -203,6 +390,15 @@
    "t": true,
    "c": [
     "Brand Deals"
+   ],
+   "deal": "50% off membership for life",
+   "desc": "Brand deal intel database crowdsourced from Creators, so you can see what peers actually get paid before you negotiate.",
+   "plans": [
+    {
+     "name": "Membership",
+     "price": null,
+     "save": 416
+    }
    ]
   },
   {
@@ -222,6 +418,28 @@
     "AI",
     "Instagram",
     "Monetization"
+   ],
+   "deal": "40% off annual plans for your first year",
+   "desc": "Link-in-bio monetization platform with an affiliate network, digital products, community chat, and an AI fan assistant.",
+   "plans": [
+    {
+     "name": "Creator, annual",
+     "price": 144,
+     "per": "yr",
+     "save": 58
+    },
+    {
+     "name": "Expert, annual",
+     "price": 948,
+     "per": "yr",
+     "save": 379
+    },
+    {
+     "name": "Pro, annual",
+     "price": 1788,
+     "per": "yr",
+     "save": 717
+    }
    ]
   },
   {
@@ -234,6 +452,15 @@
    "c": [
     "Banking",
     "Business Infrastructure"
+   ],
+   "deal": "Up to $400 in cash bonuses",
+   "desc": "Business banking and credit cards used by thousands of startups and small businesses.",
+   "plans": [
+    {
+     "name": "—",
+     "price": null,
+     "save": 400
+    }
    ]
   },
   {
@@ -247,6 +474,15 @@
     "Education",
     "Newsletter",
     "Growth"
+   ],
+   "deal": "$50 off the Growth Vault",
+   "desc": "Newsletter growth education from Chenell Basilio, whose Growth Vault compiles playbooks from hundreds of top newsletter teardowns.",
+   "plans": [
+    {
+     "name": "Growth Vault",
+     "price": 200,
+     "save": 50
+    }
    ]
   },
   {
@@ -258,6 +494,22 @@
    "c": [
     "Productivity",
     "AI"
+   ],
+   "deal": "6 months of Pro free",
+   "desc": "AI dictation tool that types what you say in any app, so you can stop typing and start talking.",
+   "plans": [
+    {
+     "name": "Pro, monthly",
+     "price": 15,
+     "per": "mo",
+     "save": 90
+    },
+    {
+     "name": "Pro, annual",
+     "price": 144,
+     "per": "yr",
+     "save": 72
+    }
    ]
   },
   {
@@ -271,6 +523,16 @@
     "Music",
     "Royalty-Free",
     "YouTube"
+   ],
+   "deal": "50% off the annual Creator plan",
+   "desc": "Royalty-free music library that is the biggest name in YouTube-safe soundtracks.",
+   "plans": [
+    {
+     "name": "Creator, annual",
+     "price": 120,
+     "per": "yr",
+     "save": 60
+    }
    ]
   },
   {
@@ -286,6 +548,22 @@
     "Memberships & Community",
     "Coaching",
     "Monetization"
+   ],
+   "deal": "30% off annual Builder and Growth plans",
+   "desc": "Course platform designed for experts and educators, with downloads, memberships, and coaching sold alongside.",
+   "plans": [
+    {
+     "name": "Builder, annual",
+     "price": 828,
+     "per": "yr",
+     "save": 248
+    },
+    {
+     "name": "Growth, annual",
+     "price": 1668,
+     "per": "yr",
+     "save": 500
+    }
    ]
   },
   {
@@ -297,6 +575,34 @@
    "t": true,
    "c": [
     "Website & Bio Link"
+   ],
+   "deal": "30% off any plan, 50% off Grow",
+   "desc": "Bio link builder from Wix for a link page that looks sharp and still converts.",
+   "plans": [
+    {
+     "name": "Lite",
+     "price": 10,
+     "per": "mo",
+     "save": 36
+    },
+    {
+     "name": "Brand",
+     "price": 17,
+     "per": "mo",
+     "save": 61
+    },
+    {
+     "name": "Sell",
+     "price": 30,
+     "per": "mo",
+     "save": 108
+    },
+    {
+     "name": "Grow",
+     "price": 100,
+     "per": "mo",
+     "save": 600
+    }
    ]
   },
   {
@@ -309,6 +615,21 @@
    "c": [
     "Accounting",
     "Business Infrastructure"
+   ],
+   "deal": "25% off for 1 year",
+   "desc": "Accounting service for Creators, and the firm our founder trusts with his own bookkeeping, invoicing, and taxes.",
+   "plans": [
+    {
+     "name": "Tax services",
+     "price": 450,
+     "save": 113
+    },
+    {
+     "name": "Full service",
+     "price": 500,
+     "per": "mo",
+     "save": 1500
+    }
    ]
   },
   {
@@ -330,7 +651,10 @@
     "Brand Deals",
     "UGC",
     "Monetization"
-   ]
+   ],
+   "deal": "Priority access to paid brand campaigns",
+   "desc": "UGC marketplace where small-audience Creators land high-paying content campaigns from big brands.",
+   "be": true
   },
   {
    "n": "Mighty Networks",
@@ -345,6 +669,28 @@
     "Courses",
     "Coaching",
     "Monetization"
+   ],
+   "deal": "4 months free on annual plans",
+   "desc": "Community platform built so members engage with each other, not just with you.",
+   "plans": [
+    {
+     "name": "Launch, annual",
+     "price": 950,
+     "per": "yr",
+     "save": 316
+    },
+    {
+     "name": "Scale, annual",
+     "price": 2148,
+     "per": "yr",
+     "save": 716
+    },
+    {
+     "name": "Growth, annual",
+     "price": 4250,
+     "per": "yr",
+     "save": 1416
+    }
    ]
   },
   {
@@ -366,6 +712,16 @@
     "Music",
     "Royalty-Free",
     "YouTube"
+   ],
+   "deal": "75% off yearly Premium",
+   "desc": "Music licensing service that lets you use real artists' songs on YouTube in exchange for a credit in your description.",
+   "plans": [
+    {
+     "name": "Premium, annual",
+     "price": 79,
+     "per": "yr",
+     "save": 59
+    }
    ]
   },
   {
@@ -379,6 +735,15 @@
     "Video",
     "Digital Products",
     "Monetization"
+   ],
+   "deal": "No platform fees on your first 2,500 sales",
+   "desc": "Video commerce tool for selling videos as timed drops that expire after the window you set.",
+   "plans": [
+    {
+     "name": "—",
+     "price": null,
+     "save": 400
+    }
    ]
   },
   {
@@ -392,6 +757,15 @@
     "Livestreaming",
     "Video",
     "Monetization"
+   ],
+   "deal": "Member-only annual deal",
+   "desc": "Live video production platform for streaming, hosting, and monetizing with the gear you already own.",
+   "plans": [
+    {
+     "name": "Annual plan",
+     "price": null,
+     "save": 200
+    }
    ]
   },
   {
@@ -404,19 +778,38 @@
    "c": [
     "Analytics",
     "Brand Deals"
+   ],
+   "deal": "2 months free, then 50% off for life",
+   "desc": "Content analytics that show how brand-safe your channels look to sponsors, so you can fix red flags before they cost you a deal.",
+   "plans": [
+    {
+     "name": "Creator plan",
+     "price": 20,
+     "per": "mo",
+     "save": 140
+    }
    ]
   },
   {
    "n": "Ratelle Law",
    "v": [
-    900,
-    900
+    209,
+    209
    ],
    "t": true,
    "c": [
     "Legal",
     "Business Infrastructure",
     "Resources"
+   ],
+   "deal": "30% off the Creator Legal Bundle",
+   "desc": "Legal templates and contracts for Creators from Creator attorney Brittany Ratelle, covering brand deals, contractors, and more.",
+   "plans": [
+    {
+     "name": "Creator Legal Bundle",
+     "price": 697,
+     "save": 209
+    }
    ]
   },
   {
@@ -428,7 +821,9 @@
     "Gaming",
     "Monetization",
     "Platforms"
-   ]
+   ],
+   "deal": "100% revshare for your first 120 days",
+   "desc": "Game platform that turns your story, comic, or world into a monetizable no-code game in days."
   },
   {
    "n": "Revenews",
@@ -441,6 +836,15 @@
     "Newsletter",
     "Brand Deals",
     "Monetization"
+   ],
+   "deal": "Setup fee waived + 5% off your first 3 months",
+   "desc": "Ad sales service from the team that sold over $9M in sponsorships for newsletters like Finimize and The Daily Upside.",
+   "plans": [
+    {
+     "name": "Ad Sales as a Service",
+     "price": null,
+     "save": 1405
+    }
    ]
   },
   {
@@ -455,6 +859,16 @@
     "Legal",
     "Business Infrastructure",
     "Resources"
+   ],
+   "deal": "2 months of Tools + Protection free",
+   "desc": "Brand deal protection service with contracts, invoicing, and collections help if a brand won't pay.",
+   "plans": [
+    {
+     "name": "Tools + Protection",
+     "price": 29,
+     "per": "mo",
+     "save": 60
+    }
    ]
   },
   {
@@ -479,7 +893,9 @@
     "Coaching",
     "Merchandise",
     "Monetization"
-   ]
+   ],
+   "deal": "87% revshare instead of the standard 85%",
+   "desc": "Monetization platform that sells your courses, community, and merch through your own website and app for $0 upfront."
   },
   {
    "n": "Valim",
@@ -491,6 +907,20 @@
    "c": [
     "Accounting",
     "Business Infrastructure"
+   ],
+   "deal": "45% off all tax return filings",
+   "desc": "Tax filing and advisory firm led by ex-Big 4 CPAs with year-round support and fast turnaround.",
+   "plans": [
+    {
+     "name": "Individual return",
+     "price": null,
+     "save": 360
+    },
+    {
+     "name": "Business return",
+     "price": null,
+     "save": 450
+    }
    ]
   }
  ],

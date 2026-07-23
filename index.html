@@ -1,14 +1,25 @@
 <!doctype html>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CAN widget - test harness</title>
 <style>body{margin:0;font-family:sans-serif}h4{margin:24px 16px 8px;color:#555}</style>
 
 <h4>Default (homepage-style)</h4>
 <div id="cansw-mount"></div>
 <script>
-/* pick a test config via ?test=cobrand or ?test=logo */
+/* pick a test config via ?test=cobrand, ?test=logo, or ?test=builder
+   (?reset=1 clears the builder email unlock) */
 var q = new URLSearchParams(location.search).get('test');
-if (q === 'cobrand') {
+if (new URLSearchParams(location.search).get('reset')) {
+  try { localStorage.removeItem('cansw_unlocked'); } catch (e) {}
+}
+if (q === 'builder') {
+  window.CANSW_OVERRIDES = {
+    builder: true,
+    captureTag: 'test-harness',
+    defaultCategory: 'Newsletter'
+  };
+} else if (q === 'cobrand') {
   window.CANSW_OVERRIDES = {
     defaultCategory: "Newsletter", joinUrl: "#section-checkout", dealsUrl: "",
     cobrand: { mode: "photo",
