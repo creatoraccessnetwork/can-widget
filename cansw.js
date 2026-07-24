@@ -93,6 +93,8 @@
   var cta = document.getElementById("canswCta");
   if (CFG.unlinkCtas) { cta.removeAttribute("href"); }
   else { cta.href = CFG.joinUrl; }
+    var bCtaSafe = document.getElementById("canswBCta");
+    if (bCtaSafe) { if (CFG.unlinkCtas) { bCtaSafe.removeAttribute("href"); } else { bCtaSafe.href = CFG.joinUrl; } }
   var seeAll = document.getElementById("canswSeeAll");
   if (CFG.dealsUrl) { seeAll.href = CFG.dealsUrl; } else { seeAll.hidden = true; }
 
