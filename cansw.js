@@ -619,7 +619,17 @@
     }
 
     /* empty-state preview: live savings range + logo pills for the active category */
+    var fontsRefit = false;
     function renderPreview() {
+      /* Kajabi pages swap Open Sans in after first paint — without a
+         remeasure the fit pass trims against fallback-font layout and the
+         last offer row ends up clipped */
+      if (!fontsRefit && document.fonts && document.fonts.ready) {
+        fontsRefit = true;
+        document.fonts.ready.then(function () {
+          if (!previewEl.hidden && !previewEl.classList.contains("cansw-b-preview-ghost")) renderPreview();
+        });
+      }
       previewEl.classList.remove("cansw-b-preview-ghost");
       previewEl.innerHTML = "";
       var kick = document.createElement("p");
