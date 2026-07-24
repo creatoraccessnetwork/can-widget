@@ -654,7 +654,7 @@
       previewEl.appendChild(sub2);
       var pills = document.createElement("div");
       pills.className = "cansw-partners";
-      var MAXP = 8;
+      var MAXP = 5; /* one-two lines of pills; the +N chip carries the rest */
       names.slice(0, MAXP).forEach(function (pp) {
         var pill = document.createElement("span");
         pill.className = "cansw-pill";
@@ -686,13 +686,13 @@
           return { p: pp, mx: mx };
         })
         .sort(function (a, b) { return b.mx - a.mx; })
-        .slice(0, 3);
+        .slice(0, 4);
       if (ranked.length) {
         var tops = document.createElement("div");
         tops.className = "cansw-b-tops";
         var tl = document.createElement("p");
         tl.className = "cansw-b-tops-label";
-        tl.textContent = "Top deals here";
+        tl.textContent = "Top category offers";
         tops.appendChild(tl);
         ranked.forEach(function (r) {
           var row = document.createElement("button");
