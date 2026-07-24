@@ -341,17 +341,46 @@
       return box;
     }
 
+    /* budget contents as one line, sent with every capture so the bridge can
+       log picks against the email — "Fourthwall · Pro ($240); … | total $1,039" */
+    function picksSummary() {
+      var parts = [], save = 0;
+      CART.forEach(function (e) {
+        var p = BY[e.n];
+        if (!p) return;
+        if (isEarn(p)) { parts.push(p.n + " (better split)"); return; }
+        var pl = p.plans[e.plan >= 0 ? e.plan : 0];
+        save += pl.save;
+        parts.push(p.n + (pl.name && pl.name !== "—" ? " · " + pl.name : "") + " (" + fmt(pl.save) + ")");
+      });
+      return parts.length ? parts.join("; ") + " | total " + fmt(save) : "";
+    }
+
+    /* re-send the capture (debounced) when an unlocked visitor edits their
+       budget, so the newest Kajabi submission always carries the full picks
+       list. The bridge keeps the latest submission per email. */
+    var recapT = null;
+    function scheduleRecapture() {
+      var em = "";
+      try { em = localStorage.getItem(LSKEY) || ""; } catch (e) {}
+      if (!unlocked || em.indexOf("@") < 0 || !CART.length) return;
+      clearTimeout(recapT);
+      recapT = setTimeout(function () { fireCapture(em); }, 2500);
+    }
+
     function fireCapture(email) {
       if (!CFG.captureUrl) return; /* no endpoint configured; gate still unlocks */
       try {
         var body, type;
         if (CFG.captureUrl.indexOf("/forms/") > -1) {
-          /* Kajabi form endpoint: urlencoded fields; custom_5 = tag, custom_6 = page */
+          /* Kajabi form endpoint: urlencoded fields; custom_5 = tag, custom_6 = page,
+             custom_7 = consent, custom_8 = budget picks */
           body = "form_submission%5Bname%5D=Widget%20Visitor" +
             "&form_submission%5Bemail%5D=" + encodeURIComponent(email) +
             "&form_submission%5Bcustom_5%5D=" + encodeURIComponent(CFG.captureTag) +
             "&form_submission%5Bcustom_6%5D=" + encodeURIComponent(location.href) +
-            "&form_submission%5Bcustom_7%5D=" + encodeURIComponent("opted in " + new Date().toISOString());
+            "&form_submission%5Bcustom_7%5D=" + encodeURIComponent("opted in " + new Date().toISOString()) +
+            "&form_submission%5Bcustom_8%5D=" + encodeURIComponent(picksSummary());
           type = "application/x-www-form-urlencoded";
         } else {
           /* generic webhook: JSON body as text/plain (simple type: no CORS preflight) */
@@ -361,7 +390,8 @@
             tag: CFG.captureTag,
             page: location.href,
             at: new Date().toISOString(),
-            optin: "opted in " + new Date().toISOString()
+            optin: "opted in " + new Date().toISOString(),
+            picks: picksSummary()
           });
           type = "text/plain";
         }
@@ -556,12 +586,14 @@
       dismissed = false;
       render();
       renderDetail();
+      scheduleRecapture();
       if (!unlocked) { try { gateEmail.focus(); } catch (e) {} }
     }
     function removePartner(n) {
       var i = inCart(n);
       if (i > -1) CART.splice(i, 1);
       render();
+      scheduleRecapture();
       if (current === n) renderDetail();
     }
 
@@ -841,6 +873,7 @@
           sel.addEventListener("change", function () {
             entry.plan = Number(sel.value);
             render();
+            scheduleRecapture();
           });
           info.appendChild(sel);
           sv.textContent = fmt(p.plans[entry.plan].save);
