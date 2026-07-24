@@ -669,10 +669,12 @@
         }
         pills.appendChild(pill);
       });
-      if (names.length > MAXP) {
-        var more = document.createElement("span");
+      var hiddenN = Math.max(0, names.length - MAXP);
+      var more = null;
+      if (hiddenN) {
+        more = document.createElement("span");
         more.className = "cansw-more";
-        more.textContent = "+" + (names.length - MAXP) + " more";
+        more.textContent = "+" + hiddenN + " more";
         pills.appendChild(more);
       }
       previewEl.appendChild(pills);
@@ -714,6 +716,30 @@
           tops.appendChild(row);
         });
         previewEl.appendChild(tops);
+
+        /* fit pass: the preview box clips (overflow hidden) — shed pills into
+           the +N chip until the offer rows fit, then drop any row still cut
+           off so a half row never shows. No-op when the box has no layout. */
+        var clipEdge = function () { return previewEl.getBoundingClientRect().bottom; };
+        var clippedRow = function (el) { return el.getBoundingClientRect().bottom > clipEdge() + 0.5; };
+        var rowEls = tops.querySelectorAll(".cansw-b-top");
+        var lastRow = rowEls[rowEls.length - 1];
+        var pillEls = pills.querySelectorAll(".cansw-pill");
+        var keep = pillEls.length;
+        while (keep > 2 && clippedRow(lastRow)) {
+          keep--;
+          pills.removeChild(pillEls[keep]);
+          hiddenN++;
+          if (!more) {
+            more = document.createElement("span");
+            more.className = "cansw-more";
+            pills.appendChild(more);
+          }
+          more.textContent = "+" + hiddenN + " more";
+        }
+        for (var ri = rowEls.length - 1; ri > 0 && clippedRow(rowEls[ri]); ri--) {
+          tops.removeChild(rowEls[ri]);
+        }
       }
     }
 
