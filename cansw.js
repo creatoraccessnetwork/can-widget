@@ -327,12 +327,12 @@
 
     if (CFG.unlinkCtas) { bCta.removeAttribute("href"); } else { bCta.href = CFG.joinUrl; }
     if (typeof stopRotateFn === "function") stopRotateFn();
-    if (!CFG.headline && !(cb && cb.headline)) titleEl.textContent = "The best perks for content-driven businesses";
+    if (!CFG.headline && !(cb && cb.headline)) titleEl.textContent = "Exclusive perks for content-driven businesses";
     /* dollar figure = live sum of every partner's best plan (Offer Tracking
        via cansw-data.json), floored to $100 — tracks the data automatically */
-    if (!CFG.lede && !(cb && cb.lede)) ledeEl.textContent = "Access over $" +
+    if (!CFG.lede && !(cb && cb.lede)) ledeEl.textContent = "CAN members access $" +
       (Math.floor(stackTotal / 100) * 100).toLocaleString("en-US") +
-      " in discounts on products, events, software, services, and more for Creators and solopreneurs.";
+      " in best-anywhere savings on the top events, software, resources, and professional services for Creators and solopreneurs.";
     if (seeEl) seeEl.hidden = false;
 
     function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return "&#" + c.charCodeAt(0) + ";"; }); }
