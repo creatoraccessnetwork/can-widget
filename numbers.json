@@ -1,0 +1,7 @@
+{
+  "partner_count": 39,
+  "total_value": "$23,000+",
+  "value_basis": "combined_ceiling",
+  "updated": "2026-07-25",
+  "_source": "Notion OFFER TRACKING via the can-deal-numbers weekly cloud routine. partner_count = rows with Live Status = Live. total_value = Est. Annual Savings summed per value_basis, floored to $1,000 with a + (the + does real work: open-ended rows are floors, not ceilings). cansw.js falls back to its own computed figures if this file is missing."
+}
