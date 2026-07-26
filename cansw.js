@@ -734,7 +734,7 @@
         var hi = 0;
         PARTNERS.forEach(function (p) { if (p.v && p.v[1] > hi) hi = p.v[1]; });
         amtSpan.textContent = "Save up to " + fmt(hi);
-        ctxSpan.textContent = "on a single deal in your first year";
+        ctxSpan.textContent = "from a single discount in your first year";
         names = BP.map(function (p) { return { n: p.n, t: !!p.t }; });
       } else {
         var d = CATS[bCat];
@@ -747,7 +747,7 @@
           amtSpan.textContent = "Earn 10% more";
           ctxSpan.textContent = "on the sales you're already making";
         } else {
-          amtSpan.textContent = "Member-only deals";
+          amtSpan.textContent = "Member-only discounts";
           ctxSpan.textContent = "with every partner in this category";
         }
         names = d.partners;
