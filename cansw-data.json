@@ -1,5 +1,5 @@
 {
- "generated": "2026-07-23",
+ "generated": "2026-07-27",
  "partners": [
   {
    "n": "Fourthwall",
@@ -405,7 +405,7 @@
    "n": "Pop.store",
    "v": [
     35,
-    717
+    850
    ],
    "t": true,
    "c": [
@@ -793,8 +793,8 @@
   {
    "n": "Ratelle Law",
    "v": [
-    209,
-    209
+    900,
+    900
    ],
    "t": true,
    "c": [
