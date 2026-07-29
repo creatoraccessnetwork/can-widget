@@ -735,13 +735,13 @@
       if (bCat === ALL || !CATS[bCat]) {
         var hi = 0;
         PARTNERS.forEach(function (p) { if (p.v && p.v[1] > hi) hi = p.v[1]; });
-        headerP.textContent = "Up to " + fmt(hi) + " in savings";
+        headerP.textContent = "Save up to " + fmt(hi) + " per discount";
         names = BP.map(function (p) { return { n: p.n, t: !!p.t }; });
       } else {
         var d = CATS[bCat];
         if (d.vals.length) {
           var hi2 = Math.max.apply(null, d.vals);
-          headerP.textContent = "Up to " + fmt(hi2) + " in savings";
+          headerP.textContent = "Save up to " + fmt(hi2) + " per discount";
         } else if (d.earners.length) {
           headerP.textContent = "Earn 10% more";
         } else {
@@ -750,12 +750,6 @@
         names = d.partners;
       }
       previewEl.appendChild(headerP);
-      if (bCat === ALL || !CATS[bCat]) {
-        var stk = document.createElement("p");
-        stk.className = "cansw-savings-sub cansw-b-stack";
-        stk.innerHTML = "Stack multiple discounts — <strong>" + STACK_LABEL + "</strong> in total savings available";
-        previewEl.appendChild(stk);
-      }
       /* top deals for this view: 3 biggest savers, clickable straight into
          the picker. Pills removed (Avi 2026-07-24: redundant next to this
          list); the +N chip moved BELOW the list and counts the rest of the
@@ -767,6 +761,27 @@
         pp.plans.forEach(function (pl) { if (pl.save > mx) mx = pl.save; });
         return mx;
       }
+      /* stack line (Avi 2026-07-28): All view = tracker total; category views
+         = sum of the view's best plan saves, floored to $100 — shown only
+         when there are at least two discounts to stack */
+      var stk = null;
+      if (bCat === ALL || !CATS[bCat]) {
+        stk = document.createElement("p");
+        stk.innerHTML = "Stack multiple discounts — <strong>" + STACK_LABEL + "</strong> in total savings available";
+      } else {
+        var planPartners = viewPool.filter(function (pp) { return pp.plans && pp.plans.length; });
+        if (planPartners.length > 1) {
+          var catSum = 0;
+          planPartners.forEach(function (pp) { catSum += maxSave(pp); });
+          var catFloor = Math.floor(catSum / 100) * 100;
+          if (catFloor > 0) {
+            stk = document.createElement("p");
+            stk.innerHTML = "Stack multiple discounts — <strong>$" +
+              catFloor.toLocaleString("en-US") + "+</strong> in " + bCat + " savings available";
+          }
+        }
+      }
+      if (stk) { stk.className = "cansw-savings-sub cansw-b-stack"; previewEl.appendChild(stk); }
       function offerRow(r, onPick) {
         var row = document.createElement("button");
         row.className = "cansw-b-top";
