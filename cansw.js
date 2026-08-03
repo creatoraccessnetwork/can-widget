@@ -2,6 +2,10 @@
    Served via GitHub Pages; every CAN page loads this one file.
    Page-specific config via window.CANSW_OVERRIDES BEFORE the script tag:
    { defaultCategory, joinUrl, dealsUrl, rotateMs, headline, lede, unlinkCtas,
+     hidePartners: [names]  - remove these partners from EVERYWHERE in the
+       widget (co-brand rule: never show the page partner's competitors),
+     prefillPicks: [names]  - builder opens with these partners already in
+       the savings calculator (best plan preselected),
      cobrand: { mode: "photo"|"text"|"logo", image, name, title, headline, lede } }
    Partner data: cansw-data.json next to this file (baked fallback below).
    Built from can-savings-widget-horizontal.html - keep that file canonical
@@ -60,6 +64,12 @@
 
   /* ---- category index + render (single Unlock Access CTA design) ---- */
   var PARTNERS = DATA.partners, LOGOS = DATA.logos;
+  /* co-brand rule (Avi 2026-08-03): never show the page partner's
+     competitors anywhere in the widget — filter at the single choke point
+     so categories, tops, related, picker, and preview all inherit it */
+  if (CFG.hidePartners && CFG.hidePartners.length) {
+    PARTNERS = PARTNERS.filter(function (p) { return CFG.hidePartners.indexOf(p.n) === -1; });
+  }
   /* commission-savings ceilings that the tracker's savings-range column
      doesn't carry (Avi 2026-07-28: Dorian's 100%-revshare promo SAVES you up
      to $5,000 in commission — everything is framed as savings). These live
@@ -1280,6 +1290,24 @@
       allOpt.setAttribute("aria-selected", "true");
     }
     refreshCompanyMenu(false);
+    /* co-brand pages open with the partner's top picks already in the
+       calculator (CANSW_OVERRIDES.prefillPicks; best-save plan preselected;
+       no capture fires — that still waits for a real visitor action) */
+    if (CFG.prefillPicks && CFG.prefillPicks.length && !CART.length) {
+      CFG.prefillPicks.forEach(function (n) {
+        var p = BY[n];
+        if (!p || inCart(p.n) > -1) return;
+        var planIdx = -1;
+        if (p.plans && p.plans.length) {
+          planIdx = 0;
+          for (var pi = 1; pi < p.plans.length; pi++) {
+            if ((p.plans[pi].save || 0) > (p.plans[planIdx].save || 0)) planIdx = pi;
+          }
+        }
+        CART.push({ n: p.n, plan: planIdx });
+      });
+      if (CART.length) unlocked = true;
+    }
     render();
   })();
 
