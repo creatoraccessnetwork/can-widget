@@ -70,13 +70,6 @@
   if (CFG.hidePartners && CFG.hidePartners.length) {
     PARTNERS = PARTNERS.filter(function (p) { return CFG.hidePartners.indexOf(p.n) === -1; });
   }
-  /* earn-only partners and the earnings sliders are OUT of the widget on
-     EVERY surface (Avi 2026-08-03: "they clutter it and don't add
-     anything"). Filtering them here starves all earn UI — sliders, "Earn
-     10% more" rows, +10% chips — which only render when these partners are
-     present. They stay in cansw-data.json and on partner pages' static
-     picks grids. */
-  PARTNERS = PARTNERS.filter(function (p) { return !(p.earn || p.be); });
   /* commission-savings ceilings that the tracker's savings-range column
      doesn't carry (Avi 2026-07-28: Dorian's 100%-revshare promo SAVES you up
      to $5,000 in commission — everything is framed as savings). These live
@@ -84,6 +77,24 @@
      the daily Notion sync expects. Uncapped commission deals
      (ShopYourLikes, Insense, TopFan) stay $0 per Avi 2026-07-26. */
   var SAVE_CEILS = { "Dorian": 5000 };
+  /* earnings sliders + UNCAPPED earn-only partners are OUT of the widget on
+     every surface (Avi 2026-08-03: "they clutter it and don't add
+     anything"). CAPPED earn deals are "basically discounts" (Avi: Dorian's
+     no-commission promo = a $5,000 commission discount), so they get a
+     synthetic savings plan and flow through the normal savings machinery —
+     no earn flags survive this filter, which starves all earn UI (sliders,
+     "Earn 10% more" rows, +10% chips). Stripped partners stay in
+     cansw-data.json and on partner pages' static picks grids. */
+  PARTNERS = PARTNERS.filter(function (p) {
+    if (!(p.earn || p.be)) return true;
+    if (!(p.plans && p.plans.length)) {
+      var ceil = SAVE_CEILS[p.n];
+      if (!ceil) return false; /* uncapped earn-only: strip */
+      p.plans = [{ name: "Commission discount", price: null, save: ceil }];
+    }
+    p.earn = false; p.be = false;
+    return true;
+  });
   /* one ceiling per partner = the highest value of its deal on ANY basis
      (tracker savings range, best plan save, commission-savings cap) — the
      header, the top rows, and the ranking all use THIS, so the header can
