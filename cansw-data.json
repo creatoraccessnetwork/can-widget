@@ -1,5 +1,5 @@
 {
- "generated": "2026-07-31",
+ "generated": "2026-08-03",
  "partners": [
   {
    "n": "Fourthwall",
@@ -827,10 +827,7 @@
   },
   {
    "n": "Revenews",
-   "v": [
-    1000,
-    1000
-   ],
+   "v": null,
    "t": true,
    "c": [
     "Newsletter",
@@ -933,7 +930,8 @@
    "c": [
     "Digital Products",
     "Memberships & Community",
-    "Monetization"
+    "Monetization",
+    "Platforms"
    ],
    "deal": "25% off platform fee for life + 85% revenue share (vs 80% standard)",
    "desc": "Business-building service that designs, launches, and runs a recurring-revenue business under your brand while you keep 85% of what it earns."
