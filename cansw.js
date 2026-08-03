@@ -5,7 +5,7 @@
      hidePartners: [names]  - remove these partners from EVERYWHERE in the
        widget (co-brand rule: never show the page partner's competitors),
      prefillPicks: [names]  - builder opens with these partners already in
-       the savings calculator (best plan preselected),
+       the savings calculator (lowest-tier / lowest-savings plan preselected),
      cobrand: { mode: "photo"|"text"|"logo", image, name, title, headline, lede } }
    Partner data: cansw-data.json next to this file (baked fallback below).
    Built from can-savings-widget-horizontal.html - keep that file canonical
@@ -70,6 +70,13 @@
   if (CFG.hidePartners && CFG.hidePartners.length) {
     PARTNERS = PARTNERS.filter(function (p) { return CFG.hidePartners.indexOf(p.n) === -1; });
   }
+  /* earn-only partners and the earnings sliders are OUT of the widget on
+     EVERY surface (Avi 2026-08-03: "they clutter it and don't add
+     anything"). Filtering them here starves all earn UI — sliders, "Earn
+     10% more" rows, +10% chips — which only render when these partners are
+     present. They stay in cansw-data.json and on partner pages' static
+     picks grids. */
+  PARTNERS = PARTNERS.filter(function (p) { return !(p.earn || p.be); });
   /* commission-savings ceilings that the tracker's savings-range column
      doesn't carry (Avi 2026-07-28: Dorian's 100%-revshare promo SAVES you up
      to $5,000 in commission — everything is framed as savings). These live
@@ -1291,8 +1298,9 @@
     }
     refreshCompanyMenu(false);
     /* co-brand pages open with the partner's top picks already in the
-       calculator (CANSW_OVERRIDES.prefillPicks; best-save plan preselected;
-       no capture fires — that still waits for a real visitor action) */
+       calculator (CANSW_OVERRIDES.prefillPicks). LOWEST-tier, lowest-savings
+       plan preselected (Avi 2026-08-03) — visitors trade up themselves. No
+       capture fires; that still waits for a real visitor action. */
     if (CFG.prefillPicks && CFG.prefillPicks.length && !CART.length) {
       CFG.prefillPicks.forEach(function (n) {
         var p = BY[n];
@@ -1301,7 +1309,7 @@
         if (p.plans && p.plans.length) {
           planIdx = 0;
           for (var pi = 1; pi < p.plans.length; pi++) {
-            if ((p.plans[pi].save || 0) > (p.plans[planIdx].save || 0)) planIdx = pi;
+            if ((p.plans[pi].save || 0) < (p.plans[planIdx].save || 0)) planIdx = pi;
           }
         }
         CART.push({ n: p.n, plan: planIdx });
