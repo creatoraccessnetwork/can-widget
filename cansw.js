@@ -422,8 +422,13 @@
     var CART = [];      /* [{n, plan}] in add order; earn partners use plan: -1 */
     var current = null; /* company name shown in the detail panel */
     var dismissed = false; /* gate closed via the x; picks kept, budget stays locked */
+    /* EMAIL GATE REMOVED (Avi 2026-08-03): the first add opens the
+       calculator directly — no email, no capture, on every surface. The
+       gate/capture code below stays dormant for easy re-enable. Browse
+       state is unchanged: visitors still see the preview card until they
+       add a discount (do NOT init unlocked=true — that would replace the
+       browse card with an empty calculator on first load). */
     var unlocked = false;
-    try { unlocked = !!localStorage.getItem(LSKEY); } catch (e) {}
 
     if (CFG.unlinkCtas) { bCta.removeAttribute("href"); } else { bCta.href = CFG.joinUrl; }
     if (typeof stopRotateFn === "function") stopRotateFn();
@@ -489,6 +494,8 @@
        list. The bridge keeps the latest submission per email. */
     var recapT = null;
     function scheduleRecapture() {
+      return; /* capture removed 2026-08-03 — also stops budget-edit posts
+                 from visitors with a pre-removal unlock email in storage */
       var em = "";
       try { em = localStorage.getItem(LSKEY) || ""; } catch (e) {}
       if (!unlocked || em.indexOf("@") < 0 || !CART.length) return;
@@ -747,26 +754,26 @@
       if (inCart(p.n) > -1) return;
       CART.push({ n: p.n, plan: planIdx });
       dismissed = false;
+      var firstAdd = !unlocked;
+      unlocked = true; /* first add opens the calculator — email gate removed (Avi 2026-08-03) */
       render();
       renderDetail();
       scheduleRecapture();
-      if (!unlocked) {
+      if (firstAdd) {
         try {
           if (window.matchMedia("(max-width: 900px)").matches) {
-            /* stacked layout: the gate lives below the fold — bring it into
-               view or the first Add looks like a no-op on phones */
-            gate.scrollIntoView({
+            /* stacked layout: the calculator lives below the fold — bring it
+               into view or the first Add looks like a no-op on phones */
+            var cardEl = document.getElementById("canswResult");
+            cardEl.scrollIntoView({
               behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
               block: "center"
             });
-            gateEmail.focus({ preventScroll: true });
             /* throttled tabs freeze smooth scrolling — verify and jump if needed */
             setTimeout(function () {
-              var g = gate.getBoundingClientRect();
-              if (g.top < 0 || g.bottom > window.innerHeight) gate.scrollIntoView({ block: "center" });
+              var g = cardEl.getBoundingClientRect();
+              if (g.top > window.innerHeight || g.bottom < 0) cardEl.scrollIntoView({ block: "center" });
             }, 700);
-          } else {
-            gateEmail.focus();
           }
         } catch (e) {}
       }
