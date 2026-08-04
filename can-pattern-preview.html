@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAN Background Pattern — Live Preview</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Open Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    color: #374151;
+    background: #F0F4F8 url('can-pattern-teal-on-gray.svg') repeat;
+    background-size: 480px 480px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 64px 24px; }
+  .card {
+    background: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    padding: 40px 36px;
+    margin-bottom: 32px;
+  }
+  h1 { color: #1A1F2C; font-size: 36px; line-height: 1.15; margin: 0 0 16px; }
+  h2 { color: #1A1F2C; font-size: 28px; line-height: 1.2; margin: 0 0 12px; }
+  p { font-size: 16px; line-height: 1.6; margin: 0 0 12px; }
+  .eyebrow { color: #C17A5E; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin: 0 0 8px; }
+  code { background: #F0F4F8; border-radius: 4px; padding: 2px 6px; font-size: 14px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  td, th { border: 1px solid #D7DFE8; padding: 8px 10px; text-align: left; }
+  th { background: #F0F4F8; color: #1A1F2C; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <p class="eyebrow">Brand Style Guide</p>
+      <h1>CAN Background Pattern</h1>
+      <p>This page shows the standard Creator Access Network background: the teal-on-gray icon pattern tile with white content cards on top. This is exactly how site sections should look.</p>
+    </div>
+    <div class="card">
+      <h2>Usage specs</h2>
+      <table>
+        <tr><th>Property</th><th>Value</th></tr>
+        <tr><td>Tile asset</td><td><code>can-pattern-teal-on-gray.svg</code> (960&times;960 @2x)</td></tr>
+        <tr><td>Display size</td><td><code>background-size: 480px 480px; background-repeat: repeat;</code></td></tr>
+        <tr><td>Icon color</td><td>Deep Sea Dive #2A6478 at 25% opacity, ~1px stroke at display size</td></tr>
+        <tr><td>Ground color</td><td>Cool Gray Blue #F0F4F8 (baked into the tile)</td></tr>
+        <tr><td>Content on pattern</td><td>Always inside a white card: #FFFFFF, 4px radius, shadow 0 1px 3px rgba(0,0,0,0.04)</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h2>CSS snippet</h2>
+      <p><code>background: #F0F4F8 url('https://creatoraccessnetwork.github.io/can-widget/can-pattern-teal-on-gray.svg') repeat; background-size: 480px 480px;</code></p>
+    </div>
+  </div>
+</body>
+</html>
