@@ -688,6 +688,8 @@
       cToggle(false);
       detailUserClosed = false; /* an explicit pick always reopens the panel */
       renderDetail();
+      /* next action = hit + on a plan in the deal panel */
+      scrollToNext(document.getElementById("canswBDetail"));
     }
 
     /* ---- deal panel: dropdown-style box that appears once a company is
@@ -727,7 +729,7 @@
         btn.setAttribute("aria-label", "Add " + p.n + (pl && pl.name && pl.name !== "—" ? " " + pl.name : ""));
         btn.addEventListener("click", function () {
           var i = inCart(p.n);
-          if (i > -1) { CART[i].plan = planIdx; render(); renderDetail(); scheduleRecapture(); }
+          if (i > -1) { CART[i].plan = planIdx; render(); renderDetail(); scheduleRecapture(); scrollToNext(document.getElementById("canswResult")); }
           else addPartner(p, planIdx);
         });
       }
@@ -799,34 +801,34 @@
       detailFade.hidden = !(over > 12 && detailScroll.scrollTop < over - 12);
     }
 
+    /* mobile (stacked) layout: after every action, scroll the NEXT action
+       into view — no matter how many discounts are in the calculator (Avi
+       2026-08-04). Adds/plan-switches show the calculator; add-rows show
+       the pickers; company picks show the deal panel. Desktop (side-by-side)
+       never scrolls. */
+    function scrollToNext(el) {
+      if (!el) return;
+      try {
+        if (!window.matchMedia("(max-width: 900px)").matches) return;
+        el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+        /* throttled tabs freeze smooth scrolling — verify and jump if needed */
+        setTimeout(function () {
+          var g = el.getBoundingClientRect();
+          if (g.top > window.innerHeight || g.bottom < 0) el.scrollIntoView({ block: "center" });
+        }, 700);
+      } catch (e) {}
+    }
+
     /* ---- budget card states: empty / gate / unlocked ---- */
     function addPartner(p, planIdx) {
       if (inCart(p.n) > -1) return;
       CART.push({ n: p.n, plan: planIdx });
       dismissed = false;
-      var firstAdd = !unlocked;
       unlocked = true; /* first add opens the calculator — email gate removed (Avi 2026-08-03) */
       render();
       renderDetail();
       scheduleRecapture();
-      if (firstAdd) {
-        try {
-          if (window.matchMedia("(max-width: 900px)").matches) {
-            /* stacked layout: the calculator lives below the fold — bring it
-               into view or the first Add looks like a no-op on phones */
-            var cardEl = document.getElementById("canswResult");
-            cardEl.scrollIntoView({
-              behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-              block: "center"
-            });
-            /* throttled tabs freeze smooth scrolling — verify and jump if needed */
-            setTimeout(function () {
-              var g = cardEl.getBoundingClientRect();
-              if (g.top > window.innerHeight || g.bottom < 0) cardEl.scrollIntoView({ block: "center" });
-            }, 700);
-          }
-        } catch (e) {}
-      }
+      scrollToNext(document.getElementById("canswResult"));
     }
     function removePartner(n) {
       var i = inCart(n);
@@ -1220,7 +1222,7 @@
         ar.addEventListener("click", function (ev) {
           ev.stopPropagation();
           var cb2 = document.getElementById("canswCBtn");
-          try { cb2.scrollIntoView({ block: "center", behavior: reduceMotion ? "auto" : "smooth" }); } catch (e2) { }
+          scrollToNext(cb2); /* next action = pick a company on the left */
           cToggle(true); /* open the menu directly — cb2.click() would close an open deal panel instead */
         });
         itemsEl.appendChild(ar);
