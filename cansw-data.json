@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-03",
+ "generated": "2026-08-04",
  "partners": [
   {
    "n": "Fourthwall",
@@ -935,6 +935,17 @@
    ],
    "deal": "25% off platform fee for life + 85% revenue share (vs 80% standard)",
    "desc": "Business-building service that designs, launches, and runs a recurring-revenue business under your brand while you keep 85% of what it earns."
+  },
+  {
+   "n": "Driff",
+   "v": null,
+   "earn": true,
+   "c": [
+    "Monetization",
+    "Digital Products"
+   ],
+   "deal": "90/10 revenue split for your first 3 months (80/20 after)",
+   "desc": "Monetization platform that lets you charge for paid Q&A and chat with your audience, starting at a 90/10 revenue split for your first three months."
   }
  ],
  "logos": {
