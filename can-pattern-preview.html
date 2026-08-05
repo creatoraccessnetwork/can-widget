@@ -5,21 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CAN Background Pattern — Live Preview</title>
 <style>
+  :root { --tile: 1080px; }
   body {
     margin: 0;
     font-family: 'Open Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
     color: #374151;
     background: #F0F4F8 url('can-pattern-teal-on-gray.svg') repeat;
-    background-size: 480px 480px;
+    background-size: 1080px 1080px;
   }
+  @media (max-width: 767px) { body { background-size: 480px 480px; } }
   .wrap { max-width: 960px; margin: 0 auto; padding: 64px 24px; }
   .card {
     background: #FFFFFF;
     border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-    padding: 40px 36px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.075);
+    padding: 32px;
     margin-bottom: 32px;
   }
+  @media (max-width: 767px) { .card { padding: 20px 16px; } }
   h1 { color: #1A1F2C; font-size: 36px; line-height: 1.15; margin: 0 0 16px; }
   h2 { color: #1A1F2C; font-size: 28px; line-height: 1.2; margin: 0 0 12px; }
   p { font-size: 16px; line-height: 1.6; margin: 0 0 12px; }
@@ -35,22 +38,35 @@
     <div class="card">
       <p class="eyebrow">Brand Style Guide</p>
       <h1>CAN Background Pattern</h1>
-      <p>This page shows the standard Creator Access Network background: the teal-on-gray icon pattern tile with white content cards on top. This is exactly how site sections should look.</p>
+      <p>The standard Creator Access Network background: teal-on-gray Creator-tool icons at 15% opacity, with white content cards on top. This is how site sections should look on both desktop and mobile.</p>
     </div>
     <div class="card">
       <h2>Usage specs</h2>
       <table>
         <tr><th>Property</th><th>Value</th></tr>
-        <tr><td>Tile asset</td><td><code>can-pattern-teal-on-gray.svg</code> (960&times;960 @2x)</td></tr>
-        <tr><td>Display size</td><td><code>background-size: 480px 480px; background-repeat: repeat;</code></td></tr>
-        <tr><td>Icon color</td><td>Deep Sea Dive #2A6478 at 25% opacity, ~1px stroke at display size</td></tr>
+        <tr><td>Tile asset</td><td><code>can-pattern-teal-on-gray.svg</code> (960&times;960 master)</td></tr>
+        <tr><td>Desktop tile size</td><td><code>background-size: 1080px 1080px; background-repeat: repeat;</code></td></tr>
+        <tr><td>Mobile tile size (&le;767px)</td><td><code>background-size: 480px 480px;</code></td></tr>
+        <tr><td>Icon color</td><td>Deep Sea Dive #2A6478 at 15% opacity, ~1px stroke</td></tr>
         <tr><td>Ground color</td><td>Cool Gray Blue #F0F4F8 (baked into the tile)</td></tr>
-        <tr><td>Content on pattern</td><td>Always inside a white card: #FFFFFF, 4px radius, shadow 0 1px 3px rgba(0,0,0,0.04)</td></tr>
+        <tr><td>Content on pattern</td><td>Always inside a white card (see below)</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h2>White card standard</h2>
+      <table>
+        <tr><th>Property</th><th>Value</th></tr>
+        <tr><td>Background</td><td>#FFFFFF</td></tr>
+        <tr><td>Corner radius</td><td>4px</td></tr>
+        <tr><td>Drop shadow</td><td>0 4px 20px rgba(0,0,0,0.075)</td></tr>
+        <tr><td>Interior padding</td><td>32px desktop / 20px 16px mobile</td></tr>
+        <tr><td>Section vertical padding (outside the card)</td><td>64px desktop / 32px mobile</td></tr>
       </table>
     </div>
     <div class="card">
       <h2>CSS snippet</h2>
-      <p><code>background: #F0F4F8 url('https://creatoraccessnetwork.github.io/can-widget/can-pattern-teal-on-gray.svg') repeat; background-size: 480px 480px;</code></p>
+      <p><code>background: #F0F4F8 url('https://creatoraccessnetwork.github.io/can-widget/can-pattern-teal-on-gray.svg') repeat; background-size: 1080px 1080px;</code></p>
+      <p>Mobile: <code>@media (max-width:767px){ background-size: 480px 480px; }</code></p>
     </div>
   </div>
 </body>
