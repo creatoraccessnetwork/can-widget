@@ -1034,58 +1034,56 @@
         }
       }
 
-      /* related partners fill the leftover space in thin categories:
-         builder partners sharing another category with this view's partners
-         (the Offer-Tracking category arrays in cansw-data.json); fallback =
-         biggest-name partners. Fit pass prunes these FIRST, so busy
-         categories self-trim back to just their own offers. */
-      var relBlock = null;
+      /* dashed "+ Add a discount" rows fill the leftover space in category
+         views (Avi 2026-08-07: replaced the old "Related partners" block —
+         keep the view's top discounts, use the spare space to invite a
+         pick). Click opens the company menu, same as the post-unlock rows.
+         The fit pass prunes extras but always keeps ONE visible, trading a
+         top row for it in busy views. */
+      var addBlock = null;
       if (bCat !== ALL && CATS[bCat]) {
-        var inView = {};
-        viewPool.forEach(function (pp) { inView[pp.n] = true; });
-        var otherCats = {};
-        viewPool.forEach(function (pp) { pp.c.forEach(function (c) { if (c !== bCat) otherCats[c] = true; }); });
-        var rel = BP.filter(function (pp) {
-          if (inView[pp.n]) return false;
-          for (var ci = 0; ci < pp.c.length; ci++) if (otherCats[pp.c[ci]]) return true;
-          return false;
-        });
-        if (!rel.length) {
-          rel = ["Kajabi", "beehiiv", "Teachable", "Mercury", "Epidemic Sound", "Fourthwall"]
-            .map(function (n) { return BY[n]; })
-            .filter(function (pp) { return pp && !inView[pp.n]; });
-        }
-        var relRanked = rel
-          .map(function (pp) { return { p: pp, mx: rowVal(pp) }; })
-          .sort(function (a, b) { return (b.mx || 0) - (a.mx || 0); })
-          .slice(0, 3);
-        if (relRanked.length) {
-          relBlock = document.createElement("div");
-          relBlock.className = "cansw-b-tops";
-          var rl = document.createElement("p");
-          rl.className = "cansw-b-tops-label";
-          rl.textContent = "Related partners";
-          relBlock.appendChild(rl);
-          relRanked.forEach(function (r) {
-            relBlock.appendChild(offerRow(r, function () { selectCompany(r.p); }));
+        addBlock = document.createElement("div");
+        addBlock.className = "cansw-b-tops cansw-b-addrows";
+        for (var awi = 0; awi < 3; awi++) {
+          var arow = document.createElement("button");
+          arow.type = "button";
+          arow.className = "cansw-b-addrow";
+          arow.innerHTML = "<span class='cansw-b-addrow-plus' aria-hidden='true'>+</span><span>Add a discount</span>";
+          arow.addEventListener("click", function (ev) {
+            ev.stopPropagation();
+            var cb2 = document.getElementById("canswCBtn");
+            scrollToNext(cb2); /* next action = pick a company on the left */
+            cToggle(true); /* open the menu directly — cb2.click() would close an open deal panel instead */
           });
-          previewEl.appendChild(relBlock);
+          addBlock.appendChild(arow);
         }
+        previewEl.appendChild(addBlock);
       }
 
-      /* safety fit pass: prune related rows first (whole block if its label
-         is left clipped), then top rows with the +N count kept honest — a
-         half row never shows. No-op when the box has no layout. */
+      /* safety fit pass: prune extra add rows first (down to ONE — never
+         zero), then trade top rows for that last add row so it stays
+         visible in busy views (+N count kept honest), then top rows for
+         the box edge as before — a half row never shows. No-op when the
+         box has no layout. */
       var clipEdge = function () { return previewEl.getBoundingClientRect().bottom; };
       var clippedRow = function (el) { return el.getBoundingClientRect().bottom > clipEdge() + 0.5; };
-      if (relBlock) {
-        var relRows = relBlock.querySelectorAll(".cansw-b-top");
-        for (var qi = relRows.length - 1; qi >= 0 && clippedRow(relRows[qi]); qi--) {
-          relBlock.removeChild(relRows[qi]);
+      if (addBlock) {
+        var addRows = addBlock.querySelectorAll(".cansw-b-addrow");
+        for (var qi = addRows.length - 1; qi >= 1 && clippedRow(addRows[qi]); qi--) {
+          addBlock.removeChild(addRows[qi]);
         }
-        if (!relBlock.querySelector(".cansw-b-top") || clippedRow(relBlock)) {
-          previewEl.removeChild(relBlock);
-          relBlock = null;
+        var lastAdd = addBlock.querySelector(".cansw-b-addrow");
+        if (tops && lastAdd) {
+          var tradeRows = tops.querySelectorAll(".cansw-b-top");
+          for (var ti = tradeRows.length - 1; ti > 0 && clippedRow(lastAdd); ti--) {
+            tops.removeChild(tradeRows[ti]);
+            moreN++;
+            if (moreEl) moreEl.textContent = "+" + moreN + " more member discounts";
+          }
+        }
+        if (!lastAdd || clippedRow(lastAdd)) {
+          previewEl.removeChild(addBlock);
+          addBlock = null;
         }
       }
       if (tops) {
