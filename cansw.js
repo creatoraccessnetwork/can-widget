@@ -1029,22 +1029,22 @@
         if (moreN > 0) {
           moreEl = document.createElement("p");
           moreEl.className = "cansw-b-more";
-          moreEl.textContent = "+" + moreN + " more member discounts";
+          moreEl.textContent = "+" + moreN + " more " + (bCat !== ALL ? bCat + " " : "") + "member discounts";
           previewEl.appendChild(moreEl);
         }
       }
 
-      /* dashed "+ Add a discount" rows fill the leftover space in category
-         views (Avi 2026-08-07: replaced the old "Related partners" block —
-         keep the view's top discounts, use the spare space to invite a
-         pick). Click opens the company menu, same as the post-unlock rows.
-         The fit pass prunes extras but always keeps ONE visible, trading a
-         top row for it in busy views. */
+      /* dashed "+ Add a discount" row fills the leftover space in category
+         views (Avi 2026-08-07: replaced the old "Related partners" block;
+         Avi 2026-08-10: exactly ONE row — three just stretched the card in
+         grown states and left the columns unbalanced). Click opens the
+         company menu, same as the post-unlock rows. The fit pass trades a
+         top row for it in busy views so it stays visible. */
       var addBlock = null;
       if (bCat !== ALL && CATS[bCat]) {
         addBlock = document.createElement("div");
         addBlock.className = "cansw-b-tops cansw-b-addrows";
-        for (var awi = 0; awi < 3; awi++) {
+        for (var awi = 0; awi < 1; awi++) {
           var arow = document.createElement("button");
           arow.type = "button";
           arow.className = "cansw-b-addrow";
@@ -1078,7 +1078,7 @@
           for (var ti = tradeRows.length - 1; ti > 0 && clippedRow(lastAdd); ti--) {
             tops.removeChild(tradeRows[ti]);
             moreN++;
-            if (moreEl) moreEl.textContent = "+" + moreN + " more member discounts";
+            if (moreEl) moreEl.textContent = "+" + moreN + " more " + (bCat !== ALL ? bCat + " " : "") + "member discounts";
           }
         }
         if (!lastAdd || clippedRow(lastAdd)) {
@@ -1091,7 +1091,7 @@
         for (var ri = rowEls.length - 1; ri > 0 && clippedRow(rowEls[ri]); ri--) {
           tops.removeChild(rowEls[ri]);
           moreN++;
-          if (moreEl) moreEl.textContent = "+" + moreN + " more member discounts";
+          if (moreEl) moreEl.textContent = "+" + moreN + " more " + (bCat !== ALL ? bCat + " " : "") + "member discounts";
         }
       }
       lastPreviewW = previewEl.getBoundingClientRect().width;
