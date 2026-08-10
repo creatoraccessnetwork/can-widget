@@ -1,7 +1,7 @@
 {
-  "partner_count": 41,
-  "total_value": "$21,000+",
+  "partner_count": 42,
+  "total_value": "$23,000+",
   "value_basis": "combined_ceiling",
-  "updated": "2026-08-03",
-  "_source": "Notion OFFER TRACKING via the can-deal-numbers weekly cloud routine. partner_count = rows with Live Status = Live (41). total_value = Est. Annual Savings summed on combined_ceiling, floored to $1,000, exact raw 21874. EXCLUDED from the value but still counted as partners: uncapped earnings (ShopYourLikes, Insense) per Avi 2026-07-26, rate-based rows (Pierson Ferdinand, CreatorCare), and rows with no parseable figure (TopFan, Valim, Driff). The trailing + is load-bearing: open-ended rows are floors, not ceilings. Cross-checked 2026-08-03: Common Ninja embed 41 cards; /partners page embeds the same 41-card widget."
+  "updated": "2026-08-10",
+  "_source": "Notion OFFER TRACKING via the can-deal-numbers weekly cloud routine. partner_count = rows with Live Status = Live (42). total_value = Est. Annual Savings summed on combined_ceiling, floored to $1,000, exact raw 23389. EXCLUDED from the value but still counted as partners: uncapped earnings (ShopYourLikes, Insense) per Avi 2026-07-26, rate-based rows (Pierson Ferdinand, CreatorCare), and rows with no parseable figure (TopFan, Valim, Driff). The trailing + is load-bearing: open-ended rows are floors, not ceilings. Cross-checked 2026-08-10: Common Ninja embed 42 cards (card 'Creative Contracts' presumed = tracker 'Ratelle Law'); /partners page embeds the same 42-card widget."
 }
