@@ -1,8 +1,8 @@
 {
   "partner_count": 42,
-  "total_value": "$25,000+",
-  "total_value_exact": 25089,
+  "total_value": "$23,000+",
+  "total_value_exact": 23389,
   "value_basis": "ceiling",
   "updated": "2026-08-11",
-  "_source": "Notion OFFER TRACKING via the can-deal-numbers routine. partner_count = rows with Live Status = Live (42). total_value = Est. Annual Savings summed on ceiling basis, floored to $1,000; total_value_exact = the raw ceiling sum (25089), shown on the widget's left-card stat tile per Avi 2026-08-11 (exact figure, no +). EXCLUDED from the value but still counted as partners: rate-based rows (Pierson Ferdinand, CreatorCare) and rows with no parseable figure (TopFan, Driff, Valim). Open-ended rows are floors, not ceilings. IMPORTANT for the sync routine: keep writing total_value_exact alongside total_value or the stat tile falls back to the rounded figure."
+  "_source": "Notion OFFER TRACKING via the can-deal-numbers routine. partner_count = rows with Live Status = Live (42). total_value_exact = 23389 = the ceiling sum EXCLUDING two uncapped earn rows. CORRECTION 2026-08-11: an earlier run today published 25089 by including ShopYourLikes ($1,500) and Insense ($200). Avi confirmed the ShopYourLikes '~$1,000-$1,500/yr' cell in Notion is an ILLUSTRATIVE EXAMPLE HE INVENTED, not a measured figure, so it must never enter a published total or be quoted as data. Insense's '$200+ per campaign' is per-campaign, not annual. Both stay excluded, matching the 2026-08-10 run. Also excluded: rate-based rows (Pierson Ferdinand, CreatorCare) and rows with no parseable figure (TopFan, Driff, Valim). All of these still count as partners. Open-ended rows are floors, so the trailing + is load-bearing. Keep writing total_value_exact alongside total_value or the widget stat tile falls back to the rounded figure."
 }
