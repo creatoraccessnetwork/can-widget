@@ -1,7 +1,8 @@
 {
   "partner_count": 42,
-  "total_value": "$23,000+",
-  "value_basis": "combined_ceiling",
-  "updated": "2026-08-10",
-  "_source": "Notion OFFER TRACKING via the can-deal-numbers weekly cloud routine. partner_count = rows with Live Status = Live (42). total_value = Est. Annual Savings summed on combined_ceiling, floored to $1,000, exact raw 23389. EXCLUDED from the value but still counted as partners: uncapped earnings (ShopYourLikes, Insense) per Avi 2026-07-26, rate-based rows (Pierson Ferdinand, CreatorCare), and rows with no parseable figure (TopFan, Valim, Driff). The trailing + is load-bearing: open-ended rows are floors, not ceilings. Cross-checked 2026-08-10: Common Ninja embed 42 cards (card 'Creative Contracts' presumed = tracker 'Ratelle Law'); /partners page embeds the same 42-card widget."
+  "total_value": "$25,000+",
+  "total_value_exact": 25089,
+  "value_basis": "ceiling",
+  "updated": "2026-08-11",
+  "_source": "Notion OFFER TRACKING via the can-deal-numbers routine. partner_count = rows with Live Status = Live (42). total_value = Est. Annual Savings summed on ceiling basis, floored to $1,000; total_value_exact = the raw ceiling sum (25089), shown on the widget's left-card stat tile per Avi 2026-08-11 (exact figure, no +). EXCLUDED from the value but still counted as partners: rate-based rows (Pierson Ferdinand, CreatorCare) and rows with no parseable figure (TopFan, Driff, Valim). Open-ended rows are floors, not ceilings. IMPORTANT for the sync routine: keep writing total_value_exact alongside total_value or the stat tile falls back to the rounded figure."
 }
