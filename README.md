@@ -14,21 +14,34 @@ Config options: defaultCategory, joinUrl, dealsUrl ("" hides the link),
 rotateMs (0 disables), headline, lede, unlinkCtas, and
 cobrand { mode: "photo"|"text"|"logo", image, name, title, headline, lede }.
 
-## Budget builder (email-gated calculator)
+## Budget builder (calculator + email capture)
 
-Added 2026-07-23. Off by default; enable per page with:
+Added 2026-07-23; reworked 2026-08-11. Off by default; enable per page with:
 
     <script>window.CANSW_OVERRIDES = {
-      builder: true,             // show the email gate + calculator
+      builder: true,             // show the calculator
       membershipCost: 49,        // dollars, used in the profit line
       captureUrl: "https://www.creatoraccessnetwork.com/forms/2149650486/form_submissions", // "" = capture off
       captureTag: "homepage-hero" // per-page label sent with each captured email
     };</script>
 
-Visitors enter an email, then browse partners by category, pick plan tiers,
-and see a live budget: savings + additional earnings (earn slider, flat 10%
-uplift) minus membership cost = profit. Unlock persists in localStorage
-(`cansw_unlocked`).
+The calculator is NOT email-gated (gate removed 2026-08-03/11). The purchase
+CTA is an email capture instead: an email field + consent checkbox + an
+"Unlock free discounts" button, pinned at the bottom of the right card on
+every surface. On submit: valid email + checked box -> capture fires, then
+the visitor goes to `joinUrl` (absolute URL navigates; a "#section-..."
+value scrolls to the embedded checkout on co-brand pages). No email,
+invalid email, or unchecked box -> straight to `joinUrl`, nothing
+submitted. Submitted emails persist in localStorage (`cansw_email`) and
+budget edits re-post the visitor's picks (debounced).
+
+Left card (2026-08-11): headline "Exclusive perks for Creators and
+solopreneurs", two stat tiles (live partner count + exact dollar total from
+`numbers.json` — `partner_count` and `total_value_exact`; the sync routine
+MUST keep writing `total_value_exact` or the tile falls back to the rounded
+`total_value`), five category bullets, then "See how much you could save:"
+over the pickers. Right card browse view: three top discounts + two dashed
+"Add a discount" rows (no header line, no stack line — the rows say it).
 
 Capture endpoints supported by captureUrl:
 - Kajabi form endpoint (URL contains "/forms/"): posted urlencoded as
@@ -62,7 +75,7 @@ Notion OFFER TRACKING page, so lasting changes belong in Notion; hand-edits
 here are fine for quick fixes but Notion wins on the next sync.
 
 `index.html` is a test harness: open with `?test=cobrand`, `?test=logo`, or
-`?test=builder` (`&reset=1` clears the email unlock).
+`?test=builder` (`&reset=1` clears the stored capture email).
 
 Source of truth for markup/CSS: `can-savings-widget-horizontal.html` in the
 private `can-savings-widget` repo (rebuild via `tools/build-bundle.py` there).
