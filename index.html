@@ -11,7 +11,7 @@
    (?reset=1 clears the builder email unlock) */
 var q = new URLSearchParams(location.search).get('test');
 if (new URLSearchParams(location.search).get('reset')) {
-  try { localStorage.removeItem('cansw_unlocked'); } catch (e) {}
+  try { localStorage.removeItem('cansw_email'); } catch (e) {}
 }
 if (q === 'builder') {
   window.CANSW_OVERRIDES = {
