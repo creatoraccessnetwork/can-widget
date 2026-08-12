@@ -666,8 +666,27 @@
     var demoteSet = {};
     DEMOTE.forEach(function (n) { demoteSet[String(n).toLowerCase()] = true; });
 
+    /* Co-brand names carry a descriptor the catalogue does not: the .store
+       page calls its host ".store Domains", Pop.Store capitalises differently.
+       Match case-insensitively, then fall back to a prefix match so the host
+       still pins. */
+    var hostMatch = "";
+    if (hostName) {
+      var hn = hostName.toLowerCase();
+      PARTNERS.forEach(function (p) {
+        var pn = p.n.toLowerCase();
+        if (pn === hn) hostMatch = pn;
+      });
+      if (!hostMatch) {
+        PARTNERS.forEach(function (p) {
+          var pn = p.n.toLowerCase();
+          if (pn.length >= 4 && hn.indexOf(pn) === 0 && pn.length > hostMatch.length) hostMatch = pn;
+        });
+      }
+    }
+
     function tierOf(p) {
-      if (hostName && p.n.toLowerCase() === hostName.toLowerCase()) return 0;
+      if (hostMatch && p.n.toLowerCase() === hostMatch) return 0;
       if (demoteSet[p.n.toLowerCase()]) return 2;
       return 1;
     }
