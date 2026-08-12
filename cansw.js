@@ -399,7 +399,11 @@
     font-size:13px; line-height:18px; color:var(--cansw-mute);
     overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
   }
-  .cansw-ctrls{ display:flex; align-items:center; }
+  /* The row is two lines tall but the eye pairs the + with the figure beside
+     it, so centre the button on that FIRST line rather than letting it hang
+     from the top of the row box. Without this the 28px button sits 4px below
+     the 20px line it reads against. */
+  .cansw-ctrls{ display:flex; align-items:center; height:20px; }
   /* the add button is the one control meant to draw the eye, so it is the
      circular affordance the design system sanctions. 28px visual, 44px hit. */
   .cansw-icon{
