@@ -287,10 +287,13 @@
   /* ================= RIGHT PANEL — action ================= */
   .cansw-act{ padding:0; }
   .cansw-controls{
-    flex:none; display:flex; gap:8px; padding:26px 26px 14px;
+    flex:none; display:flex; flex-wrap:wrap; gap:8px; padding:26px 26px 14px;
   }
-  .cansw-search{ flex:1 1 auto; min-width:0; }
-  .cansw-picker{ position:relative; flex:none; width:190px; }
+  /* the input is a block child here, so without width:100% it falls back to
+     its UA intrinsic size and leaves the slot half empty */
+  .cansw-search{ flex:1 1 150px; min-width:0; }
+  .cansw-search .cansw-input{ width:100%; }
+  .cansw-picker{ position:relative; flex:0 1 190px; min-width:0; }
   .cansw-picker-btn{
     width:100%; height:44px; padding:0 12px;
     display:flex; align-items:center; justify-content:space-between; gap:8px;
@@ -325,6 +328,22 @@
     font-variant-numeric:tabular-nums;
   }
 
+  /* column headers: same 3-column grid as a row, so DISCOUNT lands exactly
+     over the figures and COMPANY over the names */
+  .cansw-listhead{
+    flex:none; display:grid; grid-template-columns:28px minmax(0,1fr) auto;
+    gap:12px; padding:0 26px 8px;
+    border-bottom:1px solid var(--cansw-border);
+    /* the list below owns a scrollbar the header does not, so reserve the same
+       gutter or DISCOUNT sits proud of the figures it labels */
+    padding-right:calc(26px + var(--cansw-sbw, 0px));
+  }
+  .cansw-listhead-mid{ display:flex; justify-content:space-between; align-items:baseline; }
+  .cansw-listhead-spacer{ width:28px; }
+  .cansw-collabel{
+    font-size:11px; line-height:16px; font-weight:700;
+    letter-spacing:1.4px; text-transform:uppercase; color:var(--cansw-mute);
+  }
   .cansw-list{ flex:1 1 auto; min-height:0; overflow-y:auto; }
   .cansw-empty-msg{
     padding:26px; font-size:15px; line-height:20px; color:var(--cansw-mute);
@@ -356,10 +375,14 @@
   .cansw-name{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .cansw-trophy{ flex:none; font-size:11px; line-height:20px; }
   .cansw-valwrap{ text-align:right; }
+  /* the chevron sits to the LEFT of the figure, inside the value's own line,
+     so every + stays in one vertical column down the list */
+  .cansw-valline{ display:flex; align-items:center; justify-content:flex-end; gap:6px; }
   .cansw-val{
     font-size:15px; line-height:20px; font-weight:700; color:var(--cansw-teal);
     font-variant-numeric:tabular-nums; white-space:nowrap;
   }
+  .cansw-val-upto{ font-weight:600; }
   .cansw-val.cansw-val-free{ color:var(--cansw-rust); }
   .cansw-tag{
     display:inline-block; margin-top:2px;
@@ -376,16 +399,17 @@
     font-size:13px; line-height:18px; color:var(--cansw-mute);
     overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
   }
-  .cansw-ctrls{ display:flex; align-items:center; gap:4px; }
+  .cansw-ctrls{ display:flex; align-items:center; }
+  /* the add button is the one control meant to draw the eye, so it is the
+     circular affordance the design system sanctions. 28px visual, 44px hit. */
   .cansw-icon{
     width:28px; height:28px; padding:0; flex:none;
     display:grid; place-items:center;
     background:var(--cansw-white); border:1px solid var(--cansw-border);
-    border-radius:4px; cursor:pointer; color:var(--cansw-teal);
+    border-radius:50%; cursor:pointer; color:var(--cansw-teal);
     position:relative;
     transition:background var(--cansw-dur-state) ease, border-color var(--cansw-dur-state) ease;
   }
-  /* 28px visual, 44px hit area */
   .cansw-icon::before{
     content:""; position:absolute; top:50%; left:50%;
     width:44px; height:44px; transform:translate(-50%,-50%);
@@ -396,8 +420,23 @@
   }
   .cansw-icon:disabled{ opacity:.45; cursor:not-allowed; }
   .cansw-icon:disabled:hover{ background:var(--cansw-white); border-color:var(--cansw-border); }
+  /* the expand control is secondary: no circle, no fill, nothing competing
+     with the + for attention */
+  .cansw-chev{
+    width:20px; height:20px; padding:0; flex:none;
+    display:grid; place-items:center;
+    background:none; border:0; cursor:pointer; color:var(--cansw-mute);
+    position:relative;
+    transition:color var(--cansw-dur-state) ease;
+  }
+  .cansw-chev::before{
+    content:""; position:absolute; top:50%; left:50%;
+    width:44px; height:44px; transform:translate(-50%,-50%);
+  }
+  .cansw-chev:hover{ color:var(--cansw-teal); }
   .cansw-chev svg{ transition:transform var(--cansw-dur-state) ease; }
   .cansw-chev[aria-expanded="true"] svg{ transform:rotate(180deg); }
+  .cansw-chev[aria-expanded="true"]{ color:var(--cansw-teal); }
 
   /* offers, expanded in place on the second surface tone */
   .cansw-offers{
@@ -461,6 +500,11 @@
     .cansw-cols{ grid-template-columns:minmax(0,1fr); gap:24px; }
     .cansw-info{ padding:20px; }
     .cansw-controls{ padding:20px 20px 12px; }
+    /* must track the row padding or DISCOUNT stops labelling the figures */
+    .cansw-listhead{
+      padding-left:20px;
+      padding-right:calc(20px + var(--cansw-sbw, 0px));
+    }
     .cansw-row{ padding:12px 20px; }
     .cansw-offers{ padding:2px 20px 6px 60px; }
     .cansw-foot{ padding:12px 20px; }
@@ -471,6 +515,12 @@
     /* side by side the field is too narrow to read an address in */
     .cansw-capture-row{ flex-direction:column; }
     .cansw-btn{ width:100%; }
+  }
+  /* on a phone the search and the category button cannot both hold their
+     labels side by side, so stack them and give each the full width */
+  @media (max-width:560px){
+    .cansw-controls{ flex-direction:column; }
+    .cansw-picker{ width:100%; }
   }
   `;
 
@@ -524,11 +574,11 @@
         '</form>' +
       '</section>' +
 
-      '<section class="cansw-panel cansw-act" aria-label="Browse partners">' +
+      '<section class="cansw-panel cansw-act" aria-label="Browse discounts">' +
         '<div class="cansw-controls">' +
           '<div class="cansw-search">' +
-            '<label class="cansw-sr" for="canswSearch">Search partners</label>' +
-            '<input class="cansw-input" id="canswSearch" type="search" autocomplete="off" placeholder="Search partners">' +
+            '<label class="cansw-sr" for="canswSearch">Search discounts, deals and categories</label>' +
+            '<input class="cansw-input" id="canswSearch" type="search" autocomplete="off" placeholder="Search discounts">' +
           '</div>' +
           '<div class="cansw-picker" id="canswPicker">' +
             '<button class="cansw-picker-btn" type="button" id="canswPickerBtn" aria-haspopup="listbox" aria-expanded="false">' +
@@ -537,7 +587,15 @@
             '<div class="cansw-menu" id="canswMenu" role="listbox" aria-label="Category"></div>' +
           '</div>' +
         '</div>' +
-        '<div class="cansw-list" id="canswList" tabindex="0" role="region" aria-label="Partner list"></div>' +
+        '<div class="cansw-listhead" aria-hidden="true">' +
+          '<div></div>' +
+          '<div class="cansw-listhead-mid">' +
+            '<span class="cansw-collabel">Company</span>' +
+            '<span class="cansw-collabel">Discount</span>' +
+          '</div>' +
+          '<div class="cansw-listhead-spacer"></div>' +
+        '</div>' +
+        '<div class="cansw-list" id="canswList" tabindex="0" role="region" aria-label="Discount list"></div>' +
         '<div class="cansw-foot">' +
           '<div class="cansw-count" id="canswCount"></div>' +
           '<div class="cansw-legends">' +
@@ -815,10 +873,25 @@
     function iconBtn(cls, svg, label) {
       var b = document.createElement("button");
       b.type = "button";
-      b.className = "cansw-icon " + cls;
+      b.className = cls;
       b.innerHTML = svg;
       b.setAttribute("aria-label", label);
       return b;
+    }
+    function addBtn(label) { return iconBtn("cansw-icon cansw-add", SVG_PLUS, label); }
+
+    /* keep the column header's right edge on the same line as the figures.
+       Overlay scrollbars (macOS) measure 0; classic ones 15-17px. A plain
+       resize listener reads a stale box, so observe the list's own content
+       box, which is exactly what changes when a scrollbar appears. */
+    function syncGutter() {
+      var w = listEl.offsetWidth - listEl.clientWidth;
+      root.style.setProperty("--cansw-sbw", (w > 0 ? w : 0) + "px");
+    }
+    if (window.ResizeObserver) {
+      new ResizeObserver(syncGutter).observe(listEl);
+    } else {
+      window.addEventListener("resize", syncGutter);
     }
 
     function renderList() {
@@ -827,7 +900,7 @@
       if (!items.length) {
         var m = document.createElement("div");
         m.className = "cansw-empty-msg";
-        m.textContent = "No partner matches that. Try a different word, or pick another category.";
+        m.textContent = "No discount matches that. Try a different word, or pick another category.";
         listEl.appendChild(m);
       }
       items.forEach(function (p) {
@@ -844,11 +917,36 @@
           (p.t ? '<span class="cansw-trophy" title="Best deal this partner offers anywhere">&#127942;</span>' : '');
         mid.appendChild(nameline);
 
+        var multi = p._offers.length > 1;
+
         var valwrap = document.createElement("div");
         valwrap.className = "cansw-valwrap";
         if (p._val) {
-          valwrap.innerHTML = '<div class="cansw-val' + (p._included ? " cansw-val-free" : "") + '">' + esc(p._val) + '</div>' +
-            (p._tag ? '<span class="cansw-tag cansw-tag-' + p._tag + '">' + p._tag + '</span>' : '');
+          var valline = document.createElement("div");
+          valline.className = "cansw-valline";
+          /* expand control lives here, left of the figure, so the + column
+             stays a clean vertical line down the list */
+          if (multi) {
+            var chev = iconBtn("cansw-chev", SVG_CHEV, (expanded[p.n] ? "Hide " : "Show ") + p.n + " plans");
+            chev.setAttribute("aria-expanded", expanded[p.n] ? "true" : "false");
+            chev.addEventListener("click", function () {
+              expanded[p.n] = !expanded[p.n];
+              renderList();
+            });
+            valline.appendChild(chev);
+          }
+          var val = document.createElement("span");
+          val.className = "cansw-val" + (p._included ? " cansw-val-free" : "");
+          /* several plans means the figure is a ceiling, so say so */
+          val.innerHTML = (multi ? '<span class="cansw-val-upto">up to </span>' : "") + esc(p._val);
+          valline.appendChild(val);
+          valwrap.appendChild(valline);
+          if (p._tag) {
+            var tg = document.createElement("span");
+            tg.className = "cansw-tag cansw-tag-" + p._tag;
+            tg.textContent = p._tag;
+            valwrap.appendChild(tg);
+          }
         }
         mid.appendChild(valwrap);
 
@@ -862,24 +960,13 @@
 
         var ctrls = document.createElement("div");
         ctrls.className = "cansw-ctrls";
-        var multi = p._offers.length > 1;
-
         /* uncapped and free-inclusion partners are pickable too: they join the
            list without adding to the total (product-ui.md) */
         if (p._offers.length || p._uncapped || p._included) {
-          var add = iconBtn("cansw-add", SVG_PLUS, (inCart(p.n) > -1 ? "Remove " : "Add ") + p.n);
+          var add = addBtn((inCart(p.n) > -1 ? "Remove " : "Add ") + p.n);
           add.setAttribute("aria-pressed", inCart(p.n) > -1 ? "true" : "false");
           add.addEventListener("click", function () { togglePartner(p); });
           ctrls.appendChild(add);
-        }
-        if (multi) {
-          var chev = iconBtn("cansw-chev", SVG_CHEV, (expanded[p.n] ? "Hide " : "Show ") + p.n + " offers");
-          chev.setAttribute("aria-expanded", expanded[p.n] ? "true" : "false");
-          chev.addEventListener("click", function () {
-            expanded[p.n] = !expanded[p.n];
-            renderList();
-          });
-          ctrls.appendChild(chev);
         }
         row.appendChild(ctrls);
         listEl.appendChild(row);
@@ -898,7 +985,7 @@
             ov2.textContent = fmt(o.save);
             var ci = inCart(p.n);
             var picked = ci > -1 && CART[ci].offer.i === o.i;
-            var ob = iconBtn("cansw-add", SVG_PLUS, (picked ? "Remove " : "Add ") + p.n + " " + o.name);
+            var ob = addBtn((picked ? "Remove " : "Add ") + p.n + " " + o.name);
             ob.setAttribute("aria-pressed", picked ? "true" : "false");
             ob.addEventListener("click", function () { pickOffer(p, o); });
             orow.appendChild(on); orow.appendChild(ov2); orow.appendChild(ob);
@@ -908,10 +995,12 @@
         }
       });
 
+      syncGutter();
+
       var filtered = (cat !== ALL) || !!query;
       countEl.textContent = filtered
-        ? items.length + " of " + PARTNERS.length + " partners"
-        : PARTNERS.length + " partners";
+        ? items.length + " of " + PARTNERS.length + " discounts"
+        : PARTNERS.length + " discounts";
     }
 
     function togglePartner(p) {
@@ -1057,7 +1146,7 @@
 
     function selectCat(name) {
       cat = name;
-      pLabel.textContent = name;
+      pLabel.textContent = name + " (" + (name === ALL ? PARTNERS.length : CATS[name]) + ")";
       for (var n in OPTS) OPTS[n].setAttribute("aria-selected", String(n === name));
       toggleMenu(false);
       renderList();
@@ -1143,11 +1232,11 @@
     if (CFG.unlinkCtas) $("canswCta").disabled = true;
 
     /* ---- open ---- */
-    if (CFG.defaultCategory && (CFG.defaultCategory === ALL || CATS[CFG.defaultCategory])) {
-      selectCat(CFG.defaultCategory);
-    } else {
-      renderList();
-    }
+    /* always via selectCat so the picker label carries its count from the start */
+    selectCat(
+      (CFG.defaultCategory && (CFG.defaultCategory === ALL || CATS[CFG.defaultCategory]))
+        ? CFG.defaultCategory : ALL
+    );
     renderLeft();
   }
 
