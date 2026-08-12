@@ -7,23 +7,28 @@
 <h4>Default (homepage-style)</h4>
 <div id="cansw-mount"></div>
 <script>
-/* pick a test config via ?test=cobrand, ?test=logo, or ?test=builder
-   (?reset=1 clears the builder email unlock) */
+/* Test configs:
+   ?test=demote   - co-brand page using the NEW demotePartners key
+   ?test=legacy   - co-brand page using the DEPRECATED hidePartners alias
+   ?test=cobrand  - photo co-brand + "#" joinUrl (scroll to checkout)
+   ?test=unlink   - unlinkCtas preview surface */
 var q = new URLSearchParams(location.search).get('test');
-if (new URLSearchParams(location.search).get('reset')) {
-  try { localStorage.removeItem('cansw_email'); } catch (e) {}
-}
-if (q === 'builder') {
+if (q === 'demote') {
   window.CANSW_OVERRIDES = {
-    builder: true,
-    captureTag: 'test-harness',
+    defaultCategory: 'All categories',
+    captureTag: 'cobrand-thematic',
     captureUrl: 'https://www.creatoraccessnetwork.com/forms/2149650486/form_submissions',
-    defaultCategory: 'Featured',
-    builderCategory: 'Featured',
-    hidePartners: ["Slipstream", "Epidemic Sound"],
+    demotePartners: ["Slipstream", "Epidemic Sound"],
     cobrand: { mode: "logo",
       image: "https://cdn.commoninja.com/asset/f42e7860-717e-4a27-a3e8-2714a8152586.png",
       name: "Thematic", title: "Real artists' music for your content" }
+  };
+} else if (q === 'legacy') {
+  window.CANSW_OVERRIDES = {
+    hidePartners: ["Kajabi", "Teachable", "Nas.com"],
+    cobrand: { mode: "logo",
+      image: "https://cdn.commoninja.com/asset/f42e7860-717e-4a27-a3e8-2714a8152586.png",
+      name: "Mighty Networks", title: "Community platform" }
   };
 } else if (q === 'cobrand') {
   window.CANSW_OVERRIDES = {
@@ -31,18 +36,21 @@ if (q === 'builder') {
     cobrand: { mode: "photo",
       image: "https://lh3.googleusercontent.com/d/1OJp9mL7J-kExivS8QSghWFKXYN-A2VVi",
       name: "Rahim Jessani", title: "Founder, Bottom Up Media",
-      headline: "The Tools I'd Hand Every Creator Journalist",
-      lede: "The essential tools for news creators with amazing discounts through Creator Access Network." }
+      headline: "The tools I'd hand every Creator journalist" }
   };
-} else if (q === 'logo') {
+} else if (q === 'capture') {
+  /* capture endpoint set AND a "#" joinUrl, so the submit path can be
+     exercised without navigating away from the harness */
   window.CANSW_OVERRIDES = {
-    defaultCategory: "Newsletter", joinUrl: "#section-checkout", dealsUrl: "",
-    cobrand: { mode: "logo",
-      image: "https://cdn.commoninja.com/asset/1c1b028d-4f55-4989-b77f-8b6f1b1f8e3f.jpg",
-      name: "Dorian", title: "Interactive storytelling for creators",
-      headline: "Dorian creators: spend less on everything that runs your business.",
-      lede: "We partnered with Creator Access Network to get you the best deals anywhere on top Creator tools and services. See what you'd save." }
+    joinUrl: '#section-checkout',
+    captureTag: 'test-harness',
+    captureUrl: 'https://www.creatoraccessnetwork.com/forms/2149650486/form_submissions'
   };
+} else if (q === 'unlink') {
+  window.CANSW_OVERRIDES = { unlinkCtas: true };
 }
 </script>
 <script src="cansw.js"></script>
+<div id="section-checkout" style="height:400px;background:#fff;padding:40px">
+  <h3>Embedded checkout (scroll target for "#" joinUrl)</h3>
+</div>
