@@ -8,7 +8,9 @@
 <div id="cansw-mount"></div>
 <script>
 /* Test configs:
-   ?test=demote   - co-brand page using the NEW demotePartners key
+   ?test=demote   - co-brand page using the NEW demotePartners key + topPicks
+   ?test=picks    - co-brand page with topPicks and NO explicit demote (beehiiv
+                    spec: auto shared-category demotion does all the work)
    ?test=legacy   - co-brand page using the DEPRECATED hidePartners alias
    ?test=cobrand  - photo co-brand + "#" joinUrl (scroll to checkout)
    ?test=unlink   - unlinkCtas preview surface */
@@ -19,9 +21,17 @@ if (q === 'demote') {
     captureTag: 'cobrand-thematic',
     captureUrl: 'https://www.creatoraccessnetwork.com/forms/2149650486/form_submissions',
     demotePartners: ["Slipstream", "Epidemic Sound"],
+    topPicks: ["Buy.Video", "Elevate.io", "EditHers", "Insense", "Mercury", "Wispr Flow"],
     cobrand: { mode: "logo",
       image: "https://cdn.commoninja.com/asset/f42e7860-717e-4a27-a3e8-2714a8152586.png",
       name: "Thematic", title: "Real artists' music for your content" }
+  };
+} else if (q === 'picks') {
+  window.CANSW_OVERRIDES = {
+    topPicks: ["Growth in Reverse", "Creator Wizard", "Pop.store", "Wispr Flow", "Mercury"],
+    cobrand: { mode: "logo",
+      image: "https://cdn.commoninja.com/asset/17226348-3ca7-4837-9a75-9f863e05dad5.png",
+      name: "beehiiv", title: "The newsletter platform built for growth" }
   };
 } else if (q === 'legacy') {
   window.CANSW_OVERRIDES = {

@@ -21,6 +21,10 @@
                          pages still ship it, so it keeps working and maps to
                          the same demote behaviour. There is no code path that
                          removes a partner from the list.
+     topPicks:[]       - the companies featured in the page's Top Picks grid,
+                         in grid order, EXACT cansw-data.json n values. They
+                         sort directly under the host so the top of the list
+                         on load mirrors the page's Top Picks section.
      cobrand: { mode: "photo"|"text"|"logo", image, name, title, headline }
      unlinkCtas        - render CTAs as buttons with no href (preview surfaces)
    }
@@ -739,11 +743,28 @@
       return nm;
     }
 
-    /* ---- sort tiers: host pinned, everyone else, demoted last ----
+    /* ---- sort tiers: host, page top picks, everyone else, competitors last ----
+       STANDING RULE (Avi 2026-08-13, PERMANENT — do not regress in any future
+       rebuild): on a co-branded page, a partner that shares even ONE category
+       with the host is a potential competitor and must NEVER surface at the
+       top of the list — not on load and not in "All categories". That set is
+       COMPUTED HERE from cansw-data.json categories, so no per-page config can
+       forget it. Precedence, top to bottom:
+         0  the host itself (top of every view it appears in)
+         1  the page's topPicks — hand-vetted on the page's Top Picks grid, so
+            they outrank the shared-category demotion by design
+         2  everyone else (recognizability RANK)
+         3  shared-category partners + explicit demotePartners. An explicit
+            demotePartners entry beats EVERYTHING, including topPicks.
        Demotion changes position only. Nothing is ever removed. */
     var hostName = (CFG.cobrand && CFG.cobrand.name) || "";
     var demoteSet = {};
     DEMOTE.forEach(function (n) { demoteSet[String(n).toLowerCase()] = true; });
+    var PICK_RANK = {};
+    (CFG.topPicks || []).forEach(function (n, i) {
+      var k = String(n).toLowerCase();
+      if (!(k in PICK_RANK)) PICK_RANK[k] = i;
+    });
 
     /* Co-brand names carry a descriptor the catalogue does not: the .store
        page calls its host ".store Domains", Pop.Store capitalises differently.
@@ -764,14 +785,33 @@
       }
     }
 
+    /* the host's categories, straight from the data — the source of truth
+       for who counts as a potential competitor on this page */
+    var hostCats = {};
+    if (hostMatch) {
+      PARTNERS.forEach(function (p) {
+        if (p.n.toLowerCase() !== hostMatch) return;
+        (p.c || []).forEach(function (c) { hostCats[c] = true; });
+      });
+    }
+    function sharesWithHost(p) {
+      var cs = p.c || [];
+      for (var i = 0; i < cs.length; i++) if (hostCats[cs[i]]) return true;
+      return false;
+    }
+
     function tierOf(p) {
-      if (hostMatch && p.n.toLowerCase() === hostMatch) return 0;
-      if (demoteSet[p.n.toLowerCase()]) return 2;
-      return 1;
+      var k = p.n.toLowerCase();
+      if (hostMatch && k === hostMatch) return 0;
+      if (demoteSet[k]) return 3;
+      if (k in PICK_RANK) return 1;
+      if (sharesWithHost(p)) return 3;
+      return 2;
     }
     PARTNERS.sort(function (a, b) {
       var ta = tierOf(a), tb = tierOf(b);
       if (ta !== tb) return ta - tb;
+      if (ta === 1) return PICK_RANK[a.n.toLowerCase()] - PICK_RANK[b.n.toLowerCase()];
       var ra = RANK_OF[a.n], rb = RANK_OF[b.n];
       var ha = ra === undefined, hb = rb === undefined;
       if (ha !== hb) return ha ? 1 : -1;          /* unranked to the bottom */
