@@ -360,26 +360,43 @@
   .cansw-row.cansw-picked{ background:#F4F8FA; }
   .cansw-logo{
     width:28px; height:28px; border-radius:4px; overflow:hidden;
-    display:grid; place-items:center; background:var(--cansw-ground); margin-top:1px;
+    display:grid; place-items:center; background:var(--cansw-ground);
+    /* centred on the row's text block, not hung off any single line */
+    align-self:center;
   }
   .cansw-logo img{ width:100%; height:100%; object-fit:contain; display:block; }
   .cansw-mono{
     width:100%; height:100%; display:grid; place-items:center;
     font-size:11px; line-height:16px; font-weight:700; color:var(--cansw-teal);
   }
-  .cansw-mid{ display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:12px; min-width:0; }
+  /* Two INDEPENDENT stacks. As a shared grid the uncapped tag on the right
+     grew the row the name sits in and pushed the deal line 20px down the
+     left column, so those rows read ragged against every other row. */
+  .cansw-mid{ display:flex; align-items:flex-start; column-gap:12px; min-width:0; }
+  .cansw-mid-main{ flex:1 1 auto; min-width:0; }
   .cansw-nameline{
     display:flex; align-items:baseline; gap:6px; min-width:0;
     font-size:15px; line-height:20px; font-weight:600; color:var(--cansw-ink);
+    /* the trophy emoji renders a 21px line box in its fallback font, which
+       nudged the deal line 1px down on every row that carries one */
+    height:20px;
   }
   .cansw-name{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .cansw-trophy{ flex:none; font-size:11px; line-height:20px; }
-  .cansw-valwrap{ text-align:right; }
+  .cansw-valwrap{ flex:none; text-align:right; }
   /* the chevron sits to the LEFT of the figure, inside the value's own line,
      so every + stays in one vertical column down the list */
   .cansw-valline{ display:flex; align-items:center; justify-content:flex-end; gap:6px; }
+  /* Same 15px as the name it pairs with, per the ladder. Lining figures carry
+     no ascender or descender, so "$358" lays down 12.25px of ink against
+     "Kajabi"'s 15px and reads smaller at an identical size; teal is also
+     lower contrast than the near-black name. Weight is the lever the system
+     leaves open for that ("told apart by color and weight"), so the figure
+     runs one step heavier than it otherwise would. Do NOT fix this by
+     bumping to 16px: a 1px difference between a row's title and its value is
+     a mistake, not hierarchy. */
   .cansw-val{
-    font-size:15px; line-height:20px; font-weight:700; color:var(--cansw-teal);
+    font-size:15px; line-height:20px; font-weight:800; color:var(--cansw-teal);
     font-variant-numeric:tabular-nums; white-space:nowrap;
   }
   .cansw-val-upto{ font-weight:600; }
@@ -395,7 +412,7 @@
      sanctioned darker rust (the button-hover token) takes it to 5.4:1+. */
   .cansw-tag-included{ color:#87503D; background:rgba(193,122,94,.12); }
   .cansw-deal{
-    grid-column:1 / 2; margin-top:2px;
+    margin-top:2px;
     font-size:13px; line-height:18px; color:var(--cansw-mute);
     overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
   }
@@ -915,11 +932,14 @@
 
         var mid = document.createElement("div");
         mid.className = "cansw-mid";
+        /* left stack: name over deal line, independent of the value stack */
+        var main = document.createElement("div");
+        main.className = "cansw-mid-main";
         var nameline = document.createElement("div");
         nameline.className = "cansw-nameline";
         nameline.innerHTML = '<span class="cansw-name">' + esc(p.n) + '</span>' +
           (p.t ? '<span class="cansw-trophy" title="Best deal this partner offers anywhere">&#127942;</span>' : '');
-        mid.appendChild(nameline);
+        main.appendChild(nameline);
 
         var multi = p._offers.length > 1;
 
@@ -952,14 +972,14 @@
             valwrap.appendChild(tg);
           }
         }
-        mid.appendChild(valwrap);
-
         if (p.deal) {
           var d = document.createElement("div");
           d.className = "cansw-deal";
           d.textContent = p.deal;
-          mid.appendChild(d);
+          main.appendChild(d);
         }
+        mid.appendChild(main);
+        mid.appendChild(valwrap);
         row.appendChild(mid);
 
         var ctrls = document.createElement("div");
