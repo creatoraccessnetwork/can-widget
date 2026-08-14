@@ -10,7 +10,9 @@
      builderCategory   - alias of defaultCategory (legacy; same behaviour)
      joinUrl           - CTA target. A "#"-prefixed value SCROLLS to the
                          embedded checkout on the page instead of navigating
-     dealsUrl          - secondary link target (empty string = no link)
+     headline          - replaces the left panel's H1 (TOP-LEVEL key, not
+                         inside cobrand)
+     membershipCost    - dollars, used in the profit line (default 49)
      captureUrl        - Kajabi form endpoint or generic webhook
      captureTag        - tag written with the capture
      demotePartners:[] - co-brand competitor DEMOTION. These partners sort to
@@ -25,11 +27,12 @@
                          in grid order, EXACT cansw-data.json n values. They
                          sort directly under the host so the top of the list
                          on load mirrors the page's Top Picks section.
-     cobrand: { mode: "photo"|"text"|"logo", image, name, title, headline }
-     unlinkCtas        - render CTAs as buttons with no href (preview surfaces)
+     cobrand: { mode: "photo"|"text"|"logo", image, name, title }
+     unlinkCtas        - disable the CTAs (preview surfaces)
    }
    Accepted and ignored (retired, kept so old stubs never throw):
-     builder, openCalculator, prefillPicks, rotateMs, lede, earnUplift.
+     builder, openCalculator, prefillPicks, rotateMs, lede, earnUplift,
+     dealsUrl (the rebuilt widget has no secondary link).
 
    Partner data: cansw-data.json next to this file (baked fallback below).
    Headline figures: numbers.json next to this file. The widget NEVER computes
@@ -755,7 +758,8 @@
             they outrank the shared-category demotion by design
          2  everyone else (recognizability RANK)
          3  shared-category partners + explicit demotePartners. An explicit
-            demotePartners entry beats EVERYTHING, including topPicks.
+            demotePartners entry beats everything except the host pin,
+            including topPicks.
        Demotion changes position only. Nothing is ever removed. */
     var hostName = (CFG.cobrand && CFG.cobrand.name) || "";
     var demoteSet = {};

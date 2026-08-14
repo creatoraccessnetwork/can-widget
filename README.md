@@ -17,19 +17,22 @@ script tag:
   an older name for the same thing)
 - `joinUrl` — CTA target. An absolute URL navigates; a `#`-prefixed value
   scrolls to the checkout embedded on that page
-- `dealsUrl` — secondary link target (`""` = no link)
 - `captureUrl` / `captureTag` — email capture endpoint and per-page label
 - `demotePartners: [names]` — explicit co-brand competitor demotion, see
   below (`hidePartners` is a deprecated alias for the same behaviour)
 - `topPicks: [names]` — the companies featured in the page's Top Picks grid,
-  grid order, exact `cansw-data.json` `n` values; they sort directly under
+  grid order, exact `cansw-data.json` `n` values (matched
+  case-insensitively); they sort directly under
   the host, see below
-- `cobrand { mode: "photo"|"text"|"logo", image, name, title, headline }`
+- `headline` — replaces the left panel's H1 (top-level key, NOT inside
+  `cobrand`)
+- `cobrand { mode: "photo"|"text"|"logo", image, name, title }`
 - `unlinkCtas` — render CTAs with no href, for preview surfaces
 - `membershipCost` — dollars, used in the profit line (default 49)
 
 Accepted and ignored, so older stubs never throw: `builder`, `openCalculator`,
-`prefillPicks`, `rotateMs`, `lede`, `earnUplift`.
+`prefillPicks`, `rotateMs`, `lede`, `earnUplift`, `dealsUrl` (the rebuilt
+widget has no secondary link).
 
 ## Layout (rebuilt 2026-08-12)
 
@@ -92,19 +95,19 @@ counts, and simply sort to the very bottom. The sort tiers are:
 3. everyone else in recognizability order,
 4. shared-category partners plus explicit `demotePartners`, in
    recognizability order. An explicit `demotePartners` entry beats
-   everything, including `topPicks`.
+   everything except the host pin, including `topPicks`.
 
 Hosts that aren't catalogue partners (person pages, Creator Logic) get no
 pin and no auto-demotion — set `demotePartners` by hand if such a page ever
 has widget competitors. The host pin matches `cobrand.name` to a catalogue
-name case-insensitively, falling back to a leading-prefix match
-(".store Domains" pins ".store") — keep `cobrand.name` starting with the
-exact catalogue name.
+name case-insensitively, falling back to a leading-prefix match of at least
+4 characters (".store Domains" pins ".store") — keep `cobrand.name` starting
+with the exact catalogue name.
 
 Because nothing is hidden, the partner count is the true count on every
 surface and the headline stat agrees with the list footer. A demoted partner
 surfaced by search or a category filter appears normally — demotion affects
-default position only, never visibility. The demoted block carries **no
+position only, never visibility. The demoted block carries **no
 visual marker of any kind**.
 
 `hidePartners` is kept as an alias because live co-branded pages ship it; it
@@ -157,9 +160,10 @@ The daily `can-widget-notion-sync` task reconciles this file against the
 Notion OFFER TRACKING page, so lasting changes belong in Notion; hand-edits
 here are fine for quick fixes but Notion wins on the next sync.
 
-`index.html` is a test harness: open with `?test=demote` (new key),
-`?test=legacy` (the hidePartners alias), `?test=cobrand`, `?test=capture`, or
-`?test=unlink`. Run `tools/harness-sync.sh` from the private repo after every
+`index.html` is a test harness: open with `?test=picks` (topPicks + the auto
+shared-category demotion, the standing rule's hardest case), `?test=demote`
+(explicit demotePartners + topPicks), `?test=legacy` (the hidePartners
+alias), `?test=cobrand`, `?test=capture`, or `?test=unlink`. Run `tools/harness-sync.sh` from the private repo after every
 edit — the Browser-pane server cannot read ~/Desktop, so it serves a /tmp
 mirror.
 
