@@ -19,8 +19,11 @@ script tag:
   scrolls to the checkout embedded on that page
 - `dealsUrl` — secondary link target (`""` = no link)
 - `captureUrl` / `captureTag` — email capture endpoint and per-page label
-- `demotePartners: [names]` — co-brand competitor demotion, see below
-  (`hidePartners` is a deprecated alias for the same behaviour)
+- `demotePartners: [names]` — explicit co-brand competitor demotion, see
+  below (`hidePartners` is a deprecated alias for the same behaviour)
+- `topPicks: [names]` — the companies featured in the page's Top Picks grid,
+  grid order, exact `cansw-data.json` `n` values; they sort directly under
+  the host, see below
 - `cobrand { mode: "photo"|"text"|"logo", image, name, title, headline }`
 - `unlinkCtas` — render CTAs with no href, for preview surfaces
 - `membershipCost` — dollars, used in the profit line (default 49)
@@ -72,11 +75,31 @@ tile across breakpoints.
 
 ## Co-branded pages: demote, never hide
 
+**STANDING RULE (Avi 2026-08-13, permanent — do not regress in any future
+rebuild):** on a co-branded page, any partner sharing at least one category
+with the host is a potential competitor and must never surface at the top of
+the list, on load or in "All categories". That set is **computed inside
+`cansw.js` from `cansw-data.json` categories** — no per-page config can
+forget it.
+
 Competitors of the host partner are **demoted, not removed** (Avi,
 2026-08-12). They stay in the list, stay searchable, stay in the category
-counts, and simply sort to the very bottom. The sort tiers are: the host
-partner pinned first, everyone else in recognizability order, demoted
-competitors last.
+counts, and simply sort to the very bottom. The sort tiers are:
+
+1. the host partner pinned first (top of every view it appears in),
+2. the page's `topPicks` in grid order — hand-vetted on the page's own Top
+   Picks grid, so they outrank the shared-category demotion by design,
+3. everyone else in recognizability order,
+4. shared-category partners plus explicit `demotePartners`, in
+   recognizability order. An explicit `demotePartners` entry beats
+   everything, including `topPicks`.
+
+Hosts that aren't catalogue partners (person pages, Creator Logic) get no
+pin and no auto-demotion — set `demotePartners` by hand if such a page ever
+has widget competitors. The host pin matches `cobrand.name` to a catalogue
+name case-insensitively, falling back to a leading-prefix match
+(".store Domains" pins ".store") — keep `cobrand.name` starting with the
+exact catalogue name.
 
 Because nothing is hidden, the partner count is the true count on every
 surface and the headline stat agrees with the list footer. A demoted partner
