@@ -14,7 +14,9 @@
                     share a category with it — while every OTHER shared-category
                     partner is auto-demoted to the bottom)
    ?test=legacy   - co-brand page using the DEPRECATED hidePartners alias
-   ?test=cobrand  - photo co-brand + "#" joinUrl (scroll to checkout)
+   ?test=cobrand  - photo co-brand + "#" joinUrl (scroll to checkout) + a
+                    top-level headline override (headline is NOT a cobrand key)
+   ?test=capture  - capture endpoint + "#" joinUrl so submit is exercisable
    ?test=unlink   - unlinkCtas preview surface */
 var q = new URLSearchParams(location.search).get('test');
 if (q === 'demote') {
@@ -44,11 +46,11 @@ if (q === 'demote') {
   };
 } else if (q === 'cobrand') {
   window.CANSW_OVERRIDES = {
-    defaultCategory: "Newsletter", joinUrl: "#section-checkout", dealsUrl: "",
+    defaultCategory: "Newsletter", joinUrl: "#section-checkout",
+    headline: "The tools I'd hand every Creator journalist",
     cobrand: { mode: "photo",
       image: "https://lh3.googleusercontent.com/d/1OJp9mL7J-kExivS8QSghWFKXYN-A2VVi",
-      name: "Rahim Jessani", title: "Founder, Bottom Up Media",
-      headline: "The tools I'd hand every Creator journalist" }
+      name: "Rahim Jessani", title: "Founder, Bottom Up Media" }
   };
 } else if (q === 'capture') {
   /* capture endpoint set AND a "#" joinUrl, so the submit path can be
