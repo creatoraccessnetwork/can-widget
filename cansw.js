@@ -24,10 +24,12 @@
                          the same demote behaviour. There is no code path that
                          removes a partner from the list.
      topPicks:[]       - the companies featured in the page's Top Picks grid,
-                         in grid order, EXACT cansw-data.json n values. They
-                         sort directly under the host so the top of the list
-                         on load mirrors the page's Top Picks section.
-     cobrand: { mode: "photo"|"text"|"logo", image, name, title }
+                         in grid order, EXACT cansw-data.json n values
+                         (matched case-insensitively). They sort directly
+                         under the host so the top of the list on load
+                         mirrors the page's Top Picks section.
+     cobrand: { mode, image, name, title } - mode "photo" crops the image
+                         round; any other value renders the standard banner
      unlinkCtas        - disable the CTAs (preview surfaces)
    }
    Accepted and ignored (retired, kept so old stubs never throw):
