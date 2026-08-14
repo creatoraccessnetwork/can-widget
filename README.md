@@ -26,8 +26,9 @@ script tag:
   the host, see below
 - `headline` — replaces the left panel's H1 (top-level key, NOT inside
   `cobrand`)
-- `cobrand { mode: "photo"|"text"|"logo", image, name, title }`
-- `unlinkCtas` — render CTAs with no href, for preview surfaces
+- `cobrand { mode, image, name, title }` — mode `"photo"` crops the image
+  round; any other value renders the standard banner
+- `unlinkCtas` — disable the CTAs, for preview surfaces
 - `membershipCost` — dollars, used in the profit line (default 49)
 
 Accepted and ignored, so older stubs never throw: `builder`, `openCalculator`,

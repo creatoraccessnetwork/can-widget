@@ -8,7 +8,12 @@
 <div id="cansw-mount"></div>
 <script>
 /* Test configs:
-   ?test=demote   - co-brand page using the NEW demotePartners key + topPicks
+   ?test=demote   - co-brand page using the NEW demotePartners key + topPicks.
+                    Mercury is deliberately in BOTH lists and shares no
+                    category with the host: it must sort to the bottom, which
+                    proves the explicit-demote key works on its own (not just
+                    via shared-category auto-demotion) and that it beats
+                    topPicks. Diverges from the live Thematic stub on purpose.
    ?test=picks    - co-brand page with topPicks and NO explicit demote (beehiiv
                     spec: topPicks pin under the host — including picks that
                     share a category with it — while every OTHER shared-category
@@ -24,7 +29,7 @@ if (q === 'demote') {
     defaultCategory: 'All categories',
     captureTag: 'cobrand-thematic',
     captureUrl: 'https://www.creatoraccessnetwork.com/forms/2149650486/form_submissions',
-    demotePartners: ["Slipstream", "Epidemic Sound"],
+    demotePartners: ["Slipstream", "Epidemic Sound", "Mercury"],
     topPicks: ["Buy.Video", "Elevate.io", "EditHers", "Insense", "Mercury", "Wispr Flow"],
     cobrand: { mode: "logo",
       image: "https://cdn.commoninja.com/asset/f42e7860-717e-4a27-a3e8-2714a8152586.png",
