@@ -545,12 +545,59 @@
     /* side by side the field is too narrow to read an address in */
     .cansw-capture-row{ flex-direction:column; }
     .cansw-btn{ width:100%; }
+
+    /* The 582px footprint is a DESKTOP rule (product-ui.md, Breakpoints):
+       stacked panels may grow with content as long as the internal scroll
+       caps still hold. Stacked, the controls and the footer both cost more
+       height than they do side by side, so holding 582 here spends the panel
+       on chrome and leaves the list a sliver. Grow instead; the list keeps
+       its own cap so the panel can never run away. */
+    .cansw-act{ height:auto; }
+    /* a definite height, not a max: the card must not resize under the
+       visitor's thumb as a search filters the list down to one match */
+    .cansw-list{ flex:none; height:min(56vh,440px); }
+    /* The info card stays fixed. Stacked it sits ABOVE the list, so letting
+       it grow as picks land would push the row you just tapped out from
+       under your thumb; its picks list scrolls inside the box instead. */
   }
   /* on a phone the search and the category button cannot both hold their
      labels side by side, so stack them and give each the full width */
   @media (max-width:560px){
     .cansw-controls{ flex-direction:column; }
-    .cansw-picker{ width:100%; }
+    /* flex-basis measures the MAIN axis, so the 150px/190px the two controls
+       carry side by side become HEIGHTS the moment the strip stacks: two
+       44px fields claimed 340px of the fixed panel and squeezed the partner
+       list down to a row and a half. Both are 44px tall and full width here,
+       so size them from their content and give the list back the space. */
+    .cansw-search{ flex:0 0 auto; width:100%; }
+    .cansw-picker{ flex:0 0 auto; width:100%; }
+
+    /* claw back horizontal room the same way: a phone row is ~318px wide and
+       the desktop insets spend 64 of it on air */
+    .cansw-controls{ padding:16px 16px 12px; }
+    .cansw-listhead{
+      padding-left:16px;
+      padding-right:calc(16px + var(--cansw-sbw, 0px));
+      gap:10px;
+    }
+    .cansw-row{ padding:12px 16px; gap:10px; }
+    .cansw-offers{ padding:2px 16px 6px 54px; }
+    .cansw-foot{ padding:12px 16px; }
+
+    /* Side by side the deal line only gets the width the value leaves it, so
+       on a phone "25% off paid plans for 3 months" came out as "25% off
+       pai...". Re-lay the middle block as a grid and drop the deal onto its
+       own full-width line under the name. display:contents dissolves the
+       name/deal wrapper so both become grid items; the name and the figure
+       stay on line one, under the COMPANY and DISCOUNT headers that label
+       them. */
+    .cansw-mid{
+      display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:8px;
+    }
+    .cansw-mid-main{ display:contents; }
+    .cansw-nameline{ grid-column:1; grid-row:1; }
+    .cansw-valwrap{ grid-column:2; grid-row:1; }
+    .cansw-deal{ grid-column:1 / -1; grid-row:2; }
   }
   `;
 
