@@ -46,6 +46,17 @@ Two panels, **exactly equal width and equal height in every state** —
 visitor does resizes the box. There are exactly two scroll surfaces: the
 partner list on the right and the picks list on the left.
 
+**Stacked (900px and down), the action panel is taller than 582.** The
+fixed footprint is a desktop rule (product-ui.md, Breakpoints: "stacked
+panels may grow with content"). Stacked, the search and the category button
+sit one above the other and the footer stacks too, so a 582px box spends
+itself on chrome — held at 582 the partner list came out **94px tall, a row
+and a half**. The list instead takes a definite `min(56vh,440px)`, which is
+the panel's only variable, so it does not resize while a search filters it.
+The info panel stays at 582 on every breakpoint: stacked it sits *above* the
+list, so growing it as picks land would push the row just tapped out from
+under the visitor's thumb.
+
 **Left panel, information.** Rust eyebrow, Lato headline, a two-up stat row
 (live partner count + exact dollar total, both read from `numbers.json`,
 never computed here), then a block that swaps inside the fixed box: six
@@ -61,6 +72,14 @@ flexible / auto). One offer gets a `+`; several get a `+` and a chevron that
 expands the offers in place on the second surface tone. Tapping `+` on a
 multi-offer partner adds the cheapest offer that beats the membership price,
 so the first pick is always profitable; the chevron lets them trade up.
+
+Under 560px a row re-lays as a grid: the name and the figure hold line one,
+under the COMPANY and DISCOUNT headers that label them, and the deal line
+drops to its own full-width line beneath. Sharing line one with the figure
+left it about 100px on a phone, so "25% off paid plans for 1 year" read
+"25% off pai...". Row insets tighten from 26/20 to 16 there for the same
+reason. Rows stay one height — never buy name width by stacking anything in
+the value column.
 
 Uncapped partners (ShopYourLikes, TopFan, Driff, Insense, Pierson Ferdinand,
 CreatorCare) show their **actual rate** with an `uncapped` tag and never
