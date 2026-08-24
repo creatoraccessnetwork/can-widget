@@ -1,9 +1,9 @@
-/* CAN Savings Widget v2 - two-panel "pick what you're about to buy" receipt widget.
+/* CAN Savings Widget v2 - two-panel "pick what you're about to buy" receipt widget. pin accepts array (2026-08-22).
  * Mounts into #cansw-mount (created next to the script tag if missing).
  * Data: cansw-data.json + numbers.json next to this script (BASE derived from script src).
  * Overrides via window.CANSW_OVERRIDES:
  *   joinUrl (default "#pricing"), starterUrl (default "#top"), membershipCost (49),
- *   pin (partner name to float to top), demote [names], hide [names],
+ *   pin (partner name or array of names to float to top, in order), demote [names], hide [names],
  *   numbers {partner_count, total_value, total_value_exact} (skips numbers.json when given),
  *   data {partners, logos} (skips cansw-data.json when given),
  *   eyebrow, headline, intro, stat1Label, stat2Label, joinText, joinAlt (HTML), bullets [HTML x3]
@@ -99,7 +99,16 @@
     list = list.filter(function(p){ return !hide[p.n]; });
     function idx(n){ var i = ORDER.indexOf(n); return i < 0 ? 999 : i; }
     list.sort(function(a,b){ return idx(a.n) - idx(b.n); });
-    if (O.pin) list.sort(function(a,b){ return a.n === O.pin ? -1 : b.n === O.pin ? 1 : 0; });
+    if (O.pin) {
+      var pins = Array.isArray(O.pin) ? O.pin : [O.pin];
+      var rank = {};
+      pins.forEach(function (n, i) { rank[n] = i; });
+      list.sort(function (a, b) {
+        var ra = rank.hasOwnProperty(a.n) ? rank[a.n] : 1e9;
+        var rb = rank.hasOwnProperty(b.n) ? rank[b.n] : 1e9;
+        return ra - rb;
+      });
+    }
     if (O.demote && O.demote.length) { var d = {}; O.demote.forEach(function(n){ d[n] = 1; }); list = list.filter(function(p){ return !d[p.n]; }).concat(list.filter(function(p){ return d[p.n]; })); }
     return list;
   }
