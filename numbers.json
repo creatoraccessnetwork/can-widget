@@ -1,7 +1,8 @@
 {
   "partner_count": 48,
   "total_value": "$34,000+",
+  "total_value_exact": 34336,
   "value_basis": "ceiling",
-  "updated": "2026-08-21",
-  "_source": "Updated 2026-08-21 per Avi: partner_count = 48 live partners; total_value = $34,000+ (rounded). total_value_exact intentionally omitted (no exact parser figure supplied); the widget stat tile falls back to total_value. CreatorCare's $7,200 (Lindsey 2026-08-13, approved by Avi; 'up to' affordability figure vs. traditional therapy, not the 10% discount's arithmetic value) now renders in cansw-data.json. Prior 2026-08-11 notes still apply: ShopYourLikes '~$1,000-$1,500/yr' is an illustrative example Avi invented and must never enter a published total; Insense '$200+ per campaign' is per-campaign, not annual."
+  "updated": "2026-08-24",
+  "_source": "Weekly deal-numbers run 2026-08-24: parsed from Notion OFFER TRACKING (48 live rows, 44 feed the ceiling total, raw 34336). Cross-checked against the Common Ninja partner-cards embed (48 cards). Uncapped-earn partners excluded by name, live but $0 and never publishable: ShopYourLikes, Insense, TopFan, Driff. ShopYourLikes '~$1,000-$1,500/yr' is an illustrative example Avi invented and must never enter a published total; Insense '$200+ per campaign' is per-campaign, not annual. CreatorCare $7,200 (approved by Avi 2026-08-21) is the largest single discount (per_deal.max)."
 }
