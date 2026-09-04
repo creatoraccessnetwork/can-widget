@@ -1,8 +1,8 @@
 {
-  "partner_count": 48,
-  "total_value": "$34,000+",
-  "total_value_exact": 34336,
+  "partner_count": 50,
+  "total_value": "$36,000+",
+  "total_value_exact": 36336,
   "value_basis": "ceiling",
-  "updated": "2026-08-24",
-  "_source": "Weekly deal-numbers run 2026-08-24: parsed from Notion OFFER TRACKING (48 live rows, 44 feed the ceiling total, raw 34336). Cross-checked against the Common Ninja partner-cards embed (48 cards). Uncapped-earn partners excluded by name, live but $0 and never publishable: ShopYourLikes, Insense, TopFan, Driff. ShopYourLikes '~$1,000-$1,500/yr' is an illustrative example Avi invented and must never enter a published total; Insense '$200+ per campaign' is per-campaign, not annual. CreatorCare $7,200 (approved by Avi 2026-08-21) is the largest single discount (per_deal.max)."
+  "updated": "2026-09-04",
+  "_source": "Updated 2026-09-04 from the Notion OFFER TRACKING parser run: 50 live partners; ceiling total 36336 published as $36,000+. total_value_exact is required - without it the widget stat tile silently falls back to the rounded figure. Uncapped-earn rows (ShopYourLikes, Insense, Driff, TopFan) count as live partners but their figures never enter the total. ShopYourLikes' '~$1,000-$1,500/yr' is an illustrative example Avi invented and must never be published. CreatorIQ is live with a one-time event ticket and contributes $0. Largest single discount remains $7,200 (CreatorCare)."
 }
