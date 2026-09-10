@@ -1,6 +1,6 @@
 /* CAN project page script (segment flavour of the v2 offer template). v1, 2026-09-10.
- * Renders the project hero, decision rows, the "Which of these are you deciding on?" calculator,
- * the project total, the for-every-Creator strip, the pricing card and the "Pick another" card.
+ * Renders the project hero, decision rows, the sticky "Which of these are you deciding on?" calculator,
+ * the project total, the Upcoming events strip, the for-every-Creator strip, the pricing card and the "Pick another" card.
  * Mounts: #canseg-top (above the Kajabi checkout) and #canseg-end (below it).
  * Config: window.CANSEG = { seg, token, checkout }  (checkout = "#section-<checkout section id>")
  * Data, all next to this script: segments.json, segments-live.json, cansw-data.json, numbers.json.
@@ -49,7 +49,7 @@
 ".canseg .row{display:grid;grid-template-columns:36px 1fr auto;gap:14px;align-items:center;padding:12px 0;border-top:1px solid var(--hl);transition:background 150ms ease}.canseg .row.sel{background:#F4F8FA;margin:0 -12px;padding-left:12px;padding-right:12px}.canseg .row.off,.canseg .grp.off{display:none}" +
 ".canseg .logo{width:36px;height:36px;border-radius:var(--r);border:1px solid var(--bd);background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:12px;font-weight:800;color:var(--t)}.canseg .logo img{width:100%;height:100%;object-fit:contain}" +
 ".canseg .mid{min-width:0}.canseg .nm{font-weight:700;color:var(--ink);font-size:17px;line-height:24px}.canseg .term{font-size:15px;line-height:22px;color:var(--ch)}.canseg .desc{font-size:15px;line-height:22px;color:var(--mute)}.canseg .who{font-size:13px;line-height:18px;color:var(--mute);margin-top:2px}.canseg .grows{display:inline-block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.9px;line-height:14px;padding:2px 6px;border-radius:var(--r);background:rgba(42,100,120,.10);color:var(--t);margin:4px 0 2px}" +
-".canseg .right{display:grid;grid-template-columns:auto 32px;gap:10px;align-items:center}.canseg .val{text-align:right;min-width:72px}.canseg .val .v{font-weight:700;color:var(--t);font-variant-numeric:tabular-nums;font-size:17px;line-height:24px;display:block}.canseg .val .v.free{color:var(--rust)}.canseg .upto{font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:600;color:var(--mute)}" +
+".canseg .right{display:grid;grid-template-columns:auto 32px;gap:10px;align-items:center}.canseg .val{text-align:right;min-width:72px}.canseg .val .v{font-weight:700;color:var(--t);font-variant-numeric:tabular-nums;font-size:17px;line-height:24px;display:block}.canseg .val .v.free{color:var(--rust)}.canseg .val .vl{display:block;font-size:11px;line-height:14px;letter-spacing:1px;text-transform:uppercase;font-weight:700;color:var(--mute)}.canseg .upto{font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:600;color:var(--mute)}" +
 ".canseg .tag{display:inline-block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.9px;line-height:14px;padding:1px 6px;border-radius:var(--r);background:rgba(42,100,120,.10);color:var(--t)}.canseg .tag.perk{background:rgba(193,122,94,.12);color:var(--rust)}" +
 ".canseg .add{width:32px;height:32px;border-radius:50%;border:1px solid var(--bd);background:#fff;color:var(--t);font-weight:800;font-size:18px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:0;font-family:inherit;transition:background 150ms ease}.canseg .add:hover{background:var(--s2)}.canseg .add.on{background:var(--t);color:#fff;border-color:var(--t)}.canseg .add:disabled{opacity:.45;cursor:not-allowed}" +
 ".canseg select.plan{grid-column:2/-1;height:36px;border:1px solid var(--bd);border-radius:var(--r);padding:0 8px;font:inherit;font-size:14px;color:var(--ink);background:var(--s2);max-width:360px}" +
@@ -57,7 +57,7 @@
 ".canseg .calc{padding:24px;position:sticky;top:24px}.canseg .calc .h2{font-size:26px}.canseg .rlist{border:1px solid var(--bd);border-radius:var(--r);background:var(--s2);min-height:88px;max-height:280px;overflow-y:auto;margin:12px 0 0}.canseg .rrow{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid var(--hl);font-size:15px;line-height:22px}.canseg .rrow:last-child{border-bottom:0}.canseg .rrow .rn{flex:1;color:var(--ink);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.canseg .rrow .rv{font-weight:700;color:var(--t);font-variant-numeric:tabular-nums;min-width:64px;text-align:right}.canseg .rrow button{background:none;border:0;color:var(--mute);cursor:pointer;font-size:16px;padding:0 0 0 6px;font-family:inherit}" +
 ".canseg .empty{padding:24px 12px;color:var(--mute);font-size:15px;line-height:22px}" +
 ".canseg .rtot{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0 0}.canseg .rtot .lab{color:var(--ch);font-weight:600}.canseg .rtot .val{font-family:var(--disp);font-weight:700;color:var(--t);font-size:30px;font-variant-numeric:tabular-nums;min-width:0}.canseg .rsub{font-size:15px;line-height:22px;color:var(--mute);margin:4px 0 16px}" +
-".canseg .strip{padding:22px 24px;margin-top:24px}.canseg .strip .h3{margin-bottom:4px}.canseg .mini{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:12px}.canseg .mini .m{display:flex;gap:10px;align-items:center}.canseg .mini .m .logo{width:32px;height:32px}.canseg .mini .m .nm{font-size:15px;line-height:20px}.canseg .mini .m .term{font-size:13px;line-height:18px;color:var(--mute)}.canseg .mini .m .v{font-weight:700;color:var(--t);font-size:15px;white-space:nowrap}" +
+".canseg .strip{padding:22px 24px;margin-top:24px}.canseg .strip .h3{margin-bottom:4px}.canseg .mini{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:12px}.canseg .mini .m{display:flex;gap:10px;align-items:center}.canseg .mini .m .logo{width:32px;height:32px}.canseg .mini .m .nm{font-size:15px;line-height:20px}.canseg .mini .m .term{font-size:13px;line-height:18px;color:var(--mute)}.canseg .mini .m .v{font-weight:700;color:var(--t);font-size:15px;white-space:nowrap}.canseg .mini.ev{grid-template-columns:repeat(2,1fr);gap:20px 32px}.canseg .mini.ev .m{align-items:flex-start}.canseg .mini.ev .m .logo{width:40px;height:40px;flex:none}.canseg .mini.ev .m .term{color:var(--ch);font-size:15px;line-height:22px}" +
 ".canseg .slot{padding:24px;margin-top:24px;border:2px dashed #C9D4E0;box-shadow:none;background:var(--s2)}.canseg .quote{padding:32px 36px;margin-top:24px;display:grid;grid-template-columns:96px 1fr;gap:24px;align-items:center}.canseg .quote img{width:96px;height:96px;border-radius:50%;object-fit:cover;border:1px solid var(--bd)}.canseg .quote .q{font-family:var(--disp);font-weight:700;font-size:24px;line-height:1.3;color:var(--ink)}" +
 ".canseg .price-card{max-width:520px;margin:0 auto;padding:32px}.canseg .price{font-family:var(--disp);font-weight:700;color:var(--t);font-size:48px;line-height:1.05;letter-spacing:-1px;font-variant-numeric:tabular-nums;margin:8px 0 16px}.canseg .price small{font-family:var(--body);font-weight:600;font-size:17px;letter-spacing:0;color:var(--mute);margin-left:4px}" +
 ".canseg .checks{list-style:none;padding:0;margin:0 0 8px}.canseg .checks li{display:flex;gap:10px;align-items:flex-start;padding:6px 0}.canseg .chk{flex:none;width:18px;height:18px;border-radius:50%;background:var(--t);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;margin-top:4px}" +
@@ -66,9 +66,19 @@
 ".canseg-sticky{display:none}" +
 "@media (max-width:900px){.canseg .two{grid-template-columns:1fr}.canseg .calc{position:static}.canseg .h1{font-size:34px}.canseg .h2{font-size:26px}.canseg .hero{padding:28px 20px}.canseg .hero .what{font-size:17px;line-height:26px}.canseg .stats{grid-template-columns:1fr 1fr;gap:0 20px}.canseg .stat .num{font-size:26px}.canseg .stat+.stat{padding-left:20px}.canseg .mini{grid-template-columns:1fr 1fr}.canseg .quote{grid-template-columns:1fr;text-align:center}.canseg .quote img{margin:0 auto}.canseg .row{grid-template-columns:32px 1fr auto;gap:10px}.canseg .val{min-width:0}" +
 ".canseg-sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;border-top:1px solid #E6EBF2;padding:10px 16px;gap:8px;align-items:center;justify-content:space-between;font-family:'Open Sans',system-ui,sans-serif}.canseg-sticky .s-num{font-family:'Lato',system-ui,sans-serif;font-weight:700;color:#2A6478;white-space:nowrap;font-variant-numeric:tabular-nums}.canseg-sticky .s-lab{font-size:12px;color:#5B6572;display:block;line-height:14px}.canseg-sticky .btn{height:40px;padding:0 16px;display:inline-flex;align-items:center;border-radius:4px;background:#9E614A;color:#fff!important;font-weight:700;text-decoration:none!important}body{padding-bottom:68px}}" +
-"@media (max-width:600px){.canseg .mini{grid-template-columns:1fr}}";
+"@media (max-width:600px){.canseg .mini,.canseg .mini.ev{grid-template-columns:1fr}}";
   var st = document.createElement("style"); st.textContent = CSS; document.head.appendChild(st);
 
+  function unclip(el) {
+    // position:sticky needs no ancestor with overflow:hidden (Kajabi's theme puts overflow-x:hidden on body). clip keeps the clipping without creating a scroll container.
+    try {
+      for (var a = el && el.parentNode; a && a.nodeType === 1 && a !== document.documentElement; a = a.parentNode) {
+        var cs = getComputedStyle(a);
+        if (cs.overflowX === "hidden") a.style.setProperty("overflow-x", "clip", "important");
+        if (cs.overflowY === "hidden") a.style.setProperty("overflow-y", "clip", "important");
+      }
+    } catch (e) {}
+  }
   function money(n) { return "$" + Math.round(n).toLocaleString("en-US"); }
   function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
   function initials(n) { return (n || "").replace(/[^A-Za-z0-9]/g, "").slice(0, 1).toUpperCase() || "•"; }
@@ -114,17 +124,16 @@
         '<h1 class="h1">' + esc(h1) + '</h1>' +
         '<p class="what">' + esc(CFG.what_can_is) + '</p>' +
         (STAGE ? '<p class="stagel">' + esc(STAGE_LINE[STAGE]) + '</p>' : '') +
-        '<div class="stats"><div class="stat"><span class="num">' + esc(live.total_display || "") + '</span><span class="micro">in savings for this project</span></div>' +
-        '<div class="stat"><span class="num">' + esc(live.partner_count) + '</span><span class="micro">partners on this page</span></div></div>' +
+        '<div class="stats"><div class="stat"><span class="num">' + esc(live.total_display || "") + '</span><span class="micro">in savings</span></div>' +
+        '<div class="stat"><span class="num">' + esc(live.partner_count) + '</span><span class="micro">discounts</span></div></div>' +
         '<div class="cta"><a class="btn lg" href="' + CHECKOUT + '" data-track="hero">Join for $' + COST + '/year</a><a class="btn lg sec" href="#canseg-calc">See what you\'d save</a></div>' +
         '<p class="meta" style="text-align:center;margin:0">One discount pays for the membership. Your rate never goes up, even when the price does.</p>' +
       '</div>' +
       '<div class="two">' +
         '<div>' +
-          '<div class="card grp" style="padding-top:20px;padding-bottom:16px"><h2 class="h2" style="font-size:26px;margin-bottom:4px">Pick what you\'re deciding on.</h2><p class="meta" style="margin:0">Tap + to add a tool to your savings. Where competing platforms share a line, you\'ll pick one.</p></div>' +
+          '<div class="card grp" style="padding-top:20px;padding-bottom:16px"><h2 class="h2" style="font-size:26px;margin-bottom:4px">Pick what you\'re deciding on.</h2><p class="meta" style="margin:0">Each figure is what that discount is worth. Tap + to add a tool to your savings. Where competing platforms share a line, you\'ll pick one.</p></div>' +
           '<div data-role="groups"></div>' +
           '<div data-role="more"></div>' +
-          '<div data-role="strips"></div>' +
         '</div>' +
         '<div class="card calc" id="canseg-calc">' +
           '<p class="eyebrow" style="margin-bottom:8px">Your savings</p>' +
@@ -137,12 +146,14 @@
           '<p class="fine">Locked in for life. Not ready? <a href="' + esc(CFG.starter_url) + '">Unlock the Starter Set free</a>.</p>' +
         '</div>' +
       '</div>' +
+      '<div data-role="events"></div>' +
       '<div data-role="testimonial"></div>' +
       '<div data-role="every"></div>' +
     '</div>' +
     '<div class="canseg-sticky"><span><span class="s-lab">Savings on your picks</span><span class="s-num" data-role="stotal">$0</span></span><a class="btn" href="' + CHECKOUT + '" data-track="sticky">Join for $' + COST + '</a></div>';
     top.innerHTML = html;
     var q = function (r) { return top.querySelector('[data-role="' + r + '"]'); };
+    unclip(document.getElementById("canseg-calc"));
 
     // --- decision rows -------------------------------------------------------------------------------
     var LIMIT = 8, shownPartners = {}, hiddenCount = 0;
@@ -157,7 +168,7 @@
       if (r.nofigure) valHtml = '<span class="v" style="color:var(--mute)">—</span><span class="tag">confirming</span>';
       else if (r.uncapped) valHtml = '<span class="v">' + esc({ "ShopYourLikes": "80/20", "TopFan": "87%", "Driff": "90/10" }[r.n] || "rate") + '</span><span class="tag">uncapped</span>';
       else if (r.included) valHtml = '<span class="v free">Free</span><span class="tag perk">included</span>';
-      else if (r.high != null && r.high > 0) valHtml = '<span class="v">' + (r.low !== r.high ? '<span class="upto">up to </span>' : "") + money(r.high) + (r.openEnded && r.low === r.high ? "+" : "") + '</span>';
+      else if (r.high != null && r.high > 0) valHtml = '<span class="vl">You save</span><span class="v">' + (r.low !== r.high ? '<span class="upto">up to </span>' : "") + money(r.high) + (r.openEnded && r.low === r.high ? "+" : "") + '</span>';
       else if (r.high === 0) valHtml = '<span class="v free">Free</span>';
       else if (r.oneTime) valHtml = '<span class="tag">one-time</span>';
       else valHtml = '<span class="v" style="color:var(--mute)">—</span>';
@@ -198,15 +209,18 @@
       more.addEventListener("click", function () { top.querySelectorAll(".row.off, .grp.off").forEach(function (el) { el.classList.remove("off"); }); more.remove(); track("segment_see_all"); });
       q("more").appendChild(more);
     }
-    // strips (events): shown, never counted
-    if (seg.strips && seg.strips.length) {
-      var sEl = q("strips");
-      seg.strips.forEach(function (s) {
-        var lv = live.rows[s.n] || {}; var p = byName[s.n] || {};
-        var d = document.createElement("div"); d.className = "card strip";
-        d.innerHTML = '<div class="h3">Also this year</div><div class="mini" style="grid-template-columns:1fr"><div class="m"><div class="logo">' + (logos[s.n] ? '<img src="' + esc(logos[s.n]) + '" alt="">' : esc(initials(s.n))) + '</div><div><div class="nm">' + esc(s.n) + (p.t ? " 🏆" : "") + '</div><div class="term">' + esc(s.term) + ' · ' + esc(s.who) + '</div></div>' + (lv.high ? '<div class="v" style="margin-left:auto">' + money(lv.high) + '</div>' : '') + '</div></div><p class="meta" style="margin:8px 0 0">One-time ticket, not counted in the project total.</p>';
-        sEl.appendChild(d);
-      });
+    // upcoming events: global list plus any per-segment strips, full width, never counted
+    var events = [], seenEv = {};
+    (CFG.events || []).concat(seg.strips || []).forEach(function (e) { if (!seenEv[e.n]) { seenEv[e.n] = 1; events.push(e); } });
+    if (events.length) {
+      var evLive = LIVE.events || {};
+      q("events").innerHTML = '<div class="card strip"><p class="eyebrow" style="margin-bottom:4px">Upcoming events</p><div class="h3">Member pricing on this year\'s Creator events.</div><div class="mini ev">' +
+        events.map(function (e) {
+          var lv = evLive[e.n] || live.rows[e.n] || {}, p = byName[e.n] || {};
+          var v = lv.high ? (lv.low !== lv.high ? "up to " : "") + money(lv.high) : "";
+          return '<div class="m"><div class="logo">' + (logos[e.n] ? '<img src="' + esc(logos[e.n]) + '" alt="">' : esc(initials(e.n))) + '</div><div><div class="nm">' + esc(e.n) + (p.t ? " 🏆" : "") + '</div><div class="term">' + esc(e.term) + '</div><div class="who">' + esc(e.who) + (e.when ? ' · ' + esc(e.when) : '') + '</div></div>' + (v ? '<div class="v" style="margin-left:auto">' + v + '</div>' : '') + '</div>';
+        }).join("") +
+        '</div><p class="meta" style="margin:12px 0 0">One-time tickets, not counted in the total above.</p></div>';
     }
 
     // --- testimonial slot (marked; renders only when filled, or with ?preview=slots) -------------------
@@ -221,7 +235,7 @@
 
     // --- for every Creator strip ---------------------------------------------------------------------
     var onPage = {}; rows.forEach(function (r) { onPage[r.n] = 1; });
-    var everyNames = (CFG.every_creator_strip || []).filter(function (n) { return !onPage[n]; });
+    var everyNames = (CFG.every_creator_strip || []).filter(function (n) { return !onPage[n]; }).slice(0, +CFG.every_creator_show || 4);
     if (everyNames.length) {
       var el = q("every"), es = LIVE.every_creator_strip || {};
       el.innerHTML = '<div class="card strip"><p class="eyebrow" style="margin-bottom:4px">For every Creator</p><div class="h3">Business-side discounts every member gets, whatever the project.</div><div class="mini">' +

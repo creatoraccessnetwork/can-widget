@@ -1,11 +1,16 @@
 {
-  "_about": "CAN project segments. One entry per segment page. Row terms and eligibility come from the Notion OFFER TRACKING page (pulled 2026-09-09). Dollar figures are NOT stored here: scripts/segments.py reads them from the tracker parse and writes segments-live.json. Partner names must match the n field in cansw-data.json. count:false = shown, never enters the segment total. stage = which business stages may see the row (omit for all). trophy:false suppresses the trophy for that partner on these pages.",
+  "_about": "CAN project segments. One entry per segment page. Row terms and eligibility come from the Notion OFFER TRACKING page (pulled 2026-09-09). Dollar figures are NOT stored here: scripts/segments.py reads them from the tracker parse and writes segments-live.json. Partner names must match the n field in cansw-data.json. count:false = shown, never enters the segment total. stage = which business stages may see the row (omit for all). trophy:false suppresses the trophy for that partner on these pages. every_creator_strip is a ranked list: the page shows the first every_creator_show names not already on that page (biggest brands first, Avi 2026-09-10). events are shown full width on every page as Upcoming events, never counted.",
   "membership_cost": 49,
   "home_url": "https://www.creatoraccessnetwork.com/",
   "quiz_url": "https://www.creatoraccessnetwork.com/#quiz",
   "starter_url": "https://www.creatoraccessnetwork.com/#top",
   "what_can_is": "Creator Access Network is a $49/year membership that gets Creators the best available discounts on the tools and services behind every Creator project.",
-  "every_creator_strip": ["Wispr Flow", "Mercury", "Valim", "Ratelle Law"],
+  "every_creator_strip": ["Wispr Flow", "Mercury", "beehiiv", "Pop.store", "Kajabi", "Epidemic Sound", "Mighty Networks", "Teachable", "Valim", "Ratelle Law"],
+  "every_creator_show": 4,
+  "events": [
+    {"n": "VidSummit", "term": "$100 off a VidSummit 2026 ticket, plus 13+ years of session recordings", "who": "New ticket purchases", "when": "Members-only dinner with CAN's founder"},
+    {"n": "CreatorIQ", "term": "50% off a CreatorIQ Connect ticket", "who": "Every member tier, capped at 25 redemptions", "when": "Oct 13, 2026 · Los Angeles"}
+  ],
   "desc_overrides": {
     "GreenRoom Legal": "Creator Economy lawyers who protect your brand deals and help you build your brand and business, with no retainers.",
     "Pierson Ferdinand": "A major law firm's Creator practice, with a discount on consultations and hourly legal work.",
@@ -35,13 +40,7 @@
         {"title": "Prove to brands you're a pro", "rows": [
           {"n": "Creators Guild of America", "tracker": "Creator’s Guild of America", "term": "Free membership for 1 year", "who": "New members, US based, first year"},
           {"n": "CreatorScore", "term": "2 months free, then 50% off for life", "who": "New and existing users, one redemption"}
-        ]},
-        {"title": "Meet the brands in person", "rows": [
-          {"n": "CreatorIQ", "term": "50% off a CreatorIQ Connect ticket", "who": "Every member tier, capped at 25 redemptions, event 13 Oct 2026", "count": false, "one_time": true, "note": "One-time event ticket, not counted in the project total"}
         ]}
-      ],
-      "strips": [
-        {"n": "VidSummit", "term": "$100 off a VidSummit 2026 ticket, plus 13+ years of session recordings", "who": "New ticket purchases"}
       ]
     },
     {
@@ -332,9 +331,6 @@
         {"title": "Real artists' songs", "rows": [
           {"n": "Thematic", "term": "75% off the Pro subscription", "who": "New subscribers, worldwide"}
         ]}
-      ],
-      "strips": [
-        {"n": "VidSummit", "term": "$100 off a VidSummit 2026 ticket, plus 13+ years of session recordings", "who": "New ticket purchases"}
       ]
     },
     {
