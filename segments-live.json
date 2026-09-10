@@ -1,0 +1,791 @@
+{
+ "generated": "2026-09-09",
+ "basis": "ceiling",
+ "segments": {
+  "brand-deals": {
+   "name": "Brand deals and UGC",
+   "partner_count": 9,
+   "total_exact": 1301,
+   "total_display": "$1,300+",
+   "rows": {
+    "FYPM": {
+     "low": 416.0,
+     "high": 416.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Creator Wizard": {
+     "low": 106.0,
+     "high": 106.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Creatorland MCP Pro": {
+     "low": 400.0,
+     "high": 400.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Insense": {
+     "low": null,
+     "high": null,
+     "open_ended": false,
+     "uncapped": true,
+     "counted": false
+    },
+    "Dealsync by Creatorland": {
+     "low": 60.0,
+     "high": 60.0,
+     "open_ended": true,
+     "uncapped": false,
+     "counted": true
+    },
+    "DUPAY": {
+     "low": 60.0,
+     "high": 60.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Creators Guild of America": {
+     "low": 99.0,
+     "high": 99.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "CreatorScore": {
+     "low": 40.0,
+     "high": 160.0,
+     "open_ended": true,
+     "uncapped": false,
+     "counted": true
+    },
+    "CreatorIQ": {
+     "low": null,
+     "high": null,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": false
+    },
+    "VidSummit": {
+     "low": 100.0,
+     "high": 100.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": false,
+     "strip": true
+    }
+   }
+  },
+  "podcast": {
+   "name": "Podcast",
+   "partner_count": 4,
+   "total_exact": 1532,
+   "total_display": "$1,500+",
+   "rows": {
+    "beehiiv": {
+     "low": 129.0,
+     "high": 1212.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Soundstripe": {
+     "low": 119.5,
+     "high": 199.5,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Epidemic Sound": {
+     "low": 60.0,
+     "high": 60.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Thematic": {
+     "low": 60.0,
+     "high": 60.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    }
+   }
+  },
+  "newsletter": {
+   "name": "Newsletter",
+   "partner_count": 3,
+   "total_exact": 1352,
+   "total_display": "$1,300+",
+   "rows": {
+    "beehiiv": {
+     "low": 129.0,
+     "high": 1212.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Growth in Reverse": {
+     "low": 50.0,
+     "high": 50.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Wispr Flow": {
+     "low": 72.0,
+     "high": 90.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    }
+   }
+  },
+  "course": {
+   "name": "Course",
+   "partner_count": 7,
+   "total_exact": 4703,
+   "total_display": "$4,700+",
+   "rows": {
+    "Kajabi": {
+     "low": 358.0,
+     "high": 358.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Teachable": {
+     "low": 248.0,
+     "high": 500.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Nas.com": {
+     "low": 54.0,
+     "high": 500.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Mighty Networks": {
+     "low": 316.0,
+     "high": 1416.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "TopFan": {
+     "low": null,
+     "high": null,
+     "open_ended": false,
+     "uncapped": true,
+     "counted": false
+    },
+    "Pop.store": {
+     "low": 35.0,
+     "high": 717.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "beehiiv": {
+     "low": 129.0,
+     "high": 1212.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    }
+   }
+  },
+  "coaching": {
+   "name": "Coaching",
+   "partner_count": 6,
+   "total_exact": 3491,
+   "total_display": "$3,400+",
+   "rows": {
+    "Kajabi": {
+     "low": 358.0,
+     "high": 358.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Teachable": {
+     "low": 248.0,
+     "high": 500.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Mighty Networks": {
+     "low": 316.0,
+     "high": 1416.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Nas.com": {
+     "low": 54.0,
+     "high": 500.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Pop.store": {
+     "low": 35.0,
+     "high": 717.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "TopFan": {
+     "low": null,
+     "high": null,
+     "open_ended": false,
+     "uncapped": true,
+     "counted": false
+    }
+   }
+  },
+  "consulting": {
+   "name": "Consulting",
+   "partner_count": 6,
+   "total_exact": 2262,
+   "total_display": "$2,200+",
+   "rows": {
+    "Driff": {
+     "low": null,
+     "high": null,
+     "open_ended": false,
+     "uncapped": true,
+     "counted": false
+    },
+    "Flowlance": {
+     "low": 139.0,
+     "high": 187.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Kajabi": {
+     "low": 358.0,
+     "high": 358.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Teachable": {
+     "low": 248.0,
+     "high": 500.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Nas.com": {
+     "low": 54.0,
+     "high": 500.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Pop.store": {
+     "low": 35.0,
+     "high": 717.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    }
+   }
+  },
+  "community": {
+   "name": "Community or membership",
+   "partner_count": 9,
+   "total_exact": 6597,
+   "total_display": "$6,500+",
+   "rows": {
+    "Mighty Networks": {
+     "low": 316.0,
+     "high": 1416.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Nas.com": {
+     "low": 54.0,
+     "high": 500.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Kajabi": {
+     "low": 358.0,
+     "high": 358.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Teachable": {
+     "low": 248.0,
+     "high": 500.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "TopFan": {
+     "low": null,
+     "high": null,
+     "open_ended": false,
+     "uncapped": true,
+     "counted": false
+    },
+    "Built by Foundry": {
+     "low": 600.0,
+     "high": 750.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "SendOwl": {
+     "low": 280.0,
+     "high": 1144.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Pop.store": {
+     "low": 35.0,
+     "high": 717.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "beehiiv": {
+     "low": 129.0,
+     "high": 1212.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    }
+   }
+  },
+  "digital-products": {
+   "name": "Digital products",
+   "partner_count": 12,
+   "total_exact": 6368,
+   "total_display": "$6,300+",
+   "rows": {
+    "SendOwl": {
+     "low": 280.0,
+     "high": 1144.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Flowlance": {
+     "low": 139.0,
+     "high": 187.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Pop.store": {
+     "low": 35.0,
+     "high": 717.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Kajabi": {
+     "low": 358.0,
+     "high": 358.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Teachable": {
+     "low": 248.0,
+     "high": 500.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Nas.com": {
+     "low": 54.0,
+     "high": 500.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "TopFan": {
+     "low": null,
+     "high": null,
+     "open_ended": false,
+     "uncapped": true,
+     "counted": false
+    },
+    "Buy.Video": {
+     "low": 400.0,
+     "high": 1000.0,
+     "open_ended": true,
+     "uncapped": false,
+     "counted": true
+    },
+    "Driff": {
+     "low": null,
+     "high": null,
+     "open_ended": false,
+     "uncapped": true,
+     "counted": false
+    },
+    "Built by Foundry": {
+     "low": 600.0,
+     "high": 750.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "beehiiv": {
+     "low": 129.0,
+     "high": 1212.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Dorian": {
+     "low": 5000.0,
+     "high": 5000.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": false
+    }
+   }
+  },
+  "physical-products": {
+   "name": "Physical products or merch",
+   "partner_count": 3,
+   "total_exact": 200,
+   "total_display": "$200+",
+   "rows": {
+    "TopFan": {
+     "low": null,
+     "high": null,
+     "open_ended": false,
+     "uncapped": true,
+     "counted": false
+    },
+    ".store": {
+     "low": 200.0,
+     "high": 200.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "ShopYourLikes": {
+     "low": null,
+     "high": null,
+     "open_ended": false,
+     "uncapped": true,
+     "counted": false
+    }
+   }
+  },
+  "set-up": {
+   "name": "Set up a business",
+   "partner_count": 5,
+   "total_exact": 4750,
+   "total_display": "$4,700+",
+   "rows": {
+    "Mercury": {
+     "low": 400.0,
+     "high": 400.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Karat": {
+     "low": 250.0,
+     "high": 250.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Boring Stuff": {
+     "low": 600.0,
+     "high": 600.0,
+     "open_ended": true,
+     "uncapped": false,
+     "counted": true
+    },
+    "ClearPath": {
+     "low": 1500.0,
+     "high": 1500.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Valim": {
+     "low": 2000.0,
+     "high": 2000.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    }
+   }
+  },
+  "protect": {
+   "name": "Protect a business",
+   "partner_count": 9,
+   "total_exact": 5206,
+   "total_display": "$5,200+",
+   "rows": {
+    "Unbound Legal": {
+     "low": 896.0,
+     "high": 1646.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Pierson Ferdinand": {
+     "low": 150.0,
+     "high": 150.0,
+     "open_ended": true,
+     "uncapped": false,
+     "counted": true
+    },
+    "GreenRoom Legal": {
+     "low": 2000.0,
+     "high": 2000.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Ratelle Law": {
+     "low": 900.0,
+     "high": 900.0,
+     "open_ended": true,
+     "uncapped": false,
+     "counted": true
+    },
+    "DUPAY": {
+     "low": 60.0,
+     "high": 60.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "EssentL Creator": {
+     "low": 450.0,
+     "high": 450.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Roster": {
+     "low": null,
+     "high": null,
+     "open_ended": true,
+     "uncapped": false,
+     "counted": false
+    },
+    "EditHers": {
+     "low": 0.0,
+     "high": 0.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": false
+    },
+    "CreatorCare": {
+     "low": 7200.0,
+     "high": 7200.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": false
+    }
+   }
+  },
+  "tax": {
+   "name": "Pay less tax",
+   "partner_count": 4,
+   "total_exact": 4350,
+   "total_display": "$4,300+",
+   "rows": {
+    "Valim": {
+     "low": 2000.0,
+     "high": 2000.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Boring Stuff": {
+     "low": 600.0,
+     "high": 600.0,
+     "open_ended": true,
+     "uncapped": false,
+     "counted": true
+    },
+    "ClearPath": {
+     "low": 1500.0,
+     "high": 1500.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Karat": {
+     "low": 250.0,
+     "high": 250.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    }
+   }
+  },
+  "video": {
+   "name": "Better video and audio",
+   "partner_count": 6,
+   "total_exact": 880,
+   "total_display": "$800+",
+   "rows": {
+    "Elevate.io": {
+     "low": 30.0,
+     "high": 300.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Switcher Studios": {
+     "low": 200.0,
+     "high": 200.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Slipstream": {
+     "low": 60.0,
+     "high": 60.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Epidemic Sound": {
+     "low": 60.0,
+     "high": 60.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Soundstripe": {
+     "low": 119.5,
+     "high": 199.5,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Thematic": {
+     "low": 60.0,
+     "high": 60.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "VidSummit": {
+     "low": 100.0,
+     "high": 100.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": false,
+     "strip": true
+    }
+   }
+  },
+  "save-time": {
+   "name": "Save time",
+   "partner_count": 3,
+   "total_exact": 550,
+   "total_display": "$500+",
+   "rows": {
+    "Wispr Flow": {
+     "low": 72.0,
+     "high": 90.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Dealsync by Creatorland": {
+     "low": 60.0,
+     "high": 60.0,
+     "open_ended": true,
+     "uncapped": false,
+     "counted": true
+    },
+    "Creatorland MCP Pro": {
+     "low": 400.0,
+     "high": 400.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    }
+   }
+  },
+  "grow": {
+   "name": "Grow my audience",
+   "partner_count": 3,
+   "total_exact": 1979,
+   "total_display": "$1,900+",
+   "rows": {
+    "Pop.store": {
+     "low": 35.0,
+     "high": 717.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "beehiiv": {
+     "low": 129.0,
+     "high": 1212.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    },
+    "Growth in Reverse": {
+     "low": 50.0,
+     "high": 50.0,
+     "open_ended": false,
+     "uncapped": false,
+     "counted": true
+    }
+   }
+  }
+ },
+ "every_creator_strip": {
+  "Wispr Flow": {
+   "low": 72.0,
+   "high": 90.0,
+   "open_ended": false,
+   "uncapped": false
+  },
+  "Mercury": {
+   "low": 400.0,
+   "high": 400.0,
+   "open_ended": false,
+   "uncapped": false
+  },
+  "Valim": {
+   "low": 2000.0,
+   "high": 2000.0,
+   "open_ended": false,
+   "uncapped": false
+  },
+  "Ratelle Law": {
+   "low": 900.0,
+   "high": 900.0,
+   "open_ended": true,
+   "uncapped": false
+  }
+ }
+}

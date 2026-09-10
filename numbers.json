@@ -4,5 +4,83 @@
   "total_value_exact": 36336,
   "value_basis": "ceiling",
   "updated": "2026-09-04",
-  "_source": "Updated 2026-09-04 from the Notion OFFER TRACKING parser run: 50 live partners; ceiling total 36336 published as $36,000+. total_value_exact is required - without it the widget stat tile silently falls back to the rounded figure. Uncapped-earn rows (ShopYourLikes, Insense, Driff, TopFan) count as live partners but their figures never enter the total. ShopYourLikes' '~$1,000-$1,500/yr' is an illustrative example Avi invented and must never be published. CreatorIQ is live with a one-time event ticket and contributes $0. Largest single discount remains $7,200 (CreatorCare)."
+  "_source": "Updated 2026-09-04 from the Notion OFFER TRACKING parser run: 50 live partners; ceiling total 36336 published as $36,000+. total_value_exact is required - without it the widget stat tile silently falls back to the rounded figure. Uncapped-earn rows (ShopYourLikes, Insense, Driff, TopFan) count as live partners but their figures never enter the total. ShopYourLikes' '~$1,000-$1,500/yr' is an illustrative example Avi invented and must never be published. CreatorIQ is live with a one-time event ticket and contributes $0. Largest single discount remains $7,200 (CreatorCare).",
+  "segments": {
+    "brand-deals": {
+      "partner_count": 9,
+      "total_exact": 1301,
+      "total_display": "$1,300+"
+    },
+    "podcast": {
+      "partner_count": 4,
+      "total_exact": 1532,
+      "total_display": "$1,500+"
+    },
+    "newsletter": {
+      "partner_count": 3,
+      "total_exact": 1352,
+      "total_display": "$1,300+"
+    },
+    "course": {
+      "partner_count": 7,
+      "total_exact": 4703,
+      "total_display": "$4,700+"
+    },
+    "coaching": {
+      "partner_count": 6,
+      "total_exact": 3491,
+      "total_display": "$3,400+"
+    },
+    "consulting": {
+      "partner_count": 6,
+      "total_exact": 2262,
+      "total_display": "$2,200+"
+    },
+    "community": {
+      "partner_count": 9,
+      "total_exact": 6597,
+      "total_display": "$6,500+"
+    },
+    "digital-products": {
+      "partner_count": 12,
+      "total_exact": 6368,
+      "total_display": "$6,300+"
+    },
+    "physical-products": {
+      "partner_count": 3,
+      "total_exact": 200,
+      "total_display": "$200+"
+    },
+    "set-up": {
+      "partner_count": 5,
+      "total_exact": 4750,
+      "total_display": "$4,700+"
+    },
+    "protect": {
+      "partner_count": 9,
+      "total_exact": 5206,
+      "total_display": "$5,200+"
+    },
+    "tax": {
+      "partner_count": 4,
+      "total_exact": 4350,
+      "total_display": "$4,300+"
+    },
+    "video": {
+      "partner_count": 6,
+      "total_exact": 880,
+      "total_display": "$800+"
+    },
+    "save-time": {
+      "partner_count": 3,
+      "total_exact": 550,
+      "total_display": "$500+"
+    },
+    "grow": {
+      "partner_count": 3,
+      "total_exact": 1979,
+      "total_display": "$1,900+"
+    }
+  },
+  "segments_updated": "2026-09-09"
 }
