@@ -1,0 +1,81 @@
+{
+ "kind": "cobrand",
+ "token": "WdvrGNwo",
+ "theme_id": "2167074199",
+ "co_block": "1746107473790",
+ "partner": "beehiiv",
+ "partner_logo": "https://cdn.commoninja.com/asset/17226348-3ca7-4837-9a75-9f863e05dad5.png",
+ "lockup_label": "",
+ "hero_sub": "beehiiv Creators join for <span class=\"strike\">$49</span> <span class=\"lead\">$24.50/year</span>, 50% off for life.",
+ "join_text": "Join for $24.50/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$24.50/year, 50% off",
+ "sticky_btn": "Join",
+ "cost": 24.5,
+ "join_alt": "50% off for life for beehiiv Creators. Locked in when you join.",
+ "pin": [
+  "Growth in Reverse",
+  "Creator Wizard",
+  "Pop.store",
+  "Wispr Flow",
+  "Mercury"
+ ],
+ "demote": [],
+ "quote_img": "https://cdn.commoninja.com/asset/17226348-3ca7-4837-9a75-9f863e05dad5.png",
+ "quote": "Your newsletter is the business you actually own. We partnered with Creator Access Network so the Creators publishing on beehiiv can save on everything they build around it.",
+ "quote_by": "The beehiiv team",
+ "picks_sub": "The tools we'd pair with your newsletter to grow the list, monetize it, and run the business behind it.",
+ "picks": [
+  [
+   "https://cdn.commoninja.com/asset/a037d267-cfc9-4099-bac8-5ce1303643a5.png",
+   "Growth in Reverse",
+   "Grow",
+   "Growth in Reverse",
+   "Chenell Basilio is one of the world's experts on newsletters. Her Growth Vault will help you grow yours.",
+   "$50 off the Growth Vault 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/932da69e-34b0-475d-8018-cfbbf709c5f4.png",
+   "Creator Wizard",
+   "Learn",
+   "Creator Wizard",
+   "Justin Moore is one of the world's experts in brand deals. Learn to source and negotiate higher-value sponsorships for your newsletter.",
+   "Free Sponsor Magnet eBook + 50% off the $10K Challenge"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/7bbccbda-fa40-4b79-bfbe-f433a634bec9.png",
+   "Pop.Store",
+   "Automate",
+   "Pop.Store",
+   "AI comment and DM automations that grow your newsletter on autopilot, without adding to your workload.",
+   "30% off annual plans 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/9fc7abfd-06f4-42b2-a037-72011fb19b3e.png",
+   "Wispr Flow",
+   "Create",
+   "Wispr Flow",
+   "Talking is easier than typing, and faster too. Draft issues at the speed you speak.",
+   "6 months of Pro free"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/192714c1-3628-4441-b3bd-3876e687e3e5.png",
+   "Mercury",
+   "Run",
+   "Mercury",
+   "You're going to need somewhere to put all the money your newsletter makes. Real business banking for a one-person media company.",
+   "Earn up to $400, terms apply 🏆"
+  ]
+ ],
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $24.50 membership",
+ "co_line": "Your price is 50% off for life.",
+ "co_bullets": [
+  "$1,200+ toward your newsletter",
+  "$1,400+ toward newsletter ad sales",
+  "$600+ toward your link in bio",
+  "$500+ toward courses and digital products",
+  "$1,500+ toward accounting and legal",
+  "$450 toward Creator healthcare"
+ ],
+ "co_partners": "Growth in Reverse, Creator Wizard, Pop.Store, Wispr Flow, Mercury"
+}

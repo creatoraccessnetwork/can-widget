@@ -1,0 +1,81 @@
+{
+ "kind": "cobrand",
+ "token": "yMUK7Bkk",
+ "theme_id": "2167074196",
+ "co_block": "1746107473790",
+ "partner": "Built by Foundry",
+ "partner_logo": "https://cdn.commoninja.com/asset/1c56b901-346d-4e67-988d-eb6fc84c93c9.png",
+ "lockup_label": "",
+ "hero_sub": "Built by Foundry Creators join for <span class=\"strike\">$49</span> <span class=\"lead\">$24.50/year</span>, 50% off for life.",
+ "join_text": "Join for $24.50/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$24.50/year, 50% off",
+ "sticky_btn": "Join",
+ "cost": 24.5,
+ "join_alt": "50% off for life for Built by Foundry Creators. Locked in when you join.",
+ "pin": [
+  "Mercury",
+  ".store",
+  "Pop.store",
+  "Wispr Flow",
+  "beehiiv"
+ ],
+ "demote": [],
+ "quote_img": "https://cdn.commoninja.com/asset/1c56b901-346d-4e67-988d-eb6fc84c93c9.png",
+ "quote": "Your audience shouldn't live on rented land. We partnered with Creator Access Network so the Creators we build apps for can save on everything it takes to run the business behind them.",
+ "quote_by": "The Built by Foundry team",
+ "picks_sub": "The tools we'd pair with your own app to run, protect, and grow the business behind it.",
+ "picks": [
+  [
+   "https://cdn.commoninja.com/asset/192714c1-3628-4441-b3bd-3876e687e3e5.png",
+   "Mercury",
+   "Run",
+   "Mercury",
+   "You're going to need a bank account for all the money you're going to make. Real business banking for a one-person company.",
+   "Earn up to $400, terms apply 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/1096651c-a59f-42d0-b9a0-3edd16434ebb.png",
+   ".store",
+   "Launch",
+   ".store",
+   "A URL made for the product you're selling, free for 5 years.",
+   "5 years of your .store domain free 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/7bbccbda-fa40-4b79-bfbe-f433a634bec9.png",
+   "Pop.Store",
+   "Automate",
+   "Pop.Store",
+   "DM and AI automations on Instagram that make selling easier and send leads straight to your product.",
+   "30% off annual plans 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/9fc7abfd-06f4-42b2-a037-72011fb19b3e.png",
+   "Wispr Flow",
+   "Create",
+   "Wispr Flow",
+   "Draft all the promotional content for your product at the speed you talk.",
+   "6 months of Pro free"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/17226348-3ca7-4837-9a75-9f863e05dad5.png",
+   "beehiiv",
+   "Grow",
+   "beehiiv",
+   "Email is one of the most effective ways to promote products. Build the funnel: social to newsletter, newsletter to product.",
+   "25% off all paid plans for 12 months 🏆"
+  ]
+ ],
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $24.50 membership",
+ "co_line": "Your price is 50% off for life.",
+ "co_bullets": [
+  "Up to $2,000 per return toward your taxes",
+  "$1,500+ toward accounting and legal",
+  "Up to $400 in business banking bonuses",
+  "$1,000+ in extra affiliate earnings",
+  "$1,200+ toward your newsletter or podcast",
+  "$450 toward Creator healthcare"
+ ],
+ "co_partners": "Mercury, .store, Pop.Store, Wispr Flow, beehiiv"
+}

@@ -1,0 +1,83 @@
+{
+ "kind": "cobrand",
+ "token": "CR5XUxWQ",
+ "theme_id": "2167074906",
+ "co_block": "1746107473790",
+ "partner": "Pop.Store",
+ "partner_logo": "https://cdn.commoninja.com/asset/7bbccbda-fa40-4b79-bfbe-f433a634bec9.png",
+ "lockup_label": "",
+ "hero_sub": "Pop.Store Creators join for <span class=\"strike\">$49</span> <span class=\"lead\">$24.50/year</span>, 50% off for life.",
+ "join_text": "Join for $24.50/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$24.50/year, 50% off",
+ "sticky_btn": "Join",
+ "cost": 24.5,
+ "join_alt": "50% off for life for Pop.Store Creators. Locked in when you join.",
+ "pin": [
+  ".store",
+  "Insense",
+  "Creator Wizard",
+  "Wispr Flow",
+  "Mercury"
+ ],
+ "demote": [
+  "Hopp"
+ ],
+ "quote_img": "https://cdn.commoninja.com/asset/7bbccbda-fa40-4b79-bfbe-f433a634bec9.png",
+ "quote": "One link should do more than point somewhere. We partnered with Creator Access Network so the Creators selling through Pop.Store can save on everything that grows behind their storefront.",
+ "quote_by": "The Pop.Store team",
+ "picks_sub": "The tools we'd pair with your storefront to land brand deals, fuel your content, and run the business behind it.",
+ "picks": [
+  [
+   "https://cdn.commoninja.com/asset/1096651c-a59f-42d0-b9a0-3edd16434ebb.png",
+   ".store",
+   "Launch",
+   ".store",
+   "A web domain built for selling, free for 5 years, so your storefront has an address you own.",
+   "5 years of your .store domain free 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/7b7f0900-39bb-4672-a3fe-34f11aa2eef7.png",
+   "Insense",
+   "Earn",
+   "Insense",
+   "Skip the line into paid UGC partnerships with big brands.",
+   "Priority access to paid brand campaigns"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/932da69e-34b0-475d-8018-cfbbf709c5f4.png",
+   "Creator Wizard",
+   "Learn",
+   "Creator Wizard",
+   "Justin Moore's sponsorship playbooks help you land more and bigger brand deals.",
+   "Free Sponsor Magnet eBook + 50% off the $10K Challenge"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/9fc7abfd-06f4-42b2-a037-72011fb19b3e.png",
+   "Wispr Flow",
+   "Create",
+   "Wispr Flow",
+   "Talk instead of type, so you can always be creating content that feeds your funnel.",
+   "6 months of Pro free"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/192714c1-3628-4441-b3bd-3876e687e3e5.png",
+   "Mercury",
+   "Run",
+   "Mercury",
+   "Real business banking for all the money you're going to make. Keep store money separate from life money.",
+   "Earn up to $400, terms apply 🏆"
+  ]
+ ],
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $24.50 membership",
+ "co_line": "Your price is 50% off for life.",
+ "co_bullets": [
+  "$200 toward your web domain",
+  "$106 toward sponsorship education",
+  "Up to $90 toward AI dictation",
+  "$1,500+ toward accounting and legal",
+  "Up to $400 in business banking bonuses",
+  "$450 toward Creator healthcare"
+ ],
+ "co_partners": ".store, Insense, Creator Wizard, Wispr Flow, Mercury"
+}

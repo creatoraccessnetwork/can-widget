@@ -1,0 +1,85 @@
+{
+ "kind": "cobrand",
+ "token": "4zo2ZrK8",
+ "theme_id": "2167074904",
+ "co_block": "1746107473790",
+ "partner": "Mighty Networks",
+ "partner_logo": "https://cdn.commoninja.com/asset/6bf52e53-86fe-419e-ab33-876d79d287b0.png",
+ "lockup_label": "",
+ "hero_sub": "Mighty Networks Creators join for <span class=\"strike\">$49</span> <span class=\"lead\">$24.50/year</span>, 50% off for life.",
+ "join_text": "Join for $24.50/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$24.50/year, 50% off",
+ "sticky_btn": "Join",
+ "cost": 24.5,
+ "join_alt": "50% off for life for Mighty Networks Creators. Locked in when you join.",
+ "pin": [
+  ".store",
+  "beehiiv",
+  "Pop.store",
+  "Mercury",
+  "Wispr Flow"
+ ],
+ "demote": [
+  "Kajabi",
+  "Teachable",
+  "Nas.com"
+ ],
+ "quote_img": "https://cdn.commoninja.com/asset/6bf52e53-86fe-419e-ab33-876d79d287b0.png",
+ "quote": "The best communities feel like they run themselves. We partnered with Creator Access Network so the Creators hosting on Mighty can save on everything that powers their communities.",
+ "quote_by": "The Mighty Networks team",
+ "picks_sub": "The tools we'd pair with your community to grow it, fuel it, and run the business behind it.",
+ "picks": [
+  [
+   "https://cdn.commoninja.com/asset/1096651c-a59f-42d0-b9a0-3edd16434ebb.png",
+   ".store",
+   "Launch",
+   ".store",
+   "Give your community a web address you own, free for 5 years.",
+   "5 years of your .store domain free 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/17226348-3ca7-4837-9a75-9f863e05dad5.png",
+   "beehiiv",
+   "Grow",
+   "beehiiv",
+   "Build the newsletter that funnels readers into your membership.",
+   "25% off all paid plans for 12 months 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/7bbccbda-fa40-4b79-bfbe-f433a634bec9.png",
+   "Pop.Store",
+   "Automate",
+   "Pop.Store",
+   "DM and comment automations that turn followers on social into members of your community.",
+   "30% off annual plans 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/192714c1-3628-4441-b3bd-3876e687e3e5.png",
+   "Mercury",
+   "Run",
+   "Mercury",
+   "Real business banking for a community business. Keep membership money separate from life money.",
+   "Earn up to $400, terms apply 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/9fc7abfd-06f4-42b2-a037-72011fb19b3e.png",
+   "Wispr Flow",
+   "Create",
+   "Wispr Flow",
+   "Talk instead of type, so staying in constant conversation with your community never feels like work.",
+   "6 months of Pro free"
+  ]
+ ],
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $24.50 membership",
+ "co_line": "Your price is 50% off for life.",
+ "co_bullets": [
+  "$200 toward your web domain",
+  "$1,200+ toward your newsletter",
+  "Up to $717 toward social automations",
+  "Up to $400 in business banking bonuses",
+  "$1,500+ toward accounting and legal",
+  "$450 toward Creator healthcare"
+ ],
+ "co_partners": ".store, beehiiv, Pop.Store, Mercury, Wispr Flow"
+}

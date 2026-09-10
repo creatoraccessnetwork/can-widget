@@ -1,7 +1,8 @@
 /* CAN project quiz. v1, 2026-09-10.
  * Three or four multiple-choice questions that land on one of fifteen project offer pages.
  * Mounts into #can-quiz-mount. Reads segments.json (next to this script) for the page URLs.
- * Config: window.CANQUIZ = { header, sub, starterUrl } (all optional).
+ * Config: window.CANQUIZ = { header, sub, starterUrl, embed, label } (all optional). embed:true (2026-09-10) renders the
+ * questions as a panel with no card chrome or header, for the homepage hero where the copy sits beside it.
  * Redirect: <segment url>?seg=<slug>&stage=<pre|under100k|over100k>[&platform=<youtube|instagram|newsletter|other>]&via=quiz
  * "Not sure yet" goes to the Starter Set (homepage hero form) with no further questions.
  * Analytics: gtag / fbq / dataLayer when present (quiz_answer per answer, quiz_complete per finish). No email gate.
@@ -12,6 +13,7 @@
   var BASE = window.CANQUIZ_BASE || (thisScript && thisScript.src ? thisScript.src.replace(/[^\/]*$/, "") : "");
   var mount = document.getElementById("can-quiz-mount");
   if (!mount) { mount = document.createElement("div"); mount.id = "can-quiz-mount"; if (thisScript && thisScript.parentNode) thisScript.parentNode.insertBefore(mount, thisScript); }
+  var EMBED = !!O.embed; // hero mode: no outer card, no header; the surrounding hero carries the copy
   var HEADER = O.header || "Save money on your next Creator project.";
   var SUB = O.sub || "CAN members get the best available discounts on the tools and services behind every Creator project. Pick yours and see what you'd save.";
 
@@ -29,7 +31,8 @@
 ".canq .nav{display:flex;justify-content:space-between;align-items:center;margin:16px 0 0;gap:12px}.canq .back{background:none;border:0;color:var(--mute);font:inherit;font-size:15px;font-weight:600;cursor:pointer;padding:8px 0}.canq .back:hover{color:var(--t)}.canq .fine{font-size:15px;line-height:22px;color:var(--mute);margin:0}" +
 ".canq .done{text-align:center;padding:12px 0}.canq .done .q{margin-bottom:8px}.canq .btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 24px;border:0;border-radius:var(--r);cursor:pointer;font-family:var(--body);font-weight:700;font-size:17px;background:var(--rust);color:#fff!important;text-decoration:none!important}" +
 ".canq .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}" +
-"@media (max-width:600px){.canq .card{padding:24px 18px}.canq .h2{font-size:26px}.canq .sub{font-size:17px;line-height:26px}.canq .q{font-size:21px}}" +
+".canq.embed{max-width:none}.canq .panel{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:24px 26px}.canq .ptop{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 10px}.canq .plabel{font-size:13px;line-height:18px;letter-spacing:1.2px;text-transform:uppercase;font-weight:800;color:var(--rust)}.canq.embed .bar{margin:0 0 18px;height:6px;background:#E6EBF2;border-radius:3px;overflow:hidden}.canq.embed .q{font-size:22px}.canq.embed .opt{background:#fff}" +
+"@media (max-width:600px){.canq .card{padding:24px 18px}.canq .panel{padding:18px 16px}.canq.embed .q{font-size:20px}.canq .h2{font-size:26px}.canq .sub{font-size:17px;line-height:26px}.canq .q{font-size:21px}}" +
 "@media (prefers-reduced-motion:reduce){.canq .bar i{transition:none}}";
   var st = document.createElement("style"); st.textContent = CSS; document.head.appendChild(st);
 
@@ -91,8 +94,10 @@
   var URLS = {}, STARTER = O.starterUrl || "https://www.creatoraccessnetwork.com/#top", HOME = "https://www.creatoraccessnetwork.com/";
   var state = { history: [], answers: {}, seg: null, platform: null, cur: "project" };
 
-  mount.className = (mount.className ? mount.className + " " : "") + "canq";
-  mount.innerHTML = '<div class="card" id="quiz"><p class="eyebrow">Your next project</p><h2 class="h2">' + esc(HEADER) + '</h2><p class="sub">' + esc(SUB) + '</p>' +
+  mount.className = (mount.className ? mount.className + " " : "") + "canq" + (EMBED ? " embed" : "");
+  mount.innerHTML = EMBED
+    ? '<div class="panel" id="quiz"><div class="ptop"><span class="plabel">' + esc(O.label || "Your next project") + '</span><span class="step" data-role="step"></span></div><div class="bar" aria-hidden="true"><i data-role="bar"></i></div><div data-role="body" aria-live="polite"></div></div>'
+    : '<div class="card" id="quiz"><p class="eyebrow">Your next project</p><h2 class="h2">' + esc(HEADER) + '</h2><p class="sub">' + esc(SUB) + '</p>' +
     '<div class="prog" aria-hidden="true"><div class="bar"><i data-role="bar"></i></div><span class="step" data-role="step"></span></div>' +
     '<div data-role="body" aria-live="polite"></div></div>';
   var body = mount.querySelector('[data-role="body"]'), bar = mount.querySelector('[data-role="bar"]'), stepEl = mount.querySelector('[data-role="step"]');
@@ -141,7 +146,8 @@
     track("quiz_complete", { segment: "starter", path: "project:unsure" });
     body.innerHTML = '<div class="done"><div class="q">Start with the free Starter Set.</div><p>Thirty discounts, no card, and you can come back to the quiz whenever the next project shows up.</p><a class="btn" href="' + esc(STARTER) + '">Unlock the Starter Set</a><div class="nav"><button type="button" class="back">← Back</button><span></span></div></div>';
     body.querySelector(".back").addEventListener("click", back);
-    var email = document.querySelector('form input[type="email"]');
+    var starterEl = document.getElementById("starter");
+    var email = (starterEl && starterEl.querySelector('input[type="email"]')) || document.querySelector('form input[type="email"]');
     if (email && location.pathname.replace(/\/$/, "") === "" ) { try { email.scrollIntoView({ behavior: "smooth", block: "center" }); setTimeout(function () { email.focus({ preventScroll: true }); }, 400); } catch (e) {} }
   }
 

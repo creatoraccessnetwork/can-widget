@@ -1,0 +1,92 @@
+{
+ "kind": "cobrand",
+ "token": "odrTWCjz",
+ "theme_id": "2167074896",
+ "co_block": "1746107473790",
+ "partner": "Dorian",
+ "partner_logo": "https://cdn.commoninja.com/asset/1c1b028d-4f55-4989-b77f-8b6f1b1f8e3f.jpg",
+ "lockup_label": "",
+ "hero_sub": "Dorian Creators join for <span class=\"strike\">$49</span> <span class=\"lead\">$24.50/year</span>, 50% off for life.",
+ "join_text": "Join for $24.50/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$24.50/year, 50% off",
+ "sticky_btn": "Join",
+ "cost": 24.5,
+ "join_alt": "50% off for life for Dorian Creators. Locked in when you join.",
+ "pin": [
+  "beehiiv",
+  "Hopp",
+  "EssentL Creator",
+  "ClearPath",
+  "Unbound Legal",
+  "Pierson Ferdinand",
+  "Fourthwall"
+ ],
+ "demote": [],
+ "quote_img": "https://cdn.theorg.com/63a88ec5-142d-4c1e-bea2-f223e7e630db_large.jpg",
+ "quote": "I genuinely believe CAN is a good initiative that deserves more attention. We hand-picked the partners our Creators ask us about most — so you don't miss deals that can benefit you. Very excited for this!",
+ "quote_by": "Julia Palatovska, CEO, Dorian",
+ "picks_sub": "These are the tools our Creators ask us about most — for growing your audience, monetizing your story worlds, and handling the boring-but-important stuff. Very excited to share them!",
+ "picks": [
+  [
+   "https://cdn.commoninja.com/asset/17226348-3ca7-4837-9a75-9f863e05dad5.png",
+   "beehiiv",
+   "Grow",
+   "beehiiv",
+   "Email is a great way to manage your community and build the audience affinity that keeps players coming back.",
+   "25% off all paid plans for 12 months 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/6a5383c0-7402-4feb-ac32-85e526a82f1f.png",
+   "Hopp by Wix",
+   "Share",
+   "Hopp by Wix",
+   "One beautiful bio link for everywhere your stories live.",
+   "50% off Grow plan, 30% off other paid plans 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/3797119d-e8fb-414e-b0c4-37b6d4cb5eec.png",
+   "essentL Creator",
+   "Care",
+   "essentL Creator",
+   "Health insurance built for full-time independent storytellers.",
+   "50% off service fees for 6 months 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/4b70b4e5-e6d8-4918-a71c-14d3c3f89a00.png",
+   "ClearPath",
+   "Taxes",
+   "ClearPath",
+   "Accounting from a firm that knows Creator businesses, so the books never fall behind.",
+   "Free consultation + 25% off tax services for 12 months 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/f401d169-92e9-4a4e-bd9c-d4fc7535db9d.jpg",
+   "Unbound Legal",
+   "Legal",
+   "Unbound Legal + Pierson Ferdinand",
+   "When your stories become games, contracts and IP questions follow. Unbound Legal for ongoing packages, Pierson Ferdinand for one-on-one counsel.",
+   "15% off legal packages · $150 off a legal consultation 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/1f312bbf-eb47-41f5-890c-9d5e4e39b7fc.png",
+   "Fourthwall",
+   "Monetize",
+   "Fourthwall",
+   "Merch built on the characters and story worlds you're creating, without inventory or code.",
+   "$50 in sample credits 🏆"
+  ]
+ ],
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $24.50 membership",
+ "co_line": "Your price is 50% off for life.",
+ "co_bullets": [
+  "$1,200+ toward your newsletter or podcast",
+  "$600+ toward your link in bio",
+  "$50 in free merch samples",
+  "$1,500+ toward accounting and legal",
+  "$450 toward Creator healthcare",
+  "Up to $400 in business banking bonuses"
+ ],
+ "co_partners": "beehiiv, Fourthwall, Hopp by Wix, essentL Creator, ClearPath",
+ "quote_is_photo": true
+}

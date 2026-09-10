@@ -1,0 +1,33 @@
+{
+ "kind": "regular",
+ "token": "ScGi2fxM",
+ "co_block": "1770661061280",
+ "lockup_label": "",
+ "hero_sub": "Lifetime membership: <span class=\"lead\">$249</span>, paid once, never again.",
+ "join_text": "Join for life, $249",
+ "hero_meta": "One discount pays for the membership. One payment, lifetime access.",
+ "sticky_price": "$249 once, lifetime",
+ "sticky_btn": "Join",
+ "cost": 249,
+ "join_alt": "One payment. No renewals, ever.",
+ "price_year": "$249, once",
+ "price_num": "$249",
+ "net": "$2,850+",
+ "pricing_headline": "Save thousands for life, for $249 once.",
+ "offer_title": "CAN Lifetime Membership",
+ "price_big": "$249<small> one time</small>",
+ "lock": "pay $249 once and you're a member for life, no renewals.",
+ "co_title": "Included with your $249 lifetime membership",
+ "co_line": "One payment. Lifetime access.",
+ "co_bullets": [
+  "$1,200+ toward your newsletter or podcast",
+  "$1,400+ toward your community",
+  "$500+ toward courses and digital products",
+  "$600+ toward your link in bio",
+  "$1,500+ toward accounting and legal",
+  "$450 toward Creator healthcare"
+ ],
+ "co_partners": "Kajabi, Teachable, beehiiv, Fourthwall, Insense, ShopYourLikes",
+ "theme_id": "2166962517",
+ "disclaimer": "By completing your purchase, you will be charged $249 today for lifetime access to Creator Access Network. There are no renewals."
+}

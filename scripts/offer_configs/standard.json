@@ -1,0 +1,32 @@
+{
+ "kind": "regular",
+ "token": "oyLoKFBu",
+ "co_block": "1770661061280",
+ "lockup_label": "",
+ "hero_sub": "Join for <span class=\"lead\">$49/year</span>, locked in for life.",
+ "join_text": "Join for $49/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$49/year, locked in",
+ "sticky_btn": "Join",
+ "cost": 49,
+ "join_alt": "Locked in for life. Not ready? <a href=\"https://www.creatoraccessnetwork.com/#top\">Unlock the Starter Set free</a>.",
+ "price_year": "$49 a year",
+ "price_num": "$49",
+ "net": "$3,050+",
+ "pricing_headline": "Save thousands for just $49/year.",
+ "offer_title": "CAN Membership",
+ "price_big": "$49<small>/year</small>",
+ "lock": "join at $49/year and your rate never goes up, even when the price does.",
+ "co_title": "Included with your $49 membership",
+ "co_line": "Your rate is locked in for life.",
+ "co_bullets": [
+  "$1,200+ toward your newsletter or podcast",
+  "$1,400+ toward your community",
+  "$500+ toward courses and digital products",
+  "$600+ toward your link in bio",
+  "$1,500+ toward accounting and legal",
+  "$450 toward Creator healthcare"
+ ],
+ "co_partners": "Kajabi, Teachable, beehiiv, Fourthwall, Insense, ShopYourLikes",
+ "theme_id": "2166962515"
+}

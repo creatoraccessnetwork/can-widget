@@ -1,0 +1,81 @@
+{
+ "kind": "cobrand",
+ "token": "Wuvuk8Sz",
+ "theme_id": "2166984408",
+ "co_block": "1746107473790",
+ "partner": ".store",
+ "partner_logo": "https://cdn.commoninja.com/asset/1096651c-a59f-42d0-b9a0-3edd16434ebb.png",
+ "lockup_label": "",
+ "hero_sub": ".store Creators join for <span class=\"strike\">$49</span> <span class=\"lead\">$24.50/year</span>, 50% off for life.",
+ "join_text": "Join for $24.50/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$24.50/year, 50% off",
+ "sticky_btn": "Join",
+ "cost": 24.5,
+ "join_alt": "50% off for life for .store Creators. Locked in when you join.",
+ "pin": [
+  "Pop.store",
+  "Fourthwall",
+  "beehiiv",
+  "ShopYourLikes",
+  "Mercury"
+ ],
+ "demote": [],
+ "quote_img": "https://cdn.commoninja.com/asset/1096651c-a59f-42d0-b9a0-3edd16434ebb.png",
+ "quote": "Your domain is the front door of your business. We partnered with Creator Access Network so the Creators building on .store can save on everything behind it.",
+ "quote_by": "The .store Domains team",
+ "picks_sub": "The tools we'd pair with your .store domain to launch, grow, and monetize what you sell.",
+ "picks": [
+  [
+   "https://cdn.commoninja.com/asset/7bbccbda-fa40-4b79-bfbe-f433a634bec9.png",
+   "Pop.Store",
+   "Automate",
+   "Pop.Store",
+   "Automate your DMs and comments so followers land on your site without you lifting a finger.",
+   "30% off annual plans 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/1f312bbf-eb47-41f5-890c-9d5e4e39b7fc.png",
+   "Fourthwall",
+   "Sell",
+   "Fourthwall",
+   "Build out your site and sell merchandise from a storefront that looks like a whole team made it.",
+   "$50 in sample credits 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/17226348-3ca7-4837-9a75-9f863e05dad5.png",
+   "beehiiv",
+   "Grow",
+   "beehiiv",
+   "Build the email newsletter and funnel that sends buyers back to your site again and again.",
+   "25% off all paid plans for 12 months 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/dcefc1df-a971-4315-a594-b32db8781973.png",
+   "ShopYourLikes",
+   "Earn",
+   "ShopYourLikes",
+   "Find affiliate partners you can sell from your website, with links your audience actually clicks.",
+   "Keep 5% more from 20,000+ brands 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/192714c1-3628-4441-b3bd-3876e687e3e5.png",
+   "Mercury",
+   "Run",
+   "Mercury",
+   "A bank account for all the money you're going to be making. Keep shop money separate from life money.",
+   "Earn up to $400, terms apply 🏆"
+  ]
+ ],
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $24.50 membership",
+ "co_line": "Your price is 50% off for life.",
+ "co_bullets": [
+  "$50 in free merch samples",
+  "$1,200+ toward your newsletter",
+  "$1,000+ in extra affiliate earnings",
+  "Up to $400 in business banking bonuses",
+  "$1,500+ toward accounting and legal",
+  "$450 toward Creator healthcare"
+ ],
+ "co_partners": "Pop.Store, Fourthwall, beehiiv, ShopYourLikes, Mercury"
+}

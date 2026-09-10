@@ -1,0 +1,33 @@
+{
+ "kind": "regular",
+ "token": "627RazBc",
+ "co_block": "1746107473790",
+ "lockup_label": "",
+ "hero_sub": "Nikki Sult's community joins for <span class=\"strike\">$49</span> <span class=\"lead\">$36.75/year</span>, 25% off for life.",
+ "join_text": "Join for $36.75/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$36.75/year, 25% off",
+ "sticky_btn": "Join",
+ "cost": 36.75,
+ "join_alt": "25% off for life for Nikki Sult's community. Locked in when you join.",
+ "price_year": "$36.75 a year",
+ "price_num": "$36.75",
+ "net": "$3,060+",
+ "pricing_headline": "Save thousands for just $36.75/year.",
+ "offer_title": "CAN Membership",
+ "price_big": "<span class=\"was\">$49</span>$36.75<small>/year</small>",
+ "lock": "join at $36.75/year and your rate never goes up, even when the price does.",
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $36.75 membership",
+ "co_line": "Your price is 25% off for life.",
+ "co_bullets": [
+  "$1,200+ toward your newsletter or podcast",
+  "$1,400+ toward your community",
+  "$500+ toward courses and digital products",
+  "$600+ toward your link in bio",
+  "$1,500+ toward accounting and legal",
+  "$450 toward Creator healthcare"
+ ],
+ "co_partners": "Kajabi, Teachable, beehiiv, Fourthwall, Insense, ShopYourLikes",
+ "theme_id": "2167093878",
+ "co_hide_image": "1744906803654_0"
+}

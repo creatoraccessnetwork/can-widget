@@ -1,0 +1,83 @@
+{
+ "kind": "cobrand",
+ "token": "FXBjYndw",
+ "theme_id": "2166810561",
+ "co_block": "1770661061280",
+ "partner": "Rahim Jessani",
+ "partner_logo": "https://lh3.googleusercontent.com/d/1OJp9mL7J-kExivS8QSghWFKXYN-A2VVi",
+ "lockup_label": "",
+ "hero_sub": "Rahim's community joins for <span class=\"strike\">$49</span> <span class=\"lead\">$24.50/year</span>, 50% off for life.",
+ "join_text": "Join for $24.50/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$24.50/year, 50% off",
+ "sticky_btn": "Join",
+ "cost": 24.5,
+ "join_alt": "50% off for life for Rahim's community. Locked in when you join.",
+ "pin": [
+  "Wispr Flow",
+  "beehiiv",
+  "Pop.store",
+  "Teachable",
+  "EssentL Creator"
+ ],
+ "demote": [],
+ "quote_img": "https://lh3.googleusercontent.com/d/1OJp9mL7J-kExivS8QSghWFKXYN-A2VVi",
+ "quote": "Excited to partner with Creator Access Network to help creator journalists get discounts on vital tools to grow their audiences and build their independent media journey.",
+ "quote_by": "Rahim Jessani, Founder, Bottom Up Media",
+ "picks_sub": "My go-to tools for every stage of the creator-journalist journey, built to help you grow and monetize what you make.",
+ "picks": [
+  [
+   "https://cdn.commoninja.com/asset/9fc7abfd-06f4-42b2-a037-72011fb19b3e.png",
+   "Wispr Flow",
+   "Create",
+   "Wispr Flow",
+   "Get what's in your head onto the page fast, just talk it out and ship the draft (six months free is a steal).",
+   "6+ months of Wispr Flow Pro free"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/17226348-3ca7-4837-9a75-9f863e05dad5.png",
+   "beehiiv",
+   "Grow",
+   "beehiiv",
+   "Your newsletter is the foundation of an owned audience, and beehiiv is where every creator-journalist should build it.",
+   "25% off all paid plans for 12 months 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/7bbccbda-fa40-4b79-bfbe-f433a634bec9.png",
+   "Pop.Store",
+   "Monetize",
+   "Pop.Store",
+   "Bio link with powerful AI automations that let you turn an Instagram audience into email subscribers quickly and easily.",
+   "30% off annual plans 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/dbf2a3ca-a19d-44fe-a61e-3bff641ecc82.jpeg",
+   "Teachable",
+   "Monetize",
+   "Teachable",
+   "Every reporter is sitting on teachable skills; Teachable turns that expertise into a course you can sell again and again.",
+   "30% off Annual Builder and Growth plans 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/3797119d-e8fb-414e-b0c4-37b6d4cb5eec.png",
+   "EssentL Creator",
+   "Run",
+   "EssentL Creator",
+   "The unglamorous back office of going solo: legal, healthcare, and payroll, bundled at a price one person can afford.",
+   "50% off service fees for 6 months 🏆"
+  ]
+ ],
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $24.50 membership",
+ "co_line": "Your price is 50% off for life.",
+ "co_bullets": [
+  "$1,200+ toward your newsletter or podcast",
+  "$1,400+ toward your community",
+  "$500+ toward courses and digital products",
+  "$600+ toward your link in bio",
+  "$1,500+ toward accounting and legal",
+  "$450 toward Creator healthcare"
+ ],
+ "co_partners": "Kajabi, Teachable, beehiiv, Fourthwall, Insense, ShopYourLikes",
+ "partner_logo_is_photo": true,
+ "quote_is_photo": true
+}

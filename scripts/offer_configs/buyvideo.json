@@ -1,0 +1,81 @@
+{
+ "kind": "cobrand",
+ "token": "zmaZxkvb",
+ "theme_id": "2167074200",
+ "co_block": "1746107473790",
+ "partner": "Buy.Video",
+ "partner_logo": "https://cdn.commoninja.com/asset/ec692c8e-3ff5-4eb4-adee-196f3c05780f.png",
+ "lockup_label": "",
+ "hero_sub": "Buy.Video Creators join for <span class=\"strike\">$49</span> <span class=\"lead\">$24.50/year</span>, 50% off for life.",
+ "join_text": "Join for $24.50/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$24.50/year, 50% off",
+ "sticky_btn": "Join",
+ "cost": 24.5,
+ "join_alt": "50% off for life for Buy.Video Creators. Locked in when you join.",
+ "pin": [
+  "Epidemic Sound",
+  "Elevate.io",
+  "EditHers",
+  "Insense",
+  "Mercury"
+ ],
+ "demote": [],
+ "quote_img": "https://cdn.commoninja.com/asset/ec692c8e-3ff5-4eb4-adee-196f3c05780f.png",
+ "quote": "Your videos are worth more than ad revenue. We partnered with Creator Access Network so the Creators selling on Buy.Video can save on everything it takes to make what they sell.",
+ "quote_by": "The Buy.Video team",
+ "picks_sub": "The tools we'd pair with your video business to produce more, earn more, and keep more.",
+ "picks": [
+  [
+   "https://cdn.commoninja.com/asset/d4a0ac81-8de7-4857-9b3c-43d803fa9871.png",
+   "Epidemic Sound",
+   "Create",
+   "Epidemic Sound",
+   "Soundtrack your drops strike-free from the biggest Creator-friendly music library.",
+   "50% off annual Creator plan 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/ee1380b1-42d6-4d93-9b3e-917333012589.png",
+   "Elevate.io",
+   "Create",
+   "Elevate.io",
+   "Edit with your team like it's a shared doc. No more export-upload-download loops between cuts.",
+   "3 months free 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/a567569b-dc20-4ae4-9b65-82cea76487fb.png",
+   "EditHers",
+   "Team",
+   "EditHers",
+   "Hire vetted editing and production talent from the community of women behind top YouTube channels.",
+   "Free access"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/7b7f0900-39bb-4672-a3fe-34f11aa2eef7.png",
+   "Insense",
+   "Earn",
+   "Insense",
+   "Skip the line into big-brand UGC campaigns that pay you for the video skills you already have.",
+   "Priority access to top campaigns"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/192714c1-3628-4441-b3bd-3876e687e3e5.png",
+   "Mercury",
+   "Run",
+   "Mercury",
+   "Real business banking for your video business. Keep drop revenue separate from life money.",
+   "Earn up to $400, terms apply 🏆"
+  ]
+ ],
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $24.50 membership",
+ "co_line": "Your price is 50% off for life.",
+ "co_bullets": [
+  "$50+ toward music licensing",
+  "Up to $75 toward collaborative video editing",
+  "$1,000+ in extra affiliate earnings",
+  "$1,500+ toward accounting and legal",
+  "Up to $400 in business banking bonuses",
+  "$450 toward Creator healthcare"
+ ],
+ "co_partners": "Epidemic Sound, Elevate.io, Insense, ShopYourLikes, Mercury"
+}

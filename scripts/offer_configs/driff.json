@@ -1,0 +1,81 @@
+{
+ "kind": "cobrand",
+ "token": "bmXXLLP9",
+ "theme_id": "2167116183",
+ "co_block": "1746107473790",
+ "partner": "Driff",
+ "partner_logo": "https://cdn.commoninja.com/asset/f2ba5c50-5620-4bab-9ac1-be4fb519fb79.jpg",
+ "lockup_label": "",
+ "hero_sub": "Driff Creators join for <span class=\"strike\">$49</span> <span class=\"lead\">$24.50/year</span>, 50% off for life.",
+ "join_text": "Join for $24.50/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$24.50/year, 50% off",
+ "sticky_btn": "Join",
+ "cost": 24.5,
+ "join_alt": "50% off for life for Driff Creators. Locked in when you join.",
+ "pin": [
+  "Wispr Flow",
+  "Mercury",
+  "beehiiv",
+  ".store",
+  "ClearPath"
+ ],
+ "demote": [],
+ "quote_img": "https://cdn.commoninja.com/asset/f2ba5c50-5620-4bab-9ac1-be4fb519fb79.jpg",
+ "quote": "Your DMs are full of real conversations worth paying for. We partnered with Creator Access Network so the Creators earning on Driff can save on everything behind them.",
+ "quote_by": "The Driff team",
+ "picks_sub": "The tools we'd pair with your Driff conversations to grow your audience, run the business, and keep more of what you earn.",
+ "picks": [
+  [
+   "https://cdn.commoninja.com/asset/9fc7abfd-06f4-42b2-a037-72011fb19b3e.png",
+   "Wispr Flow",
+   "Create",
+   "Wispr Flow",
+   "Talk instead of type, so keeping up with every fan conversation never slows you down.",
+   "6 months of Pro free"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/192714c1-3628-4441-b3bd-3876e687e3e5.png",
+   "Mercury",
+   "Run",
+   "Mercury",
+   "A bank account for all the money you're making. Real business banking for a fan-powered business.",
+   "Earn up to $400, terms apply 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/17226348-3ca7-4837-9a75-9f863e05dad5.png",
+   "beehiiv",
+   "Grow",
+   "beehiiv",
+   "Turn your followers into an email list you own. A direct line to every fan, no algorithm in between.",
+   "25% off all paid plans for 12 months 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/1096651c-a59f-42d0-b9a0-3edd16434ebb.png",
+   ".store",
+   "Launch",
+   ".store",
+   "Give your business a home on the web with an address you own, free for 5 years.",
+   "5 years of your .store domain free 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/4b70b4e5-e6d8-4918-a71c-14d3c3f89a00.png",
+   "ClearPath",
+   "Taxes",
+   "ClearPath",
+   "Accounting for your Creator business, from a firm that knows how Creators earn.",
+   "25% off for 1 year 🏆"
+  ]
+ ],
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $24.50 membership",
+ "co_line": "Your price is 50% off for life.",
+ "co_bullets": [
+  "$200 toward your web domain",
+  "Up to $1,212 toward your newsletter platform",
+  "Up to $90 toward AI dictation",
+  "Up to $400 in business banking bonuses",
+  "$1,500+ toward accounting and legal",
+  "$450 toward Creator healthcare"
+ ],
+ "co_partners": "Wispr Flow, Mercury, beehiiv, .store, ClearPath"
+}

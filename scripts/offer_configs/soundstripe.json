@@ -1,0 +1,94 @@
+{
+ "kind": "cobrand",
+ "token": "9kCFLLQr",
+ "theme_id": "2167203201",
+ "co_block": "1746107473790",
+ "partner": "Soundstripe",
+ "partner_logo": "https://cdn.commoninja.com/asset/963868aa-b7ef-4203-9e2b-29ad53a4f022.png",
+ "lockup_label": "",
+ "hero_sub": "Soundstripe Creators join for <span class=\"strike\">$49</span> <span class=\"lead\">$24.50/year</span>, 50% off for life.",
+ "join_text": "Join for $24.50/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$24.50/year, 50% off",
+ "sticky_btn": "Join",
+ "cost": 24.5,
+ "join_alt": "50% off for life for Soundstripe Creators. Locked in when you join.",
+ "pin": [
+  "Buy.Video",
+  "Elevate.io",
+  "EditHers",
+  "Insense",
+  "Mercury",
+  "Wispr Flow"
+ ],
+ "demote": [
+  "Slipstream",
+  "Epidemic Sound",
+  "Thematic"
+ ],
+ "quote_img": "https://cdn.commoninja.com/asset/963868aa-b7ef-4203-9e2b-29ad53a4f022.png",
+ "quote": "Great content deserves a great soundtrack. We partnered with Creator Access Network so the Creators scoring with Soundstripe can save on everything else it takes to make great videos.",
+ "quote_by": "The Soundstripe team",
+ "picks_sub": "The tools we'd pair with your videos to produce more, earn more, and keep more.",
+ "picks": [
+  [
+   "https://cdn.commoninja.com/asset/ec692c8e-3ff5-4eb4-adee-196f3c05780f.png",
+   "Buy.Video",
+   "Sell",
+   "Buy.Video",
+   "Sell your videos as timed drops and turn hype into revenue, with zero platform fees to start.",
+   "No platform fees on your first 2,500 sales 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/ee1380b1-42d6-4d93-9b3e-917333012589.png",
+   "Elevate.io",
+   "Create",
+   "Elevate.io",
+   "Edit with your team like it's a shared doc. No more export-upload-download loops between cuts.",
+   "3 months free 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/a567569b-dc20-4ae4-9b65-82cea76487fb.png",
+   "EditHers",
+   "Team",
+   "EditHers",
+   "Hire vetted editing and production talent from the community of women behind top YouTube channels.",
+   "Free access"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/7b7f0900-39bb-4672-a3fe-34f11aa2eef7.png",
+   "Insense",
+   "Earn",
+   "Insense",
+   "Skip the line into big-brand UGC campaigns that pay you for the video skills you already have.",
+   "Priority access to paid brand campaigns"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/192714c1-3628-4441-b3bd-3876e687e3e5.png",
+   "Mercury",
+   "Run",
+   "Mercury",
+   "Real business banking for your video business. Keep content money separate from life money.",
+   "Earn up to $400, terms apply 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/9fc7abfd-06f4-42b2-a037-72011fb19b3e.png",
+   "Wispr Flow",
+   "Write",
+   "Wispr Flow",
+   "For all the titles and YouTube descriptions you'll be writing. Draft them at the speed you talk.",
+   "6 months of Pro free"
+  ]
+ ],
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $24.50 membership",
+ "co_line": "Your price is 50% off for life.",
+ "co_bullets": [
+  "$1,000+ toward selling your videos",
+  "Up to $200 toward live video production",
+  "Up to $75 toward collaborative video editing",
+  "$1,500+ toward accounting and legal",
+  "Up to $400 in business banking bonuses",
+  "$450 toward Creator healthcare"
+ ],
+ "co_partners": "Buy.Video, Elevate.io, EditHers, Insense, Mercury, Wispr Flow"
+}

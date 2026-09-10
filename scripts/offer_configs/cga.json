@@ -1,0 +1,81 @@
+{
+ "kind": "cobrand",
+ "token": "kodnxeQ3",
+ "theme_id": "2167074897",
+ "co_block": "1746107473790",
+ "partner": "Creators Guild of America",
+ "partner_logo": "https://cdn.commoninja.com/asset/e67d4f36-c7aa-4257-8a6d-71ac3a703128.png",
+ "lockup_label": "",
+ "hero_sub": "Creators Guild of America Creators join for <span class=\"strike\">$49</span> <span class=\"lead\">$24.50/year</span>, 50% off for life.",
+ "join_text": "Join for $24.50/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$24.50/year, 50% off",
+ "sticky_btn": "Join",
+ "cost": 24.5,
+ "join_alt": "50% off for life for Creators Guild of America Creators. Locked in when you join.",
+ "pin": [
+  "Creator Wizard",
+  "CreatorScore",
+  "DUPAY",
+  "EssentL Creator",
+  "Mercury"
+ ],
+ "demote": [],
+ "quote_img": "https://cdn.commoninja.com/asset/e67d4f36-c7aa-4257-8a6d-71ac3a703128.png",
+ "quote": "Every industry takes care of its professionals. We partnered with Creator Access Network to bring our Guild members the kind of benefits a career in content deserves.",
+ "quote_by": "The Creators Guild of America team",
+ "picks_sub": "The tools we'd pair with your Guild profile to prove your value, protect your deals, and run your career like a pro.",
+ "picks": [
+  [
+   "https://cdn.commoninja.com/asset/932da69e-34b0-475d-8018-cfbbf709c5f4.png",
+   "Creator Wizard",
+   "Learn",
+   "Creator Wizard",
+   "Justin Moore teaches Creators how to land and negotiate brand deals, from first pitch to signed contract.",
+   "Free Sponsor Magnet eBook + 50% off the $10K Challenge"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/6eebbca6-0b7e-4918-bc1b-32201328b1ce.png",
+   "CreatorScore",
+   "Deals",
+   "CreatorScore",
+   "See your content the way brands do and fix the red flags before they cost you a deal.",
+   "2 months free, then 50% off for life 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/4ac8cbc0-639e-4d10-92ff-7066af0e1b2c.png",
+   "DUPAY",
+   "Protect",
+   "DUPAY",
+   "Contracts, invoicing, and help collecting when a brand won't pay.",
+   "2 months of Tools + Protection free 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/3797119d-e8fb-414e-b0c4-37b6d4cb5eec.png",
+   "essentL Creator",
+   "Care",
+   "essentL Creator",
+   "Corporate-grade health insurance built for Creators, often cheaper than the public market.",
+   "50% off the service fee for 6 months 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/192714c1-3628-4441-b3bd-3876e687e3e5.png",
+   "Mercury",
+   "Run",
+   "Mercury",
+   "Real business banking for a career in content. Keep deal money separate from life money.",
+   "Earn up to $400, terms apply 🏆"
+  ]
+ ],
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $24.50 membership",
+ "co_line": "Your price is 50% off for life.",
+ "co_bullets": [
+  "$106 toward sponsorship education",
+  "Up to $160 toward your brand-readiness score",
+  "$60 toward getting paid on every deal",
+  "$450 toward Creator healthcare",
+  "$1,500+ toward accounting and legal",
+  "Up to $400 in business banking bonuses"
+ ],
+ "co_partners": "Creator Wizard, CreatorScore, DUPAY, essentL Creator, Mercury"
+}

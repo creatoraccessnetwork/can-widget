@@ -1,0 +1,65 @@
+{
+ "kind": "cobrand",
+ "token": "CGozB2mB",
+ "theme_id": "2167203203",
+ "co_block": "1746107473790",
+ "partner": "Creatorland",
+ "partner_logo": "https://cdn.commoninja.com/asset/fe0311f3-70b9-4663-85d3-e034884fe28f.png",
+ "lockup_label": "",
+ "hero_sub": "Creatorland Creators join for <span class=\"strike\">$49</span> <span class=\"lead\">$24.50/year</span>, 50% off for life.",
+ "join_text": "Join for $24.50/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$24.50/year, 50% off",
+ "sticky_btn": "Join",
+ "cost": 24.5,
+ "join_alt": "50% off for life for Creatorland Creators. Locked in when you join.",
+ "pin": [
+  "Dealsync by Creatorland",
+  "Wispr Flow",
+  "Epidemic Sound"
+ ],
+ "demote": [
+  "FYPM"
+ ],
+ "quote_img": "https://cdn.commoninja.com/asset/fe0311f3-70b9-4663-85d3-e034884fe28f.png",
+ "quote": "MCP Pro puts Creatorland's creator-economy data inside your AI assistant. We partnered with Creator Access Network so the Creators building with Creatorland can save on everything else that powers their business.",
+ "quote_by": "The Creatorland team",
+ "picks_sub": "The tools we'd pair with MCP Pro to win more deals, create more, and keep more.",
+ "picks": [
+  [
+   "https://cdn.commoninja.com/asset/5141857a-cc67-4e85-93d1-ad94efbaa33d.png",
+   "Dealsync by Creatorland",
+   "Automate",
+   "Dealsync by Creatorland",
+   "The AI inbox assistant that tracks your active brand deals, surfaces new opportunities, and keeps up with past partners so you get paid again and again.",
+   "50% off for 6 months"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/9fc7abfd-06f4-42b2-a037-72011fb19b3e.png",
+   "Wispr Flow",
+   "Write",
+   "Wispr Flow",
+   "For all the pitches, proposals, and follow-ups you'll be sending. Draft them at the speed you talk.",
+   "6 months of Pro free"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/d4a0ac81-8de7-4857-9b3c-43d803fa9871.png",
+   "Epidemic Sound",
+   "Score",
+   "Epidemic Sound",
+   "Score every video from the biggest name in YouTube-safe soundtracks, cleared before you hit publish.",
+   "50% off the annual Creator plan 🏆"
+  ]
+ ],
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $24.50 membership",
+ "co_line": "Your price is 50% off for life.",
+ "co_bullets": [
+  "$60+ toward your brand-deal inbox",
+  "Up to $90 toward AI dictation for pitches and outreach",
+  "$60 toward YouTube-safe music",
+  "$1,500+ toward accounting and legal",
+  "Up to $400 in business banking bonuses",
+  "$450 toward Creator healthcare"
+ ],
+ "co_partners": "Dealsync, Wispr Flow, Epidemic Sound"
+}

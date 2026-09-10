@@ -1,0 +1,32 @@
+{
+ "kind": "regular",
+ "token": "j9NpBNze",
+ "co_block": "1746107473790",
+ "lockup_label": "",
+ "hero_sub": "Subscribers join for <span class=\"strike\">$49</span> <span class=\"lead\">$24.50/year</span>, 50% off for life.",
+ "join_text": "Join for $24.50/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$24.50/year, 50% off",
+ "sticky_btn": "Join",
+ "cost": 24.5,
+ "join_alt": "50% off for life for newsletter subscribers. Locked in when you join.",
+ "price_year": "$24.50 a year",
+ "price_num": "$24.50",
+ "net": "$3,075+",
+ "pricing_headline": "Save thousands for just $24.50/year.",
+ "offer_title": "CAN Membership for Newsletter Subscribers",
+ "price_big": "<span class=\"was\">$49</span>$24.50<small>/year</small>",
+ "lock": "join at $24.50/year and your rate never goes up, even when the price does.",
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $24.50 membership",
+ "co_line": "Your price is 50% off for life.",
+ "co_bullets": [
+  "$1,200+ toward your newsletter",
+  "$1,500+ toward accounting and taxes",
+  "$350+ toward courses and community",
+  "$200+ toward your own .store domain",
+  "$100+ toward landing bigger brand deals",
+  "6 months of Wispr Flow Pro free"
+ ],
+ "co_partners": "beehiiv, ClearPath, Kajabi, Creator Wizard",
+ "theme_id": "2167281961"
+}

@@ -1,0 +1,87 @@
+{
+ "kind": "cobrand",
+ "token": "AXDVjrbc",
+ "theme_id": "2167074905",
+ "co_block": "1746107473790",
+ "partner": "TopFan",
+ "partner_logo": "https://cdn.commoninja.com/asset/8fe364b7-4594-4c1a-8ca2-a1f8cb570965.png",
+ "lockup_label": "",
+ "hero_sub": "TopFan Creators join for <span class=\"strike\">$49</span> <span class=\"lead\">$24.50/year</span>, 50% off for life.",
+ "join_text": "Join for $24.50/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$24.50/year, 50% off",
+ "sticky_btn": "Join",
+ "cost": 24.5,
+ "join_alt": "50% off for life for TopFan Creators. Locked in when you join.",
+ "pin": [
+  "Wispr Flow",
+  "Mercury",
+  "Pop.store",
+  ".store",
+  "ClearPath"
+ ],
+ "demote": [
+  "Kajabi",
+  "Teachable",
+  "Nas.com",
+  "Mighty Networks",
+  "Fourthwall"
+ ],
+ "quote_img": "https://cdn.commoninja.com/asset/8fe364b7-4594-4c1a-8ca2-a1f8cb570965.png",
+ "quote": "Your superfans deserve more than another feed. We partnered with Creator Access Network so the Creators running their apps with TopFan can save on everything behind them.",
+ "quote_by": "The TopFan team",
+ "picks_sub": "The tools we'd pair with your app to grow your audience, fuel your content, and run the business behind it.",
+ "picks": [
+  [
+   "https://cdn.commoninja.com/asset/9fc7abfd-06f4-42b2-a037-72011fb19b3e.png",
+   "Wispr Flow",
+   "Create",
+   "Wispr Flow",
+   "Talk instead of type, so it's easy to always be in it with your community.",
+   "6 months of Pro free"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/192714c1-3628-4441-b3bd-3876e687e3e5.png",
+   "Mercury",
+   "Run",
+   "Mercury",
+   "A bank account for all the money you're making. Real business banking for a fan-powered business.",
+   "Earn up to $400, terms apply 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/7bbccbda-fa40-4b79-bfbe-f433a634bec9.png",
+   "Pop.Store",
+   "Automate",
+   "Pop.Store",
+   "AI DM automations that help you convert audience into customers.",
+   "30% off annual plans 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/1096651c-a59f-42d0-b9a0-3edd16434ebb.png",
+   ".store",
+   "Launch",
+   ".store",
+   "Give your community a home on the web with an address you own, free for 5 years.",
+   "5 years of your .store domain free 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/4b70b4e5-e6d8-4918-a71c-14d3c3f89a00.png",
+   "ClearPath",
+   "Taxes",
+   "ClearPath",
+   "Accounting for your community business, from a firm that knows how Creators earn.",
+   "25% off for 1 year 🏆"
+  ]
+ ],
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $24.50 membership",
+ "co_line": "Your price is 50% off for life.",
+ "co_bullets": [
+  "$200 toward your web domain",
+  "Up to $717 toward social automations",
+  "Up to $90 toward AI dictation",
+  "Up to $400 in business banking bonuses",
+  "$1,500+ toward accounting and legal",
+  "$450 toward Creator healthcare"
+ ],
+ "co_partners": "Wispr Flow, Mercury, Pop.Store, .store, ClearPath"
+}

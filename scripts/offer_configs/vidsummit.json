@@ -1,0 +1,90 @@
+{
+ "kind": "cobrand",
+ "token": "ibTN9CRa",
+ "theme_id": "2167203202",
+ "co_block": "1746107473790",
+ "partner": "VidSummit",
+ "partner_logo": "https://cdn.commoninja.com/asset/7430a53d-7613-4c28-aeda-3ba7ce91e2ef.png",
+ "lockup_label": "",
+ "hero_sub": "VidSummit Creators join for <span class=\"strike\">$49</span> <span class=\"lead\">$24.50/year</span>, 50% off for life.",
+ "join_text": "Join for $24.50/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$24.50/year, 50% off",
+ "sticky_btn": "Join",
+ "cost": 24.5,
+ "join_alt": "50% off for life for VidSummit Creators. Locked in when you join.",
+ "pin": [
+  "Epidemic Sound",
+  "Elevate.io",
+  "EditHers",
+  "Insense",
+  "Mercury",
+  "Wispr Flow"
+ ],
+ "demote": [],
+ "quote_img": "https://cdn.commoninja.com/asset/7430a53d-7613-4c28-aeda-3ba7ce91e2ef.png",
+ "quote": "VidSummit exists to put you in the room where video careers level up. We partnered with Creator Access Network so the Creators joining us can save on everything it takes to grow between summits.",
+ "quote_by": "The VidSummit team",
+ "picks_sub": "The tools we'd pair with your channel to produce more, earn more, and keep more.",
+ "picks": [
+  [
+   "https://cdn.commoninja.com/asset/d4a0ac81-8de7-4857-9b3c-43d803fa9871.png",
+   "Epidemic Sound",
+   "Score",
+   "Epidemic Sound",
+   "Score every video from the biggest name in YouTube-safe soundtracks, cleared before you hit publish.",
+   "50% off the annual Creator plan 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/ee1380b1-42d6-4d93-9b3e-917333012589.png",
+   "Elevate.io",
+   "Create",
+   "Elevate.io",
+   "Edit with your team like it's a shared doc. No more export-upload-download loops between cuts.",
+   "3 months free 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/a567569b-dc20-4ae4-9b65-82cea76487fb.png",
+   "EditHers",
+   "Team",
+   "EditHers",
+   "Hire vetted editing and production talent from the community of women behind top YouTube channels.",
+   "Free access"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/7b7f0900-39bb-4672-a3fe-34f11aa2eef7.png",
+   "Insense",
+   "Earn",
+   "Insense",
+   "Skip the line into big-brand UGC campaigns that pay you for the video skills you already have.",
+   "Priority access to paid brand campaigns"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/192714c1-3628-4441-b3bd-3876e687e3e5.png",
+   "Mercury",
+   "Run",
+   "Mercury",
+   "Real business banking for your video business. Keep content money separate from life money.",
+   "Earn up to $400, terms apply 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/9fc7abfd-06f4-42b2-a037-72011fb19b3e.png",
+   "Wispr Flow",
+   "Write",
+   "Wispr Flow",
+   "For all the titles and YouTube descriptions you'll be writing. Draft them at the speed you talk.",
+   "6 months of Pro free"
+  ]
+ ],
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $24.50 membership",
+ "co_line": "Your price is 50% off for life.",
+ "co_bullets": [
+  "$60 toward YouTube-safe music",
+  "Up to $75 toward collaborative video editing",
+  "Up to $90 toward AI dictation for scripts and descriptions",
+  "$1,500+ toward accounting and legal",
+  "Up to $400 in business banking bonuses",
+  "$450 toward Creator healthcare"
+ ],
+ "co_partners": "Epidemic Sound, Elevate.io, EditHers, Insense, Mercury, Wispr Flow"
+}

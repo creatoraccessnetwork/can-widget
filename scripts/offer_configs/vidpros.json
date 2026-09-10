@@ -1,0 +1,94 @@
+{
+ "kind": "cobrand",
+ "token": "Kt56dAvB",
+ "theme_id": "2167280670",
+ "co_block": "1746107473790",
+ "partner": "Vidpros",
+ "partner_logo": "https://vidpros.com/wp-content/uploads/2022/03/Vidpros-Logo-08.png",
+ "lockup_label": "",
+ "hero_sub": "Vidpros Creators join for <span class=\"strike\">$49</span> <span class=\"lead\">$24.50/year</span>, 50% off for life.",
+ "join_text": "Join for $24.50/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$24.50/year, 50% off",
+ "sticky_btn": "Join",
+ "cost": 24.5,
+ "join_alt": "50% off for life for Vidpros Creators. Locked in when you join.",
+ "pin": [
+  "Epidemic Sound",
+  "Buy.Video",
+  "Insense",
+  "Mercury",
+  "Wispr Flow",
+  "Switcher Studios"
+ ],
+ "demote": [
+  "EditHers",
+  "Elevate.io",
+  "Roster"
+ ],
+ "quote_img": "https://vidpros.com/wp-content/uploads/2022/03/Vidpros-Logo-08.png",
+ "quote": "Great videos start with great editing. We partnered with Creator Access Network so the Creators editing with Vidpros can save on everything else it takes to run a video business.",
+ "quote_by": "The Vidpros team",
+ "picks_sub": "The tools we'd pair with your editing to produce more, earn more, and keep more.",
+ "picks": [
+  [
+   "https://cdn.commoninja.com/asset/d4a0ac81-8de7-4857-9b3c-43d803fa9871.png",
+   "Epidemic Sound",
+   "Score",
+   "Epidemic Sound",
+   "Royalty-free music and sound effects for every edit, without risking a copyright claim on your channel.",
+   "50% off the annual Creator plan 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/ec692c8e-3ff5-4eb4-adee-196f3c05780f.png",
+   "Buy.Video",
+   "Sell",
+   "Buy.Video",
+   "Sell your videos as timed drops and turn hype into revenue, with zero platform fees to start.",
+   "No platform fees on your first 2,500 sales 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/7b7f0900-39bb-4672-a3fe-34f11aa2eef7.png",
+   "Insense",
+   "Earn",
+   "Insense",
+   "Skip the line into big-brand UGC campaigns that pay you for the video skills you already have.",
+   "Priority access to paid brand campaigns"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/192714c1-3628-4441-b3bd-3876e687e3e5.png",
+   "Mercury",
+   "Run",
+   "Mercury",
+   "Real business banking for your video business. Keep content money separate from life money.",
+   "Earn up to $400, terms apply 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/9fc7abfd-06f4-42b2-a037-72011fb19b3e.png",
+   "Wispr Flow",
+   "Write",
+   "Wispr Flow",
+   "For all the titles and YouTube descriptions you'll be writing. Draft them at the speed you talk.",
+   "6 months of Pro free"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/a1e6cf0b-41ec-4827-a74d-ae528816170b.png",
+   "Switcher Studios",
+   "Stream",
+   "Switcher Studios",
+   "Produce polished live video with the gear you already own, then stream and monetize it on your own terms.",
+   "Member-only annual discount 🏆"
+  ]
+ ],
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $24.50 membership",
+ "co_line": "Your price is 50% off for life.",
+ "co_bullets": [
+  "$1,000+ toward selling your videos",
+  "Up to $200 toward royalty-free music and stock footage",
+  "Up to $200 toward live video production",
+  "$1,500+ toward accounting and legal",
+  "Up to $400 in business banking bonuses",
+  "$450 toward Creator healthcare"
+ ],
+ "co_partners": "Epidemic Sound, Buy.Video, Insense, Mercury, Wispr Flow, Switcher Studios"
+}

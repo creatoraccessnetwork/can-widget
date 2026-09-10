@@ -1,0 +1,94 @@
+{
+ "kind": "cobrand",
+ "token": "BonjkWEw",
+ "theme_id": "2167280671",
+ "co_block": "1746107473790",
+ "partner": "Greenroom Legal",
+ "partner_logo": "https://www.greenroomlegal.com/cdn/shop/files/GreenRoom-Logo-Vector_no-bg.png?v=1742421935&width=600",
+ "lockup_label": "",
+ "hero_sub": "Greenroom Legal Creators join for <span class=\"strike\">$49</span> <span class=\"lead\">$24.50/year</span>, 50% off for life.",
+ "join_text": "Join for $24.50/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$24.50/year, 50% off",
+ "sticky_btn": "Join",
+ "cost": 24.5,
+ "join_alt": "50% off for life for Greenroom Legal Creators. Locked in when you join.",
+ "pin": [
+  "Mercury",
+  ".store",
+  "Pop.store",
+  "Wispr Flow",
+  "beehiiv",
+  "ClearPath"
+ ],
+ "demote": [
+  "Unbound Legal",
+  "Pierson Ferdinand",
+  "Ratelle Law"
+ ],
+ "quote_img": "https://www.greenroomlegal.com/cdn/shop/files/GreenRoom-Logo-Vector_no-bg.png?v=1742421935&width=600",
+ "quote": "Creators should not have to choose between good legal help and their budget. We partnered with Creator Access Network so the Creators we work with can save on everything else it takes to build their business.",
+ "quote_by": "The Greenroom Legal team",
+ "picks_sub": "The tools we'd pair with a solid legal foundation, so you earn more and keep more.",
+ "picks": [
+  [
+   "https://cdn.commoninja.com/asset/192714c1-3628-4441-b3bd-3876e687e3e5.png",
+   "Mercury",
+   "Run",
+   "Mercury",
+   "Real business banking for your Creator business. Keep content money separate from life money.",
+   "Earn up to $400, terms apply 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/1096651c-a59f-42d0-b9a0-3edd16434ebb.png",
+   ".store",
+   "Launch",
+   ".store",
+   "Own a domain built for selling, the same way MrBeast's merch store separates commerce from content.",
+   "5 years of your .store domain free 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/7bbccbda-fa40-4b79-bfbe-f433a634bec9.png",
+   "Pop.store",
+   "Automate",
+   "Pop.store",
+   "Turn your link-in-bio into a storefront with digital products, community chat, and an AI fan assistant.",
+   "30% off annual plans 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/9fc7abfd-06f4-42b2-a037-72011fb19b3e.png",
+   "Wispr Flow",
+   "Write",
+   "Wispr Flow",
+   "Draft briefs, emails, and content notes at the speed you talk. AI dictation that works in any app.",
+   "6 months of Pro free"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/17226348-3ca7-4837-9a75-9f863e05dad5.png",
+   "beehiiv",
+   "Grow",
+   "beehiiv",
+   "Turn your followers into an email list you own. A direct line to every fan, no algorithm in between.",
+   "25% off paid plans for 1 year 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/4b70b4e5-e6d8-4918-a71c-14d3c3f89a00.png",
+   "ClearPath",
+   "Keep",
+   "ClearPath",
+   "Accounting built for Creators. Bookkeeping, invoicing, and taxes handled by a team that knows the Creator economy.",
+   "25% off for 1 year 🏆"
+  ]
+ ],
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $24.50 membership",
+ "co_line": "Your price is 50% off for life.",
+ "co_bullets": [
+  "Up to $400 in business banking bonuses",
+  "$1,500+ toward Creator accounting and taxes",
+  "Up to $1,212 toward a newsletter platform you own",
+  "Up to $717 toward link-in-bio monetization",
+  "$200 toward your own .store domain",
+  "$450 toward Creator healthcare"
+ ],
+ "co_partners": "Mercury, .store, Pop.store, Wispr Flow, beehiiv, ClearPath"
+}
