@@ -149,6 +149,7 @@
       '<div data-role="events"></div>' +
       '<div data-role="testimonial"></div>' +
       '<div data-role="every"></div>' +
+      '<div data-role="proof"></div>' +
     '</div>' +
     '<div class="canseg-sticky"><span><span class="s-lab">Savings on your picks</span><span class="s-num" data-role="stotal">$0</span></span><a class="btn" href="' + CHECKOUT + '" data-track="sticky">Join for $' + COST + '</a></div>';
     top.innerHTML = html;
@@ -242,6 +243,16 @@
         everyNames.map(function (n) { var p = byName[n] || {}, lv = es[n] || {}; var v = lv.high ? (lv.low !== lv.high ? "up to " : "") + money(lv.high) : ""; return '<div class="m"><div class="logo">' + (logos[n] ? '<img src="' + esc(logos[n]) + '" alt="">' : esc(initials(n))) + '</div><div><div class="nm">' + esc(n) + (p.t ? " 🏆" : "") + '</div><div class="term">' + esc(p.deal || "") + '</div>' + (v ? '<div class="v">' + v + '</div>' : '') + '</div></div>'; }).join("") +
         '</div><p class="meta" style="margin:12px 0 0">Not counted in the project total above. <a href="' + esc(CFG.home_url) + '#widget">Browse every partner</a>.</p></div>';
     }
+
+    // --- member wins (can-testimonials.js, shared with the homepage and the v2 offer pages) ---------------
+    // Sits at the bottom of the project section, directly above the Kajabi checkout section. 2026-09-10.
+    (function () {
+      var pEl = q("proof"); if (!pEl) return;
+      pEl.innerHTML = '<div id="can-testimonials-mount" style="margin-top:8px"></div>';
+      window.CANTESTI = { surface: "pattern", rows: ["members"], compact: true, eyebrow: "Member wins", headline: "One discount covered the membership. Here are the receipts." };
+      window.CANTESTI_BASE = BASE;
+      var sc = document.createElement("script"); sc.src = BASE + "can-testimonials.js"; sc.async = true; document.head.appendChild(sc);
+    })();
 
     // --- receipt ------------------------------------------------------------------------------------
     var rlist = q("rlist"), rtotal = q("rtotal"), rsub = q("rsub"), stotal = q("stotal");

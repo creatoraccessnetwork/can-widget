@@ -1,0 +1,163 @@
+{
+  "_about": "Testimonials rendered by can-testimonials.js on the homepage (under the hero), on every v2 offer page (above the checkout) and on every segment page (bottom of the project section). members = Creator quotes from the Kajabi community Wins! channel, the Common Ninja Member Testimonials widget and the Notion 'CAN Testimonials' doc; partners = partner-exec quotes from the Common Ninja partner Testimonials widget. Headshots are rehosted in assets/people/ (Common Ninja CDN, YouTube and Instagram avatars). Set enabled:false to pull a quote without deleting it. Quotes are verbatim except proper-noun spelling fixes (VidCon, Wispr Flow). Order = display order.",
+  "updated": "2026-09-10",
+  "members": [
+    {
+      "id": "nikki-vidcon",
+      "name": "Nikki Sult",
+      "handle": "@nikkiesult",
+      "platform": "Instagram",
+      "handle_url": "https://www.instagram.com/nikkiesult/",
+      "headshot": "assets/people/nikki-sult.jpg",
+      "quote": "I just saved 20% on my VidCon pass with the discount code, which saved me $180, aka already paid for my CAN membership. And it's only the first deal I've used!",
+      "saved": "$180",
+      "partner": "VidCon",
+      "source": "Kajabi community, Wins! channel, 2026-05-25; also Common Ninja Member Testimonials",
+      "enabled": true
+    },
+    {
+      "id": "julie-wispr",
+      "name": "Julie Michelle Morris",
+      "title": "Executive Thought Leadership, Persona Media",
+      "handle": "juliemichellemorris",
+      "platform": "LinkedIn",
+      "handle_url": "https://www.linkedin.com/in/juliemichellemorris/",
+      "headshot": "assets/people/julie-michelle-morris.jpg",
+      "quote": "I signed up for Creator Access Network and BAM, Wispr Flow alone paid for my membership by itself. Huge thanks to Avi for making it easier for Creators to access and test genuinely useful tools.",
+      "saved": "Paid for itself",
+      "partner": "Wispr Flow",
+      "source": "LinkedIn post 2026-04-09; Common Ninja Member Testimonials; Notion CAN Testimonials",
+      "enabled": true
+    },
+    {
+      "id": "eva-beehiiv",
+      "name": "Eva Santos",
+      "title": "WiFrizzy, The Weekly Waveform",
+      "handle": "santoseva",
+      "platform": "LinkedIn",
+      "handle_url": "https://www.linkedin.com/in/santoseva/",
+      "headshot": "assets/people/eva-santos.jpg",
+      "quote": "I bought a beehiiv annual Scale plan through Creator Access Network and saved $129.25 instantly. Very happy about this since I'm looking to grow my newsletter, The Weekly Waveform.",
+      "saved": "$129.25",
+      "partner": "beehiiv",
+      "source": "Kajabi community, Wins! channel, 2026-05-16; Common Ninja Member Testimonials",
+      "enabled": true
+    },
+    {
+      "id": "joel-vidcon",
+      "name": "Joel K. Savitt",
+      "handle": "joelksavitt",
+      "platform": "LinkedIn",
+      "handle_url": "https://www.linkedin.com/in/joelksavitt/",
+      "headshot": "assets/people/joel-savitt.jpg",
+      "quote": "VidCon big savings! Like Nikki, I covered the cost of my CAN membership by just leveraging one discount. Thanks Avi and CAN!",
+      "saved": "Membership covered",
+      "partner": "VidCon",
+      "source": "Kajabi community, Wins! channel, 2026-06-03",
+      "enabled": true
+    },
+    {
+      "id": "alix-wispr",
+      "name": "Alix Gucovsky",
+      "handle": "@beachbubbles94",
+      "platform": "Instagram",
+      "handle_url": "https://www.instagram.com/beachbubbles94/",
+      "headshot": "assets/people/alix-gucovsky.jpg",
+      "quote": "Slowly working my way through the deal list and finally got Wispr Flow up and going. Have wanted this app for quite some time, so thank you CAN for the great deal and savings.",
+      "saved": "",
+      "partner": "Wispr Flow",
+      "source": "Kajabi community, Wins! channel, 2026-06-29",
+      "enabled": true
+    },
+    {
+      "id": "nikki-500",
+      "name": "Nikki Sult",
+      "handle": "@nikkiesult",
+      "platform": "Instagram",
+      "handle_url": "https://www.instagram.com/nikkiesult/",
+      "headshot": "assets/people/nikki-sult.jpg",
+      "quote": "Happy to share more wins. I took advantage of a bunch of the deals this week and I've saved over $500 so far!",
+      "saved": "$500+",
+      "partner": "Several discounts",
+      "source": "Kajabi community, Wins! channel, 2026-06-05; Notion CAN Testimonials",
+      "enabled": true
+    },
+    {
+      "id": "alix-vidcon",
+      "name": "Alix Gucovsky",
+      "handle": "@beachbubbles94",
+      "platform": "Instagram",
+      "handle_url": "https://www.instagram.com/beachbubbles94/",
+      "headshot": "assets/people/alix-gucovsky.jpg",
+      "quote": "Just getting started in what I'm sure is an AMAZING community and scored my first win with a VidCon pass. Huge savings, which is so helpful given all my $$$ are going into my business at the moment.",
+      "saved": "",
+      "partner": "VidCon",
+      "source": "Kajabi community, Wins! channel, 2026-06-22",
+      "enabled": true
+    },
+    {
+      "id": "nick-vidcon",
+      "name": "Nick Ramos",
+      "handle": "",
+      "platform": "",
+      "handle_url": "",
+      "headshot": "",
+      "quote": "Met a lot of great people at VidCon, leading innovative companies to level the playing field for creators. Landed a good number of discovery calls to help get the word out about B2B opportunities.",
+      "saved": "",
+      "partner": "VidCon",
+      "source": "Kajabi community, Wins! channel, 2026-07-10",
+      "enabled": false,
+      "_why_disabled": "Networking win, not a savings win; no headshot or handle confirmed."
+    }
+  ],
+  "partners": [
+    {
+      "id": "beehiiv",
+      "name": "Tyler Denk",
+      "title": "Co-Founder and CEO, beehiiv",
+      "headshot": "assets/people/tyler-denk.jpg",
+      "quote": "This is the biggest discount we've offered, and it's exclusive to CAN.",
+      "enabled": true
+    },
+    {
+      "id": "mighty",
+      "name": "Gina Bianchini",
+      "title": "Founder and CEO, Mighty Networks",
+      "headshot": "assets/people/gina-bianchini.jpg",
+      "quote": "This offer is one of the most generous we've ever made. We want more creators to experience what it actually looks like when your community belongs to you.",
+      "enabled": true
+    },
+    {
+      "id": "popstore",
+      "name": "Jo Wong",
+      "title": "General Manager, Pop.Store",
+      "headshot": "assets/people/jo-wong.jpg",
+      "quote": "We've never offered a deal this great before!",
+      "enabled": true
+    },
+    {
+      "id": "sendowl",
+      "name": "Dani Zacarias",
+      "title": "General Manager, SendOwl",
+      "headshot": "assets/people/dani-zacarias.jpg",
+      "quote": "This is our best offer ever and you'll only find it here!",
+      "enabled": true
+    },
+    {
+      "id": "unbound",
+      "name": "Chelsey Mori",
+      "title": "Founder, Unbound Legal",
+      "headshot": "assets/people/chelsey-mori.jpg",
+      "quote": "CAN offers my legal services at a rate lower than I charge anywhere else, including on my own site!",
+      "enabled": true
+    },
+    {
+      "id": "store",
+      "name": "Arjun Pande",
+      "title": "Sr. Director, .store Domains",
+      "headshot": "assets/people/arjun-pande.jpg",
+      "quote": "This is the only time we've offered a 5 year deal on a .store domain!",
+      "enabled": true
+    }
+  ]
+}
