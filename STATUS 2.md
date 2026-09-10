@@ -1,12 +1,8 @@
 # STATUS - can-widget (savings widget, project quiz, segment pages)
 
-Last updated: 2026-09-10 (Claude Code, homepage v3: quiz in the hero, Member Wins marquee, Starter Set section; wins strip on all 29 offer pages and 15 segment pages)
+Last updated: 2026-09-10 (Claude Code, segment page polish: sticky calculator, Upcoming events, ranked For-every-Creator strip)
 
 ## Current state (20-second read)
-
-- **Homepage v3 (2026-09-10 afternoon, LIVE)**: the project quiz IS the hero. Site-theme sections: `1787360000008` Hero Quiz (v2) (pattern section, one white card, copy left / `can-quiz.js` in `embed:true` mode right; carries the shared CSS for every v2 section), `1787360000010` Member Wins (v2) (`can-testimonials.js`, members + partners rows, white), `1787360000009` Starter Set (v2) (the native Kajabi email form that used to be in the hero, `id="starter"`). Old hero `1787360000000` and old quiz section `1787360000007` are HIDDEN, not deleted. Render order: hero quiz, wins, starter, widget, founder, categories, how, FAQ, pricing, then hidden. Builder: `scripts/build_home_v3.py` -> `scripts/payloads/home-v3.json`. Snapshot + one-call revert payloads: `backups/homepage-2026-09-10-pre-quiz-hero/` (REVERT.md).
-- **Testimonials**: `testimonials.json` (7 member quotes from the Kajabi Wins! channel / Common Ninja / Notion, 6 partner-exec quotes from the Common Ninja partner widget; headshots rehosted in `assets/people/`) rendered by `can-testimonials.js` (CSS marquee, pause on hover, static under reduced motion). On every v2 offer page as section `1787370000012` Member Wins (v2) directly above the checkout (`scripts/offer_testimonials.py`, configs in `scripts/offer_configs/`), and on every segment page at the bottom of the project section (injected by `can-segment.js`).
-- All `#top` Starter Set links now point at `#starter`; the hero block redirects a `#top` hash to `#starter` for the offer pages that still link to `/#top`.
 
 - **Served from GitHub Pages** at `https://creatoraccessnetwork.github.io/can-widget/` off the `gh-pages` branch; `main` is the source. Every push to main must be mirrored to gh-pages (checkout the files from main, commit, push).
 - **Homepage widget**: `cansw-v2.js` (two-panel receipt). `cansw.js` v1 stays for older co-branded offer pages.
@@ -25,8 +21,6 @@ Last updated: 2026-09-10 (Claude Code, homepage v3: quiz in the hero, Member Win
 - Harness launch config now serves `/private/tmp/can-widget-harness` (the mirror), not `~/Desktop`.
 
 ## Open items
-
-- **Homepage v3 follow-ups (2026-09-10)**: (1) repoint the can-deal-numbers Kajabi map from hero block `1787360000000_0` to `1787360000008_0` (the stat tiles read "$36,000+" / "50" / "$400"; the lead sentence no longer carries the figures); (2) hero eyebrow is now "For Creators building a business" per the PMM "eyebrow names the reader" ruling, Avi to confirm wording; (3) Alix Gucovsky's headshot is her public Instagram avatar (a cat photo) because LinkedIn is walled, swap in `assets/people/alix-gucovsky.jpg` if a real headshot turns up; (4) Joel Savitt's and Alix's quotes come from community posts, not an explicit testimonial ask, flip `enabled:false` in `testimonials.json` if permission is needed first; (5) Nick Ramos's VidCon post is in the file but disabled (networking win, no headshot/handle).
 
 - **Testimonial slots empty** on all fifteen pages (render only when `segments.json` has a real, permissioned quote; `?preview=slots` shows the placeholder). Blocked on Avi supplying quotes.
 - **Valim conflict**: tracker says $2,000, `cansw-data.json` still [360, 450]. Segment pages show $2,000, homepage widget shows $450. Needs a data-file sync.
@@ -48,14 +42,6 @@ Last updated: 2026-09-10 (Claude Code, homepage v3: quiz in the hero, Member Win
 - Partner names in `segments.json` must match `n` in `cansw-data.json` exactly; tracker spellings that differ go in the row's `tracker` field (Creator's Guild of America).
 
 ## Build history
-
-### 2026-09-10 (afternoon) - Homepage v3 + testimonials everywhere (Claude Code)
-- Avi: save a revertible copy of the pre-quiz homepage; make the quiz the hero and design it to pop; add a scrolling testimonials widget (Common Ninja + Kajabi Wins + Notion, with headshots and social handles) under the homepage hero and above the checkout on every offer page.
-- Snapshot of all eight live v2 sections transcribed from Kajabi and cross-checked against the Aug 22 builder (identical except the synced $36,000+); revert payloads for both the no-quiz and quiz-under-hero layouts.
-- `can-quiz.js` gained `embed`/`label` config; `can-testimonials.js` + `testimonials.json` new; `can-segment.js` injects the strip; `segments.json > starter_url` -> `/#starter`. Commits 69f77e2 (main), 2e64f1f (gh-pages).
-- Kajabi: one write to the site theme (three new sections, two hidden, widget + pricing blocks repointed, content_for_index), 29 writes to the offer themes (new section 1787370000012 + content_for_index). Verified by fetching the served HTML: homepage hero/starter CSS byte-identical to the payload, section order correct; 26 of 29 offer pages show the wins section immediately before the checkout (free1, free2, nikki are unpublished drafts and do not serve a page). Headless-Chrome screenshots of the live homepage (desktop + 390px), a co-branded page and a segment page all render as designed.
-- Harness: `test/home.html` renders `scripts/payloads/home-v3.json` with the local scripts; `test/mobile-frame*.html` wrap a page in a 390px iframe because headless Chrome will not go below ~500px. Launch config `can-home-harness` (auto-port) in `~/.claude/launch.json`.
-
 
 ### 2026-09-10 - Project quiz + fifteen segment pages (Claude Code)
 - Plan approved by Avi with rulings: Roster no figure; Ad Sales as a Service removed; Nas.com spelling; Physical products built; Vidpros excluded, no meta tags; Soundstripe new-only; Fourthwall excluded; publish the pages; push the quiz live.
