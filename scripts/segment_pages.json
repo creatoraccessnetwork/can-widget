@@ -1,0 +1,22 @@
+{
+  "_about": "Kajabi offers that carry the fifteen CAN project pages. Created 2026-09-10 via the Kajabi MCP (draft subscription offers, $49/year, Paid Community product 2149304096). token = the checkout URL segment; theme = active_theme_id of the offer's checkout page.",
+  "site_id": "2148774616",
+  "product_id": "2149304096",
+  "pages": {
+    "brand-deals":       {"offer_id": "2151385657", "token": "JsRfwH9s", "theme": "2167496651"},
+    "podcast":           {"offer_id": "2151385662", "token": "7cB6a9kr", "theme": "2167496666"},
+    "newsletter":        {"offer_id": "2151385663", "token": "8aRwFszq", "theme": "2167496667"},
+    "course":            {"offer_id": "2151385664", "token": "HEr4wzDV", "theme": "2167496668"},
+    "coaching":          {"offer_id": "2151385665", "token": "b3bKFgrv", "theme": "2167496669"},
+    "consulting":        {"offer_id": "2151385666", "token": "WwYCXcRu", "theme": "2167496670"},
+    "community":         {"offer_id": "2151385667", "token": "FiVQwSHQ", "theme": "2167496671"},
+    "digital-products":  {"offer_id": "2151385668", "token": "za6RTFFR", "theme": "2167496672"},
+    "physical-products": {"offer_id": "2151385669", "token": "Y8FKrKWD", "theme": "2167496673"},
+    "set-up":            {"offer_id": "2151385670", "token": "kvMsfCRA", "theme": "2167496674"},
+    "protect":           {"offer_id": "2151385671", "token": "v2KambWq", "theme": "2167496675"},
+    "tax":               {"offer_id": "2151385672", "token": "LUKfFdC5", "theme": "2167496676"},
+    "video":             {"offer_id": "2151385673", "token": "P9WLa9op", "theme": "2167496677"},
+    "save-time":         {"offer_id": "2151385674", "token": "ezvQgdGr", "theme": "2167496678"},
+    "grow":              {"offer_id": "2151385675", "token": "4uH5CnwF", "theme": "2167496679"}
+  }
+}

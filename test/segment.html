@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CAN segment page harness</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F0F4F8 url('../can-pattern-v4-desktop.svg') repeat;background-size:970px 970px;font-family:'Open Sans',system-ui,sans-serif}
+#section-1787370000010{padding:72px 24px 64px}#section-1744906803654{background:#fff;padding:48px 24px;text-align:center;color:#5B6572}#section-1787370000011{background:#fff;padding:64px 24px}
+.harness{position:fixed;top:8px;right:8px;z-index:50;background:#fff;border:1px solid #E6EBF2;border-radius:4px;padding:8px 10px;font-size:13px;box-shadow:0 3px 10px rgba(26,31,44,.1)}
+.harness a{margin-right:8px;color:#2A6478;font-weight:700;text-decoration:none}
+</style></head><body>
+<div class="harness" id="h"></div>
+<div id="section-1787370000010"><div class="canseg-wrap" id="canseg-top"></div></div>
+<div id="section-1744906803654">[ Kajabi checkout section renders here ]</div>
+<div id="section-1787370000011"><div class="canseg-wrap" id="canseg-end"></div></div>
+<script>
+(function(){var q=new URLSearchParams(location.search);var seg=q.get("seg")||"newsletter";
+window.CANSEG={seg:seg,token:"TESTTOKEN",checkout:"#section-1744906803654"};window.CANSEG_BASE=location.href.replace(/test\/[^\/]*$/,"");
+var segs=["brand-deals","podcast","newsletter","course","coaching","consulting","community","digital-products","physical-products","set-up","protect","tax","video","save-time","grow"];
+document.getElementById("h").innerHTML=segs.map(function(s){return '<a href="?seg='+s+'&stage='+(q.get("stage")||"")+'&platform='+(q.get("platform")||"")+'">'+s+'</a>';}).join("")+'<br>stage: <a href="?seg='+seg+'&stage=pre">pre</a><a href="?seg='+seg+'&stage=under100k">under100k</a><a href="?seg='+seg+'&stage=over100k">over100k</a> platform: <a href="?seg=grow&platform=instagram">instagram</a><a href="?seg=grow&platform=newsletter">newsletter</a><a href="?seg=grow&platform=youtube">youtube</a>';
+var s=document.createElement("script");s.src="../can-segment.js";document.body.appendChild(s);})();
+</script>
+</body></html>

@@ -1,0 +1,381 @@
+{
+  "_about": "CAN project segments. One entry per segment page. Row terms and eligibility come from the Notion OFFER TRACKING page (pulled 2026-09-09). Dollar figures are NOT stored here: scripts/segments.py reads them from the tracker parse and writes segments-live.json. Partner names must match the n field in cansw-data.json. count:false = shown, never enters the segment total. stage = which business stages may see the row (omit for all). trophy:false suppresses the trophy for that partner on these pages.",
+  "membership_cost": 49,
+  "home_url": "https://www.creatoraccessnetwork.com/",
+  "quiz_url": "https://www.creatoraccessnetwork.com/#quiz",
+  "starter_url": "https://www.creatoraccessnetwork.com/#top",
+  "what_can_is": "Creator Access Network is a $49/year membership that gets Creators the best available discounts on the tools and services behind every Creator project.",
+  "every_creator_strip": ["Wispr Flow", "Mercury", "Valim", "Ratelle Law"],
+  "desc_overrides": {
+    "GreenRoom Legal": "Creator Economy lawyers who protect your brand deals and help you build your brand and business, with no retainers.",
+    "Pierson Ferdinand": "A major law firm's Creator practice, with a discount on consultations and hourly legal work.",
+    "EditHers": "Vetted editing and production talent from the community of women behind the top channels on YouTube."
+  },
+  "segments": [
+    {
+      "slug": "brand-deals",
+      "name": "Brand deals and UGC",
+      "tile": "Brand deals",
+      "eyebrow": "For Creators landing brand deals and UGC work",
+      "h1": "Get paid more, and on time, for the brand deals you land.",
+      "url": "https://www.creatoraccessnetwork.com/offers/JsRfwH9s/checkout",
+      "decisions": [
+        {"title": "Know what to charge", "rows": [
+          {"n": "FYPM", "term": "50% off membership for life", "who": "Any FYPM subscription"}
+        ]},
+        {"title": "Land more, and bigger, brand deals", "rows": [
+          {"n": "Creator Wizard", "term": "Free Sponsor Magnet eBook + 50% off the $10K Brand Deal Challenges", "who": "Open to all members"},
+          {"n": "Creatorland MCP Pro", "term": "2 months of MCP Pro free", "who": "New MCP Pro subscribers, one redemption"},
+          {"n": "Insense", "term": "Priority access to top brand campaigns", "who": "Subject to each campaign's brand requirements"}
+        ]},
+        {"title": "Track and protect every deal", "rows": [
+          {"n": "Dealsync by Creatorland", "term": "50% off for 6 months", "who": "New subscriptions"},
+          {"n": "DUPAY", "term": "2 months of Tools + Protection free", "who": "New annual subscribers, or monthly subscribers upgrading to annual"}
+        ]},
+        {"title": "Prove to brands you're a pro", "rows": [
+          {"n": "Creators Guild of America", "tracker": "Creator’s Guild of America", "term": "Free membership for 1 year", "who": "New members, US based, first year"},
+          {"n": "CreatorScore", "term": "2 months free, then 50% off for life", "who": "New and existing users, one redemption"}
+        ]},
+        {"title": "Meet the brands in person", "rows": [
+          {"n": "CreatorIQ", "term": "50% off a CreatorIQ Connect ticket", "who": "Every member tier, capped at 25 redemptions, event 13 Oct 2026", "count": false, "one_time": true, "note": "One-time event ticket, not counted in the project total"}
+        ]}
+      ],
+      "strips": [
+        {"n": "VidSummit", "term": "$100 off a VidSummit 2026 ticket, plus 13+ years of session recordings", "who": "New ticket purchases"}
+      ]
+    },
+    {
+      "slug": "podcast",
+      "name": "Podcast",
+      "tile": "Podcast",
+      "eyebrow": "For Creators launching or growing a podcast",
+      "h1": "Launching a podcast? Here's what members pay for the tools behind it.",
+      "url": "https://www.creatoraccessnetwork.com/offers/7cB6a9kr/checkout",
+      "decisions": [
+        {"title": "Publish, grow and monetize the show", "rows": [
+          {"n": "beehiiv", "term": "25% off paid plans and upgrades for 1 year", "who": "New paid plans and upgrades"}
+        ]},
+        {"title": "Music and sound (pick one)", "rows": [
+          {"n": "Soundstripe", "term": "50% off Pro or Pro Plus for 1 year", "who": "New customers, annual billing only"},
+          {"n": "Epidemic Sound", "term": "50% off the annual Creator plan", "who": "New users, annual plan"}
+        ]},
+        {"title": "Real artists' songs", "rows": [
+          {"n": "Thematic", "term": "75% off the Pro subscription", "who": "New subscribers, worldwide"}
+        ]}
+      ]
+    },
+    {
+      "slug": "newsletter",
+      "name": "Newsletter",
+      "tile": "Newsletter",
+      "eyebrow": "For Creators starting or growing a newsletter",
+      "h1": "Starting a newsletter? Here's what members pay.",
+      "url": "https://www.creatoraccessnetwork.com/offers/8aRwFszq/checkout",
+      "decisions": [
+        {"title": "Your newsletter platform", "rows": [
+          {"n": "beehiiv", "term": "25% off paid plans and upgrades for 1 year", "who": "New paid plans and upgrades"}
+        ]},
+        {"title": "Growth playbooks", "rows": [
+          {"n": "Growth in Reverse", "term": "$50 off the Growth Vault", "who": "Anyone, new or existing"}
+        ]},
+        {"title": "Write it faster", "rows": [
+          {"n": "Wispr Flow", "term": "6 months of Pro free", "who": "New users, monthly or annual"}
+        ]}
+      ]
+    },
+    {
+      "slug": "course",
+      "name": "Course",
+      "tile": "Course",
+      "eyebrow": "For Creators launching a course",
+      "h1": "Launching a course? The platforms, at member prices.",
+      "url": "https://www.creatoraccessnetwork.com/offers/HEr4wzDV/checkout",
+      "decisions": [
+        {"title": "Your course platform (pick one)", "rows": [
+          {"n": "Kajabi", "term": "Member-only discount", "who": "New Kajabi subscribers"},
+          {"n": "Teachable", "term": "30% off annual Builder and Growth plans", "who": "New subscribers, annual plans"},
+          {"n": "Nas.com", "term": "50% off all plans for 1 year", "who": "New Basic, Pro and Platinum subscriptions"},
+          {"n": "Mighty Networks", "term": "4 months free on annual plans, plus an onboarding call", "who": "New users, annual Launch, Scale and Growth plans"},
+          {"n": "TopFan", "term": "87% revenue share instead of the standard 85%", "who": "Sell through your own app"}
+        ]},
+        {"title": "Sell it from your link in bio", "rows": [
+          {"n": "Pop.store", "term": "30% off annual plans and 10% off monthly plans for 1 year", "who": "New subscriptions, in supported countries"}
+        ]},
+        {"title": "Email your students", "rows": [
+          {"n": "beehiiv", "term": "25% off paid plans and upgrades for 1 year", "who": "New paid plans and upgrades"}
+        ]}
+      ]
+    },
+    {
+      "slug": "coaching",
+      "name": "Coaching",
+      "tile": "Coaching",
+      "eyebrow": "For Creators launching a coaching program",
+      "h1": "Launching coaching? The platforms and booking tools, at member prices.",
+      "url": "https://www.creatoraccessnetwork.com/offers/b3bKFgrv/checkout",
+      "decisions": [
+        {"title": "Host your program (pick one)", "rows": [
+          {"n": "Kajabi", "term": "Member-only discount", "who": "New Kajabi subscribers"},
+          {"n": "Teachable", "term": "30% off annual Builder and Growth plans", "who": "New subscribers, annual plans"}
+        ]},
+        {"title": "Run it as a group or community (pick one)", "rows": [
+          {"n": "Mighty Networks", "term": "4 months free on annual plans, plus an onboarding call", "who": "New users, annual Launch, Scale and Growth plans"},
+          {"n": "Nas.com", "term": "50% off all plans for 1 year", "who": "New Basic, Pro and Platinum subscriptions"}
+        ]},
+        {"title": "Sell and book from your link in bio", "rows": [
+          {"n": "Pop.store", "term": "30% off annual plans and 10% off monthly plans for 1 year", "who": "New subscriptions, in supported countries"}
+        ]},
+        {"title": "Your own app", "rows": [
+          {"n": "TopFan", "term": "87% revenue share instead of the standard 85%", "who": "Sell through your own app"}
+        ]}
+      ]
+    },
+    {
+      "slug": "consulting",
+      "name": "Consulting",
+      "tile": "Consulting",
+      "eyebrow": "For Creators selling their expertise",
+      "h1": "Selling your expertise? The tools to book, bill and deliver it, at member prices.",
+      "url": "https://www.creatoraccessnetwork.com/offers/WwYCXcRu/checkout",
+      "decisions": [
+        {"title": "Charge for your time and your answers", "rows": [
+          {"n": "Driff", "term": "90/10 revenue split for your first 3 months, then 80/20 while you're a member", "who": "Active members; US, Canada and select EU; US entity for payouts"}
+        ]},
+        {"title": "Sell a package with the funnel built for you", "rows": [
+          {"n": "Flowlance", "term": "28-day free trial + 40% off your first year", "who": "New customers, Creator and Pro plans"}
+        ]},
+        {"title": "Host client resources and programs (pick one)", "rows": [
+          {"n": "Kajabi", "term": "Member-only discount", "who": "New Kajabi subscribers"},
+          {"n": "Teachable", "term": "30% off annual Builder and Growth plans", "who": "New subscribers, annual plans"}
+        ]},
+        {"title": "Run a paid client community", "rows": [
+          {"n": "Nas.com", "term": "50% off all plans for 1 year", "who": "New Basic, Pro and Platinum subscriptions"}
+        ]},
+        {"title": "Book from your link in bio", "rows": [
+          {"n": "Pop.store", "term": "30% off annual plans and 10% off monthly plans for 1 year", "who": "New subscriptions, in supported countries"}
+        ]}
+      ]
+    },
+    {
+      "slug": "community",
+      "name": "Community or membership",
+      "tile": "Community",
+      "eyebrow": "For Creators starting a paid community or membership",
+      "h1": "Starting a paid community? The platform, and everything inside it, at member prices.",
+      "url": "https://www.creatoraccessnetwork.com/offers/FiVQwSHQ/checkout",
+      "decisions": [
+        {"title": "Your community platform (pick one)", "rows": [
+          {"n": "Mighty Networks", "term": "4 months free on annual plans, plus an onboarding call", "who": "New users, annual Launch, Scale and Growth plans"},
+          {"n": "Nas.com", "term": "50% off all plans for 1 year", "who": "New Basic, Pro and Platinum subscriptions"},
+          {"n": "Kajabi", "term": "Member-only discount", "who": "New Kajabi subscribers"},
+          {"n": "Teachable", "term": "30% off annual Builder and Growth plans", "who": "New subscribers, annual plans"},
+          {"n": "TopFan", "term": "87% revenue share instead of the standard 85%", "who": "Sell through your own app"}
+        ]},
+        {"title": "Built and run for you", "rows": [
+          {"n": "Built by Foundry", "term": "25% off the platform fee for life + 85% revenue share", "who": "New Built by Foundry Creators"}
+        ]},
+        {"title": "Paid access through one link", "rows": [
+          {"n": "SendOwl", "term": "40% off for 18 months", "who": "New subscribers, worldwide"}
+        ]},
+        {"title": "Sell and chat from your link in bio", "rows": [
+          {"n": "Pop.store", "term": "30% off annual plans and 10% off monthly plans for 1 year", "who": "New subscriptions, in supported countries"}
+        ]},
+        {"title": "Email your members", "rows": [
+          {"n": "beehiiv", "term": "25% off paid plans and upgrades for 1 year", "who": "New paid plans and upgrades"}
+        ]}
+      ]
+    },
+    {
+      "slug": "digital-products",
+      "name": "Digital products",
+      "tile": "Digital products",
+      "eyebrow": "For Creators selling digital products",
+      "h1": "Selling digital products? Lower fees and bigger margins from day one.",
+      "url": "https://www.creatoraccessnetwork.com/offers/za6RTFFR/checkout",
+      "decisions": [
+        {"title": "Sell it: checkout and delivery (pick one)", "rows": [
+          {"n": "SendOwl", "term": "40% off for 18 months", "who": "New subscribers, worldwide"},
+          {"n": "Flowlance", "term": "28-day free trial + 40% off your first year", "who": "New customers, Creator and Pro plans"},
+          {"n": "Pop.store", "term": "30% off annual plans and 10% off monthly plans for 1 year", "who": "New subscriptions, in supported countries"}
+        ]},
+        {"title": "Host it on a platform (pick one)", "rows": [
+          {"n": "Kajabi", "term": "Member-only discount", "who": "New Kajabi subscribers"},
+          {"n": "Teachable", "term": "30% off annual Builder and Growth plans", "who": "New subscribers, annual plans"},
+          {"n": "Nas.com", "term": "50% off all plans for 1 year", "who": "New Basic, Pro and Platinum subscriptions"},
+          {"n": "TopFan", "term": "87% revenue share instead of the standard 85%", "who": "Sell through your own app"}
+        ]},
+        {"title": "Video and paid-chat products", "rows": [
+          {"n": "Buy.Video", "term": "No platform fees on up to 2,500 sales for 60 days", "who": "US-based for payouts; upload through the CAN link"},
+          {"n": "Driff", "term": "90/10 revenue split for your first 3 months, then 80/20 while you're a member", "who": "Active members; US, Canada and select EU; US entity for payouts"}
+        ]},
+        {"title": "Built and run for you", "rows": [
+          {"n": "Built by Foundry", "term": "25% off the platform fee for life + 85% revenue share", "who": "New Built by Foundry Creators"}
+        ]},
+        {"title": "Email your buyers", "rows": [
+          {"n": "beehiiv", "term": "25% off paid plans and upgrades for 1 year", "who": "New paid plans and upgrades"}
+        ]},
+        {"title": "Niche: interactive games", "rows": [
+          {"n": "Dorian", "term": "100% revenue share on your first $10,000 in your first 120 days", "who": "New Dorian creators", "count": false, "note": "Niche row, not counted in the project total"}
+        ]}
+      ]
+    },
+    {
+      "slug": "physical-products",
+      "name": "Physical products or merch",
+      "tile": "Merch",
+      "eyebrow": "For Creators selling merch or physical products",
+      "h1": "Selling merch? Lower fees and bigger margins from day one.",
+      "url": "https://www.creatoraccessnetwork.com/offers/Y8FKrKWD/checkout",
+      "decisions": [
+        {"title": "Your store and app", "rows": [
+          {"n": "TopFan", "term": "87% revenue share instead of the standard 85%", "who": "Sell merch, courses and community through your own app"}
+        ]},
+        {"title": "Your shop's own domain", "rows": [
+          {"n": ".store", "term": "5 years of your .store domain free", "who": "One standard domain per member"}
+        ]},
+        {"title": "Affiliate sales on products you don't make", "rows": [
+          {"n": "ShopYourLikes", "term": "80/20 affiliate split, 10 points above the standard", "who": "New ShopYourLikes creators"}
+        ]}
+      ]
+    },
+    {
+      "slug": "set-up",
+      "name": "Set up a business",
+      "tile": "Set up",
+      "eyebrow": "For Creators setting up the business",
+      "h1": "The boring parts, cheaper: bank, books, taxes.",
+      "url": "https://www.creatoraccessnetwork.com/offers/kvMsfCRA/checkout",
+      "decisions": [
+        {"title": "Business banking (pick one)", "rows": [
+          {"n": "Mercury", "term": "Up to $400 in cash bonuses", "who": "New Mercury customers; deposit and spend thresholds apply"},
+          {"n": "Karat", "term": "3 months of Premium free + $100 credit with a qualifying balance", "who": "US LLC required, new clients", "stage": ["under100k", "over100k"]}
+        ]},
+        {"title": "Bookkeeping and accounting (pick one)", "rows": [
+          {"n": "Boring Stuff", "term": "50% off your first 3 months", "who": "New clients in the US or Canada"},
+          {"n": "ClearPath", "term": "25% off for 1 year", "who": "US-based, new and existing clients"}
+        ]},
+        {"title": "Tax filing", "rows": [
+          {"n": "Valim", "term": "45% off all tax return filings + a free tax planning consultation", "who": "All members, new and existing"}
+        ]}
+      ]
+    },
+    {
+      "slug": "protect",
+      "name": "Protect a business",
+      "tile": "Protect",
+      "eyebrow": "For Creators protecting the business",
+      "h1": "Contracts, insurance and help, at member rates.",
+      "url": "https://www.creatoraccessnetwork.com/offers/v2KambWq/checkout",
+      "decisions": [
+        {"title": "A lawyer when you need one (pick one)", "rows": [
+          {"n": "Unbound Legal", "term": "15% off 15-hour and 30-hour legal packages", "who": "New clients; transactional matters"},
+          {"n": "Pierson Ferdinand", "term": "$150 off a consultation and $200/hr off legal services", "who": "Engagement letter and upfront fee required"},
+          {"n": "GreenRoom Legal", "term": "15% off your first project, 5% off the next three, 10% off flat-fee work", "who": "New clients; attorneys licensed in CA, CO, IN, MO, NY and TX; transactional matters"}
+        ]},
+        {"title": "Contracts you can use today", "rows": [
+          {"n": "Ratelle Law", "term": "30% off the Creator Legal Bundle", "who": "Designed for US-based businesses"}
+        ]},
+        {"title": "Get paid for every brand deal", "rows": [
+          {"n": "DUPAY", "term": "2 months of Tools + Protection free", "who": "New annual subscribers, or monthly subscribers upgrading to annual"}
+        ]},
+        {"title": "Health insurance and benefits", "rows": [
+          {"n": "EssentL Creator", "term": "50% off the service fee for 6 months", "who": "US only; discount is on the service fee, not premiums"}
+        ]},
+        {"title": "Hire help you can trust", "rows": [
+          {"n": "Roster", "term": "Free job listing + free hiring consultation + 15% off your first annual plan", "who": "Freebies for new members; the discount for new and existing customers", "count": false, "nofigure": true, "note": "Savings figure being confirmed with the partner"},
+          {"n": "EditHers", "term": "Free access", "who": "Open to members", "count": false}
+        ]},
+        {"title": "Look after yourself", "rows": [
+          {"n": "CreatorCare", "term": "10% off Creator-specific therapy", "who": "Clients located in California only", "count": false, "note": "California only, not counted in the project total"}
+        ]}
+      ]
+    },
+    {
+      "slug": "tax",
+      "name": "Pay less tax",
+      "tile": "Pay less tax",
+      "eyebrow": "For Creators paying too much tax",
+      "h1": "Pay less in taxes, with the accountants and CPAs members use.",
+      "url": "https://www.creatoraccessnetwork.com/offers/LUKfFdC5/checkout",
+      "decisions": [
+        {"title": "Tax filing and planning", "rows": [
+          {"n": "Valim", "term": "45% off all tax return filings + a free tax planning consultation", "who": "All members, new and existing"}
+        ]},
+        {"title": "Bookkeeping that keeps taxes low (pick one)", "rows": [
+          {"n": "Boring Stuff", "term": "50% off your first 3 months", "who": "New clients in the US or Canada"},
+          {"n": "ClearPath", "term": "25% off for 1 year", "who": "US-based, new and existing clients"}
+        ]},
+        {"title": "Banking that earns interest", "rows": [
+          {"n": "Karat", "term": "3 months of Premium free + $100 credit with a qualifying balance", "who": "US LLC required, new clients", "stage": ["under100k", "over100k"]}
+        ]}
+      ]
+    },
+    {
+      "slug": "video",
+      "name": "Better video and audio",
+      "tile": "Video and audio",
+      "eyebrow": "For Creators making better video and audio",
+      "h1": "Better production, without the full-price subscriptions.",
+      "url": "https://www.creatoraccessnetwork.com/offers/P9WLa9op/checkout",
+      "decisions": [
+        {"title": "Edit with your team", "rows": [
+          {"n": "Elevate.io", "term": "First 3 months free on any premium plan", "who": "New subscribers, all premium plans"}
+        ]},
+        {"title": "Go live", "rows": [
+          {"n": "Switcher Studios", "term": "Member-only annual discount", "who": "New subscribers"}
+        ]},
+        {"title": "Music and sound (pick one)", "rows": [
+          {"n": "Slipstream", "term": "50% off the annual plan", "who": "New subscribers"},
+          {"n": "Epidemic Sound", "term": "50% off the annual Creator plan", "who": "New users, annual plan"},
+          {"n": "Soundstripe", "term": "50% off Pro or Pro Plus for 1 year", "who": "New customers, annual billing only"}
+        ]},
+        {"title": "Real artists' songs", "rows": [
+          {"n": "Thematic", "term": "75% off the Pro subscription", "who": "New subscribers, worldwide"}
+        ]}
+      ],
+      "strips": [
+        {"n": "VidSummit", "term": "$100 off a VidSummit 2026 ticket, plus 13+ years of session recordings", "who": "New ticket purchases"}
+      ]
+    },
+    {
+      "slug": "save-time",
+      "name": "Save time",
+      "tile": "Save time",
+      "eyebrow": "For Creators who need their time back",
+      "h1": "Get your time back, with the tools members use to work faster.",
+      "url": "https://www.creatoraccessnetwork.com/offers/ezvQgdGr/checkout",
+      "decisions": [
+        {"title": "Stop typing", "rows": [
+          {"n": "Wispr Flow", "term": "6 months of Pro free", "who": "New users, monthly or annual"}
+        ]},
+        {"title": "Stop losing brand deals in your inbox", "rows": [
+          {"n": "Dealsync by Creatorland", "term": "50% off for 6 months", "who": "New subscriptions"}
+        ]},
+        {"title": "Research and outreach with your AI assistant", "rows": [
+          {"n": "Creatorland MCP Pro", "term": "2 months of MCP Pro free", "who": "New MCP Pro subscribers, one redemption"}
+        ]}
+      ]
+    },
+    {
+      "slug": "grow",
+      "name": "Grow my audience",
+      "tile": "Grow",
+      "eyebrow": "For Creators growing an audience",
+      "h1": "Growing your audience? Here's what members pay for the tools that grow it.",
+      "h1_by_platform": {
+        "instagram": "Growing on Instagram? Here's what members pay for the tools that grow it.",
+        "newsletter": "Growing a newsletter? Here's what members pay for the tools that grow it."
+      },
+      "url": "https://www.creatoraccessnetwork.com/offers/4uH5CnwF/checkout",
+      "decisions": [
+        {"title": "Grow on Instagram", "platform": "instagram", "rows": [
+          {"n": "Pop.store", "term": "30% off annual plans and 10% off monthly plans for 1 year", "who": "New subscriptions, in supported countries", "grows": "Grows your Instagram into buyers, subscribers and community"}
+        ]},
+        {"title": "Grow a newsletter", "platform": "newsletter", "rows": [
+          {"n": "beehiiv", "term": "25% off paid plans and upgrades for 1 year", "who": "New paid plans and upgrades", "grows": "Grows your newsletter list with built-in referral and recommendation tools"},
+          {"n": "Growth in Reverse", "term": "$50 off the Growth Vault", "who": "Anyone, new or existing", "grows": "Grows your newsletter with the playbooks behind hundreds of top newsletters"}
+        ]}
+      ]
+    }
+  ]
+}
