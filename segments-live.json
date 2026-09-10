@@ -1,10 +1,10 @@
 {
- "generated": "2026-09-09",
+ "generated": "2026-09-10",
  "basis": "ceiling",
  "segments": {
   "brand-deals": {
    "name": "Brand deals and UGC",
-   "partner_count": 9,
+   "partner_count": 8,
    "total_exact": 1301,
    "total_display": "$1,300+",
    "rows": {
@@ -63,21 +63,6 @@
      "open_ended": true,
      "uncapped": false,
      "counted": true
-    },
-    "CreatorIQ": {
-     "low": null,
-     "high": null,
-     "open_ended": false,
-     "uncapped": false,
-     "counted": false
-    },
-    "VidSummit": {
-     "low": 100.0,
-     "high": 100.0,
-     "open_ended": false,
-     "uncapped": false,
-     "counted": false,
-     "strip": true
     }
    }
   },
@@ -692,14 +677,6 @@
      "open_ended": false,
      "uncapped": false,
      "counted": true
-    },
-    "VidSummit": {
-     "low": 100.0,
-     "high": 100.0,
-     "open_ended": false,
-     "uncapped": false,
-     "counted": false,
-     "strip": true
     }
    }
   },
@@ -775,6 +752,42 @@
    "open_ended": false,
    "uncapped": false
   },
+  "beehiiv": {
+   "low": 129.0,
+   "high": 1212.0,
+   "open_ended": false,
+   "uncapped": false
+  },
+  "Pop.store": {
+   "low": 35.0,
+   "high": 717.0,
+   "open_ended": false,
+   "uncapped": false
+  },
+  "Kajabi": {
+   "low": 358.0,
+   "high": 358.0,
+   "open_ended": false,
+   "uncapped": false
+  },
+  "Epidemic Sound": {
+   "low": 60.0,
+   "high": 60.0,
+   "open_ended": false,
+   "uncapped": false
+  },
+  "Mighty Networks": {
+   "low": 316.0,
+   "high": 1416.0,
+   "open_ended": false,
+   "uncapped": false
+  },
+  "Teachable": {
+   "low": 248.0,
+   "high": 500.0,
+   "open_ended": false,
+   "uncapped": false
+  },
   "Valim": {
    "low": 2000.0,
    "high": 2000.0,
@@ -785,6 +798,20 @@
    "low": 900.0,
    "high": 900.0,
    "open_ended": true,
+   "uncapped": false
+  }
+ },
+ "events": {
+  "VidSummit": {
+   "low": 100.0,
+   "high": 100.0,
+   "open_ended": false,
+   "uncapped": false
+  },
+  "CreatorIQ": {
+   "low": null,
+   "high": null,
+   "open_ended": false,
    "uncapped": false
   }
  }

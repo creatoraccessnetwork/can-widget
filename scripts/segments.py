@@ -10,7 +10,8 @@ parse_tracker.py and compute.py have produced a SAFE parsed.json:
 Reads segments.json (page membership, hand-curated from the tracker) and the
 parsed tracker rows, then:
   * writes segments-live.json  - per segment: partner_count, total_exact,
-    total_display, and per-row low/high/open_ended/counted (the pages read this)
+    total_display, and per-row low/high/open_ended/counted (the pages read this),
+    plus figures for the ranked every_creator_strip and the events list
   * merges a "segments" summary block into numbers.json (partner_count,
     total_exact, total_display per slug) without touching the site-wide keys
 
@@ -114,6 +115,18 @@ def main():
         else:
             problems.append("every_creator_strip: %s is not a live tracker row" % n)
     out["every_creator_strip"] = strip
+
+    # upcoming events (shown full width on every page, never counted)
+    events = {}
+    for e in cfg.get("events", []):
+        key = norm(e.get("tracker") or e["n"])
+        t = tracker.get(key)
+        if t:
+            events[e["n"]] = {"low": t["low"], "high": t["high"], "open_ended": bool(t.get("open_ended")),
+                              "uncapped": key in uncapped}
+        else:
+            problems.append("events: %s is not a live tracker row" % e["n"])
+    out["events"] = events
 
     summary = {k: {"partner_count": v["partner_count"], "total_exact": v["total_exact"],
                    "total_display": v["total_display"]} for k, v in out["segments"].items()}

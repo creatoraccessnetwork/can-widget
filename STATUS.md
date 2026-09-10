@@ -1,6 +1,6 @@
 # STATUS - can-widget (savings widget, project quiz, segment pages)
 
-Last updated: 2026-09-10 (Claude Code, quiz + segment pages build)
+Last updated: 2026-09-10 (Claude Code, segment page polish: sticky calculator, Upcoming events, ranked For-every-Creator strip)
 
 ## Current state (20-second read)
 
@@ -10,6 +10,15 @@ Last updated: 2026-09-10 (Claude Code, quiz + segment pages build)
 - **Fifteen segment pages**: Kajabi offers ($49/yr, Paid Community product), PUBLISHED 2026-09-10 at Avi's request. Each checkout theme is three sections mounting `can-segment.js` (see `scripts/build_segment_page.py`). Offer ids, tokens, theme ids: `scripts/segment_pages.json`. Page config (membership, terms, eligibility, H1s): `segments.json`. Figures: `segments-live.json` + the `segments` block in `numbers.json`, both written by `scripts/segments.py` from the deal-number sync's `parsed.json`.
 - **Numbers**: site-wide 50 partners / $36,000+ / exact 36336 (tracker run 2026-09-04, re-confirmed 2026-09-09). Segment totals in `numbers.json.segments`.
 - **Query-string contract** quiz to page: `?seg=<slug>&stage=pre|under100k|over100k[&platform=youtube|instagram|newsletter|other]&via=quiz`. Stage `pre` hides Karat; grow page swaps H1 and row order by platform.
+
+### 2026-09-10 (later) - Segment page polish (Claude Code)
+- Hero stat labels are now "in savings" and "discounts" (were "for this project" / "partners on this page").
+- Every decision row carries a "You save" label above its dollar figure; intro copy says the figure is what the discount is worth.
+- Calculator is sticky on desktop. Kajabi's theme sets `overflow-x:hidden` on `body`, which made `body` the sticky container and killed it; `can-segment.js` now swaps `hidden` for `clip` on any ancestor of the calculator (`unclip()`), so it pins at 24px and stops at the bottom of the list column. `test/segment.html` mimics the Kajabi overflow so the harness reproduces it.
+- "Also this year" per-segment strips are gone. A top-level `events` list in `segments.json` (VidSummit, CreatorIQ Connect) renders full width under the two columns on every page as "Upcoming events", never counted. CreatorIQ left the brand-deals decision rows (that page now counts 8 discounts). Per-segment `strips` are still merged in if ever used.
+- `every_creator_strip` is a ranked list (Wispr Flow, Mercury, beehiiv, Pop.store, then Kajabi, Epidemic Sound, Mighty Networks, Teachable, Valim, Ratelle Law); each page shows the first `every_creator_show` (4) not already on that page. Rule from Avi: biggest brands unless he names a company.
+- `scripts/segments.py` writes an `events` block; figures regenerated from a fresh tracker parse (SAFE, 50 / 36336 unchanged). `parsed.json` is not kept in the repo: fetch the OFFER TRACKING page and run the can-deal-numbers `parse_tracker.py` first.
+- Harness launch config now serves `/private/tmp/can-widget-harness` (the mirror), not `~/Desktop`.
 
 ## Open items
 
