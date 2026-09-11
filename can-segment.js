@@ -254,7 +254,7 @@
       var el = q("every"), es = LIVE.every_creator_strip || {};
       el.innerHTML = '<div class="card strip"><p class="eyebrow" style="margin-bottom:4px">For every Creator</p><div class="h3">Business-side discounts every member gets, whatever the project.</div><div class="mini">' +
         everyNames.map(function (n) { var p = byName[n] || {}, lv = es[n] || {}; var v = lv.high ? (lv.low !== lv.high ? "up to " : "") + money(lv.high) : ""; return '<div class="m"><div class="logo">' + (logos[n] ? '<img src="' + esc(logos[n]) + '" alt="">' : esc(initials(n))) + '</div><div><div class="nm">' + esc(n) + (p.t ? " 🏆" : "") + '</div><div class="term">' + esc(p.deal || "") + '</div>' + (v ? '<div class="v">' + v + '</div>' : '') + '</div></div>'; }).join("") +
-        '</div><p class="meta" style="margin:12px 0 0">Not counted in the project total above. <a href="' + esc(CFG.home_url) + '#widget">Browse every partner</a>.</p></div>';
+        '</div><p class="meta" style="margin:12px 0 0">Not counted in the project total above. <a href="' + esc(CFG.home_url) + 'partners">Browse every partner</a>.</p></div>';
     }
 
     // --- member wins (can-testimonials.js, shared with the homepage and the v2 offer pages) ---------------
@@ -316,7 +316,7 @@
 
   function start() {
     var CFG, LIVE, DATA, NUM, pending = 4, domReady = document.readyState !== "loading";
-    function go() { if (pending || !domReady) return; if (!CFG || !LIVE || !DATA) { var m = document.getElementById("canseg-top"); if (m) m.innerHTML = '<div class="canseg"><div class="card hero"><p>The partner list is loading slowly. <a href="https://www.creatoraccessnetwork.com/#widget">Browse every partner</a>.</p></div></div>'; return; } render(CFG, LIVE, DATA, NUM || {}); }
+    function go() { if (pending || !domReady) return; if (!CFG || !LIVE || !DATA) { var m = document.getElementById("canseg-top"); if (m) m.innerHTML = '<div class="canseg"><div class="card hero"><p>The partner list is loading slowly. <a href="https://www.creatoraccessnetwork.com/partners">Browse every partner</a>.</p></div></div>'; return; } render(CFG, LIVE, DATA, NUM || {}); }
     if (!domReady) document.addEventListener("DOMContentLoaded", function () { domReady = true; go(); });
     fetchJSON(BASE + "segments.json", function (j) { CFG = j; pending--; go(); });
     fetchJSON(BASE + "segments-live.json", function (j) { LIVE = j; pending--; go(); });

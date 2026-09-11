@@ -155,7 +155,7 @@
     var seg = state.seg, url = URLS[seg];
     bar.style.width = "100%"; stepEl.textContent = "Done";
     var qs = "seg=" + encodeURIComponent(seg) + "&stage=" + encodeURIComponent(stage) + (state.platform ? "&platform=" + encodeURIComponent(state.platform) : "") + "&via=quiz";
-    var dest = url ? url + (url.indexOf("?") >= 0 ? "&" : "?") + qs : HOME + "#widget";
+    var dest = url ? url + (url.indexOf("?") >= 0 ? "&" : "?") + qs : HOME + "partners";
     track("quiz_complete", { segment: seg, stage: stage, platform: state.platform || "", path: state.history.map(function (k) { return k + ":" + state.answers[k]; }).join(">") });
     body.innerHTML = '<div class="done"><div class="q">Loading your discounts…</div><p class="fine">If nothing happens, <a href="' + esc(dest) + '">open your page</a>.</p></div>';
     setTimeout(function () { location.href = dest; }, 200);

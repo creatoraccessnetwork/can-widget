@@ -46,17 +46,17 @@ cols_old = rows_old.replace(".container>.row", ".col-12"); cols_new = rows_new.r
 assert rows_old in shared and cols_old in shared
 shared = shared.replace(rows_old, rows_new).replace(cols_old, cols_new)
 white_old = "#section-1787360000000,#section-1787360000002,#section-1787360000004,#section-1787360000006{background:#FFFFFF!important}"
-white_new = "#section-%s,#section-%s,#section-1787360000000,#section-1787360000002,#section-1787360000004,#section-1787360000006{background:#FFFFFF!important}" % (STARTER, WINS)
+white_new = "#section-%s,#section-%s,#section-1787360000000,#section-1787360000002,#section-1787360000006{background:#FFFFFF!important}" % (STARTER, WINS)
 assert white_old in shared; shared = shared.replace(white_old, white_new)
 pat_old = "#section-1787360000001,#section-1787360000003,#section-1787360000005{background-color"
-pat_new = "#section-%s,#section-1787360000001,#section-1787360000003,#section-1787360000005{background-color" % HERO
+pat_new = "#section-%s,#section-1787360000004,#section-1787360000001,#section-1787360000003,#section-1787360000005{background-color" % HERO
 assert shared.count(pat_old) == 1; shared = shared.replace(pat_old, pat_new)
 pat_m_old = "@media (max-width:768px){#section-1787360000001,#section-1787360000003,#section-1787360000005{background-image"
-pat_m_new = "@media (max-width:768px){#section-%s,#section-1787360000001,#section-1787360000003,#section-1787360000005{background-image" % HERO
+pat_m_new = "@media (max-width:768px){#section-%s,#section-1787360000004,#section-1787360000001,#section-1787360000003,#section-1787360000005{background-image" % HERO
 assert shared.count(pat_m_old) == 1; shared = shared.replace(pat_m_old, pat_m_new)
 cardw_old = "#section-1787360000000 .canv2 .can-card,#section-1787360000002 .canv2 .can-card,#section-1787360000004 .canv2 .can-card,#section-1787360000006 .canv2 .can-card{box-shadow:none}"
 assert cardw_old in shared
-shared = shared.replace(cardw_old, "#section-%s .canv2 .can-card,#section-%s .canv2 .can-card,%s" % (STARTER, WINS, cardw_old))
+shared = shared.replace(cardw_old, "#section-%s .canv2 .can-card,#section-%s .canv2 .can-card,%s" % (STARTER, WINS, cardw_old.replace("#section-1787360000004 .canv2 .can-card,", "")))
 # the old hero's native-form rules move to the Starter Set section
 form_css = "\n".join(l for l in shared.splitlines() if l.startswith("#section-1787360000000 form") or l.startswith("@media (max-width:600px){#section-1787360000000 form"))
 shared = "\n".join(l for l in shared.splitlines() if not (l.startswith("#section-1787360000000 form") or l.startswith("@media (max-width:600px){#section-1787360000000 form")))
@@ -77,8 +77,17 @@ HERO_CSS = """
 .canv2 .heroq-copy .stat .n{font-family:var(--can-display);font-weight:700;font-size:26px;line-height:28px;color:var(--can-teal);font-variant-numeric:tabular-nums;letter-spacing:-.4px}
 .canv2 .heroq-copy .stat .l{font-size:13px;line-height:18px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;color:var(--can-mute);margin-top:2px}
 .canv2 .heroq-copy .hero-meta{text-align:left;margin:0}
+.canv2 .hero-starter{margin:0;padding:18px 0 0;border-top:1px solid var(--can-hairline)}
+.canv2 .starter-lab{display:block;font-size:15px;line-height:22px;color:var(--can-charcoal);margin:0 0 10px}.canv2 .starter-lab b{color:var(--can-ink)}
+.canv2 .starter-row{display:flex;align-items:stretch;max-width:460px;border-radius:4px;filter:drop-shadow(0 4px 10px rgba(26,31,44,.12))}
+.canv2 .starter-row input{flex:1 1 200px;min-width:0;height:46px!important;min-height:0;border:1px solid var(--can-border);border-right:0;border-radius:4px 0 0 4px;padding:0 14px;font-family:var(--can-body);font-size:16px;line-height:normal;color:var(--can-ink);background:#fff;margin:0!important;box-shadow:none}
+.canv2 .starter-row .can-btn{height:46px!important;min-height:0;line-height:1;padding:0 20px;margin:0!important;border-radius:0 4px 4px 0;flex:none;font-size:16px}
+.canv2 .starter-row .can-btn:disabled{opacity:.7;cursor:not-allowed}
+.canv2 .starter-note{font-size:14px;line-height:20px;color:var(--can-mute);margin:8px 0 0;min-height:20px}.canv2 .starter-note.ok{color:var(--can-teal);font-weight:600}.canv2 .starter-note.err{color:var(--can-rust-text)}
+@media (max-width:420px){.canv2 .starter-row{flex-wrap:wrap;filter:none}.canv2 .starter-row input{flex:1 1 100%;border-right:1px solid var(--can-border);border-radius:4px 4px 0 0}.canv2 .starter-row .can-btn{width:100%;border-radius:0 0 4px 4px}}
 .canv2 .heroq-quiz{min-width:0}
 .canv2 .heroq-quiz .canq{margin:0}
+.canv2 .how-card{padding:40px 44px 32px}.canv2 .how-card .center{margin-bottom:28px}
 @media (max-width:900px){
   .canv2 .heroq-card{grid-template-columns:1fr;gap:26px;padding:28px 20px 24px}
   .canv2 .heroq-copy .hero-h1{font-size:32px}
@@ -96,13 +105,19 @@ HERO_HTML = """<div class="canv2 heroq" id="top">
       <p class="hero-lead">Pre-negotiated discounts on the software and services successful Creators use, at the best rate most partners offer anywhere.</p>
       <div class="stats"><div class="stat"><div class="n">%(total)s</div><div class="l">in discounts</div></div><div class="stat"><div class="n">%(count)s</div><div class="l">partners</div></div><div class="stat"><div class="n">%(median)s</div><div class="l">median discount</div></div></div>
       <p class="hero-sub"><span class="arrow">&rarr;</span> Pick your next project and see what members save on it. Three quick questions, no email needed.</p>
-      <p class="hero-meta">Not ready to join? <a href="#starter">Unlock the free %(sub)s-discount Starter Set</a>.</p>
+      <form class="hero-starter" id="starter" novalidate>
+        <span class="starter-lab">Not ready to join? <b>Get the free %(sub)s-discount Starter Set</b> by email.</span>
+        <div class="starter-row"><input type="email" placeholder="Your email" aria-label="Email" autocomplete="email" required><button type="submit" class="can-btn can-btn--secondary">Send it</button></div>
+        <p class="starter-note" data-role="note">No spam, unsubscribe anytime.</p>
+      </form>
     </div>
     <div class="heroq-quiz"><div id="can-quiz-mount"></div></div>
   </div>
 </div>
 <script>window.CANQUIZ = {"embed": true, "starterUrl": "#starter", "label": "Your next project"};</script>
 <script src="%(base)scan-quiz.js"></script>
+<script>window.CANSTARTER = {"form": "#starter", "source": "hero"};</script>
+<script src="%(base)scan-starter.js"></script>
 <script>(function(){function go(){if(location.hash==="#top"){var s=document.getElementById("starter");if(s){try{history.replaceState(null,"","#starter");}catch(e){}s.scrollIntoView();}}}go();window.addEventListener("hashchange",go);})();</script>""" % dict(total=TOTAL, median=MEDIAN, count=COUNT, sub=SUBCOUNT, base=BASE)
 
 HERO_CODE = "<style>" + shared + HERO_CSS + "</style>\n" + HERO_HTML
@@ -135,12 +150,20 @@ assert PRICING_CODE.count("#starter") == 2
 # ---- 2026-09-10 late: Avi asked for the previous, longer copy back. Founder / categories / how / FAQ are the live
 # Aug-22 blocks verbatim (snapshot); pricing changes only its Starter Set links to #starter.
 FOUNDER_CODE = snap.FOUNDER_CODE
-CATS_CODE = snap.CATS_CODE
-HOW_CODE = snap.HOW_CODE
+HOW_CODE = snap.HOW_CODE.replace('<div class="canv2" id="how">', '<div class="canv2" id="how"><div class="can-card how-card">').replace('</div>\n</div>', '</div>\n</div></div>', 1) if False else snap.HOW_CODE
+# wrap everything inside the #how container in a card (the section now sits on the pattern)
+_h = snap.HOW_CODE
+assert _h.startswith('<div class="canv2" id="how">') and _h.rstrip().endswith('</div>')
+HOW_CODE = '<div class="canv2" id="how">\n  <div class="can-card how-card">\n' + _h[len('<div class="canv2" id="how">'):].rstrip()[:-len('</div>')] + '  </div>\n</div>'
+CATS_CODE = snap.CATS_CODE.replace('href="#widget">Browse all 50 partners', 'href="https://www.creatoraccessnetwork.com/partners">Browse all 50 partners')
+assert CATS_CODE != snap.CATS_CODE
 FAQ_CODE = snap.FAQ_CODE
 
 OLD_HIDDEN = snap.OLD_HIDDEN
-ORDER = ["", HERO, WINS, WIDGET, FOUNDER, CATS, HOW, FAQ, PRICING, STARTER, OLD_HERO, OLD_QUIZ] + OLD_HIDDEN
+# 2026-09-10 late: calculator widget removed from the homepage (Avi: the quiz replaces it). Section 1787360000001 is
+# HIDDEN, not deleted; to restore, set it hidden:"false" and put it back after WINS. Surfaces alternate:
+# Hero (pattern) > Wins (white) > Categories (pattern) > Founder (white) > How (pattern, card) > Pricing (white) > FAQ (pattern).
+ORDER = ["", HERO, WINS, CATS, FOUNDER, HOW, PRICING, FAQ, WIDGET, STARTER, OLD_HERO, OLD_QUIZ] + OLD_HIDDEN
 
 
 def build():
@@ -158,7 +181,8 @@ def build():
         WIDGET: {"blocks": {WIDGET + "_0": {"settings": {"code": WIDGET_CODE}}}},
         PRICING: {"blocks": {PRICING + "_0": {"settings": {"code": PRICING_CODE}}}},
     }
-    secs[STARTER]["hidden"] = "true"   # 2026-09-10 pm: the widget's inline capture replaced the separate section
+    secs[STARTER]["hidden"] = "true"   # 2026-09-10 pm: the separate Starter Set section is retired (capture lives in the hero)
+    secs[WIDGET] = {"hidden": "true"}  # 2026-09-10 late: calculator widget off the homepage; block code kept in the snapshot + widget_block.json
     return {"sections": secs, "content_for_index": ORDER}
 
 
