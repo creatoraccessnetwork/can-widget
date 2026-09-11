@@ -23,14 +23,16 @@
   var BASE = "https://creatoraccessnetwork.github.io/can-widget/";
   var LOCAL = location.href.replace(/test\/[^/]*$/, "");
   fetch("../scripts/payloads/home-v3.json").then(function (r) { return r.json(); }).then(function (p) {
-    var order = p.content_for_index.filter(function (id) { return id && p.sections[id] && p.sections[id].block_order; });
+    var order = p.content_for_index.filter(function (id) { return id && p.sections[id] && p.sections[id].blocks && p.sections[id].hidden !== "true"; });
+    var PAT = { "1787360000001": 1, "1787360000003": 1, "1787360000005": 1 };
     var host = document.getElementById("mount-home");
     order.forEach(function (id) {
-      var s = p.sections[id], pad = s.settings.padding_desktop;
+      var s = p.sections[id], pad = (s.settings && s.settings.padding_desktop) || { top: 64, right: 24, bottom: 64, left: 24 };
       var sec = document.createElement("div"); sec.className = "section"; sec.id = "section-" + id;
       sec.style.padding = pad.top + "px " + pad.right + "px " + pad.bottom + "px " + pad.left + "px";
+      if (PAT[id]) { sec.style.background = "#F0F4F8 url(../can-pattern-v4-desktop.svg) repeat"; sec.style.backgroundSize = "970px 970px"; }
       var col = document.createElement("div"); col.className = "col-12";
-      s.block_order.forEach(function (bid) {
+      (s.block_order || Object.keys(s.blocks)).forEach(function (bid) {
         var b = s.blocks[bid];
         if (b.type === "form") {
           var f = document.createElement("form"); f.innerHTML = '<div class="form-group"><input type="email" placeholder="Email"></div><button type="button" class="btn">' + b.settings.btn_text + '</button>';

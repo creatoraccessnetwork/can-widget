@@ -6,9 +6,10 @@ Rebuild the Hero (v2) section of every v2 offer page with the "Unlock Access" em
     python3 scripts/offer_hero_v3.py --write    # scripts/payloads/offer-hero-v3/<config>.json  ({theme_id, settings})
 
 What changes on each page (hero section 1787370000000 only; everything else untouched):
-  * The Join button becomes an email box with the CTA "Unlock Access". Submit posts the email to the Kajabi
-    "Savings Widget Unlock" form (2149650486; name "Unlock Access", custom_5 "unlock-access:offer:<token>",
-    custom_6 page URL, custom_7 opt-in stamp), scrolls to the checkout section and prefills its email field.
+  * The Join button becomes an email box with the CTA "Unlock Access". The hosted can-unlock.js (window.CANUNLOCK
+    config in the block) posts the email to the Kajabi "Savings Widget Unlock" form (2149650486; name "Unlock Access",
+    custom_5 "unlock-access:offer:<token>", custom_6 page URL, custom_7 opt-in stamp), scrolls to the checkout
+    section and prefills its <pds-input type="email"> field.
   * Copy pass: eyebrow "For Creators building a business" (PMM decision 5), one-sentence lead that still carries the
     "$36,000+" / "50" figures the weekly sync sweeps, price line from the config unchanged, meta line shortened.
   * The shared page CSS (previously repeated inside every hero block) now lives in two hosted stylesheets,
@@ -32,43 +33,17 @@ CSS_FILES = {}
 
 FORM_CSS = """<style>
 /* hero v3 (2026-09-10): Unlock Access email box */
-.canv2 .hero-unlock{display:flex;max-width:560px;margin:0 auto 14px;border-radius:4px;filter:drop-shadow(0 6px 14px rgba(26,31,44,.16))}
-.canv2 .hero-unlock input{flex:1 1 240px;min-width:0;height:52px;border:1px solid var(--can-border);border-right:0;border-radius:4px 0 0 4px;padding:0 16px;font-family:var(--can-body);font-size:17px;color:var(--can-ink);background:#fff;margin:0;box-shadow:none}
-.canv2 .hero-unlock .can-btn{height:52px;padding:0 28px;border-radius:0 4px 4px 0}
+.canv2 .hero-unlock{display:flex;align-items:stretch;max-width:560px;margin:0 auto 14px;border-radius:4px;filter:drop-shadow(0 6px 14px rgba(26,31,44,.16))}
+.canv2 .hero-unlock input{flex:1 1 240px;min-width:0;height:52px!important;min-height:0;border:1px solid var(--can-border);border-right:0;border-radius:4px 0 0 4px;padding:0 16px;font-family:var(--can-body);font-size:17px;line-height:normal;color:var(--can-ink);background:#fff;margin:0!important;box-shadow:none}
+.canv2 .hero-unlock .can-btn{height:52px!important;min-height:0;line-height:1;padding:0 28px;margin:0!important;border-radius:0 4px 4px 0;flex:none}
 .canv2 .hero-unlock .can-btn:disabled{opacity:.7;cursor:not-allowed}
 .canv2 .hero-meta.ok{color:var(--can-teal);font-weight:600}.canv2 .hero-meta.err{color:var(--can-rust-text)}
 @media (max-width:600px){.canv2 .hero-unlock{flex-wrap:wrap}.canv2 .hero-unlock input{flex:1 1 100%;border-right:1px solid var(--can-border);border-radius:4px 4px 0 0}.canv2 .hero-unlock .can-btn{width:100%;border-radius:0 0 4px 4px}}
 </style>
 """
 
-UNLOCK_JS = """<script>
-(function(){
-  var f=document.getElementById("unlock"); if(!f) return;
-  var note=document.getElementById("unote"), inp=f.querySelector("input"), btn=f.querySelector("button");
-  function prefill(email){
-    var co=document.getElementById("section-%(co)s");
-    if(co){ try{ co.scrollIntoView({behavior:"smooth",block:"start"}); }catch(e){ location.hash="#section-%(co)s"; } }
-    var tries=0;
-    (function fill(){
-      var el=co&&co.querySelector('input[type="email"]');
-      if(el){ try{ Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,"value").set.call(el,email); el.dispatchEvent(new Event("input",{bubbles:true})); el.dispatchEvent(new Event("change",{bubbles:true})); }catch(e){ el.value=email; } }
-      else if(tries++<25) setTimeout(fill,200);
-    })();
-  }
-  f.addEventListener("submit",function(ev){
-    ev.preventDefault();
-    var email=(inp.value||"").trim();
-    if(!/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(email)){ note.className="hero-meta err"; note.textContent="Please enter a valid email."; inp.focus(); return; }
-    btn.disabled=true; btn.textContent="Unlocking\\u2026";
-    var body="form_submission%%5Bname%%5D="+encodeURIComponent("Unlock Access")+"&form_submission%%5Bemail%%5D="+encodeURIComponent(email)+"&form_submission%%5Bcustom_5%%5D="+encodeURIComponent("unlock-access:offer:%(token)s")+"&form_submission%%5Bcustom_6%%5D="+encodeURIComponent(location.href)+"&form_submission%%5Bcustom_7%%5D="+encodeURIComponent("opted in "+new Date().toISOString());
-    try{ fetch("https://www.creatoraccessnetwork.com/forms/%(form)s/form_submissions",{method:"POST",mode:"no-cors",credentials:"omit",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:body}).catch(function(){}); }catch(e){}
-    try{ if(typeof window.gtag==="function") window.gtag("event","unlock_access",{source:"hero",page:"offer:%(token)s"}); }catch(e){}
-    try{ (window.dataLayer=window.dataLayer||[]).push({event:"unlock_access",can:{source:"hero",page:"offer:%(token)s"}}); }catch(e){}
-    btn.textContent="Unlocked \\u2713"; note.className="hero-meta ok"; note.textContent="Finish below. Your email is filled in.";
-    prefill(email);
-  });
-})();
-</script>"""
+UNLOCK_JS = """<script>window.CANUNLOCK = {"form": "#unlock", "note": "#unote", "tag": "unlock-access:offer:%(token)s", "checkout": "#section-%(co)s", "okClass": "hero-meta ok", "errClass": "hero-meta err"};</script>
+<script src="%(base)scan-unlock.js"></script>"""
 
 
 def hero_html(cfg, style):
@@ -87,7 +62,7 @@ def hero_html(cfg, style):
   <p class="hero-meta" id="unote">One discount pays for the year. Your rate never goes up.</p>
 </div>
 <div class="canv2-sticky"><span class="s-price">%(sticky_price)s</span><a class="can-btn" href="#section-%(co)s">%(sticky_btn)s</a></div>
-""" % dict(lock=lock, total=lib.TOTAL, count=lib.COUNT, median=lib.MEDIAN, sub=cfg["hero_sub"], sticky_price=cfg["sticky_price"], sticky_btn=cfg["sticky_btn"], co=CHECKOUT) + UNLOCK_JS % dict(co=CHECKOUT, token=cfg["token"], form=FORM)
+""" % dict(lock=lock, total=lib.TOTAL, count=lib.COUNT, median=lib.MEDIAN, sub=cfg["hero_sub"], sticky_price=cfg["sticky_price"], sticky_btn=cfg["sticky_btn"], co=CHECKOUT) + UNLOCK_JS % dict(co=CHECKOUT, token=cfg["token"], base=BASE)
 
 
 def build(cfg):

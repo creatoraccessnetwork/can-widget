@@ -44,8 +44,8 @@
 ".canseg .hero{padding:40px 44px;text-align:center;max-width:960px;margin:0 auto 32px}.canseg .hero .what{font-size:19px;line-height:28px;max-width:820px;margin:0 auto 12px}.canseg .hero .stagel{font-size:15px;line-height:22px;color:var(--mute);margin:0 0 20px}" +
 ".canseg .stats{display:inline-grid;grid-template-columns:1fr 1fr;gap:0 32px;margin:8px auto 24px;text-align:left}.canseg .stat .num{font-size:30px;line-height:32px;display:block}.canseg .stat .micro{font-size:13px;line-height:18px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;color:var(--mute);display:block;margin-top:4px}.canseg .stat+.stat{border-left:1px solid var(--hl);padding-left:32px}" +
 ".canseg .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:0 0 8px}" +
-".canseg .unlock{display:flex;max-width:560px;margin:0 auto 12px;border-radius:var(--r);filter:drop-shadow(0 6px 14px rgba(26,31,44,.16))}.canseg .unlock input{flex:1 1 240px;min-width:0;height:52px;border:1px solid var(--bd);border-right:0;border-radius:var(--r) 0 0 var(--r);padding:0 16px;font:inherit;font-size:17px;color:var(--ink);background:#fff;margin:0}" +
-".canseg .unlock .btn{height:52px;padding:0 28px;border-radius:0 var(--r) var(--r) 0}.canseg .unlock .btn:disabled{opacity:.7;cursor:not-allowed}" +
+".canseg .unlock{display:flex;align-items:stretch;max-width:560px;margin:0 auto 12px;border-radius:var(--r);filter:drop-shadow(0 6px 14px rgba(26,31,44,.16))}.canseg .unlock input{flex:1 1 240px;min-width:0;height:52px!important;min-height:0;border:1px solid var(--bd);border-right:0;border-radius:var(--r) 0 0 var(--r);padding:0 16px;font:inherit;font-size:17px;line-height:normal;color:var(--ink);background:#fff;margin:0!important;box-shadow:none}" +
+".canseg .unlock .btn{height:52px!important;min-height:0;line-height:1;padding:0 28px;margin:0!important;border-radius:0 var(--r) var(--r) 0;flex:none}.canseg .unlock .btn:disabled{opacity:.7;cursor:not-allowed}" +
 ".canseg .unote{font-size:15px;line-height:22px;color:var(--mute);text-align:center;margin:0}.canseg .unote.ok{color:var(--t);font-weight:600}.canseg .unote.err{color:var(--rust)}" +
 "@media (max-width:600px){.canseg .unlock{flex-wrap:wrap}.canseg .unlock input{flex:1 1 100%;border-right:1px solid var(--bd);border-radius:var(--r) var(--r) 0 0}.canseg .unlock .btn{width:100%;border-radius:0 0 var(--r) var(--r)}}" +
 ".canseg .two{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:start}" +
@@ -160,34 +160,13 @@
     var q = function (r) { return top.querySelector('[data-role="' + r + '"]'); };
     unclip(document.getElementById("canseg-calc"));
 
-    // --- Unlock Access (2026-09-10): collect the email (Kajabi form 2149650486), drop to the checkout, prefill it -----
+    // --- Unlock Access (2026-09-10): shared can-unlock.js collects the email (Kajabi form 2149650486), drops to the
+    //     checkout and prefills its email field (a <pds-input> web component on Kajabi's checkout).
     (function () {
-      var f = q("unlock"), note = q("unote"); if (!f) return;
-      var inp = f.querySelector("input"), btn = f.querySelector("button");
-      function prefill(email) {
-        var co = document.getElementById("section-1744906803654");
-        if (co) { try { co.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (e) { location.hash = "#section-1744906803654"; } }
-        var tries = 0;
-        (function fill() {
-          var el = co && co.querySelector('input[type="email"]');
-          if (el) { try { Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value").set.call(el, email); el.dispatchEvent(new Event("input", { bubbles: true })); el.dispatchEvent(new Event("change", { bubbles: true })); } catch (e) { el.value = email; } }
-          else if (tries++ < 25) setTimeout(fill, 200);
-        })();
-      }
-      f.addEventListener("submit", function (ev) {
-        ev.preventDefault();
-        var email = (inp.value || "").trim();
-        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { note.className = "unote err"; note.textContent = "Please enter a valid email."; inp.focus(); return; }
-        btn.disabled = true; btn.textContent = "Unlocking…";
-        var body = "form_submission%5Bname%5D=" + encodeURIComponent("Unlock Access") + "&form_submission%5Bemail%5D=" + encodeURIComponent(email) +
-          "&form_submission%5Bcustom_5%5D=" + encodeURIComponent("unlock-access:segment:" + C.seg) + "&form_submission%5Bcustom_6%5D=" + encodeURIComponent(location.href) +
-          "&form_submission%5Bcustom_7%5D=" + encodeURIComponent("opted in " + new Date().toISOString()) +
-          "&form_submission%5Bcustom_8%5D=" + encodeURIComponent(order.map(function (n) { return n; }).join("; "));
-        try { fetch("https://www.creatoraccessnetwork.com/forms/2149650486/form_submissions", { method: "POST", mode: "no-cors", credentials: "omit", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: body }).catch(function () {}); } catch (e) {}
-        track("unlock_access", { source: "hero" });
-        btn.textContent = "Unlocked ✓"; note.className = "unote ok"; note.textContent = "Finish below. Your email is filled in.";
-        prefill(email);
-      });
+      var cfg = { form: q("unlock"), note: q("unote"), okClass: "unote ok", errClass: "unote err", tag: "unlock-access:segment:" + C.seg, checkout: CHECKOUT,
+        source: "hero", picks: function () { return order.join("; "); }, track: function (n, p) { track(n, p); } };
+      if (window.canUnlockBind) window.canUnlockBind(cfg);
+      else { var sc = document.createElement("script"); sc.src = BASE + "can-unlock.js"; sc.async = true; sc.onload = function () { if (window.canUnlockBind) window.canUnlockBind(cfg); }; document.head.appendChild(sc); }
     })();
 
     // --- decision rows -------------------------------------------------------------------------------
