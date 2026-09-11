@@ -31,9 +31,16 @@
 ".canq .nav{display:flex;justify-content:space-between;align-items:center;margin:16px 0 0;gap:12px}.canq .back{background:none;border:0;color:var(--mute);font:inherit;font-size:15px;font-weight:600;cursor:pointer;padding:8px 0}.canq .back:hover{color:var(--t)}.canq .fine{font-size:15px;line-height:22px;color:var(--mute);margin:0}" +
 ".canq .done{text-align:center;padding:12px 0}.canq .done .q{margin-bottom:8px}.canq .btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 24px;border:0;border-radius:var(--r);cursor:pointer;font-family:var(--body);font-weight:700;font-size:17px;background:var(--rust);color:#fff!important;text-decoration:none!important}" +
 ".canq .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}" +
-".canq.embed{max-width:none}.canq .panel{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:24px 26px}.canq .ptop{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 10px}.canq .plabel{font-size:13px;line-height:18px;letter-spacing:1.2px;text-transform:uppercase;font-weight:800;color:var(--rust)}.canq.embed .bar{margin:0 0 18px;height:6px;background:#E6EBF2;border-radius:3px;overflow:hidden}.canq.embed .q{font-size:22px}.canq.embed .opt{background:#fff}" +
-"@media (max-width:600px){.canq .card{padding:24px 18px}.canq .panel{padding:18px 16px}.canq.embed .q{font-size:20px}.canq .h2{font-size:26px}.canq .sub{font-size:17px;line-height:26px}.canq .q{font-size:21px}}" +
-"@media (prefers-reduced-motion:reduce){.canq .bar i{transition:none}}";
+".canq.embed{max-width:none}.canq .panel{background:#fff;border:1px solid var(--bd);border-radius:6px;padding:0;overflow:hidden;box-shadow:0 14px 34px rgba(26,31,44,.16);animation:canq-in 250ms ease-out both}" +
+".canq .phead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 22px;background:var(--t);color:#fff}.canq .plabel{font-size:13px;line-height:18px;letter-spacing:1.4px;text-transform:uppercase;font-weight:800;color:#fff}.canq .phead .step{color:rgba(255,255,255,.85)}" +
+".canq .pbody{padding:20px 22px 18px}.canq.embed .bar{margin:0 0 18px;height:6px;background:#E6EBF2;border-radius:3px;overflow:hidden}.canq.embed .bar i{background:var(--rust)}" +
+".canq.embed .q{font-family:var(--disp);font-weight:900;font-size:27px;line-height:1.15;letter-spacing:-.4px;margin:0 0 14px}" +
+".canq.embed .opt{border:1px solid var(--bd);background:#fff;transition:transform 150ms ease,border-color 150ms ease,background 150ms ease,box-shadow 150ms ease}.canq.embed .opt:hover{border-color:var(--t);background:var(--s2);transform:translateX(4px);box-shadow:0 3px 10px rgba(26,31,44,.10)}" +
+".canq.embed .opt .k{background:var(--t);color:#fff;border-color:var(--t)}.canq.embed .opt:hover .k{background:var(--rust);border-color:var(--rust)}" +
+".canq.embed .nav .fine{color:var(--mute)}.canq.embed .done{padding:8px 0 4px}" +
+"@keyframes canq-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}" +
+"@media (max-width:600px){.canq .card{padding:24px 18px}.canq .phead{padding:12px 16px}.canq .pbody{padding:16px 14px 14px}.canq.embed .q{font-size:22px}.canq.embed .opt:hover{transform:none}.canq .h2{font-size:26px}.canq .sub{font-size:17px;line-height:26px}.canq .q{font-size:21px}}" +
+"@media (prefers-reduced-motion:reduce){.canq .bar i{transition:none}.canq .panel{animation:none}.canq.embed .opt,.canq.embed .opt:hover{transition:none;transform:none}}";
   var st = document.createElement("style"); st.textContent = CSS; document.head.appendChild(st);
 
   // ---- the tree (can-product-marketing skill, "Project quiz") -------------------------------------------
@@ -96,7 +103,7 @@
 
   mount.className = (mount.className ? mount.className + " " : "") + "canq" + (EMBED ? " embed" : "");
   mount.innerHTML = EMBED
-    ? '<div class="panel" id="quiz"><div class="ptop"><span class="plabel">' + esc(O.label || "Your next project") + '</span><span class="step" data-role="step"></span></div><div class="bar" aria-hidden="true"><i data-role="bar"></i></div><div data-role="body" aria-live="polite"></div></div>'
+    ? '<div class="panel" id="quiz"><div class="phead"><span class="plabel">' + esc(O.label || "Your next project") + '</span><span class="step" data-role="step"></span></div><div class="pbody"><div class="bar" aria-hidden="true"><i data-role="bar"></i></div><div data-role="body" aria-live="polite"></div></div></div>'
     : '<div class="card" id="quiz"><p class="eyebrow">Your next project</p><h2 class="h2">' + esc(HEADER) + '</h2><p class="sub">' + esc(SUB) + '</p>' +
     '<div class="prog" aria-hidden="true"><div class="bar"><i data-role="bar"></i></div><span class="step" data-role="step"></span></div>' +
     '<div data-role="body" aria-live="polite"></div></div>';

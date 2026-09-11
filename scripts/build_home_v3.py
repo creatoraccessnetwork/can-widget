@@ -66,7 +66,7 @@ assert "1787360000000 form" not in shared and form_css.count("#section-" + START
 HERO_CSS = """
 /* hero v3: quiz in the hero (2026-09-10) */
 .canv2.heroq{max-width:1160px}
-.canv2 .heroq-card{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center;padding:52px 56px;box-shadow:0 12px 32px rgba(26,31,44,.12)!important}
+.canv2 .heroq-card{display:grid;grid-template-columns:.98fr 1.02fr;gap:44px;align-items:center;padding:48px 52px;box-shadow:0 12px 32px rgba(26,31,44,.12)!important}
 .canv2 .heroq-copy{min-width:0}
 .canv2 .heroq-copy .can-eyebrow{font-size:15px;line-height:18px;letter-spacing:1.4px;margin:0 0 18px}
 .canv2 .heroq-copy .hero-h1{font-size:44px;line-height:1.08;margin:0 0 20px;text-align:left;text-wrap:balance}
@@ -79,9 +79,9 @@ HERO_CSS = """
 .canv2 .heroq-copy .hero-meta{text-align:left;margin:0}
 .canv2 .hero-starter{margin:0;padding:18px 0 0;border-top:1px solid var(--can-hairline)}
 .canv2 .starter-lab{display:block;font-size:15px;line-height:22px;color:var(--can-charcoal);margin:0 0 10px}.canv2 .starter-lab b{color:var(--can-ink)}
-.canv2 .starter-row{display:flex;align-items:stretch;max-width:460px;border-radius:4px;filter:drop-shadow(0 4px 10px rgba(26,31,44,.12))}
+.canv2 .starter-row{display:flex;align-items:stretch;max-width:480px;border-radius:4px;filter:drop-shadow(0 4px 10px rgba(26,31,44,.12))}
 .canv2 .starter-row input{flex:1 1 200px;min-width:0;height:46px!important;min-height:0;border:1px solid var(--can-border);border-right:0;border-radius:4px 0 0 4px;padding:0 14px;font-family:var(--can-body);font-size:16px;line-height:normal;color:var(--can-ink);background:#fff;margin:0!important;box-shadow:none}
-.canv2 .starter-row .can-btn{height:46px!important;min-height:0;line-height:1;padding:0 20px;margin:0!important;border-radius:0 4px 4px 0;flex:none;font-size:16px}
+.canv2 .starter-row .can-btn{height:46px!important;min-height:0;line-height:1;padding:0 18px;margin:0!important;border-radius:0 4px 4px 0;flex:none;font-size:16px}
 .canv2 .starter-row .can-btn:disabled{opacity:.7;cursor:not-allowed}
 .canv2 .starter-note{font-size:14px;line-height:20px;color:var(--can-mute);margin:8px 0 0;min-height:20px}.canv2 .starter-note.ok{color:var(--can-teal);font-weight:600}.canv2 .starter-note.err{color:var(--can-rust-text)}
 @media (max-width:420px){.canv2 .starter-row{flex-wrap:wrap;filter:none}.canv2 .starter-row input{flex:1 1 100%;border-right:1px solid var(--can-border);border-radius:4px 4px 0 0}.canv2 .starter-row .can-btn{width:100%;border-radius:0 0 4px 4px}}
@@ -107,7 +107,7 @@ HERO_HTML = """<div class="canv2 heroq" id="top">
       <p class="hero-sub"><span class="arrow">&rarr;</span> Pick your next project and see what members save on it. Three quick questions, no email needed.</p>
       <form class="hero-starter" id="starter" novalidate>
         <span class="starter-lab">Not ready to join? <b>Get the free %(sub)s-discount Starter Set</b> by email.</span>
-        <div class="starter-row"><input type="email" placeholder="Your email" aria-label="Email" autocomplete="email" required><button type="submit" class="can-btn can-btn--secondary">Send it</button></div>
+        <div class="starter-row"><input type="email" placeholder="Your email" aria-label="Email" autocomplete="email" required><button type="submit" class="can-btn">Unlock the Starter Set</button></div>
         <p class="starter-note" data-role="note">No spam, unsubscribe anytime.</p>
       </form>
     </div>
@@ -115,7 +115,7 @@ HERO_HTML = """<div class="canv2 heroq" id="top">
   </div>
 </div>
 <script>window.CANQUIZ = {"embed": true, "starterUrl": "#starter", "label": "Your next project"};</script>
-<script src="%(base)scan-quiz.js"></script>
+<script src="%(base)scan-quiz.js?v=20260911a"></script>
 <script>window.CANSTARTER = {"form": "#starter", "source": "hero"};</script>
 <script src="%(base)scan-starter.js"></script>
 <script>(function(){function go(){if(location.hash==="#top"){var s=document.getElementById("starter");if(s){try{history.replaceState(null,"","#starter");}catch(e){}s.scrollIntoView();}}}go();window.addEventListener("hashchange",go);})();</script>""" % dict(total=TOTAL, median=MEDIAN, count=COUNT, sub=SUBCOUNT, base=BASE)
@@ -163,7 +163,9 @@ OLD_HIDDEN = snap.OLD_HIDDEN
 # 2026-09-10 late: calculator widget removed from the homepage (Avi: the quiz replaces it). Section 1787360000001 is
 # HIDDEN, not deleted; to restore, set it hidden:"false" and put it back after WINS. Surfaces alternate:
 # Hero (pattern) > Wins (white) > Categories (pattern) > Founder (white) > How (pattern, card) > Pricing (white) > FAQ (pattern).
-ORDER = ["", HERO, WINS, CATS, FOUNDER, HOW, PRICING, FAQ, WIDGET, STARTER, OLD_HERO, OLD_QUIZ] + OLD_HIDDEN
+# 2026-09-11: "What's Inside" (CATS, 1787360000003) is HIDDEN too (Avi: six named companies don't help; the quiz does that job).
+# Surfaces: Hero (pattern) > Wins (white) > How (pattern, card) > Founder (white) > FAQ (pattern) > Pricing (white).
+ORDER = ["", HERO, WINS, HOW, FOUNDER, FAQ, PRICING, CATS, WIDGET, STARTER, OLD_HERO, OLD_QUIZ] + OLD_HIDDEN
 
 
 def build():
@@ -182,7 +184,8 @@ def build():
         PRICING: {"blocks": {PRICING + "_0": {"settings": {"code": PRICING_CODE}}}},
     }
     secs[STARTER]["hidden"] = "true"   # 2026-09-10 pm: the separate Starter Set section is retired (capture lives in the hero)
-    secs[WIDGET] = {"hidden": "true"}  # 2026-09-10 late: calculator widget off the homepage; block code kept in the snapshot + widget_block.json
+    secs[WIDGET] = {"hidden": "true"}  # 2026-09-10 late: calculator widget off the homepage; block code kept in the snapshot
+    secs[CATS] = {"hidden": "true"}    # 2026-09-11: What's Inside off the homepage; block code kept in the snapshot (CATS_CODE)
     return {"sections": secs, "content_for_index": ORDER}
 
 
