@@ -32,13 +32,13 @@
 ".cansw2 .lead{color:var(--ink);font-weight:700}" +
 ".cansw2-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;max-width:1160px;margin:0 auto}" +
 ".cansw2-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);box-shadow:0 3px 10px rgba(26,31,44,.10)}" +
-".cansw2-panel{height:700px;overflow:hidden;display:flex;flex-direction:column;padding:26px}" +
+".cansw2-panel{height:740px;overflow:hidden;display:flex;flex-direction:column;padding:26px}" +
 ".cansw2-scroll{flex:1 1 auto;min-height:0;overflow-y:auto}.cansw2-pin{flex:none}" +
 ".cansw2-eyebrow{font-family:var(--body);font-size:15px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;line-height:18px;color:var(--rust);margin:0 0 16px}" +
 ".cansw2-h{font-family:var(--disp);font-weight:900;font-size:32px;line-height:1.12;letter-spacing:-.6px;color:var(--ink)}" +
 ".cansw2-num{font-family:var(--disp);font-weight:700;color:var(--t);font-variant-numeric:tabular-nums;font-size:26px;line-height:26px}" +
 ".cansw2-micro{font-size:13px;line-height:18px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;color:var(--mute)}" +
-".cansw2-stats{display:grid;grid-template-columns:1fr 1fr;margin:24px 0 16px}.cansw2-stat{padding:0 16px 0 0}.cansw2-stat+.cansw2-stat{border-left:1px solid var(--hl);padding-left:16px}.cansw2-stat .cansw2-micro{margin-top:4px;display:block}" +
+".cansw2-stats{display:grid;grid-template-columns:1fr 1fr;margin:20px 0 12px}.cansw2-stat{padding:0 16px 0 0}.cansw2-stat+.cansw2-stat{border-left:1px solid var(--hl);padding-left:16px}.cansw2-stat .cansw2-micro{margin-top:4px;display:block}" +
 ".cansw2-checks{list-style:none;padding:0;margin:0}.cansw2-checks li{display:flex;gap:10px;align-items:flex-start;padding:6px 0}" +
 ".cansw2-chk{flex:none;width:18px;height:18px;border-radius:50%;background:var(--t);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;margin-top:1px}" +
 ".cansw2-swap{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;justify-content:space-evenly;overflow:hidden}" +
