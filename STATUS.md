@@ -1,42 +1,29 @@
-# STATUS - can-widget (savings widget, project quiz, segment pages)
+# STATUS - can-widget (project quiz, segment pages, testimonials, savings widget)
 
-Last updated: 2026-09-10 (Claude Code, homepage v3: quiz in the hero, Member Wins marquee, Starter Set section; wins strip on all 29 offer pages and 15 segment pages)
+Last updated: 2026-09-11 (Claude Code; homepage v3 final shape: quiz hero with Starter Set box, Member Wins, calculator + What's Inside off; Unlock Access heroes on all offer pages)
 
 ## Current state (20-second read)
 
-- **Homepage v3 (2026-09-10 afternoon, LIVE)**: the project quiz IS the hero. Site-theme sections: `1787360000008` Hero Quiz (v2) (pattern section, one white card, copy left / `can-quiz.js` in `embed:true` mode right; carries the shared CSS for every v2 section), `1787360000010` Member Wins (v2) (`can-testimonials.js`, members + partners rows, white), `1787360000009` Starter Set (v2) (the native Kajabi email form that used to be in the hero, `id="starter"`). Old hero `1787360000000` and old quiz section `1787360000007` are HIDDEN, not deleted. Render order: hero quiz, wins, starter, widget, founder, categories, how, FAQ, pricing, then hidden. Builder: `scripts/build_home_v3.py` -> `scripts/payloads/home-v3.json`. Snapshot + one-call revert payloads: `backups/homepage-2026-09-10-pre-quiz-hero/` (REVERT.md).
-- **Testimonials**: `testimonials.json` (7 member quotes from the Kajabi Wins! channel / Common Ninja / Notion, 6 partner-exec quotes from the Common Ninja partner widget; headshots rehosted in `assets/people/`) rendered by `can-testimonials.js` (CSS marquee, pause on hover, static under reduced motion). On every v2 offer page as section `1787370000012` Member Wins (v2) directly above the checkout (`scripts/offer_testimonials.py`, configs in `scripts/offer_configs/`), and on every segment page at the bottom of the project section (injected by `can-segment.js`).
-- All `#top` Starter Set links now point at `#starter`; the hero block redirects a `#top` hash to `#starter` for the offer pages that still link to `/#top`.
-
-- **Served from GitHub Pages** at `https://creatoraccessnetwork.github.io/can-widget/` off the `gh-pages` branch; `main` is the source. Every push to main must be mirrored to gh-pages (checkout the files from main, commit, push).
-- **Homepage widget**: `cansw-v2.js` (two-panel receipt). `cansw.js` v1 stays for older co-branded offer pages.
-- **Project quiz**: `can-quiz.js`, LIVE on the homepage since 2026-09-10 in site-theme section `1787360000007` (directly under the hero). Three or four questions, path to all fifteen segment pages, "Not sure yet" scrolls to the Starter Set form. Events `quiz_answer` / `quiz_complete` to gtag, fbq, dataLayer. No email gate. Snippet: `embed/homepage-quiz-snippet.html`.
-- **Fifteen segment pages**: Kajabi offers ($49/yr, Paid Community product), PUBLISHED 2026-09-10 at Avi's request. Each checkout theme is three sections mounting `can-segment.js` (see `scripts/build_segment_page.py`). Offer ids, tokens, theme ids: `scripts/segment_pages.json`. Page config (membership, terms, eligibility, H1s): `segments.json`. Figures: `segments-live.json` + the `segments` block in `numbers.json`, both written by `scripts/segments.py` from the deal-number sync's `parsed.json`.
-- **Numbers**: site-wide 50 partners / $36,000+ / exact 36336 (tracker run 2026-09-04, re-confirmed 2026-09-09). Segment totals in `numbers.json.segments`.
-- **Query-string contract** quiz to page: `?seg=<slug>&stage=pre|under100k|over100k[&platform=youtube|instagram|newsletter|other]&via=quiz`. Stage `pre` hides Karat; grow page swaps H1 and row order by platform.
-
-### 2026-09-10 (later) - Segment page polish (Claude Code)
-- Hero stat labels are now "in savings" and "discounts" (were "for this project" / "partners on this page").
-- Every decision row carries a "You save" label above its dollar figure; intro copy says the figure is what the discount is worth.
-- Calculator is sticky on desktop. Kajabi's theme sets `overflow-x:hidden` on `body`, which made `body` the sticky container and killed it; `can-segment.js` now swaps `hidden` for `clip` on any ancestor of the calculator (`unclip()`), so it pins at 24px and stops at the bottom of the list column. `test/segment.html` mimics the Kajabi overflow so the harness reproduces it.
-- "Also this year" per-segment strips are gone. A top-level `events` list in `segments.json` (VidSummit, CreatorIQ Connect) renders full width under the two columns on every page as "Upcoming events", never counted. CreatorIQ left the brand-deals decision rows (that page now counts 8 discounts). Per-segment `strips` are still merged in if ever used.
-- `every_creator_strip` is a ranked list (Wispr Flow, Mercury, beehiiv, Pop.store, then Kajabi, Epidemic Sound, Mighty Networks, Teachable, Valim, Ratelle Law); each page shows the first `every_creator_show` (4) not already on that page. Rule from Avi: biggest brands unless he names a company.
-- `scripts/segments.py` writes an `events` block; figures regenerated from a fresh tracker parse (SAFE, 50 / 36336 unchanged). `parsed.json` is not kept in the repo: fetch the OFFER TRACKING page and run the can-deal-numbers `parse_tracker.py` first.
-- Harness launch config now serves `/private/tmp/can-widget-harness` (the mirror), not `~/Desktop`.
+- **Homepage (site theme 2164431783), LIVE 2026-09-11.** Visible order and surfaces: `1787360000008` Hero Quiz (pattern; one white card: copy + rust "Unlock the Starter Set" email box left, `can-quiz.js` embed panel right with teal header band) > `1787360000010` Member Wins (white, `can-testimonials.js`) > `1787360000004` How It Works (pattern, one card) > `1787360000002` Founder (white) > `1787360000005` FAQ (pattern) > `1787360000006` Pricing (white). HIDDEN, not deleted: `1787360000003` What's Inside, `1787360000001` savings calculator widget, `1787360000009` Starter Set section, `1787360000000` old hero, `1787360000007` old quiz, plus the eleven Aug-21 sections. Builder: `scripts/build_home_v3.py` -> `scripts/payloads/home-v3.json`. Snapshot + revert recipes: `backups/homepage-2026-09-10-pre-quiz-hero/REVERT.md`.
+- **Copy** is the Aug-22 / afternoon wording everywhere (Avi rejected the 2026-09-10 tightening). Hero eyebrow "For Creators building a business"; offer-page eyebrow "Starting a Creator business is expensive."
+- **Starter Set capture**: hero form `#starter` -> `can-starter.js` -> Kajabi Email Signup form 2149438902. The quiz's "Not sure yet" and every Starter Set link scroll to it. `cansw-v2.js` (still used on offer pages) has its own inline capture (`capture:true`).
+- **Offer pages (29 v2)**: hero = "Unlock Access" email box (`can-unlock.js` -> form 2149650486 tagged `unlock-access:offer:<token>`, scrolls to checkout and prefills Kajabi's `pds-input`), shared CSS as `canv2-offer-{regular,cobrand}.css`, Member Wins section `1787370000012` above the checkout. Builders `scripts/offer_hero_v3.py`, `scripts/offer_testimonials.py`; configs `scripts/offer_configs/`. free1/free2/nikki are unpublished drafts.
+- **Segment pages (15)**: `can-segment.js` renders hero (Unlock Access box, tag `unlock-access:segment:<slug>`), rows, sticky calculator, events, wins strip; config `segments.json` + `segments-live.json`; offers in `scripts/segment_pages.json`. "Browse every partner" -> /partners.
+- **Testimonials**: `testimonials.json` (7 member quotes, 6 partner quotes, headshots in `assets/people/`).
+- **Served from GitHub Pages** off `gh-pages`; `main` is the source; mirror every served-file change to gh-pages. Browser caches hold scripts ~10 min: the homepage loads `can-quiz.js?v=20260911a` and `cansw-v2.js?v=20260910d`; bump the tags in `build_home_v3.py` after pushes to those files.
+- **Numbers**: 50 partners / $36,000+ / exact 36336 (tracker run 2026-09-04). The hero stat tiles carry the figures; the weekly sync still targets the old hero block (see open items).
+- **Query-string contract** quiz -> page: `?seg=<slug>&stage=pre|under100k|over100k[&platform=...]&via=quiz`.
 
 ## Open items
 
-- **Homepage v3 follow-ups (2026-09-10)**: (1) repoint the can-deal-numbers Kajabi map from hero block `1787360000000_0` to `1787360000008_0` (the stat tiles read "$36,000+" / "50" / "$400"; the lead sentence no longer carries the figures); (2) hero eyebrow is now "For Creators building a business" per the PMM "eyebrow names the reader" ruling, Avi to confirm wording; (3) Alix Gucovsky's headshot is her public Instagram avatar (a cat photo) because LinkedIn is walled, swap in `assets/people/alix-gucovsky.jpg` if a real headshot turns up; (4) Joel Savitt's and Alix's quotes come from community posts, not an explicit testimonial ask, flip `enabled:false` in `testimonials.json` if permission is needed first; (5) Nick Ramos's VidCon post is in the file but disabled (networking win, no headshot/handle).
-
-- **Testimonial slots empty** on all fifteen pages (render only when `segments.json` has a real, permissioned quote; `?preview=slots` shows the placeholder). Blocked on Avi supplying quotes.
-- **Valim conflict**: tracker says $2,000, `cansw-data.json` still [360, 450]. Segment pages show $2,000, homepage widget shows $450. Needs a data-file sync.
-- **Ad Sales as a Service / Revenews**: removed from every segment page (Avi, 2026-09-10: bigger channels only). Widget data still says "Revenews"; the rename keeps getting reverted by automation pending Avi's confirmation.
-- **Fourthwall** excluded from all segment pages (Avi, 2026-09-10 "do not include"). One config edit puts it back.
-- **Roster** shown without a figure, out of the Protect total, until the tracker's $1,280+ vs $280-$810 conflict is settled.
-- **Driff** copy needs partner approval before it is promoted; **Soundstripe** eligibility assumed new customers only.
-- **Kajabi page titles** on the fifteen offers are the generic site title; set SEO titles in offer settings if wanted.
-- **Docs to mirror**: Copywriter Brief and Appendix still describe eight tiles; rule 0e in the business skill; tracker Goal Tags per segment.
-- Hosting: keep GitHub Pages. A Supabase table for quiz completions (persona data) is the only worthwhile follow-on.
+- **Repoint can-deal-numbers** from hero block `1787360000000_0` to `1787360000008_0` (stat tiles "$36,000+" / "50" / "$400").
+- **Unlock Access leads**: decide which automations fire on the "Savings Widget Unlock" form (2149650486) for the new `unlock-access:*` tags, and whether non-buyers should get the Starter Set sequence.
+- **How It Works** still says "expert content library" (Avi asked for the previous copy back; PMM decision 4 says cut it). Pricing card bullet "Curated library" likewise.
+- **Testimonials**: Joel Savitt / Alix Gucovsky quotes are community posts without an explicit ask; Alix's headshot is her Instagram avatar (a cat); Nick Ramos disabled. Per-segment testimonial slots still empty.
+- **Quiz panel attention**: restyled 2026-09-11 (teal band, motion). If it still under-performs, next levers are a more direct question and a rust band (competes with the Unlock button).
+- **Valim** tracker $2,000 vs `cansw-data.json` [360, 450]; **Revenews/Ad Sales** rename pending; **Fourthwall** excluded; **Roster** no figure; **Driff** copy needs partner approval; **Soundstripe** new customers assumed.
+- **Docs to mirror**: Copywriter Brief and Appendix (still eight tiles), rule 0e in the business skill, tracker Goal Tags per segment; can-offer-page skill's `build_offer_page.py` still emits the old hero + no wins section (run the two v3 scripts after it).
+- **Duplicate-file sync**: something on this Mac keeps writing " 2"/" 48" numbered copies into the repo (fast enough to hang `git add -A`). Delete untracked copies before committing; find the culprit (iCloud Desktop sync or the Cowork bridge).
 
 ## Hard-won gotchas
 
