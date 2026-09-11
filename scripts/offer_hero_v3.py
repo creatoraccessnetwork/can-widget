@@ -10,8 +10,8 @@ What changes on each page (hero section 1787370000000 only; everything else unto
     config in the block) posts the email to the Kajabi "Savings Widget Unlock" form (2149650486; name "Unlock Access",
     custom_5 "unlock-access:offer:<token>", custom_6 page URL, custom_7 opt-in stamp), scrolls to the checkout
     section and prefills its <pds-input type="email"> field.
-  * Copy pass: eyebrow "For Creators building a business" (PMM decision 5), one-sentence lead that still carries the
-    "$36,000+" / "50" figures the weekly sync sweeps, price line from the config unchanged, meta line shortened.
+  * Copy is the Aug-22 hero copy verbatim (eyebrow, lead with the synced figures, price line and meta from the config);
+    Avi asked for the longer copy back on 2026-09-10 (late).
   * The shared page CSS (previously repeated inside every hero block) now lives in two hosted stylesheets,
     canv2-offer-regular.css and canv2-offer-cobrand.css, generated here from offer_page_lib.css() (the can-offer-page
     skill's build_offer_page.py with the figures read from numbers.json) and linked from the hero block.
@@ -54,15 +54,15 @@ def hero_html(cfg, style):
         lock = ""
     return style + """<div class="canv2 hero-in hero" id="top">
   %(lock)s
-  <p class="can-eyebrow">For Creators building a business</p>
+  <p class="can-eyebrow">Starting a Creator business is expensive.</p>
   <h1 class="hero-h1">Our members <span class="tl">save money</span> while they build to <span class="tl">make money</span>.</h1>
-  <p class="hero-lead">Member rates on the software and services successful Creators use. <span class="lead">%(total)s</span> across <span class="lead">%(count)s</span> partners, median <span class="lead">%(median)s</span>.</p>
+  <p class="hero-lead">Access <span class="lead">%(total)s</span> in pre-negotiated discounts on the software and services successful Creators use. Median discount: <span class="lead">%(median)s</span>.</p>
   <p class="hero-sub">%(sub)s</p>
   <form class="hero-unlock" id="unlock" novalidate><input type="email" placeholder="Your email" aria-label="Email" autocomplete="email" required><button type="submit" class="can-btn can-btn--lg">Unlock Access</button></form>
-  <p class="hero-meta" id="unote">One discount pays for the year. Your rate never goes up.</p>
+  <p class="hero-meta" id="unote">%(meta)s</p>
 </div>
 <div class="canv2-sticky"><span class="s-price">%(sticky_price)s</span><a class="can-btn" href="#section-%(co)s">%(sticky_btn)s</a></div>
-""" % dict(lock=lock, total=lib.TOTAL, count=lib.COUNT, median=lib.MEDIAN, sub=cfg["hero_sub"], sticky_price=cfg["sticky_price"], sticky_btn=cfg["sticky_btn"], co=CHECKOUT) + UNLOCK_JS % dict(co=CHECKOUT, token=cfg["token"], base=BASE)
+""" % dict(lock=lock, total=lib.TOTAL, count=lib.COUNT, median=lib.MEDIAN, sub=cfg["hero_sub"], meta=cfg["hero_meta"], sticky_price=cfg["sticky_price"], sticky_btn=cfg["sticky_btn"], co=CHECKOUT) + UNLOCK_JS % dict(co=CHECKOUT, token=cfg["token"], base=BASE)
 
 
 def build(cfg):
