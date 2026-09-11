@@ -77,13 +77,13 @@ HERO_CSS = """
 .canv2 .heroq-copy .stat .n{font-family:var(--can-display);font-weight:700;font-size:26px;line-height:28px;color:var(--can-teal);font-variant-numeric:tabular-nums;letter-spacing:-.4px}
 .canv2 .heroq-copy .stat .l{font-size:13px;line-height:18px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;color:var(--can-mute);margin-top:2px}
 .canv2 .heroq-copy .hero-meta{text-align:left;margin:0}
-.canv2 .hero-starter{margin:0;padding:18px 0 0;border-top:1px solid var(--can-hairline)}
-.canv2 .starter-lab{display:block;font-size:15px;line-height:22px;color:var(--can-charcoal);margin:0 0 10px}.canv2 .starter-lab b{color:var(--can-ink)}
+.canv2 .hero-starter{margin:0;padding:20px 0 0;border-top:1px solid var(--can-hairline)}
+.canv2 .starter-lab{display:block;font-size:15px;line-height:22px;color:var(--can-charcoal);margin:0 0 12px}.canv2 .starter-lab b{color:var(--can-ink)}.canv2 .starter-lab .q{display:block}
 .canv2 .starter-row{display:flex;align-items:stretch;max-width:480px;border-radius:4px;filter:drop-shadow(0 4px 10px rgba(26,31,44,.12))}
 .canv2 .starter-row input{flex:1 1 200px;min-width:0;height:46px!important;min-height:0;border:1px solid var(--can-border);border-right:0;border-radius:4px 0 0 4px;padding:0 14px;font-family:var(--can-body);font-size:16px;line-height:normal;color:var(--can-ink);background:#fff;margin:0!important;box-shadow:none}
 .canv2 .starter-row .can-btn{height:46px!important;min-height:0;line-height:1;padding:0 18px;margin:0!important;border-radius:0 4px 4px 0;flex:none;font-size:16px}
 .canv2 .starter-row .can-btn:disabled{opacity:.7;cursor:not-allowed}
-.canv2 .starter-note{font-size:14px;line-height:20px;color:var(--can-mute);margin:8px 0 0;min-height:20px}.canv2 .starter-note.ok{color:var(--can-teal);font-weight:600}.canv2 .starter-note.err{color:var(--can-rust-text)}
+.canv2 .starter-note{font-size:14px;line-height:20px;color:var(--can-mute);margin:10px 0 0;min-height:20px}.canv2 .starter-note.ok{color:var(--can-teal);font-weight:600}.canv2 .starter-note.err{color:var(--can-rust-text)}
 @media (max-width:420px){.canv2 .starter-row{flex-wrap:wrap;filter:none}.canv2 .starter-row input{flex:1 1 100%;border-right:1px solid var(--can-border);border-radius:4px 4px 0 0}.canv2 .starter-row .can-btn{width:100%;border-radius:0 0 4px 4px}}
 .canv2 .heroq-quiz{min-width:0}
 .canv2 .heroq-quiz .canq{margin:0}
@@ -106,8 +106,8 @@ HERO_HTML = """<div class="canv2 heroq" id="top">
       <div class="stats"><div class="stat"><div class="n">%(total)s</div><div class="l">in discounts</div></div><div class="stat"><div class="n">%(count)s</div><div class="l">partners</div></div><div class="stat"><div class="n">%(median)s</div><div class="l">median discount</div></div></div>
       <p class="hero-sub"><span class="arrow">&rarr;</span> Pick your next project and see what members save on it. Three quick questions, no email needed.</p>
       <form class="hero-starter" id="starter" novalidate>
-        <span class="starter-lab">Not ready to join? <b>Get the free %(sub)s-discount Starter Set</b> by email.</span>
-        <div class="starter-row"><input type="email" placeholder="Your email" aria-label="Email" autocomplete="email" required><button type="submit" class="can-btn">Unlock the Starter Set</button></div>
+        <span class="starter-lab"><span class="q">Not ready to join?</span> <b>Get the free %(sub)s-discount Starter Set</b> by email.</span>
+        <div class="starter-row"><input type="email" placeholder="Your email" aria-label="Email" autocomplete="email" required><button type="submit" class="can-btn">Unlock Free</button></div>
         <p class="starter-note" data-role="note">No spam, unsubscribe anytime.</p>
       </form>
     </div>
@@ -143,7 +143,7 @@ WINS_CODE = """<div class="canv2" id="wins"><div id="can-testimonials-mount"></d
 
 WIDGET_CODE = snap.WIDGET_CODE.replace('"starterUrl": "#top"', '"starterUrl": "#starter"').replace("cansw-v2.js\"", "cansw-v2.js?v=20260910d\"")  # ?v= busts browser caches after widget pushes; bump it when cansw-v2.js changes
 assert WIDGET_CODE != snap.WIDGET_CODE
-PRICING_CODE = snap.PRICING_CODE.replace('href="#top"', 'href="#starter"')
+PRICING_CODE = snap.PRICING_CODE.replace('href="#top"', 'href="#starter"').replace('>Join for $49</a>', '>Get access for $49</a>')  # 2026-09-11 Avi: "Get access for $49"
 assert PRICING_CODE.count("#starter") == 2
 # (pricing bullets / lock text stay as live; see note above)
 
