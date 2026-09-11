@@ -76,3 +76,9 @@ Last updated: 2026-09-11 (Claude Code; homepage v3 final shape: quiz hero with S
 - Avi: six named companies don't help (the quiz does that job) -> section `1787360000003` "Discounts by Category" HIDDEN, not deleted (block in the snapshot's CATS_CODE). Order/surfaces: Hero (P) > Wins (W) > How (P, card) > Founder (W) > FAQ (P) > Pricing (W).
 - Hero Starter Set button is rust, label "Unlock the Starter Set"; quiz column slightly wider (.98fr / 1.02fr).
 - Quiz panel (can-quiz.js embed mode) redesigned to pull the eye: teal header band with the label and step count, white body, rust progress bar, Lato 27px question, teal numbered chips that turn rust on hover, options slide 4px on hover, deeper shadow, 250ms entrance (all off under prefers-reduced-motion). Script loaded as `can-quiz.js?v=20260911a`; bump the tag after quiz pushes.
+
+## Log
+
+### 2026-09-11 (later) - Rust quiz band + founder button (Claude Code)
+- Avi: the teal block in the hero quiz and the "Reach out to Avi" button should be rust. `.canq .phead` background -> `var(--rust)` in `can-quiz.js` (main + gh-pages); founder block `1787360000002_0` anchor is now plain `can-btn` (rust), `offer_page_lib.py` source matched so a rebuild keeps it. Numbered chips stay teal (rust on hover). Verified live.
+
