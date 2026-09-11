@@ -93,10 +93,9 @@ HERO_HTML = """<div class="canv2 heroq" id="top">
     <div class="heroq-copy">
       <p class="can-eyebrow">For Creators building a business</p>
       <h1 class="hero-h1">Our members <span class="tl">save money</span> while they build to <span class="tl">make money</span>.</h1>
-      <p class="hero-lead">Pre-negotiated discounts on the software and services successful Creators use, at the best rate most partners offer anywhere.</p>
+      <p class="hero-lead">Member rates on the software and services successful Creators use.</p>
       <div class="stats"><div class="stat"><div class="n">%(total)s</div><div class="l">in discounts</div></div><div class="stat"><div class="n">%(count)s</div><div class="l">partners</div></div><div class="stat"><div class="n">%(median)s</div><div class="l">median discount</div></div></div>
-      <p class="hero-sub"><span class="arrow">&rarr;</span> Pick your next project and see what members save on it. Three quick questions, no email needed.</p>
-      <p class="hero-meta">Not ready to join? <a href="#starter">Unlock the free %(sub)s-discount Starter Set</a>.</p>
+      <p class="hero-meta">Not ready? <a href="#starter">Get the free %(sub)s-discount Starter Set</a>.</p>
     </div>
     <div class="heroq-quiz"><div id="can-quiz-mount"></div></div>
   </div>
@@ -123,16 +122,63 @@ STARTER_CODE = """<style>
 STARTER_META = snap.HERO_META  # "No spam, unsubscribe anytime. Or join for $49/year for 4x more savings."
 
 WINS_CODE = """<div class="canv2" id="wins"><div id="can-testimonials-mount"></div></div>
-<script>window.CANTESTI = {"surface": "white", "rows": ["members", "partners"], "eyebrow": "Member wins", "headline": "Real Creators, real receipts.", "sub": "Pulled from the members' Wins channel and their own posts. Every name links to the Creator."};</script>
+<script>window.CANTESTI = {"surface": "white", "rows": ["members", "partners"], "eyebrow": "Member wins", "headline": "Real Creators, real receipts.", "sub": ""};</script>
 <script src="%scan-testimonials.js"></script>""" % BASE
 
 WIDGET_CODE = snap.WIDGET_CODE.replace('"starterUrl": "#top"', '"starterUrl": "#starter"')
 assert WIDGET_CODE != snap.WIDGET_CODE
 PRICING_CODE = snap.PRICING_CODE.replace('href="#top"', 'href="#starter"')
 assert PRICING_CODE.count("#starter") == 2
+for a, b in [
+    ('<span class="lead">Curated library</span> of educational resources', 'Discounts on <span class="lead">Creator education</span>'),
+    ('<span class="lead">Community</span> of Creators building alongside you', 'A <span class="lead">community</span> of Creators, if you want it'),
+    ('<span class="lead">New discounts</span> added at least monthly', '<span class="lead">New discounts</span> every month'),
+    ('join at $49/year and your rate never goes up, even when the price does.', 'your rate never goes up, even when the price does.'),
+    ('Not ready? <a href="#starter">Unlock the Starter Set free</a>.', 'Not ready? <a href="#starter">Get the Starter Set free</a>.'),
+]:
+    assert a in PRICING_CODE, a; PRICING_CODE = PRICING_CODE.replace(a, b)
+
+# ---- copy pass, 2026-09-10 pm: same sections, fewer words. "Expert content library" removed (PMM decision 4). -------------
+FOUNDER_CODE = snap.FOUNDER_CODE
+_f_old = """    <p>15 years serving Creators as an agent, producer, and platform exec... then he got laid off and became one. After three failed communities, two fired accountants, and too many attempts at selling courses, products, and software, he had spent $12,000+ on experiments before finding the stack that worked.</p>
+    <p>CAN shrinks that bill. Most partners give members the best rate they offer anywhere (look for the 🏆) and at just $49/year, it pays for itself fast.</p>"""
+assert _f_old in FOUNDER_CODE
+FOUNDER_CODE = FOUNDER_CODE.replace(_f_old, """    <p>15 years as an agent, producer and platform exec. Then he got laid off and became a Creator. Three failed communities, two fired accountants and $12,000+ of experiments later, he found the stack that worked.</p>
+    <p>CAN shrinks that bill. Most partners give members their best rate anywhere (look for the 🏆), and at $49/year it pays for itself fast.</p>""")
+
+CATS_CODE = snap.CATS_CODE
+for a, b in [
+    ("""Six of 50. The figure on each card is what a member saves. "Up to" depends on the plan you pick.""", "Six of 50. Each figure is what a member saves."),
+    ("Member-only discount. Course, coaching, and membership platform where Creators have earned over $10 billion.", "Member-only rate on the platform where Creators have earned $10 billion+."),
+    ("25% off paid plans for 1 year. Built by former Morning Brew employees.", "25% off paid plans for a year. Built by ex-Morning Brew."),
+    ("30% off annual plans for your first year. Monetization with digital products, community chat, and an AI fan assistant.", "30% off annual plans, first year. Digital products, community chat, an AI fan assistant."),
+    ("Up to $400 in cash bonuses, terms apply. Business banking used by thousands of small businesses.", "Up to $400 in cash bonuses, terms apply. Business banking for small businesses."),
+    ("6 months of Pro free. AI dictation that types what you say in any app.", "6 months of Pro free. Dictation that types what you say, in any app."),
+    ("5 years of your .store domain free. Separate your commerce from your content.", "5 years of your .store domain free."),
+]:
+    assert a in CATS_CODE, a; CATS_CODE = CATS_CODE.replace(a, b)
+
+HOW_CODE = snap.HOW_CODE
+for a, b in [
+    ("Or start free with a starter set of discounts by email. Your rate locks for life when you join.", "Or start free with the Starter Set. Your rate locks for life."),
+    ("Search by what you're about to buy. 🏆 means the best rate that partner offers anywhere.", "Search what you're about to buy. 🏆 marks the best rate anywhere."),
+    ("One discount pays for the membership. New discounts land at least monthly.", "One discount pays for the year. New ones land monthly."),
+    ("Membership also includes an expert content library and a community of Creators building alongside you.", "Plus a community of Creators building alongside you, if you want it."),
+]:
+    assert a in HOW_CODE, a; HOW_CODE = HOW_CODE.replace(a, b)
+
+FAQ_CODE = snap.FAQ_CODE
+for a, b in [
+    ("No. The rates aren't public. They're pre-negotiated for members, and partners give their best rate anywhere. Access like this used to take years of relationships.", "No. The rates aren't public. They're negotiated for members, and most partners give their best rate anywhere."),
+    ("No. Each one is worth more than $49, so the first one you use covers the year.", "No. Each one is worth more than $49, so the first one covers the year."),
+    ("Your rate is locked in for life, even when the price goes up.", "Your rate is locked in for life."),
+    ("No. Vendors don't discount their existing customers. The savings are for your next tool decision, as you build your stack.", "No. Vendors don't discount existing customers. The savings are for your next tool decision."),
+    ("No. CAN doesn't represent you or take a cut of your income. It's a membership that gets you better rates on what you're buying anyway.", "No. CAN doesn't represent you or take a cut. It's a membership that gets you better rates on what you're buying anyway."),
+]:
+    assert a in FAQ_CODE, a; FAQ_CODE = FAQ_CODE.replace(a, b)
 
 OLD_HIDDEN = snap.OLD_HIDDEN
-ORDER = ["", HERO, WINS, STARTER, WIDGET, FOUNDER, CATS, HOW, FAQ, PRICING, OLD_HERO, OLD_QUIZ] + OLD_HIDDEN
+ORDER = ["", HERO, WINS, WIDGET, FOUNDER, CATS, HOW, FAQ, PRICING, STARTER, OLD_HERO, OLD_QUIZ] + OLD_HIDDEN
 
 
 def build():
@@ -141,11 +187,16 @@ def build():
         STARTER: snap.sec("Starter Set (v2)", snap.section_settings(56, 64, 40, 48), [
             (STARTER + "_0", snap.code_block(STARTER_CODE)), (STARTER + "_1", json.loads(json.dumps(snap.FORM_BLOCK))), (STARTER + "_2", snap.code_block(STARTER_META))]),
         WINS: snap.sec("Member Wins (v2)", snap.section_settings(56, 40, 40, 24), [(WINS + "_0", snap.code_block(WINS_CODE))]),
+        FOUNDER: {"blocks": {FOUNDER + "_0": {"settings": {"code": FOUNDER_CODE}}}},
+        CATS: {"blocks": {CATS + "_0": {"settings": {"code": CATS_CODE}}}},
+        HOW: {"blocks": {HOW + "_0": {"settings": {"code": HOW_CODE}}}},
+        FAQ: {"blocks": {FAQ + "_0": {"settings": {"code": FAQ_CODE}}}},
         OLD_HERO: {"hidden": "true"},
         OLD_QUIZ: {"hidden": "true"},
         WIDGET: {"blocks": {WIDGET + "_0": {"settings": {"code": WIDGET_CODE}}}},
         PRICING: {"blocks": {PRICING + "_0": {"settings": {"code": PRICING_CODE}}}},
     }
+    secs[STARTER]["hidden"] = "true"   # 2026-09-10 pm: the widget's inline capture replaced the separate section
     return {"sections": secs, "content_for_index": ORDER}
 
 

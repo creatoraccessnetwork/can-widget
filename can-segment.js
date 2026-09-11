@@ -44,6 +44,10 @@
 ".canseg .hero{padding:40px 44px;text-align:center;max-width:960px;margin:0 auto 32px}.canseg .hero .what{font-size:19px;line-height:28px;max-width:820px;margin:0 auto 12px}.canseg .hero .stagel{font-size:15px;line-height:22px;color:var(--mute);margin:0 0 20px}" +
 ".canseg .stats{display:inline-grid;grid-template-columns:1fr 1fr;gap:0 32px;margin:8px auto 24px;text-align:left}.canseg .stat .num{font-size:30px;line-height:32px;display:block}.canseg .stat .micro{font-size:13px;line-height:18px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;color:var(--mute);display:block;margin-top:4px}.canseg .stat+.stat{border-left:1px solid var(--hl);padding-left:32px}" +
 ".canseg .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:0 0 8px}" +
+".canseg .unlock{display:flex;max-width:560px;margin:0 auto 12px;border-radius:var(--r);filter:drop-shadow(0 6px 14px rgba(26,31,44,.16))}.canseg .unlock input{flex:1 1 240px;min-width:0;height:52px;border:1px solid var(--bd);border-right:0;border-radius:var(--r) 0 0 var(--r);padding:0 16px;font:inherit;font-size:17px;color:var(--ink);background:#fff;margin:0}" +
+".canseg .unlock .btn{height:52px;padding:0 28px;border-radius:0 var(--r) var(--r) 0}.canseg .unlock .btn:disabled{opacity:.7;cursor:not-allowed}" +
+".canseg .unote{font-size:15px;line-height:22px;color:var(--mute);text-align:center;margin:0}.canseg .unote.ok{color:var(--t);font-weight:600}.canseg .unote.err{color:var(--rust)}" +
+"@media (max-width:600px){.canseg .unlock{flex-wrap:wrap}.canseg .unlock input{flex:1 1 100%;border-right:1px solid var(--bd);border-radius:var(--r) var(--r) 0 0}.canseg .unlock .btn{width:100%;border-radius:0 0 var(--r) var(--r)}}" +
 ".canseg .two{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:start}" +
 ".canseg .grp{padding:6px 22px 8px;margin-bottom:16px}.canseg .grp .gt{font-size:13px;line-height:18px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--t);padding:14px 0 6px}" +
 ".canseg .row{display:grid;grid-template-columns:36px 1fr auto;gap:14px;align-items:center;padding:12px 0;border-top:1px solid var(--hl);transition:background 150ms ease}.canseg .row.sel{background:#F4F8FA;margin:0 -12px;padding-left:12px;padding-right:12px}.canseg .row.off,.canseg .grp.off{display:none}" +
@@ -126,19 +130,19 @@
         (STAGE ? '<p class="stagel">' + esc(STAGE_LINE[STAGE]) + '</p>' : '') +
         '<div class="stats"><div class="stat"><span class="num">' + esc(live.total_display || "") + '</span><span class="micro">in savings</span></div>' +
         '<div class="stat"><span class="num">' + esc(live.partner_count) + '</span><span class="micro">discounts</span></div></div>' +
-        '<div class="cta"><a class="btn lg" href="' + CHECKOUT + '" data-track="hero">Join for $' + COST + '/year</a><a class="btn lg sec" href="#canseg-calc">See what you\'d save</a></div>' +
-        '<p class="meta" style="text-align:center;margin:0">One discount pays for the membership. Your rate never goes up, even when the price does.</p>' +
+        '<form class="unlock" data-role="unlock" novalidate><input type="email" placeholder="Your email" aria-label="Email" autocomplete="email" required><button type="submit" class="btn lg">Unlock Access</button></form>' +
+        '<p class="unote" data-role="unote">One discount pays for the year. Your rate never goes up.</p>' +
       '</div>' +
       '<div class="two">' +
         '<div>' +
-          '<div class="card grp" style="padding-top:20px;padding-bottom:16px"><h2 class="h2" style="font-size:26px;margin-bottom:4px">Pick what you\'re deciding on.</h2><p class="meta" style="margin:0">Each figure is what that discount is worth. Tap + to add a tool to your savings. Where competing platforms share a line, you\'ll pick one.</p></div>' +
+          '<div class="card grp" style="padding-top:20px;padding-bottom:16px"><h2 class="h2" style="font-size:26px;margin-bottom:4px">Pick what you\'re deciding on.</h2><p class="meta" style="margin:0">Tap + on anything you\'re buying. Each figure is what that discount is worth.</p></div>' +
           '<div data-role="groups"></div>' +
           '<div data-role="more"></div>' +
         '</div>' +
         '<div class="card calc" id="canseg-calc">' +
           '<p class="eyebrow" style="margin-bottom:8px">Your savings</p>' +
           '<h2 class="h2">Which of these are you deciding on?</h2>' +
-          '<p class="meta" style="margin:0">Add the tools on your list. The receipt writes itself.</p>' +
+          '<p class="meta" style="margin:0">The receipt writes itself.</p>' +
           '<div class="rlist" data-role="rlist"><div class="empty">Nothing picked yet. Add a tool from the list.</div></div>' +
           '<div class="rtot"><span class="lab">Savings on your picks</span><span class="val" data-role="rtotal">$0</span></div>' +
           '<div class="rsub" data-role="rsub">Membership is $' + COST + '/year. Add a pick to see your net.</div>' +
@@ -155,6 +159,36 @@
     top.innerHTML = html;
     var q = function (r) { return top.querySelector('[data-role="' + r + '"]'); };
     unclip(document.getElementById("canseg-calc"));
+
+    // --- Unlock Access (2026-09-10): collect the email (Kajabi form 2149650486), drop to the checkout, prefill it -----
+    (function () {
+      var f = q("unlock"), note = q("unote"); if (!f) return;
+      var inp = f.querySelector("input"), btn = f.querySelector("button");
+      function prefill(email) {
+        var co = document.getElementById("section-1744906803654");
+        if (co) { try { co.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (e) { location.hash = "#section-1744906803654"; } }
+        var tries = 0;
+        (function fill() {
+          var el = co && co.querySelector('input[type="email"]');
+          if (el) { try { Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value").set.call(el, email); el.dispatchEvent(new Event("input", { bubbles: true })); el.dispatchEvent(new Event("change", { bubbles: true })); } catch (e) { el.value = email; } }
+          else if (tries++ < 25) setTimeout(fill, 200);
+        })();
+      }
+      f.addEventListener("submit", function (ev) {
+        ev.preventDefault();
+        var email = (inp.value || "").trim();
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { note.className = "unote err"; note.textContent = "Please enter a valid email."; inp.focus(); return; }
+        btn.disabled = true; btn.textContent = "Unlocking…";
+        var body = "form_submission%5Bname%5D=" + encodeURIComponent("Unlock Access") + "&form_submission%5Bemail%5D=" + encodeURIComponent(email) +
+          "&form_submission%5Bcustom_5%5D=" + encodeURIComponent("unlock-access:segment:" + C.seg) + "&form_submission%5Bcustom_6%5D=" + encodeURIComponent(location.href) +
+          "&form_submission%5Bcustom_7%5D=" + encodeURIComponent("opted in " + new Date().toISOString()) +
+          "&form_submission%5Bcustom_8%5D=" + encodeURIComponent(order.map(function (n) { return n; }).join("; "));
+        try { fetch("https://www.creatoraccessnetwork.com/forms/2149650486/form_submissions", { method: "POST", mode: "no-cors", credentials: "omit", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: body }).catch(function () {}); } catch (e) {}
+        track("unlock_access", { source: "hero" });
+        btn.textContent = "Unlocked ✓"; note.className = "unote ok"; note.textContent = "Finish below. Your email is filled in.";
+        prefill(email);
+      });
+    })();
 
     // --- decision rows -------------------------------------------------------------------------------
     var LIMIT = 8, shownPartners = {}, hiddenCount = 0;
