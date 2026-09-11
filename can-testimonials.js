@@ -88,7 +88,7 @@
       if (r === "members") html += row(members, memberCard, i % 2 === 1);
       if (r === "partners") html += row(partners, partnerCard, i % 2 === 1);
     });
-    if (ROWS.indexOf("partners") >= 0 && partners.length && !COMPACT) html += '<p class="foot">Second row: what the partners themselves say about the rates they give members.</p>';
+    if (O.foot) html += '<p class="foot">' + esc(O.foot) + '</p>';
     mount.innerHTML = html;
   }
 

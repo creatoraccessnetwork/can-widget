@@ -7,12 +7,16 @@
  *   numbers {partner_count, total_value, total_value_exact} (skips numbers.json when given),
  *   data {partners, logos} (skips cansw-data.json when given),
  *   eyebrow, headline, intro, stat1Label, stat2Label, joinText, joinAlt (HTML), bullets [HTML x3]
+ *   capture (default true): inline "get the free Starter Set" email box under the Join button, posts to the Kajabi
+ *   Email Signup form (captureFormId, default 2149438902) - no click-off (Avi, 2026-09-10). captureLabel, captureButton.
  */
 (function () {
   var O = window.CANSW_OVERRIDES || {};
   var MEMBERSHIP = +O.membershipCost || 49;
   var JOIN = O.joinUrl || "#pricing";
   var STARTER = O.starterUrl || "#top";
+  var CAPTURE = O.capture !== false;
+  var CAPTURE_URL = "https://www.creatoraccessnetwork.com/forms/" + (O.captureFormId || "2149438902") + "/form_submissions";
 
   var thisScript = document.currentScript || (function () { var s = document.getElementsByTagName("script"); return s[s.length - 1]; })();
   var BASE = window.CANSW_BASE || "";
@@ -28,7 +32,7 @@
 ".cansw2 .lead{color:var(--ink);font-weight:700}" +
 ".cansw2-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;max-width:1160px;margin:0 auto}" +
 ".cansw2-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);box-shadow:0 3px 10px rgba(26,31,44,.10)}" +
-".cansw2-panel{height:640px;overflow:hidden;display:flex;flex-direction:column;padding:26px}" +
+".cansw2-panel{height:700px;overflow:hidden;display:flex;flex-direction:column;padding:26px}" +
 ".cansw2-scroll{flex:1 1 auto;min-height:0;overflow-y:auto}.cansw2-pin{flex:none}" +
 ".cansw2-eyebrow{font-family:var(--body);font-size:15px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;line-height:18px;color:var(--rust);margin:0 0 16px}" +
 ".cansw2-h{font-family:var(--disp);font-weight:900;font-size:32px;line-height:1.12;letter-spacing:-.6px;color:var(--ink)}" +
@@ -49,6 +53,10 @@
 ".cansw2-capture{border-top:1px solid var(--hl);padding-top:16px;margin-top:16px}" +
 ".cansw2-btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 24px;border:0;border-radius:var(--r);cursor:pointer;font-family:var(--body);font-weight:700;font-size:17px;background:var(--rust);color:#fff!important;white-space:nowrap;transition:background 150ms ease;text-decoration:none!important;width:100%}.cansw2-btn:hover{background:#87503D;color:#fff}" +
 ".cansw2-alt{font-size:15px;line-height:22px;margin:8px 0 0;color:var(--ch);text-align:center}" +
+".cansw2-cap{margin:14px 0 0;padding-top:14px;border-top:1px solid var(--hl)}.cansw2-caplab{display:block;font-size:15px;line-height:22px;color:var(--ch);margin:0 0 8px}.cansw2-caplab b{color:var(--ink)}" +
+".cansw2-caprow{display:flex;gap:0}.cansw2-caprow input{flex:1 1 160px;min-width:0;height:44px;border:1px solid var(--bd);border-right:0;border-radius:var(--r) 0 0 var(--r);padding:0 12px;font:inherit;font-size:15px;color:var(--ink);background:#fff;margin:0}" +
+".cansw2-caprow .cansw2-btn{width:auto;height:44px;padding:0 18px;border-radius:0 var(--r) var(--r) 0;background:var(--t);font-size:15px}.cansw2-caprow .cansw2-btn:hover{background:var(--td)}.cansw2-caprow .cansw2-btn:disabled{opacity:.6;cursor:not-allowed}" +
+".cansw2-capnote{font-size:14px;line-height:20px;margin:6px 0 0;color:var(--mute);min-height:20px}.cansw2-capnote.ok{color:var(--t);font-weight:600}.cansw2-capnote.err{color:var(--rust)}" +
 ".cansw2-tools{display:grid;grid-template-columns:1fr 180px;gap:8px;margin-bottom:12px}" +
 ".cansw2-tools input,.cansw2-tools select{height:40px;border:1px solid var(--bd);border-radius:var(--r);padding:0 10px;font:inherit;font-size:15px;color:var(--ink);background:#fff;min-width:0;margin:0;width:100%}" +
 ".cansw2-plist{border-top:1px solid var(--hl)}" +
@@ -63,6 +71,7 @@
 ".cansw2-legend{border-top:1px solid var(--hl);padding-top:10px;margin-top:8px;font-size:13px;line-height:18px;color:var(--mute);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.cansw2-legend b{color:var(--ch)}" +
 ".cansw2-empty{padding:24px 8px;color:var(--mute);font-size:15px;line-height:22px}" +
 "@media (max-width:600px){.cansw2-prow{gap:8px}.cansw2-pright{gap:6px}.cansw2-pval{min-width:0}.cansw2 .upto{display:block;font-size:13px;line-height:12px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;color:var(--mute)}}" +
+"@media (max-width:420px){.cansw2-caprow{flex-wrap:wrap}.cansw2-caprow input{flex:1 1 100%;border-right:1px solid var(--bd);border-radius:var(--r) var(--r) 0 0}.cansw2-caprow .cansw2-btn{width:100%;border-radius:0 0 var(--r) var(--r)}}" +
 "@media (max-width:900px){.cansw2-grid{grid-template-columns:1fr}.cansw2-panel{height:auto;max-height:none}.cansw2-panel--list{height:560px}.cansw2-h{font-size:26px}}";
 
   var st = document.createElement("style"); st.textContent = CSS; document.head.appendChild(st);
@@ -118,9 +127,9 @@
     var exact = (NUM && NUM.total_value_exact) || null;
     var count = (NUM && NUM.partner_count) || (DATA.partners || []).length;
     var bullets = O.bullets || [
-      '<span class="lead">Rates you can\'t get on your own.</span> Pre-negotiated, not public.',
+      '<span class="lead">Rates you can\'t get on your own.</span>',
       '<span class="lead">One discount pays for the year.</span> Each is worth more than $' + MEMBERSHIP + '.',
-      '<span class="lead">Save as you build your stack.</span> Newsletter to legal to banking.'
+      '<span class="lead">New discounts every month.</span>'
     ];
     mount.className = (mount.className ? mount.className + " " : "") + "cansw2";
     mount.innerHTML =
@@ -128,7 +137,7 @@
         '<div class="cansw2-card cansw2-panel">' +
           '<p class="cansw2-eyebrow">' + esc(O.eyebrow || "See what you'd save") + '</p>' +
           '<h2 class="cansw2-h">' + esc(O.headline || "Pick what you're about to buy.") + '</h2>' +
-          '<p style="margin-top:12px">' + esc(O.intro || "Add the tools on your list. The receipt writes itself.") + '</p>' +
+          '<p style="margin-top:12px">' + esc(O.intro || "Tap + on anything on your list. The receipt writes itself.") + '</p>' +
           '<div class="cansw2-stats">' +
             '<div class="cansw2-stat"><span class="cansw2-num" data-role="total">' + esc(total) + '</span><span class="cansw2-micro">' + esc(O.stat1Label || "in savings across the catalog") + '</span></div>' +
             '<div class="cansw2-stat"><span class="cansw2-num">' + esc(count) + '</span><span class="cansw2-micro">' + esc(O.stat2Label || "partners, new discounts monthly") + '</span></div>' +
@@ -144,7 +153,8 @@
           '</div>' +
           '<div class="cansw2-capture cansw2-pin">' +
             '<a class="cansw2-btn" href="' + esc(JOIN) + '">' + esc(O.joinText || ("Join for $" + MEMBERSHIP + "/year")) + '</a>' +
-            '<p class="cansw2-alt">' + (O.joinAlt || ('Locked in for life. Not ready? <a href="' + esc(STARTER) + '">Unlock the Starter Set free</a>.')) + '</p>' +
+            '<p class="cansw2-alt">' + (O.joinAlt || (CAPTURE ? 'Locked in for life.' : 'Locked in for life. Not ready? <a href="' + esc(STARTER) + '">Unlock the Starter Set free</a>.')) + '</p>' +
+            (CAPTURE ? '<form class="cansw2-cap" id="starter" data-role="cap" novalidate><span class="cansw2-caplab">' + (O.captureLabel || 'Not ready? <b>Get the free Starter Set</b> by email.') + '</span><div class="cansw2-caprow"><input type="email" placeholder="Your email" aria-label="Email" autocomplete="email" required><button type="submit" class="cansw2-btn">' + esc(O.captureButton || "Send it") + '</button></div><p class="cansw2-capnote" data-role="capnote">30 discounts, no card.</p></form>' : '') +
           '</div>' +
         '</div>' +
         '<div class="cansw2-card cansw2-panel cansw2-panel--list">' +
@@ -158,6 +168,23 @@
       '</div>';
 
     var q = function(r){ return mount.querySelector('[data-role=' + r + ']'); };
+    // --- Starter Set capture (2026-09-10): posts the email to the Kajabi Email Signup form, stays on the page --------
+    var cap = q("cap");
+    if (cap) {
+      var capIn = cap.querySelector("input"), capBtn = cap.querySelector("button"), capNote = q("capnote");
+      cap.addEventListener("submit", function (ev) {
+        ev.preventDefault();
+        var email = (capIn.value || "").trim();
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { capNote.className = "cansw2-capnote err"; capNote.textContent = "Please enter a valid email."; capIn.focus(); return; }
+        capBtn.disabled = true; capBtn.textContent = "Sending…";
+        var body = "form_submission%5Bemail%5D=" + encodeURIComponent(email) + "&form_submission%5Bcustom_6%5D=" + encodeURIComponent(location.href);
+        try { fetch(CAPTURE_URL, { method: "POST", mode: "no-cors", credentials: "omit", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: body }).catch(function () {}); } catch (e) {}
+        try { if (typeof window.gtag === "function") window.gtag("event", "starter_capture", { source: "savings-widget" }); } catch (e) {}
+        try { (window.dataLayer = window.dataLayer || []).push({ event: "starter_capture", can: { source: "savings-widget" } }); } catch (e) {}
+        capBtn.textContent = "Sent ✓"; capIn.disabled = true;
+        capNote.className = "cansw2-capnote ok"; capNote.textContent = "Check your inbox. The Starter Set is on its way.";
+      });
+    }
     var all = prep(DATA);
     var listEl = q("list"), search = q("search"), cat = q("cat"), countEl = q("count");
     var bulletsEl = q("bullets"), receipt = q("receipt"), rlist = q("rlist"), rtotal = q("rtotal"), rsub = q("rsub");

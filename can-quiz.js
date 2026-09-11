@@ -144,7 +144,7 @@
   function finishStarter() {
     bar.style.width = "100%"; stepEl.textContent = "Done";
     track("quiz_complete", { segment: "starter", path: "project:unsure" });
-    body.innerHTML = '<div class="done"><div class="q">Start with the free Starter Set.</div><p>Thirty discounts, no card, and you can come back to the quiz whenever the next project shows up.</p><a class="btn" href="' + esc(STARTER) + '">Unlock the Starter Set</a><div class="nav"><button type="button" class="back">← Back</button><span></span></div></div>';
+    body.innerHTML = '<div class="done"><div class="q">Start with the free Starter Set.</div><p>30 discounts, no card. Come back whenever the next project shows up.</p><a class="btn" href="' + esc(STARTER) + '">Get the Starter Set</a><div class="nav"><button type="button" class="back">← Back</button><span></span></div></div>';
     body.querySelector(".back").addEventListener("click", back);
     var starterEl = document.getElementById("starter");
     var email = (starterEl && starterEl.querySelector('input[type="email"]')) || document.querySelector('form input[type="email"]');
