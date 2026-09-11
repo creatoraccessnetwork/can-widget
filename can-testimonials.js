@@ -19,7 +19,7 @@
   var HEADER = O.header !== false;
   var EYEBROW = O.eyebrow || "Member wins";
   var HEADLINE = O.headline || (COMPACT ? "One discount covered the membership. Here are the receipts." : "Real Creators, real receipts.");
-  var SUB = O.sub || (COMPACT ? "" : "Pulled from the members' Wins channel and their own posts. Every name links to the Creator.");
+  var SUB = O.sub != null ? O.sub : (COMPACT ? "" : "Pulled from the members' Wins channel and their own posts. Every name links to the Creator.");
 
   var CSS = "" +
 ".cant{--t:#2A6478;--td:#1E4F5F;--rust:#9E614A;--ink:#1A1F2C;--ch:#374151;--mute:#5B6572;--bd:#E6EBF2;--hl:#EFF3F7;--s2:#FAFBFD;--disp:'Lato',system-ui,sans-serif;--body:'Open Sans',system-ui,sans-serif;--r:4px;--sh:0 3px 10px rgba(26,31,44,.10);font-family:var(--body);font-size:17px;line-height:26px;color:var(--ch);text-align:left;-webkit-font-smoothing:antialiased;max-width:1160px;margin:0 auto}" +
