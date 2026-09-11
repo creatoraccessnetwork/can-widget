@@ -79,6 +79,7 @@ Last updated: 2026-09-11 (Claude Code; homepage v3 final shape: quiz hero with S
 
 ## Log
 
-### 2026-09-11 (later) - Rust quiz band + founder button (Claude Code)
-- Avi: the teal block in the hero quiz and the "Reach out to Avi" button should be rust. `.canq .phead` background -> `var(--rust)` in `can-quiz.js` (main + gh-pages); founder block `1787360000002_0` anchor is now plain `can-btn` (rust), `offer_page_lib.py` source matched so a rebuild keeps it. Numbered chips stay teal (rust on hover). Verified live.
+### 2026-09-11 (later) - Founder button rust, quiz band stays teal, hero button "Unlock Free", pricing "Get access for $49" (Claude Code)
+- Founder block `1787360000002_0`: "Reach out to Avi" is plain `can-btn` (rust); `offer_page_lib.py` source matched. Quiz band was briefly rust; Avi wants it TEAL (he likes the teal chips turning rust on hover), so `can-quiz.js` `.phead` is back to `var(--t)`.
+- Hero block `1787360000008_0` (via `build_home_v3.py`): button "Unlock the Starter Set" -> "Unlock Free"; label now two intentional lines ("Not ready to join?" block, then the bold Starter Set line, no orphan); rhythm rule 20px / label 12px / note 10px. Pricing block `1787360000006_0`: "Join for $49" -> "Get access for $49" (builder applies it as a replace on the snapshot). Served HTML verified verbatim.
 
