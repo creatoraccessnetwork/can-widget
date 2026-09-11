@@ -191,7 +191,7 @@ FOUNDER = """<div class="canv2 two" id="founder">
     <h2 class="can-h2">Avi spent $12,000+ finding a stack that worked. CAN would have saved him $3,100.</h2>
     <p>15 years serving Creators as an agent, producer, and platform exec... then he got laid off and became one. After three failed communities, two fired accountants, and too many attempts at selling courses, products, and software, he had spent $12,000+ on experiments before finding the stack that worked.</p>
     <p>CAN shrinks that bill. Most partners give members the best rate they offer anywhere (look for the 🏆) and at just %(price)s, it pays for itself fast.</p>
-    <p style="margin:8px 0 0"><a class="can-btn can-btn--secondary" href="mailto:avi@creatoraccessnetwork.com">Reach out to Avi</a></p>
+    <p style="margin:8px 0 0"><a class="can-btn" href="mailto:avi@creatoraccessnetwork.com">Reach out to Avi</a></p>
   </div>
   <div class="two-right">
     <div class="can-card founder">
