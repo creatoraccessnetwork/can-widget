@@ -1,0 +1,91 @@
+{
+ "kind": "cobrand",
+ "token": "8voRTjam",
+ "theme_id": "2167152663",
+ "co_block": "1746107473790",
+ "partner": "Creator Logic",
+ "partner_logo": "https://creatoraccessnetwork.github.io/can-widget/assets/creator-logic-logo-stacked.png",
+ "lockup_label": "",
+ "hero_sub": "Creator Logic readers join for <span class=\"strike\">$49</span> <span class=\"lead\">$24.50/year</span>, 50% off for life.",
+ "join_text": "Join for $24.50/year",
+ "hero_meta": "One discount pays for the membership. Your rate never goes up, even when the price does.",
+ "sticky_price": "$24.50/year, 50% off",
+ "sticky_btn": "Join",
+ "cost": 24.5,
+ "join_alt": "50% off for life for Creator Logic readers. Locked in when you join.",
+ "pin": [
+  "beehiiv",
+  "ClearPath",
+  "Wispr Flow",
+  "Kajabi",
+  ".store",
+  "Creator Wizard"
+ ],
+ "demote": [],
+ "quote_img": "https://creatoraccessnetwork.github.io/can-widget/assets/avi-gandhi-headshot.jpg",
+ "quote": "In my first year as a Creator I spent over $12,000 on my accountant, newsletter platform, membership platform and more. If I did it again today as a CAN member, I would save $3,200. When your goal is to make a living, that kind of money makes a difference. That's why I started CAN.",
+ "quote_by": "Avi Gandhi, Founder, Creator Logic",
+ "picks_sub": "The tools we'd use to build a Creator business today: create faster, grow the list, monetize it, and run the business behind it.",
+ "picks": [
+  [
+   "https://cdn.commoninja.com/asset/17226348-3ca7-4837-9a75-9f863e05dad5.png",
+   "beehiiv",
+   "Grow",
+   "beehiiv",
+   "Creator Logic is published on beehiiv, and always has been. It's where I'd start any newsletter today — and CAN's beehiiv discount is the best one anywhere.",
+   "25% off paid plans for 1 year 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/4b70b4e5-e6d8-4918-a71c-14d3c3f89a00.png",
+   "ClearPath",
+   "Run",
+   "ClearPath",
+   "ClearPath is my accountant. Creator-specialist CPAs who find the deductions generalists miss — and CAN members get their best discount, period.",
+   "Free consultation + 25% off tax services 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/9fc7abfd-06f4-42b2-a037-72011fb19b3e.png",
+   "Wispr Flow",
+   "Create",
+   "Wispr Flow",
+   "I use Wispr Flow for everything — including writing this page. Dictate newsletters, scripts, and emails at the speed you speak.",
+   "6 months of Pro free"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/79542a92-4300-4f9c-bc34-29ba0410bad1.png",
+   "Kajabi",
+   "Monetize",
+   "Kajabi",
+   "Creator Access Network itself is built on Kajabi: the community, the checkout, this very page. You won't find a bigger Kajabi discount than ours.",
+   "Save $358 with an extended free trial 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/1096651c-a59f-42d0-b9a0-3edd16434ebb.png",
+   ".store",
+   "Grow",
+   ".Store",
+   "Five years of a free domain is a ridiculously good investment. Claim yourname.store and own your corner of the internet — no one has a better .store deal than CAN.",
+   ".store domain free for 5 years 🏆"
+  ],
+  [
+   "https://cdn.commoninja.com/asset/932da69e-34b0-475d-8018-cfbbf709c5f4.png",
+   "Creator Wizard",
+   "Monetize",
+   "Creator Wizard",
+   "I studied under Justin Moore and made tens of thousands of dollars in brand deals as a result. Learn to find, price, and win bigger sponsorships.",
+   "Free Sponsor Magnet eBook + 50% off the $10K Challenge"
+  ]
+ ],
+ "co_title": "Included with your <span style=\"text-decoration: line-through;\">$49</span> $24.50 membership",
+ "co_line": "Your price is 50% off for life.",
+ "co_bullets": [
+  "$1,200+ toward your newsletter",
+  "$1,500+ toward accounting and taxes",
+  "$350+ toward courses and community",
+  "$200+ toward your own .store domain",
+  "$100+ toward landing bigger brand deals",
+  "6 months of Wispr Flow Pro free"
+ ],
+ "co_partners": "beehiiv, ClearPath, Kajabi, Creator Wizard",
+ "quote_is_photo": true
+}

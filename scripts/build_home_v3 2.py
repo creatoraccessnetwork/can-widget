@@ -125,7 +125,7 @@ WINS_CODE = """<div class="canv2" id="wins"><div id="can-testimonials-mount"></d
 <script>window.CANTESTI = {"surface": "white", "rows": ["members", "partners"], "eyebrow": "Member wins", "headline": "Real Creators, real receipts.", "sub": ""};</script>
 <script src="%scan-testimonials.js"></script>""" % BASE
 
-WIDGET_CODE = snap.WIDGET_CODE.replace('"starterUrl": "#top"', '"starterUrl": "#starter"').replace("cansw-v2.js\"", "cansw-v2.js?v=20260910c\"")  # ?v= busts browser caches after widget pushes; bump it when cansw-v2.js changes
+WIDGET_CODE = snap.WIDGET_CODE.replace('"starterUrl": "#top"', '"starterUrl": "#starter"')
 assert WIDGET_CODE != snap.WIDGET_CODE
 PRICING_CODE = snap.PRICING_CODE.replace('href="#top"', 'href="#starter"')
 assert PRICING_CODE.count("#starter") == 2
