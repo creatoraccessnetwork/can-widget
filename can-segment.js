@@ -131,18 +131,18 @@
         '<div class="stats"><div class="stat"><span class="num">' + esc(live.total_display || "") + '</span><span class="micro">in savings</span></div>' +
         '<div class="stat"><span class="num">' + esc(live.partner_count) + '</span><span class="micro">discounts</span></div></div>' +
         '<form class="unlock" data-role="unlock" novalidate><input type="email" placeholder="Your email" aria-label="Email" autocomplete="email" required><button type="submit" class="btn lg">Unlock Access</button></form>' +
-        '<p class="unote" data-role="unote">One discount pays for the year. Your rate never goes up.</p>' +
+        '<p class="unote" data-role="unote">One discount pays for the membership. Your rate never goes up, even when the price does.</p>' +
       '</div>' +
       '<div class="two">' +
         '<div>' +
-          '<div class="card grp" style="padding-top:20px;padding-bottom:16px"><h2 class="h2" style="font-size:26px;margin-bottom:4px">Pick what you\'re deciding on.</h2><p class="meta" style="margin:0">Tap + on anything you\'re buying. Each figure is what that discount is worth.</p></div>' +
+          '<div class="card grp" style="padding-top:20px;padding-bottom:16px"><h2 class="h2" style="font-size:26px;margin-bottom:4px">Pick what you\'re deciding on.</h2><p class="meta" style="margin:0">Each figure is what that discount is worth. Tap + to add a tool to your savings. Where competing platforms share a line, you\'ll pick one.</p></div>' +
           '<div data-role="groups"></div>' +
           '<div data-role="more"></div>' +
         '</div>' +
         '<div class="card calc" id="canseg-calc">' +
           '<p class="eyebrow" style="margin-bottom:8px">Your savings</p>' +
           '<h2 class="h2">Which of these are you deciding on?</h2>' +
-          '<p class="meta" style="margin:0">The receipt writes itself.</p>' +
+          '<p class="meta" style="margin:0">Add the tools on your list. The receipt writes itself.</p>' +
           '<div class="rlist" data-role="rlist"><div class="empty">Nothing picked yet. Add a tool from the list.</div></div>' +
           '<div class="rtot"><span class="lab">Savings on your picks</span><span class="val" data-role="rtotal">$0</span></div>' +
           '<div class="rsub" data-role="rsub">Membership is $' + COST + '/year. Add a pick to see your net.</div>' +

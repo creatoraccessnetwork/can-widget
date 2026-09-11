@@ -127,9 +127,9 @@
     var exact = (NUM && NUM.total_value_exact) || null;
     var count = (NUM && NUM.partner_count) || (DATA.partners || []).length;
     var bullets = O.bullets || [
-      '<span class="lead">Rates you can\'t get on your own.</span>',
+      '<span class="lead">Rates you can\'t get on your own.</span> Pre-negotiated, not public.',
       '<span class="lead">One discount pays for the year.</span> Each is worth more than $' + MEMBERSHIP + '.',
-      '<span class="lead">New discounts every month.</span>'
+      '<span class="lead">Save as you build your stack.</span> Newsletter to legal to banking.'
     ];
     mount.className = (mount.className ? mount.className + " " : "") + "cansw2";
     mount.innerHTML =
@@ -137,7 +137,7 @@
         '<div class="cansw2-card cansw2-panel">' +
           '<p class="cansw2-eyebrow">' + esc(O.eyebrow || "See what you'd save") + '</p>' +
           '<h2 class="cansw2-h">' + esc(O.headline || "Pick what you're about to buy.") + '</h2>' +
-          '<p style="margin-top:12px">' + esc(O.intro || "Tap + on anything on your list. The receipt writes itself.") + '</p>' +
+          '<p style="margin-top:12px">' + esc(O.intro || "Add the tools on your list. The receipt writes itself.") + '</p>' +
           '<div class="cansw2-stats">' +
             '<div class="cansw2-stat"><span class="cansw2-num" data-role="total">' + esc(total) + '</span><span class="cansw2-micro">' + esc(O.stat1Label || "in savings across the catalog") + '</span></div>' +
             '<div class="cansw2-stat"><span class="cansw2-num">' + esc(count) + '</span><span class="cansw2-micro">' + esc(O.stat2Label || "partners, new discounts monthly") + '</span></div>' +
