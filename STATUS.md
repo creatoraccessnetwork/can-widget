@@ -83,3 +83,9 @@ Last updated: 2026-09-10 (Claude Code, homepage v3: quiz in the hero, Member Win
 - Surfaces re-alternated: Hero (pattern) > Member Wins (white) > Categories (pattern) > Founder (white) > How It Works (pattern, content in one white card) > Pricing (white) > FAQ (pattern). `build_home_v3.py` owns the order and the section-id lists.
 - Links that pointed at the homepage widget now go to /partners: the categories "Browse all 50 partners" button, the segment pages' "Browse every partner", the quiz's no-URL fallback.
 - Verified live: served HTML byte-for-byte for hero / how / categories, seven visible sections alternating url/none backgrounds, capture posts to 2149438902 (fetch stubbed).
+
+## 2026-09-11 - What's Inside off, quiz panel restyled, rust Unlock button (Claude Code)
+
+- Avi: six named companies don't help (the quiz does that job) -> section `1787360000003` "Discounts by Category" HIDDEN, not deleted (block in the snapshot's CATS_CODE). Order/surfaces: Hero (P) > Wins (W) > How (P, card) > Founder (W) > FAQ (P) > Pricing (W).
+- Hero Starter Set button is rust, label "Unlock the Starter Set"; quiz column slightly wider (.98fr / 1.02fr).
+- Quiz panel (can-quiz.js embed mode) redesigned to pull the eye: teal header band with the label and step count, white body, rust progress bar, Lato 27px question, teal numbered chips that turn rust on hover, options slide 4px on hover, deeper shadow, 250ms entrance (all off under prefers-reduced-motion). Script loaded as `can-quiz.js?v=20260911a`; bump the tag after quiz pushes.
