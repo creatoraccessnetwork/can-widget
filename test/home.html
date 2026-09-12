@@ -24,7 +24,7 @@
   var LOCAL = location.href.replace(/test\/[^/]*$/, "");
   fetch("../scripts/payloads/home-v3.json").then(function (r) { return r.json(); }).then(function (p) {
     var order = p.content_for_index.filter(function (id) { return id && p.sections[id] && p.sections[id].blocks && p.sections[id].hidden !== "true"; });
-    var PAT = { "1787360000001": 1, "1787360000003": 1, "1787360000004": 1, "1787360000005": 1, "1787360000008": 1, "1787360000011": 1 };
+    var PAT = { "1787360000001": 1, "1787360000003": 1, "1787360000004": 1, "1787360000005": 1 };
     var host = document.getElementById("mount-home");
     order.forEach(function (id) {
       var s = p.sections[id], pad = (s.settings && s.settings.padding_desktop) || { top: 64, right: 24, bottom: 64, left: 24 };

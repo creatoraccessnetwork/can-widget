@@ -15,11 +15,9 @@ What it does
   * Widget block starterUrl and the pricing block's Starter Set links now point at #starter.
   * content_for_index: hero quiz, member wins, starter set, widget, founder, categories, how, FAQ, pricing, then the hidden ones.
 
-2026-09-12 (Avi's quiz feedback): the Starter Set email box leaves the hero (the hero sells the membership: rust
-"Get access for $49" straight to the checkout, plus a one-line Starter Set link) and lands in a NEW last section
-1787360000011 "Starter Set (v3)" on the pattern, same inline form + can-starter.js, id="starter" so every existing
-#starter link (quiz "Not sure yet", pricing card, offer pages via /#top) still scrolls there. The section teases the
-set's value ($1,750, Avi 2026-09-12) and says "No card required". Old 1787360000009 stays hidden.
+2026-09-12 (Avi's quiz feedback): the Starter Set email box STAYS in the hero (Avi: the quiz is the funnel to sales; a
+bottom-of-page section was built and reverted the same day). The hero box now teases the set's value ($1,750, Avi
+2026-09-12) and says "no card required"; the quiz has direct Q1 outcomes so the arrow line says "A few quick questions".
 
 Copy source of truth is this file (mirrors can-homepage skill rulings). The lead sentence keeps the exact
 "$36,000+" / "50" shapes the weekly deal-number sync sweeps; repoint that sync to block 1787360000008_0.
@@ -34,11 +32,9 @@ import write_snapshot as snap   # the verbatim live sections (shared CSS, form b
 BASE = "https://creatoraccessnetwork.github.io/can-widget/"
 NUM = json.load(open(os.path.join(REPO, "numbers.json")))
 TOTAL, COUNT, MEDIAN, SUBCOUNT = NUM["total_value"], str(NUM["partner_count"]), "$400", "30"
+STARTER_VALUE = "$1,750"   # Avi, 2026-09-12: value of the 30 free discounts (hand-set; the sync does not own it)
 
 HERO, STARTER, WINS = "1787360000008", "1787360000009", "1787360000010"
-STARTER3 = "1787360000011"   # 2026-09-12: Starter Set section at the bottom of the page (pattern surface)
-CHECKOUT_URL = "https://www.creatoraccessnetwork.com/offers/oyLoKFBu/checkout"   # the $49/year offer (same as the pricing card)
-STARTER_VALUE = "$1,750"     # Avi, 2026-09-12: value of the 30 free discounts
 OLD_HERO, OLD_QUIZ = "1787360000000", "1787360000007"
 WIDGET, FOUNDER, CATS, HOW, FAQ, PRICING = "1787360000001", "1787360000002", "1787360000003", "1787360000004", "1787360000005", "1787360000006"
 
@@ -46,11 +42,11 @@ WIDGET, FOUNDER, CATS, HOW, FAQ, PRICING = "1787360000001", "1787360000002", "17
 m = re.search(r"<style>(.*?)</style>", snap.HERO_CODE, re.S)
 shared = m.group(1)
 ALL_OLD = ",".join("#section-%s" % i for i in [OLD_HERO, WIDGET, FOUNDER, CATS, HOW, FAQ, PRICING])
-ALL_NEW = ",".join("#section-%s" % i for i in [HERO, STARTER, STARTER3, WINS, OLD_HERO, WIDGET, FOUNDER, CATS, HOW, FAQ, PRICING])
+ALL_NEW = ",".join("#section-%s" % i for i in [HERO, STARTER, WINS, OLD_HERO, WIDGET, FOUNDER, CATS, HOW, FAQ, PRICING])
 assert shared.count(ALL_OLD) == 2, shared.count(ALL_OLD)
 shared = shared.replace(ALL_OLD, ALL_NEW)
 rows_old = ",".join("#section-%s .container>.row" % i for i in [OLD_HERO, WIDGET, FOUNDER, CATS, HOW, FAQ, PRICING])
-rows_new = ",".join("#section-%s .container>.row" % i for i in [HERO, STARTER, STARTER3, WINS, OLD_HERO, WIDGET, FOUNDER, CATS, HOW, FAQ, PRICING])
+rows_new = ",".join("#section-%s .container>.row" % i for i in [HERO, STARTER, WINS, OLD_HERO, WIDGET, FOUNDER, CATS, HOW, FAQ, PRICING])
 cols_old = rows_old.replace(".container>.row", ".col-12"); cols_new = rows_new.replace(".container>.row", ".col-12")
 assert rows_old in shared and cols_old in shared
 shared = shared.replace(rows_old, rows_new).replace(cols_old, cols_new)
@@ -58,10 +54,10 @@ white_old = "#section-1787360000000,#section-1787360000002,#section-178736000000
 white_new = "#section-%s,#section-%s,#section-1787360000000,#section-1787360000002,#section-1787360000006{background:#FFFFFF!important}" % (STARTER, WINS)
 assert white_old in shared; shared = shared.replace(white_old, white_new)
 pat_old = "#section-1787360000001,#section-1787360000003,#section-1787360000005{background-color"
-pat_new = "#section-%s,#section-%s,#section-1787360000004,#section-1787360000001,#section-1787360000003,#section-1787360000005{background-color" % (HERO, STARTER3)
+pat_new = "#section-%s,#section-1787360000004,#section-1787360000001,#section-1787360000003,#section-1787360000005{background-color" % HERO
 assert shared.count(pat_old) == 1; shared = shared.replace(pat_old, pat_new)
 pat_m_old = "@media (max-width:768px){#section-1787360000001,#section-1787360000003,#section-1787360000005{background-image"
-pat_m_new = "@media (max-width:768px){#section-%s,#section-%s,#section-1787360000004,#section-1787360000001,#section-1787360000003,#section-1787360000005{background-image" % (HERO, STARTER3)
+pat_m_new = "@media (max-width:768px){#section-%s,#section-1787360000004,#section-1787360000001,#section-1787360000003,#section-1787360000005{background-image" % HERO
 assert shared.count(pat_m_old) == 1; shared = shared.replace(pat_m_old, pat_m_new)
 cardw_old = "#section-1787360000000 .canv2 .can-card,#section-1787360000002 .canv2 .can-card,#section-1787360000004 .canv2 .can-card,#section-1787360000006 .canv2 .can-card{box-shadow:none}"
 assert cardw_old in shared
@@ -86,14 +82,7 @@ HERO_CSS = """
 .canv2 .heroq-copy .stat .n{font-family:var(--can-display);font-weight:700;font-size:26px;line-height:28px;color:var(--can-teal);font-variant-numeric:tabular-nums;letter-spacing:-.4px}
 .canv2 .heroq-copy .stat .l{font-size:13px;line-height:18px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;color:var(--can-mute);margin-top:2px}
 .canv2 .heroq-copy .hero-meta{text-align:left;margin:0}
-.canv2 .hero-cta{margin:0;padding:26px 0 0;border-top:1px solid var(--can-hairline)}
-.canv2 .hero-cta .can-btn{height:50px;padding:0 28px;font-size:17px}
-.canv2 .hero-cta .hero-meta{text-align:left;margin:12px 0 0}
 .canv2 .hero-starter{margin:0;padding:26px 0 0;border-top:1px solid var(--can-hairline)}
-.canv2 .starter3{max-width:760px;margin:0 auto;padding:40px 44px 36px;text-align:center}
-.canv2 .starter3 .can-eyebrow{margin-bottom:12px}.canv2 .starter3 .can-h2{margin-bottom:10px}.canv2 .starter3 .lead-p{font-size:19px;line-height:28px;color:var(--can-charcoal);margin:0 0 22px;text-wrap:pretty}
-.canv2 .starter3 .hero-starter{padding:0;border:0}.canv2 .starter3 .starter-row{margin:0 auto}.canv2 .starter3 .starter-note{text-align:center}
-@media (max-width:600px){.canv2 .starter3{padding:28px 18px 24px}}
 .canv2 .starter-lab{display:block;font-size:15px;line-height:24px;color:var(--can-mute);margin:0 0 14px}.canv2 .starter-lab b{color:var(--can-ink)}.canv2 .starter-lab .q{display:block;margin-bottom:2px}
 .canv2 .starter-row{display:flex;align-items:stretch;max-width:480px;border-radius:4px;filter:drop-shadow(0 1px 3px rgba(26,31,44,.06))}
 .canv2 .starter-row input{flex:1 1 200px;min-width:0;height:50px!important;min-height:0;border:1px solid var(--can-border);border-right:0;border-radius:4px 0 0 4px;padding:0 14px;font-family:var(--can-body);font-size:16px;line-height:normal;color:var(--can-ink);background:#fff;margin:0!important;box-shadow:none}
@@ -121,33 +110,20 @@ HERO_HTML = """<div class="canv2 heroq" id="top">
       <p class="hero-lead">Pre-negotiated discounts on the software and services successful Creators use, at the best rate most partners offer anywhere.</p>
       <div class="stats"><div class="stat"><div class="n">%(total)s</div><div class="l">in discounts</div></div><div class="stat"><div class="n">%(count)s</div><div class="l">partners</div></div><div class="stat"><div class="n">%(median)s</div><div class="l">median discount</div></div></div>
       <p class="hero-sub"><span class="arrow">&rarr;</span> Pick your next project and see what members save on it. A few quick questions, no email needed.</p>
-      <div class="hero-cta">
-        <a class="can-btn" href="%(checkout)s">Get access for $49</a>
-        <p class="hero-meta">Locked in for life. Not ready? <a href="#starter">Get the free Starter Set</a>.</p>
-      </div>
+      <form class="hero-starter" id="starter" novalidate>
+        <span class="starter-lab"><span class="q">Not ready to join?</span> <b>Get the free %(sub)s-discount Starter Set</b>, worth %(value)s, by email.</span>
+        <div class="starter-row"><input type="email" placeholder="Your email" aria-label="Email" autocomplete="email" required><button type="submit" class="can-btn">Unlock free</button></div>
+        <p class="starter-note" data-role="note">No card required. No spam, unsubscribe anytime.</p>
+      </form>
     </div>
     <div class="heroq-quiz"><div id="can-quiz-mount"></div></div>
   </div>
 </div>
 <script>window.CANQUIZ = {"embed": true, "starterUrl": "#starter", "label": "Your next project"};</script>
 <script src="%(base)scan-quiz.js?v=20260912a"></script>
-<script>(function(){function go(){if(location.hash==="#top"){var s=document.getElementById("starter");if(s){try{history.replaceState(null,"","#starter");}catch(e){}s.scrollIntoView();}}}go();window.addEventListener("hashchange",go);})();</script>""" % dict(total=TOTAL, median=MEDIAN, count=COUNT, sub=SUBCOUNT, base=BASE, checkout=CHECKOUT_URL)
-
-# 2026-09-12: Starter Set section at the bottom of the page. Same inline form markup and classes as the old hero box
-# (the CSS lives in the hero block), so can-starter.js binds it unchanged and every #starter link still lands here.
-STARTER3_CODE = """<div class="canv2" id="starter-set">
-  <div class="can-card starter3">
-    <p class="can-eyebrow">Free to start</p>
-    <h2 class="can-h2">Not ready to join? Start with the free Starter Set.</h2>
-    <p class="lead-p"><b>%(sub)s discounts worth %(value)s</b>, free. No card required. Unlock them with your email and come back when the next project shows up.</p>
-    <form class="hero-starter" id="starter" novalidate>
-      <div class="starter-row"><input type="email" placeholder="Your email" aria-label="Email" autocomplete="email" required><button type="submit" class="can-btn">Unlock free</button></div>
-      <p class="starter-note" data-role="note">No spam, unsubscribe anytime. Members get much larger discounts on the same partners, plus partners the free set does not include.</p>
-    </form>
-  </div>
-</div>
-<script>window.CANSTARTER = {"form": "#starter", "source": "starter-section"};</script>
-<script src="%(base)scan-starter.js"></script>""" % dict(sub=SUBCOUNT, value=STARTER_VALUE, base=BASE)
+<script>window.CANSTARTER = {"form": "#starter", "source": "hero"};</script>
+<script src="%(base)scan-starter.js"></script>
+<script>(function(){function go(){if(location.hash==="#top"){var s=document.getElementById("starter");if(s){try{history.replaceState(null,"","#starter");}catch(e){}s.scrollIntoView();}}}go();window.addEventListener("hashchange",go);})();</script>""" % dict(total=TOTAL, median=MEDIAN, count=COUNT, sub=SUBCOUNT, base=BASE, value=STARTER_VALUE)
 
 HERO_CODE = "<style>" + shared + HERO_CSS + "</style>\n" + HERO_HTML
 
@@ -194,8 +170,7 @@ OLD_HIDDEN = snap.OLD_HIDDEN
 # Hero (pattern) > Wins (white) > Categories (pattern) > Founder (white) > How (pattern, card) > Pricing (white) > FAQ (pattern).
 # 2026-09-11: "What's Inside" (CATS, 1787360000003) is HIDDEN too (Avi: six named companies don't help; the quiz does that job).
 # Surfaces: Hero (pattern) > Wins (white) > How (pattern, card) > Founder (white) > FAQ (pattern) > Pricing (white).
-# 2026-09-12: Starter Set (v3) is the LAST visible section, on the pattern: Hero (P) > Wins (W) > How (P, card) > Founder (W) > FAQ (P) > Pricing (W) > Starter Set (P).
-ORDER = ["", HERO, WINS, HOW, FOUNDER, FAQ, PRICING, STARTER3, CATS, WIDGET, STARTER, OLD_HERO, OLD_QUIZ] + OLD_HIDDEN
+ORDER = ["", HERO, WINS, HOW, FOUNDER, FAQ, PRICING, CATS, WIDGET, STARTER, OLD_HERO, OLD_QUIZ] + OLD_HIDDEN
 
 
 def build():
@@ -204,7 +179,6 @@ def build():
         STARTER: snap.sec("Starter Set (v2)", snap.section_settings(56, 64, 40, 48), [
             (STARTER + "_0", snap.code_block(STARTER_CODE)), (STARTER + "_1", json.loads(json.dumps(snap.FORM_BLOCK))), (STARTER + "_2", snap.code_block(STARTER_META))]),
         WINS: snap.sec("Member Wins (v2)", snap.section_settings(56, 40, 40, 24), [(WINS + "_0", snap.code_block(WINS_CODE))]),
-        STARTER3: snap.sec("Starter Set (v3)", snap.section_settings(64, 72, 48, 48), [(STARTER3 + "_0", snap.code_block(STARTER3_CODE))]),
         FOUNDER: {"blocks": {FOUNDER + "_0": {"settings": {"code": FOUNDER_CODE}}}},
         CATS: {"blocks": {CATS + "_0": {"settings": {"code": CATS_CODE}}}},
         HOW: {"blocks": {HOW + "_0": {"settings": {"code": HOW_CODE}}}},
