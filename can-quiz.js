@@ -1,12 +1,10 @@
 /* CAN project quiz. v1, 2026-09-10.
- * Two to four multiple-choice questions that land on one of fifteen project offer pages.
- * v1.1, 2026-09-12: "Land more brand deals" and "Sell physical products" are direct Q1 outcomes (two questions);
- * "Not sure yet" lists every project page (quiz_label + not_sure_extras in segments.json) above the Starter Set CTA.
+ * Three or four multiple-choice questions that land on one of fifteen project offer pages.
  * Mounts into #can-quiz-mount. Reads segments.json (next to this script) for the page URLs.
  * Config: window.CANQUIZ = { header, sub, starterUrl, embed, label } (all optional). embed:true (2026-09-10) renders the
  * questions as a panel with no card chrome or header, for the homepage hero where the copy sits beside it.
  * Redirect: <segment url>?seg=<slug>&stage=<pre|under100k|over100k>[&platform=<youtube|instagram|newsletter|other>]&via=quiz
- * "Not sure yet" shows every project page and the Starter Set CTA (homepage form) with no further questions.
+ * "Not sure yet" goes to the Starter Set (homepage hero form) with no further questions.
  * Analytics: gtag / fbq / dataLayer when present (quiz_answer per answer, quiz_complete per finish). No email gate.
  */
 (function () {
@@ -33,10 +31,6 @@
 ".canq .nav{display:flex;justify-content:space-between;align-items:center;margin:16px 0 0;gap:12px}.canq .back{background:none;border:0;color:var(--mute);font:inherit;font-size:15px;font-weight:600;cursor:pointer;padding:8px 0}.canq .back:hover{color:var(--t)}.canq .fine{font-size:15px;line-height:22px;color:var(--mute);margin:0}" +
 ".canq .done{text-align:center;padding:12px 0}.canq .done .q{margin-bottom:8px}.canq .btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 24px;border:0;border-radius:var(--r);cursor:pointer;font-family:var(--body);font-weight:700;font-size:17px;background:var(--rust);color:#fff!important;text-decoration:none!important}" +
 ".canq .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}" +
-".canq .done.list{text-align:left;padding:4px 0 0}.canq .done.list .q{font-size:24px;margin:0 0 10px}.canq .done.list p{margin:0 0 14px;font-size:16px;line-height:24px}" +
-".canq .pages{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;margin:0 0 16px;padding:0;list-style:none}.canq .pages a{display:flex;align-items:center;gap:8px;min-height:36px;padding:6px 10px;border:1px solid var(--bd);border-radius:var(--r);background:#fff;color:var(--ink);font-weight:600;font-size:15px;line-height:20px;text-decoration:none;transition:border-color 150ms ease,background 150ms ease}.canq .pages a:hover{border-color:var(--t);background:var(--s2);color:var(--td);text-decoration:none}.canq .pages a::before{content:'';flex:none;width:6px;height:6px;border-radius:50%;background:var(--t)}" +
-".canq .starter{border-top:1px solid var(--bd);padding-top:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.canq .starter .fine{flex:1 1 200px}" +
-"@media (max-width:600px){.canq .pages{grid-template-columns:1fr}.canq .done.list .q{font-size:21px}}" +
 ".canq.embed{max-width:none}.canq .panel{background:#fff;border:1px solid var(--bd);border-radius:6px;padding:0;overflow:hidden;box-shadow:0 14px 34px rgba(26,31,44,.16);animation:canq-in 250ms ease-out both}" +
 ".canq .phead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 22px;background:var(--t);color:#fff}.canq .plabel{font-size:13px;line-height:18px;letter-spacing:1.4px;text-transform:uppercase;font-weight:800;color:#fff}.canq .phead .step{color:rgba(255,255,255,.85)}" +
 ".canq .pbody{padding:20px 22px 18px}.canq.embed .bar{margin:0 0 18px;height:6px;background:#E6EBF2;border-radius:3px;overflow:hidden}.canq.embed .bar i{background:var(--rust)}" +
@@ -53,8 +47,6 @@
   var Qs = {
     project: { text: "What's your next project?", opts: [
       { id: "money", label: "Make money from my audience", next: "how" },
-      { id: "branddeals", label: "Land more brand deals", seg: "brand-deals" },
-      { id: "physical", label: "Sell physical products or my favorite brands", seg: "physical-products" },
       { id: "grow", label: "Grow my audience", next: "where" },
       { id: "business", label: "Get the business side handled", next: "handle" },
       { id: "content", label: "Make better content, faster", next: "make" },
@@ -104,30 +96,29 @@
     try { if (typeof window.fbq === "function") window.fbq("trackCustom", name.replace(/(^|_)(\w)/g, function (m, a, b) { return b.toUpperCase(); }), p); } catch (e) {}
     try { (window.dataLayer = window.dataLayer || []).push({ event: name, can: p }); } catch (e) {}
   }
+  function cp(k, d) { var m = window.CANCOPY_MAP; return (m && m[k] != null && m[k] !== "") ? m[k] : d; }
   function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
 
-  var URLS = {}, SEGS = [], EXTRAS = [], STARTER = O.starterUrl || "https://www.creatoraccessnetwork.com/#top", HOME = "https://www.creatoraccessnetwork.com/";
-  var STARTER_COUNT = O.starterCount || 30, STARTER_VALUE = O.starterValue || "$1,750";
-  var state = { history: [], answers: {}, seg: null, platform: null, cur: "project" };
+  var URLS = {}, STARTER = O.starterUrl || "https://www.creatoraccessnetwork.com/#top", HOME = "https://www.creatoraccessnetwork.com/";
+  var state = { history: [], answers: {}, seg: null, platform: null, cur: "project", done: false };
 
   mount.className = (mount.className ? mount.className + " " : "") + "canq" + (EMBED ? " embed" : "");
   mount.innerHTML = EMBED
-    ? '<div class="panel" id="quiz"><div class="phead"><span class="plabel">' + esc(O.label || "Your next project") + '</span><span class="step" data-role="step"></span></div><div class="pbody"><div class="bar" aria-hidden="true"><i data-role="bar"></i></div><div data-role="body" aria-live="polite"></div></div></div>'
+    ? '<div class="panel" id="quiz"><div class="phead"><span class="plabel">' + esc(cp("quiz.label", O.label || "Your next project")) + '</span><span class="step" data-role="step"></span></div><div class="pbody"><div class="bar" aria-hidden="true"><i data-role="bar"></i></div><div data-role="body" aria-live="polite"></div></div></div>'
     : '<div class="card" id="quiz"><p class="eyebrow">Your next project</p><h2 class="h2">' + esc(HEADER) + '</h2><p class="sub">' + esc(SUB) + '</p>' +
     '<div class="prog" aria-hidden="true"><div class="bar"><i data-role="bar"></i></div><span class="step" data-role="step"></span></div>' +
     '<div data-role="body" aria-live="polite"></div></div>';
   var body = mount.querySelector('[data-role="body"]'), bar = mount.querySelector('[data-role="bar"]'), stepEl = mount.querySelector('[data-role="step"]');
 
-  var DIRECT = { branddeals: 1, physical: 1 }; // Q1 answers that land on a page straight away: Q1 + the stage question
-  function totalSteps() { var p = state.answers.project; if (!p) return 3; if (p === "unsure") return 1; if (DIRECT[p]) return 2; var n = 3; if (p === "money" && state.answers.how && ["knowledge", "products", "media"].indexOf(state.answers.how) >= 0) n = LONG.money; return n; }
+  function totalSteps() { var p = state.answers.project; if (!p) return 3; if (p === "unsure") return 1; var n = 3; if (p === "money" && state.answers.how && ["knowledge", "products", "media"].indexOf(state.answers.how) >= 0) n = LONG.money; return n; }
   function stepNo() { return state.history.length + 1; }
 
   function renderQ(id) {
     state.cur = id; var Qd = Qs[id]; var n = stepNo(), t = totalSteps();
-    bar.style.width = Math.round(((n - 1) / t) * 100) + "%"; stepEl.textContent = "Question " + n + " of " + t;
-    body.innerHTML = '<div class="q" id="canq-q">' + esc(Qd.text) + '</div><div class="opts" role="radiogroup" aria-labelledby="canq-q">' +
-      Qd.opts.map(function (o, i) { return '<button type="button" class="opt" role="radio" aria-checked="false" data-id="' + esc(o.id) + '" tabindex="' + (i === 0 ? "0" : "-1") + '"><span class="k" aria-hidden="true">' + (i + 1) + '</span><span>' + esc(o.label) + '</span></button>'; }).join("") +
-      '</div><div class="nav">' + (state.history.length ? '<button type="button" class="back">← Back</button>' : '<span></span>') + '<p class="fine">No email needed.</p></div>';
+    bar.style.width = Math.round(((n - 1) / t) * 100) + "%"; stepEl.textContent = cp("quiz.step", "Question {n} of {t}").replace("{n}", n).replace("{t}", t);
+    body.innerHTML = '<div class="q" id="canq-q">' + esc(cp("quiz." + id + ".text", Qd.text)) + '</div><div class="opts" role="radiogroup" aria-labelledby="canq-q">' +
+      Qd.opts.map(function (o, i) { return '<button type="button" class="opt" role="radio" aria-checked="false" data-id="' + esc(o.id) + '" tabindex="' + (i === 0 ? "0" : "-1") + '"><span class="k" aria-hidden="true">' + (i + 1) + '</span><span>' + esc(cp("quiz." + id + "." + o.id, o.label)) + '</span></button>'; }).join("") +
+      '</div><div class="nav">' + (state.history.length ? '<button type="button" class="back">' + esc(cp("quiz.back", "← Back")) + '</button>' : '<span></span>') + '<p class="fine">' + esc(cp("quiz.fine", "No email needed.")) + '</p></div>';
     var opts = Array.prototype.slice.call(body.querySelectorAll(".opt"));
     opts.forEach(function (b, i) {
       b.addEventListener("click", function () { choose(Qd, Qd.opts[i], b); });
@@ -145,7 +136,7 @@
     if (state.history.length) { var f = body.querySelector(".opt"); if (f) f.focus({ preventScroll: true }); }
   }
 
-  function back() { var prev = state.history.pop(); if (!prev) return; delete state.answers[prev]; if (prev === "project") { state.seg = null; state.platform = null; } renderQ(prev); }
+  function back() { state.done = false; var prev = state.history.pop(); if (!prev) return; delete state.answers[prev]; if (prev === "project") { state.seg = null; state.platform = null; } renderQ(prev); }
 
   function choose(Qd, o, btn) {
     body.querySelectorAll(".opt").forEach(function (x) { x.setAttribute("aria-checked", "false"); }); btn.setAttribute("aria-checked", "true");
@@ -161,24 +152,11 @@
   function finishStarter() {
     bar.style.width = "100%"; stepEl.textContent = "Done";
     track("quiz_complete", { segment: "starter", path: "project:unsure" });
-    var items = SEGS.map(function (sg) { return { label: sg.quiz_label || sg.name, slug: sg.slug }; }).concat(EXTRAS);
-    var list = items.length ? '<ul class="pages">' + items.map(function (it) {
-      var u = URLS[it.slug]; if (!u) return "";
-      return '<li><a href="' + esc(u + (u.indexOf("?") >= 0 ? "&" : "?") + "seg=" + encodeURIComponent(it.slug) + "&via=quiz-list") + '" data-slug="' + esc(it.slug) + '">' + esc(it.label) + '</a></li>';
-    }).join("") + '</ul>' : '<p><a href="' + esc(HOME + "partners") + '">Browse every partner</a>.</p>';
-    body.innerHTML = '<div class="done list"><div class="q">Here\'s what we can help you build.</div>' +
-      '<p>We have all the discounts you need to launch the projects below with the best tools and services for the least money. Check out what we can help you build, or come back when you\'re ready for your next project.</p>' +
-      list +
-      '<div class="starter"><p class="fine">Or start with the free Starter Set: ' + STARTER_COUNT + ' discounts worth ' + esc(STARTER_VALUE) + '. No card required.</p><a class="btn" href="' + esc(STARTER) + '">Get the Starter Set</a></div>' +
-      '<div class="nav"><button type="button" class="back">← Back</button><span></span></div></div>';
+    state.done = true; body.innerHTML = '<div class="done"><div class="q">' + esc(cp("quiz.done.title", "Start with the free Starter Set.")) + '</div><p>' + esc(cp("quiz.done.text", "30 discounts, no card. Come back whenever the next project shows up.")) + '</p><a class="btn" href="' + esc(STARTER) + '">' + esc(cp("quiz.done.button", "Get the Starter Set")) + '</a><div class="nav"><button type="button" class="back">' + esc(cp("quiz.back", "← Back")) + '</button><span></span></div></div>';
     body.querySelector(".back").addEventListener("click", back);
-    Array.prototype.forEach.call(body.querySelectorAll(".pages a"), function (a) { a.addEventListener("click", function () { track("quiz_list_click", { segment: a.getAttribute("data-slug"), path: "project:unsure" }); }); });
-    var sb = body.querySelector(".starter .btn");
-    sb.addEventListener("click", function (e) {
-      var starterEl = document.getElementById("starter");
-      var email = starterEl && starterEl.querySelector('input[type="email"]');
-      if (email && /^#/.test(STARTER)) { e.preventDefault(); try { email.scrollIntoView({ behavior: "smooth", block: "center" }); setTimeout(function () { email.focus({ preventScroll: true }); }, 400); } catch (er) { location.hash = STARTER; } }
-    });
+    var starterEl = document.getElementById("starter");
+    var email = (starterEl && starterEl.querySelector('input[type="email"]')) || document.querySelector('form input[type="email"]');
+    if (email && location.pathname.replace(/\/$/, "") === "" ) { try { email.scrollIntoView({ behavior: "smooth", block: "center" }); setTimeout(function () { email.focus({ preventScroll: true }); }, 400); } catch (e) {} }
   }
 
   function finish(stage) {
@@ -187,13 +165,14 @@
     var qs = "seg=" + encodeURIComponent(seg) + "&stage=" + encodeURIComponent(stage) + (state.platform ? "&platform=" + encodeURIComponent(state.platform) : "") + "&via=quiz";
     var dest = url ? url + (url.indexOf("?") >= 0 ? "&" : "?") + qs : HOME + "partners";
     track("quiz_complete", { segment: seg, stage: stage, platform: state.platform || "", path: state.history.map(function (k) { return k + ":" + state.answers[k]; }).join(">") });
-    body.innerHTML = '<div class="done"><div class="q">Loading your discounts…</div><p class="fine">If nothing happens, <a href="' + esc(dest) + '">open your page</a>.</p></div>';
+    state.done = true; body.innerHTML = '<div class="done"><div class="q">' + esc(cp("quiz.loading", "Loading your discounts…")) + '</div><p class="fine">If nothing happens, <a href="' + esc(dest) + '">open your page</a>.</p></div>';
     setTimeout(function () { location.href = dest; }, 200);
   }
 
   function start() {
-    try { fetch(BASE + "segments.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { if (j && j.segments) { SEGS = j.segments; j.segments.forEach(function (s) { URLS[s.slug] = s.url; }); if (j.starter_count && !O.starterCount) STARTER_COUNT = j.starter_count; if (j.starter_value && !O.starterValue) STARTER_VALUE = j.starter_value; if (j.not_sure_extras) EXTRAS = j.not_sure_extras.map(function (x) { return { label: x.label, slug: x.seg }; }); if (j.starter_url && !O.starterUrl) STARTER = j.starter_url; if (j.home_url) HOME = j.home_url; } }).catch(function () {}); } catch (e) {}
+    try { fetch(BASE + "segments.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { if (j && j.segments) { j.segments.forEach(function (s) { URLS[s.slug] = s.url; }); if (j.starter_url && !O.starterUrl) STARTER = j.starter_url; if (j.home_url) HOME = j.home_url; } }).catch(function () {}); } catch (e) {}
     renderQ("project");
   }
+  document.addEventListener("cancopy", function () { try { var pl = mount.querySelector(".plabel"); if (pl) pl.textContent = cp("quiz.label", O.label || "Your next project"); if (!state.done) renderQ(state.cur); } catch (e) {} });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
 })();
