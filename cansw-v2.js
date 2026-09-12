@@ -153,8 +153,8 @@
           '</div>' +
           '<div class="cansw2-capture cansw2-pin">' +
             '<a class="cansw2-btn" href="' + esc(JOIN) + '">' + esc(O.joinText || ("Join for $" + MEMBERSHIP + "/year")) + '</a>' +
-            '<p class="cansw2-alt">' + (O.joinAlt || (CAPTURE ? 'Locked in for life.' : 'Locked in for life. Not ready? <a href="' + esc(STARTER) + '">Unlock the Starter Set free</a>.')) + '</p>' +
-            (CAPTURE ? '<form class="cansw2-cap" id="starter" data-role="cap" novalidate><span class="cansw2-caplab">' + (O.captureLabel || 'Not ready? <b>Get the free Starter Set</b> by email.') + '</span><div class="cansw2-caprow"><input type="email" placeholder="Your email" aria-label="Email" autocomplete="email" required><button type="submit" class="cansw2-btn">' + esc(O.captureButton || "Send it") + '</button></div><p class="cansw2-capnote" data-role="capnote">30 discounts, no card.</p></form>' : '') +
+            '<p class="cansw2-alt">' + (O.joinAlt || (CAPTURE ? 'Locked in for life.' : 'Locked in for life. Or <a href="' + esc(STARTER) + '">unlock the Starter Set free</a>.')) + '</p>' +
+            (CAPTURE ? '<form class="cansw2-cap" id="starter" data-role="cap" novalidate><span class="cansw2-caplab">' + (O.captureLabel || '<b>Get the free Starter Set</b> by email.') + '</span><div class="cansw2-caprow"><input type="email" placeholder="Your email" aria-label="Email" autocomplete="email" required><button type="submit" class="cansw2-btn">' + esc(O.captureButton || "Send it") + '</button></div><p class="cansw2-capnote" data-role="capnote">30 discounts worth $1,750. No card required.</p></form>' : '') +
           '</div>' +
         '</div>' +
         '<div class="cansw2-card cansw2-panel cansw2-panel--list">' +
