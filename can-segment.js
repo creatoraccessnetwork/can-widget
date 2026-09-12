@@ -156,7 +156,7 @@
           '<div class="rtot"><span class="lab">Savings on your picks</span><span class="val" data-role="rtotal">$0</span></div>' +
           '<div class="rsub" data-role="rsub">Membership is $' + COST + '/year. Add a pick to see your net.</div>' +
           '<a class="btn block" href="' + CHECKOUT + '" data-track="calculator">Join for $' + COST + '/year</a>' +
-          '<p class="fine">Locked in for life. Not ready? <a href="' + esc(CFG.starter_url) + '">Unlock the Starter Set free</a>.</p>' +
+          '<p class="fine">Locked in for life. Or <a href="' + esc(CFG.starter_url) + '">unlock the Starter Set free</a>.</p>' +
         '</div>' +
       '</div>' +
       '<div data-role="events"></div>' +
@@ -314,7 +314,7 @@
           '</ul>' +
           '<div class="lock"><span class="lead">Locked in for life:</span> join at $' + COST + '/year and your rate never goes up, even when the price does.</div>' +
           '<a class="btn lg block" href="#popup_checkout_' + esc(C.token) + '" data-track="pricing">Join for $' + COST + '/year</a>' +
-          '<p class="fine">Not ready? <a href="' + esc(CFG.starter_url) + '">Unlock the Starter Set free</a>.</p>' +
+          '<p class="fine">Or <a href="' + esc(CFG.starter_url) + '">unlock the Starter Set free</a>.</p>' +
         '</div>' +
         '<div class="card pick"><h2 class="h2" style="font-size:26px">Not your project? Pick another.</h2><p class="meta">Three quick questions and you\'re on the right page.</p><a class="btn sec" href="' + esc(CFG.quiz_url) + '" data-track="pick-another">Back to the quiz</a></div>' +
       '</div>';

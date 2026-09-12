@@ -166,7 +166,7 @@
       var u = URLS[it.slug]; if (!u) return "";
       return '<li><a href="' + esc(u + (u.indexOf("?") >= 0 ? "&" : "?") + "seg=" + encodeURIComponent(it.slug) + "&via=quiz-list") + '" data-slug="' + esc(it.slug) + '">' + esc(it.label) + '</a></li>';
     }).join("") + '</ul>' : '<p><a href="' + esc(HOME + "partners") + '">Browse every partner</a>.</p>';
-    body.innerHTML = '<div class="done list"><div class="q">Not sure yet? Here\'s what we can help you build.</div>' +
+    body.innerHTML = '<div class="done list"><div class="q">Here\'s what we can help you build.</div>' +
       '<p>We have all the discounts you need to launch the projects below with the best tools and services for the least money. Check out what we can help you build, or come back when you\'re ready for your next project.</p>' +
       list +
       '<div class="starter"><p class="fine">Or start with the free Starter Set: ' + STARTER_COUNT + ' discounts worth ' + esc(STARTER_VALUE) + '. No card required.</p><a class="btn" href="' + esc(STARTER) + '">Get the Starter Set</a></div>' +

@@ -111,7 +111,7 @@ HERO_HTML = """<div class="canv2 heroq" id="top">
       <div class="stats"><div class="stat"><div class="n">%(total)s</div><div class="l">in discounts</div></div><div class="stat"><div class="n">%(count)s</div><div class="l">partners</div></div><div class="stat"><div class="n">%(median)s</div><div class="l">median discount</div></div></div>
       <p class="hero-sub"><span class="arrow">&rarr;</span> Pick your next project and see what members save on it. A few quick questions, no email needed.</p>
       <form class="hero-starter" id="starter" novalidate>
-        <span class="starter-lab"><span class="q">Not ready to join?</span> <b>Get the free %(sub)s-discount Starter Set</b>, worth %(value)s, by email.</span>
+        <span class="starter-lab"><b>Get the free %(sub)s-discount Starter Set</b>, worth %(value)s, by email.</span>
         <div class="starter-row"><input type="email" placeholder="Your email" aria-label="Email" autocomplete="email" required><button type="submit" class="can-btn">Unlock free</button></div>
         <p class="starter-note" data-role="note">No card required. No spam, unsubscribe anytime.</p>
       </form>
@@ -136,7 +136,7 @@ STARTER_CODE = """<style>
 </style>
 <div class="canv2 hero-in starter-in" id="starter">
   <p class="can-eyebrow" style="margin-bottom:12px">Free to start</p>
-  <h2 class="can-h2">Not ready to join? Start with the free Starter Set.</h2>
+  <h2 class="can-h2">Start with the free Starter Set.</h2>
   <p class="hero-sub">%s discounts, no card required. Unlock them with your email and come back when the next project shows up.</p>
 </div>""" % (form_css, STARTER, SUBCOUNT)
 
