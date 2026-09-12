@@ -1,0 +1,722 @@
+[
+ {
+  "section": "Hero",
+  "where": "Small rust line above the headline",
+  "key": "hero.eyebrow",
+  "text": "For Creators building a business"
+ },
+ {
+  "section": "Hero",
+  "where": "Headline. [[double brackets]] = teal words",
+  "key": "hero.h1",
+  "text": "Our members [[save money]] while they build to [[make money]]."
+ },
+ {
+  "section": "Hero",
+  "where": "Paragraph under the headline",
+  "key": "hero.lead",
+  "text": "Pre-negotiated discounts on the software and services successful Creators use, at the best rate most partners offer anywhere."
+ },
+ {
+  "section": "Hero",
+  "where": "Stat tile 1, big number ({total} = synced total)",
+  "key": "hero.stat1.n",
+  "text": "{total}"
+ },
+ {
+  "section": "Hero",
+  "where": "Stat tile 1, label",
+  "key": "hero.stat1.l",
+  "text": "in discounts"
+ },
+ {
+  "section": "Hero",
+  "where": "Stat tile 2, big number ({count} = synced partner count)",
+  "key": "hero.stat2.n",
+  "text": "{count}"
+ },
+ {
+  "section": "Hero",
+  "where": "Stat tile 2, label",
+  "key": "hero.stat2.l",
+  "text": "partners"
+ },
+ {
+  "section": "Hero",
+  "where": "Stat tile 3, big number",
+  "key": "hero.stat3.n",
+  "text": "{median}"
+ },
+ {
+  "section": "Hero",
+  "where": "Stat tile 3, label",
+  "key": "hero.stat3.l",
+  "text": "median discount"
+ },
+ {
+  "section": "Hero",
+  "where": "Arrow line pointing at the quiz",
+  "key": "hero.sub",
+  "text": "Pick your next project and see what members save on it. Three quick questions, no email needed."
+ },
+ {
+  "section": "Hero",
+  "where": "Email box, first line",
+  "key": "hero.starter.q",
+  "text": "Not ready to join?"
+ },
+ {
+  "section": "Hero",
+  "where": "Email box, second line. **double stars** = bold",
+  "key": "hero.starter.lab",
+  "text": "**Get the free {starter}-discount Starter Set** by email."
+ },
+ {
+  "section": "Hero",
+  "where": "Email box, placeholder inside the field",
+  "key": "hero.starter.placeholder",
+  "text": "Your email"
+ },
+ {
+  "section": "Hero",
+  "where": "Email box, button",
+  "key": "hero.starter.button",
+  "text": "Unlock free"
+ },
+ {
+  "section": "Hero",
+  "where": "Email box, small line under it",
+  "key": "hero.starter.note",
+  "text": "No spam, unsubscribe anytime."
+ },
+ {
+  "section": "Quiz",
+  "where": "Teal band label",
+  "key": "quiz.label",
+  "text": "Your next project"
+ },
+ {
+  "section": "Quiz",
+  "where": "Step counter ({n} and {t} are filled in)",
+  "key": "quiz.step",
+  "text": "Question {n} of {t}"
+ },
+ {
+  "section": "Quiz",
+  "where": "Small line under the options",
+  "key": "quiz.fine",
+  "text": "No email needed."
+ },
+ {
+  "section": "Quiz",
+  "where": "Back link",
+  "key": "quiz.back",
+  "text": "← Back"
+ },
+ {
+  "section": "Quiz",
+  "where": "Question 'project'",
+  "key": "quiz.project.text",
+  "text": "What's your next project?"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'project'",
+  "key": "quiz.project.money",
+  "text": "Make money from my audience"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'project'",
+  "key": "quiz.project.grow",
+  "text": "Grow my audience"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'project'",
+  "key": "quiz.project.business",
+  "text": "Get the business side handled"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'project'",
+  "key": "quiz.project.content",
+  "text": "Make better content, faster"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'project'",
+  "key": "quiz.project.unsure",
+  "text": "Not sure yet"
+ },
+ {
+  "section": "Quiz",
+  "where": "Question 'how'",
+  "key": "quiz.how.text",
+  "text": "How do you want to make it?"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'how'",
+  "key": "quiz.how.branddeals",
+  "text": "Brand deals and sponsorships"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'how'",
+  "key": "quiz.how.knowledge",
+  "text": "Selling what I know"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'how'",
+  "key": "quiz.how.community",
+  "text": "A paid community or membership"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'how'",
+  "key": "quiz.how.products",
+  "text": "Selling products"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'how'",
+  "key": "quiz.how.media",
+  "text": "A newsletter or podcast"
+ },
+ {
+  "section": "Quiz",
+  "where": "Question 'knowledge'",
+  "key": "quiz.knowledge.text",
+  "text": "What are you selling?"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'knowledge'",
+  "key": "quiz.knowledge.course",
+  "text": "A course"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'knowledge'",
+  "key": "quiz.knowledge.coaching",
+  "text": "Coaching"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'knowledge'",
+  "key": "quiz.knowledge.consulting",
+  "text": "Consulting"
+ },
+ {
+  "section": "Quiz",
+  "where": "Question 'products'",
+  "key": "quiz.products.text",
+  "text": "What kind of products?"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'products'",
+  "key": "quiz.products.digital",
+  "text": "Digital products"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'products'",
+  "key": "quiz.products.physical",
+  "text": "Physical products or merch"
+ },
+ {
+  "section": "Quiz",
+  "where": "Question 'media'",
+  "key": "quiz.media.text",
+  "text": "Which one?"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'media'",
+  "key": "quiz.media.newsletter",
+  "text": "A newsletter"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'media'",
+  "key": "quiz.media.podcast",
+  "text": "A podcast"
+ },
+ {
+  "section": "Quiz",
+  "where": "Question 'where'",
+  "key": "quiz.where.text",
+  "text": "Where do you want to grow?"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'where'",
+  "key": "quiz.where.youtube",
+  "text": "YouTube"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'where'",
+  "key": "quiz.where.instagram",
+  "text": "Instagram"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'where'",
+  "key": "quiz.where.newsletter",
+  "text": "A newsletter"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'where'",
+  "key": "quiz.where.podcast",
+  "text": "A podcast"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'where'",
+  "key": "quiz.where.other",
+  "text": "Somewhere else"
+ },
+ {
+  "section": "Quiz",
+  "where": "Question 'handle'",
+  "key": "quiz.handle.text",
+  "text": "What needs handling?"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'handle'",
+  "key": "quiz.handle.setup",
+  "text": "Setting it up"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'handle'",
+  "key": "quiz.handle.protect",
+  "text": "Protecting it"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'handle'",
+  "key": "quiz.handle.tax",
+  "text": "Paying less in taxes"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'handle'",
+  "key": "quiz.handle.time",
+  "text": "Getting my time back"
+ },
+ {
+  "section": "Quiz",
+  "where": "Question 'make'",
+  "key": "quiz.make.text",
+  "text": "What do you make?"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'make'",
+  "key": "quiz.make.video",
+  "text": "Video"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'make'",
+  "key": "quiz.make.podcast",
+  "text": "A podcast"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'make'",
+  "key": "quiz.make.writing",
+  "text": "A newsletter or written content"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'make'",
+  "key": "quiz.make.all",
+  "text": "All of it, I just need more hours"
+ },
+ {
+  "section": "Quiz",
+  "where": "Question 'stage'",
+  "key": "quiz.stage.text",
+  "text": "How far along is the business?"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'stage'",
+  "key": "quiz.stage.pre",
+  "text": "Not earning yet"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'stage'",
+  "key": "quiz.stage.under100k",
+  "text": "Earning, under $100k a year"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'stage'",
+  "key": "quiz.stage.over100k",
+  "text": "Over $100k a year"
+ },
+ {
+  "section": "Quiz",
+  "where": "End screen after 'Not sure yet', title",
+  "key": "quiz.done.title",
+  "text": "Start with the free Starter Set."
+ },
+ {
+  "section": "Quiz",
+  "where": "End screen after 'Not sure yet', text",
+  "key": "quiz.done.text",
+  "text": "{starter} discounts, no card. Come back whenever the next project shows up."
+ },
+ {
+  "section": "Quiz",
+  "where": "End screen after 'Not sure yet', button",
+  "key": "quiz.done.button",
+  "text": "Get the Starter Set"
+ },
+ {
+  "section": "Quiz",
+  "where": "Shown for a moment before the segment page opens",
+  "key": "quiz.loading",
+  "text": "Loading your discounts…"
+ },
+ {
+  "section": "Member wins",
+  "where": "Small rust line",
+  "key": "wins.eyebrow",
+  "text": "Member wins"
+ },
+ {
+  "section": "Member wins",
+  "where": "Headline",
+  "key": "wins.headline",
+  "text": "Real Creators, real receipts."
+ },
+ {
+  "section": "Member wins",
+  "where": "Line under the headline",
+  "key": "wins.sub",
+  "text": "Pulled from the members' Wins channel and their own posts. Every name links to the Creator."
+ },
+ {
+  "section": "How it works",
+  "where": "Small rust line",
+  "key": "how.eyebrow",
+  "text": "How it works"
+ },
+ {
+  "section": "How it works",
+  "where": "Headline",
+  "key": "how.h2",
+  "text": "Three steps to a more profitable business."
+ },
+ {
+  "section": "How it works",
+  "where": "Step 1 title",
+  "key": "how.step1.h",
+  "text": "Join for $49 a year"
+ },
+ {
+  "section": "How it works",
+  "where": "Step 1 text",
+  "key": "how.step1.p",
+  "text": "Or start free with a starter set of discounts by email. Your rate locks for life when you join."
+ },
+ {
+  "section": "How it works",
+  "where": "Step 2 title",
+  "key": "how.step2.h",
+  "text": "Browse by category"
+ },
+ {
+  "section": "How it works",
+  "where": "Step 2 text",
+  "key": "how.step2.p",
+  "text": "Search by what you're about to buy. 🏆 means the best rate that partner offers anywhere."
+ },
+ {
+  "section": "How it works",
+  "where": "Step 3 title",
+  "key": "how.step3.h",
+  "text": "Redeem as you build"
+ },
+ {
+  "section": "How it works",
+  "where": "Step 3 text",
+  "key": "how.step3.p",
+  "text": "One discount pays for the membership. New discounts land at least monthly."
+ },
+ {
+  "section": "How it works",
+  "where": "Line under the three steps",
+  "key": "how.oneline",
+  "text": "Membership also includes an expert content library and a community of Creators building alongside you."
+ },
+ {
+  "section": "Founder",
+  "where": "Small rust line",
+  "key": "founder.eyebrow",
+  "text": "Why CAN exists"
+ },
+ {
+  "section": "Founder",
+  "where": "Headline",
+  "key": "founder.h2",
+  "text": "Avi spent $12,000+ finding a stack that worked. CAN would have saved him $3,100."
+ },
+ {
+  "section": "Founder",
+  "where": "Paragraph 1",
+  "key": "founder.p1",
+  "text": "15 years serving Creators as an agent, producer, and platform exec... then he got laid off and became one. After three failed communities, two fired accountants, and too many attempts at selling courses, products, and software, he had spent $12,000+ on experiments before finding the stack that worked."
+ },
+ {
+  "section": "Founder",
+  "where": "Paragraph 2",
+  "key": "founder.p2",
+  "text": "CAN shrinks that bill. Most partners give members the best rate they offer anywhere (look for the 🏆) and at just $49/year, it pays for itself fast."
+ },
+ {
+  "section": "Founder",
+  "where": "Button",
+  "key": "founder.button",
+  "text": "Reach out to Avi"
+ },
+ {
+  "section": "Founder",
+  "where": "Card: name",
+  "key": "founder.name",
+  "text": "Avi Gandhi"
+ },
+ {
+  "section": "Founder",
+  "where": "Card: role line",
+  "key": "founder.role",
+  "text": "Founder, Creator Access Network"
+ },
+ {
+  "section": "Founder",
+  "where": "Card: bio line",
+  "key": "founder.meta",
+  "text": "17 years in the Creator Economy. Former WME agent and Head of Creator Partnerships at Patreon."
+ },
+ {
+  "section": "Founder",
+  "where": "Receipt row 1, label",
+  "key": "founder.row1.l",
+  "text": "Spent on experiments that didn't work"
+ },
+ {
+  "section": "Founder",
+  "where": "Receipt row 1, amount",
+  "key": "founder.row1.r",
+  "text": "$12,000+"
+ },
+ {
+  "section": "Founder",
+  "where": "Receipt row 2, label",
+  "key": "founder.row2.l",
+  "text": "What CAN discounts would have saved"
+ },
+ {
+  "section": "Founder",
+  "where": "Receipt row 2, amount",
+  "key": "founder.row2.r",
+  "text": "$3,100+"
+ },
+ {
+  "section": "Founder",
+  "where": "Receipt row 3, label",
+  "key": "founder.row3.l",
+  "text": "CAN membership"
+ },
+ {
+  "section": "Founder",
+  "where": "Receipt row 3, amount",
+  "key": "founder.row3.r",
+  "text": "$49"
+ },
+ {
+  "section": "Founder",
+  "where": "Receipt total, label",
+  "key": "founder.row4.l",
+  "text": "Net, first year"
+ },
+ {
+  "section": "Founder",
+  "where": "Receipt total, amount",
+  "key": "founder.row4.r",
+  "text": "$3,050+"
+ },
+ {
+  "section": "FAQ",
+  "where": "Small rust line",
+  "key": "faq.eyebrow",
+  "text": "FAQ"
+ },
+ {
+  "section": "FAQ",
+  "where": "Headline",
+  "key": "faq.h2",
+  "text": "Questions Creators ask before joining."
+ },
+ {
+  "section": "FAQ",
+  "where": "Line under the headline. [text](url) = link",
+  "key": "faq.sub",
+  "text": "Short and sweet. Anything else, [email our founder](mailto:avi@creatoraccessnetwork.com)."
+ },
+ {
+  "section": "FAQ",
+  "where": "Question 1",
+  "key": "faq.1.q",
+  "text": "Is this a coupon site?"
+ },
+ {
+  "section": "FAQ",
+  "where": "Answer 1",
+  "key": "faq.1.a",
+  "text": "No. The rates aren't public. They're pre-negotiated for members, and partners give their best rate anywhere. Access like this used to take years of relationships."
+ },
+ {
+  "section": "FAQ",
+  "where": "Question 2",
+  "key": "faq.2.q",
+  "text": "Do I have to use every discount?"
+ },
+ {
+  "section": "FAQ",
+  "where": "Answer 2",
+  "key": "faq.2.a",
+  "text": "No. Each one is worth more than $49, so the first one you use covers the year."
+ },
+ {
+  "section": "FAQ",
+  "where": "Question 3",
+  "key": "faq.3.q",
+  "text": "What if the price goes up?"
+ },
+ {
+  "section": "FAQ",
+  "where": "Answer 3",
+  "key": "faq.3.a",
+  "text": "Your rate is locked in for life, even when the price goes up."
+ },
+ {
+  "section": "FAQ",
+  "where": "Question 4",
+  "key": "faq.4.q",
+  "text": "Does CAN discount tools I'm using right now?"
+ },
+ {
+  "section": "FAQ",
+  "where": "Answer 4",
+  "key": "faq.4.a",
+  "text": "No. Vendors don't discount their existing customers. The savings are for your next tool decision, as you build your stack."
+ },
+ {
+  "section": "FAQ",
+  "where": "Question 5",
+  "key": "faq.5.q",
+  "text": "Is CAN an agency?"
+ },
+ {
+  "section": "FAQ",
+  "where": "Answer 5",
+  "key": "faq.5.a",
+  "text": "No. CAN doesn't represent you or take a cut of your income. It's a membership that gets you better rates on what you're buying anyway."
+ },
+ {
+  "section": "Pricing",
+  "where": "Small rust line",
+  "key": "pricing.eyebrow",
+  "text": "Membership"
+ },
+ {
+  "section": "Pricing",
+  "where": "Headline",
+  "key": "pricing.h2",
+  "text": "Save thousands for just $49/year."
+ },
+ {
+  "section": "Pricing",
+  "where": "Line under the headline",
+  "key": "pricing.sub",
+  "text": "It pays for itself."
+ },
+ {
+  "section": "Pricing",
+  "where": "Card title",
+  "key": "pricing.card.title",
+  "text": "CAN Membership"
+ },
+ {
+  "section": "Pricing",
+  "where": "Big price",
+  "key": "pricing.price",
+  "text": "$49"
+ },
+ {
+  "section": "Pricing",
+  "where": "Small text after the price",
+  "key": "pricing.per",
+  "text": "/year"
+ },
+ {
+  "section": "Pricing",
+  "where": "Bullet 1",
+  "key": "pricing.b1",
+  "text": "**{total}** in savings across {count} partners"
+ },
+ {
+  "section": "Pricing",
+  "where": "Bullet 2",
+  "key": "pricing.b2",
+  "text": "Higher affiliate payouts on **20,000+ brands** through ShopYourLikes"
+ },
+ {
+  "section": "Pricing",
+  "where": "Bullet 3",
+  "key": "pricing.b3",
+  "text": "**Curated library** of educational resources"
+ },
+ {
+  "section": "Pricing",
+  "where": "Bullet 4",
+  "key": "pricing.b4",
+  "text": "**Community** of Creators building alongside you"
+ },
+ {
+  "section": "Pricing",
+  "where": "Bullet 5",
+  "key": "pricing.b5",
+  "text": "**New discounts** added at least monthly"
+ },
+ {
+  "section": "Pricing",
+  "where": "Grey box",
+  "key": "pricing.lock",
+  "text": "**Locked in for life:** join at $49/year and your rate never goes up, even when the price does."
+ },
+ {
+  "section": "Pricing",
+  "where": "Button",
+  "key": "pricing.button",
+  "text": "Get access for $49"
+ },
+ {
+  "section": "Pricing",
+  "where": "Line under the button",
+  "key": "pricing.fine",
+  "text": "Not ready? [Unlock the Starter Set free](#starter)."
+ }
+]

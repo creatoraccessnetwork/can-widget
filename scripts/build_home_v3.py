@@ -24,10 +24,15 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(REPO, "backups", "homepage-2026-09-10-pre-quiz-hero"))
 import write_snapshot as snap   # the verbatim live sections (shared CSS, form block, pricing block, widget block)
+sys.path.insert(0, HERE)
+from copy_lib import COPY, slot, plain   # copy.json = snapshot of the "CAN Homepage Copy" Google Sheet; can-copy.js applies live edits
 
 BASE = "https://creatoraccessnetwork.github.io/can-widget/"
 NUM = json.load(open(os.path.join(REPO, "numbers.json")))
 TOTAL, COUNT, MEDIAN, SUBCOUNT = NUM["total_value"], str(NUM["partner_count"]), "$400", "30"
+NUMS = {"total": TOTAL, "count": COUNT, "median": MEDIAN, "starter": SUBCOUNT}
+COPY_SHEET = json.load(open(os.path.join(REPO, "copy_sheet.json")))["sheet_id"]
+def S(key, tag="span", cls="", extra=""): return slot(key, NUMS, tag, cls, extra)
 
 HERO, STARTER, WINS = "1787360000008", "1787360000009", "1787360000010"
 OLD_HERO, OLD_QUIZ = "1787360000000", "1787360000007"
@@ -100,25 +105,33 @@ HERO_CSS = """
 HERO_HTML = """<div class="canv2 heroq" id="top">
   <div class="can-card heroq-card">
     <div class="heroq-copy">
-      <p class="can-eyebrow">For Creators building a business</p>
-      <h1 class="hero-h1">Our members <span class="tl">save money</span> while they build to <span class="tl">make money</span>.</h1>
-      <p class="hero-lead">Pre-negotiated discounts on the software and services successful Creators use, at the best rate most partners offer anywhere.</p>
-      <div class="stats"><div class="stat"><div class="n">%(total)s</div><div class="l">in discounts</div></div><div class="stat"><div class="n">%(count)s</div><div class="l">partners</div></div><div class="stat"><div class="n">%(median)s</div><div class="l">median discount</div></div></div>
-      <p class="hero-sub"><span class="arrow">&rarr;</span> Pick your next project and see what members save on it. Three quick questions, no email needed.</p>
+      %(eyebrow)s
+      %(h1)s
+      %(lead)s
+      <div class="stats"><div class="stat">%(s1n)s%(s1l)s</div><div class="stat">%(s2n)s%(s2l)s</div><div class="stat">%(s3n)s%(s3l)s</div></div>
+      <p class="hero-sub"><span class="arrow">&rarr;</span> %(sub)s</p>
       <form class="hero-starter" id="starter" novalidate>
-        <span class="starter-lab"><span class="q">Not ready to join?</span> <b>Get the free %(sub)s-discount Starter Set</b> by email.</span>
-        <div class="starter-row"><input type="email" placeholder="Your email" aria-label="Email" autocomplete="email" required><button type="submit" class="can-btn">Unlock free</button></div>
-        <p class="starter-note" data-role="note">No spam, unsubscribe anytime.</p>
+        <span class="starter-lab">%(sq)s %(slab)s</span>
+        <div class="starter-row"><input type="email" placeholder="%(splace)s" aria-label="Email" autocomplete="email" required data-copy="hero.starter.placeholder" data-copy-attr="placeholder">%(sbtn)s</div>
+        %(snote)s
       </form>
     </div>
     <div class="heroq-quiz"><div id="can-quiz-mount"></div></div>
   </div>
 </div>
-<script>window.CANQUIZ = {"embed": true, "starterUrl": "#starter", "label": "Your next project"};</script>
-<script src="%(base)scan-quiz.js?v=20260911a"></script>
+<script>window.CANCOPY = %(copycfg)s;</script>
+<script src="%(base)scan-copy.js?v=20260912a"></script>
+<script>window.CANQUIZ = %(quizcfg)s;</script>
+<script src="%(base)scan-quiz.js?v=20260912a"></script>
 <script>window.CANSTARTER = {"form": "#starter", "source": "hero"};</script>
 <script src="%(base)scan-starter.js"></script>
-<script>(function(){function go(){if(location.hash==="#top"){var s=document.getElementById("starter");if(s){try{history.replaceState(null,"","#starter");}catch(e){}s.scrollIntoView();}}}go();window.addEventListener("hashchange",go);})();</script>""" % dict(total=TOTAL, median=MEDIAN, count=COUNT, sub=SUBCOUNT, base=BASE)
+<script>(function(){function go(){if(location.hash==="#top"){var s=document.getElementById("starter");if(s){try{history.replaceState(null,"","#starter");}catch(e){}s.scrollIntoView();}}}go();window.addEventListener("hashchange",go);})();</script>""" % dict(
+    eyebrow=S("hero.eyebrow", "p", "can-eyebrow"), h1=S("hero.h1", "h1", "hero-h1"), lead=S("hero.lead", "p", "hero-lead"),
+    s1n=S("hero.stat1.n", "div", "n"), s1l=S("hero.stat1.l", "div", "l"), s2n=S("hero.stat2.n", "div", "n"), s2l=S("hero.stat2.l", "div", "l"),
+    s3n=S("hero.stat3.n", "div", "n"), s3l=S("hero.stat3.l", "div", "l"), sub=S("hero.sub"),
+    sq=S("hero.starter.q", "span", "q"), slab=S("hero.starter.lab"), splace=plain("hero.starter.placeholder", NUMS),
+    sbtn=S("hero.starter.button", "button", "can-btn", 'type="submit"'), snote=S("hero.starter.note", "p", "starter-note", 'data-role="note"'),
+    copycfg=json.dumps({"sheet": COPY_SHEET, "numbers": NUMS}), quizcfg=json.dumps({"embed": True, "starterUrl": "#starter", "label": plain("quiz.label", NUMS)}), base=BASE)
 
 HERO_CODE = "<style>" + shared + HERO_CSS + "</style>\n" + HERO_HTML
 
@@ -138,27 +151,99 @@ STARTER_CODE = """<style>
 STARTER_META = snap.HERO_META  # "No spam, unsubscribe anytime. Or join for $49/year for 4x more savings."
 
 WINS_CODE = """<div class="canv2" id="wins"><div id="can-testimonials-mount"></div></div>
-<script>window.CANTESTI = {"surface": "white", "rows": ["members", "partners"], "eyebrow": "Member wins", "headline": "Real Creators, real receipts.", "sub": "Pulled from the members' Wins channel and their own posts. Every name links to the Creator."};</script>
-<script src="%scan-testimonials.js"></script>""" % BASE
+<script>window.CANTESTI = %s;</script>
+<script src="%scan-testimonials.js"></script>""" % (json.dumps({"surface": "white", "rows": ["members", "partners"], "eyebrow": plain("wins.eyebrow", NUMS), "headline": plain("wins.headline", NUMS), "sub": plain("wins.sub", NUMS)}), BASE)
 
 WIDGET_CODE = snap.WIDGET_CODE.replace('"starterUrl": "#top"', '"starterUrl": "#starter"').replace("cansw-v2.js\"", "cansw-v2.js?v=20260910d\"")  # ?v= busts browser caches after widget pushes; bump it when cansw-v2.js changes
 assert WIDGET_CODE != snap.WIDGET_CODE
-PRICING_CODE = snap.PRICING_CODE.replace('href="#top"', 'href="#starter"').replace('>Join for $49</a>', '>Get access for $49</a>')  # 2026-09-11 Avi: "Get access for $49"
+# ---- 2026-09-12: sections are templates over copy.json (Avi edits the Google Sheet; can-copy.js applies it live) ----
+PRICING_CODE = """<div class="canv2" id="pricing">
+  <div class="center">%(eyebrow)s%(h2)s%(sub)s</div>
+  <div class="can-card price-card">
+    %(title)s
+    <div class="price" style="margin:8px 0 16px">%(price)s%(per)s</div>
+    <ul class="checks">
+      <li><span class="chk">✓</span>%(b1)s</li>
+      <li><span class="chk">✓</span>%(b2)s</li>
+      <li><span class="chk">✓</span>%(b3)s</li>
+      <li><span class="chk">✓</span>%(b4)s</li>
+      <li><span class="chk">✓</span>%(b5)s</li>
+    </ul>
+    %(lock)s
+    %(btn)s
+    %(fine)s
+  </div>
+</div>
+<!-- Mobile sticky bar hidden 2026-08-24 at Avi's request. To restore it, delete the <style> block below. -->
+<style>@media (max-width:900px){.canv2-sticky{display:none!important}body{padding-bottom:0!important}}</style>
+<div class="canv2-sticky"><span class="s-price">$49/year, locked in</span><a class="can-btn" href="#starter">Unlock the Starter Set</a></div>""" % dict(
+    eyebrow=S("pricing.eyebrow", "p", "can-eyebrow"), h2=S("pricing.h2", "h2", "can-h2"), sub=S("pricing.sub", "p"), title=S("pricing.card.title", "div", "can-h3"),
+    price=S("pricing.price"), per=S("pricing.per", "small"), b1=S("pricing.b1"), b2=S("pricing.b2"), b3=S("pricing.b3"), b4=S("pricing.b4"), b5=S("pricing.b5"),
+    lock=S("pricing.lock", "div", "lock"), btn=S("pricing.button", "a", "can-btn can-btn--lg can-btn--block", 'href="https://www.creatoraccessnetwork.com/offers/oyLoKFBu/checkout"'),
+    fine=S("pricing.fine", "p", "fine", 'style="text-align:center"'))
 assert PRICING_CODE.count("#starter") == 2
-# (pricing bullets / lock text stay as live; see note above)
 
-# ---- 2026-09-10 late: Avi asked for the previous, longer copy back. Founder / categories / how / FAQ are the live
-# Aug-22 blocks verbatim (snapshot); pricing changes only its Starter Set links to #starter.
-FOUNDER_CODE = snap.FOUNDER_CODE
-HOW_CODE = snap.HOW_CODE.replace('<div class="canv2" id="how">', '<div class="canv2" id="how"><div class="can-card how-card">').replace('</div>\n</div>', '</div>\n</div></div>', 1) if False else snap.HOW_CODE
-# wrap everything inside the #how container in a card (the section now sits on the pattern)
-_h = snap.HOW_CODE
-assert _h.startswith('<div class="canv2" id="how">') and _h.rstrip().endswith('</div>')
-HOW_CODE = '<div class="canv2" id="how">\n  <div class="can-card how-card">\n' + _h[len('<div class="canv2" id="how">'):].rstrip()[:-len('</div>')] + '  </div>\n</div>'
+FOUNDER_CODE = """<div class="canv2 two" id="founder">
+  <div>
+    %(eyebrow)s
+    %(h2)s
+    %(p1)s
+    %(p2)s
+    <p style="margin:8px 0 0">%(btn)s</p>
+  </div>
+  <div class="two-right">
+    <div class="can-card founder">
+      <img class="avatar" src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2148774616/images/420d636-e84b-bcd6-d80-5b5f8ee50f_Avi_Gandhi_Headshot_2026_-_Edited.jpg" alt="Avi Gandhi">
+      <div>%(name)s%(role)s%(meta)s</div>
+    </div>
+    <div class="can-card receipt-card">
+      <div class="rc-row">%(r1l)s%(r1r)s</div>
+      <div class="rc-row">%(r2l)s%(r2r)s</div>
+      <div class="rc-row">%(r3l)s%(r3r)s</div>
+      <div class="rc-row tot">%(r4l)s%(r4r)s</div>
+    </div>
+  </div>
+</div>""" % dict(
+    eyebrow=S("founder.eyebrow", "p", "can-eyebrow"), h2=S("founder.h2", "h2", "can-h2"), p1=S("founder.p1", "p"), p2=S("founder.p2", "p"),
+    btn=S("founder.button", "a", "can-btn", 'href="mailto:avi@creatoraccessnetwork.com"'), name=S("founder.name", "div", "can-h3"), role=S("founder.role", "div", "role"),
+    meta=S("founder.meta", "div", "meta", 'style="margin-top:4px"'),
+    r1l=S("founder.row1.l", "span", "l"), r1r=S("founder.row1.r", "span", "r"), r2l=S("founder.row2.l", "span", "l"), r2r=S("founder.row2.r", "span", "r"),
+    r3l=S("founder.row3.l", "span", "l"), r3r=S("founder.row3.r", "span", "r"), r4l=S("founder.row4.l", "span", "l"), r4r=S("founder.row4.r", "span", "r"))
+
+HOW_CODE = """<div class="canv2" id="how">
+  <div class="can-card how-card">
+  <div class="center">%(eyebrow)s%(h2)s</div>
+  <div class="steps">
+    <div><div class="stepn">1</div>%(h1)s%(p1)s</div>
+    <div><div class="stepn">2</div>%(h2b)s%(p2)s</div>
+    <div><div class="stepn">3</div>%(h3)s%(p3)s</div>
+  </div>
+  %(one)s
+  </div>
+</div>""" % dict(
+    eyebrow=S("how.eyebrow", "p", "can-eyebrow"), h2=S("how.h2", "h2", "can-h2"),
+    h1=S("how.step1.h", "div", "can-h3"), p1=S("how.step1.p", "p"), h2b=S("how.step2.h", "div", "can-h3"), p2=S("how.step2.p", "p"),
+    h3=S("how.step3.h", "div", "can-h3"), p3=S("how.step3.p", "p"), one=S("how.oneline", "p", "oneline"))
+
+FAQ_CODE = """<div class="canv2" id="faq" style="max-width:820px">
+  <div class="can-card head-card">
+    %(eyebrow)s
+    %(h2)s
+    %(sub)s
+  </div>
+  <div class="can-card faq">
+    <details>%(q1)s%(a1)s</details>
+    <details>%(q2)s%(a2)s</details>
+    <details>%(q3)s%(a3)s</details>
+    <details>%(q4)s%(a4)s</details>
+    <details>%(q5)s%(a5)s</details>
+  </div>
+</div>""" % dict(
+    eyebrow=S("faq.eyebrow", "p", "can-eyebrow", 'style="margin-bottom:8px"'), h2=S("faq.h2", "h2", "can-h2", 'style="margin:0"'), sub=S("faq.sub", "p", "meta", 'style="margin:8px 0 0"'),
+    **{k: S("faq.%d.%s" % (i, "q" if k[0] == "q" else "a"), "summary" if k[0] == "q" else "p") for i in range(1, 6) for k in ("q%d" % i, "a%d" % i)})
+
 CATS_CODE = snap.CATS_CODE.replace('href="#widget">Browse all 50 partners', 'href="https://www.creatoraccessnetwork.com/partners">Browse all 50 partners')
 assert CATS_CODE != snap.CATS_CODE
-FAQ_CODE = snap.FAQ_CODE
-
 OLD_HIDDEN = snap.OLD_HIDDEN
 # 2026-09-10 late: calculator widget removed from the homepage (Avi: the quiz replaces it). Section 1787360000001 is
 # HIDDEN, not deleted; to restore, set it hidden:"false" and put it back after WINS. Surfaces alternate:

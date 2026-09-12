@@ -96,14 +96,15 @@
     try { if (typeof window.fbq === "function") window.fbq("trackCustom", name.replace(/(^|_)(\w)/g, function (m, a, b) { return b.toUpperCase(); }), p); } catch (e) {}
     try { (window.dataLayer = window.dataLayer || []).push({ event: name, can: p }); } catch (e) {}
   }
+  function cp(k, d) { var m = window.CANCOPY_MAP; return (m && m[k] != null && m[k] !== "") ? m[k] : d; }
   function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
 
   var URLS = {}, STARTER = O.starterUrl || "https://www.creatoraccessnetwork.com/#top", HOME = "https://www.creatoraccessnetwork.com/";
-  var state = { history: [], answers: {}, seg: null, platform: null, cur: "project" };
+  var state = { history: [], answers: {}, seg: null, platform: null, cur: "project", done: false };
 
   mount.className = (mount.className ? mount.className + " " : "") + "canq" + (EMBED ? " embed" : "");
   mount.innerHTML = EMBED
-    ? '<div class="panel" id="quiz"><div class="phead"><span class="plabel">' + esc(O.label || "Your next project") + '</span><span class="step" data-role="step"></span></div><div class="pbody"><div class="bar" aria-hidden="true"><i data-role="bar"></i></div><div data-role="body" aria-live="polite"></div></div></div>'
+    ? '<div class="panel" id="quiz"><div class="phead"><span class="plabel">' + esc(cp("quiz.label", O.label || "Your next project")) + '</span><span class="step" data-role="step"></span></div><div class="pbody"><div class="bar" aria-hidden="true"><i data-role="bar"></i></div><div data-role="body" aria-live="polite"></div></div></div>'
     : '<div class="card" id="quiz"><p class="eyebrow">Your next project</p><h2 class="h2">' + esc(HEADER) + '</h2><p class="sub">' + esc(SUB) + '</p>' +
     '<div class="prog" aria-hidden="true"><div class="bar"><i data-role="bar"></i></div><span class="step" data-role="step"></span></div>' +
     '<div data-role="body" aria-live="polite"></div></div>';
@@ -114,10 +115,10 @@
 
   function renderQ(id) {
     state.cur = id; var Qd = Qs[id]; var n = stepNo(), t = totalSteps();
-    bar.style.width = Math.round(((n - 1) / t) * 100) + "%"; stepEl.textContent = "Question " + n + " of " + t;
-    body.innerHTML = '<div class="q" id="canq-q">' + esc(Qd.text) + '</div><div class="opts" role="radiogroup" aria-labelledby="canq-q">' +
-      Qd.opts.map(function (o, i) { return '<button type="button" class="opt" role="radio" aria-checked="false" data-id="' + esc(o.id) + '" tabindex="' + (i === 0 ? "0" : "-1") + '"><span class="k" aria-hidden="true">' + (i + 1) + '</span><span>' + esc(o.label) + '</span></button>'; }).join("") +
-      '</div><div class="nav">' + (state.history.length ? '<button type="button" class="back">← Back</button>' : '<span></span>') + '<p class="fine">No email needed.</p></div>';
+    bar.style.width = Math.round(((n - 1) / t) * 100) + "%"; stepEl.textContent = cp("quiz.step", "Question {n} of {t}").replace("{n}", n).replace("{t}", t);
+    body.innerHTML = '<div class="q" id="canq-q">' + esc(cp("quiz." + id + ".text", Qd.text)) + '</div><div class="opts" role="radiogroup" aria-labelledby="canq-q">' +
+      Qd.opts.map(function (o, i) { return '<button type="button" class="opt" role="radio" aria-checked="false" data-id="' + esc(o.id) + '" tabindex="' + (i === 0 ? "0" : "-1") + '"><span class="k" aria-hidden="true">' + (i + 1) + '</span><span>' + esc(cp("quiz." + id + "." + o.id, o.label)) + '</span></button>'; }).join("") +
+      '</div><div class="nav">' + (state.history.length ? '<button type="button" class="back">' + esc(cp("quiz.back", "← Back")) + '</button>' : '<span></span>') + '<p class="fine">' + esc(cp("quiz.fine", "No email needed.")) + '</p></div>';
     var opts = Array.prototype.slice.call(body.querySelectorAll(".opt"));
     opts.forEach(function (b, i) {
       b.addEventListener("click", function () { choose(Qd, Qd.opts[i], b); });
@@ -135,7 +136,7 @@
     if (state.history.length) { var f = body.querySelector(".opt"); if (f) f.focus({ preventScroll: true }); }
   }
 
-  function back() { var prev = state.history.pop(); if (!prev) return; delete state.answers[prev]; if (prev === "project") { state.seg = null; state.platform = null; } renderQ(prev); }
+  function back() { state.done = false; var prev = state.history.pop(); if (!prev) return; delete state.answers[prev]; if (prev === "project") { state.seg = null; state.platform = null; } renderQ(prev); }
 
   function choose(Qd, o, btn) {
     body.querySelectorAll(".opt").forEach(function (x) { x.setAttribute("aria-checked", "false"); }); btn.setAttribute("aria-checked", "true");
@@ -151,7 +152,7 @@
   function finishStarter() {
     bar.style.width = "100%"; stepEl.textContent = "Done";
     track("quiz_complete", { segment: "starter", path: "project:unsure" });
-    body.innerHTML = '<div class="done"><div class="q">Start with the free Starter Set.</div><p>30 discounts, no card. Come back whenever the next project shows up.</p><a class="btn" href="' + esc(STARTER) + '">Get the Starter Set</a><div class="nav"><button type="button" class="back">← Back</button><span></span></div></div>';
+    state.done = true; body.innerHTML = '<div class="done"><div class="q">' + esc(cp("quiz.done.title", "Start with the free Starter Set.")) + '</div><p>' + esc(cp("quiz.done.text", "30 discounts, no card. Come back whenever the next project shows up.")) + '</p><a class="btn" href="' + esc(STARTER) + '">' + esc(cp("quiz.done.button", "Get the Starter Set")) + '</a><div class="nav"><button type="button" class="back">' + esc(cp("quiz.back", "← Back")) + '</button><span></span></div></div>';
     body.querySelector(".back").addEventListener("click", back);
     var starterEl = document.getElementById("starter");
     var email = (starterEl && starterEl.querySelector('input[type="email"]')) || document.querySelector('form input[type="email"]');
@@ -164,7 +165,7 @@
     var qs = "seg=" + encodeURIComponent(seg) + "&stage=" + encodeURIComponent(stage) + (state.platform ? "&platform=" + encodeURIComponent(state.platform) : "") + "&via=quiz";
     var dest = url ? url + (url.indexOf("?") >= 0 ? "&" : "?") + qs : HOME + "partners";
     track("quiz_complete", { segment: seg, stage: stage, platform: state.platform || "", path: state.history.map(function (k) { return k + ":" + state.answers[k]; }).join(">") });
-    body.innerHTML = '<div class="done"><div class="q">Loading your discounts…</div><p class="fine">If nothing happens, <a href="' + esc(dest) + '">open your page</a>.</p></div>';
+    state.done = true; body.innerHTML = '<div class="done"><div class="q">' + esc(cp("quiz.loading", "Loading your discounts…")) + '</div><p class="fine">If nothing happens, <a href="' + esc(dest) + '">open your page</a>.</p></div>';
     setTimeout(function () { location.href = dest; }, 200);
   }
 
@@ -172,5 +173,6 @@
     try { fetch(BASE + "segments.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { if (j && j.segments) { j.segments.forEach(function (s) { URLS[s.slug] = s.url; }); if (j.starter_url && !O.starterUrl) STARTER = j.starter_url; if (j.home_url) HOME = j.home_url; } }).catch(function () {}); } catch (e) {}
     renderQ("project");
   }
+  document.addEventListener("cancopy", function () { try { var pl = mount.querySelector(".plabel"); if (pl) pl.textContent = cp("quiz.label", O.label || "Your next project"); if (!state.done) renderQ(state.cur); } catch (e) {} });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
 })();
