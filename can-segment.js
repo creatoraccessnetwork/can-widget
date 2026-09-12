@@ -1,5 +1,5 @@
 /* CAN project page script (segment flavour of the v2 offer template). v1, 2026-09-10.
- * Renders the project hero, decision rows, the sticky "Which of these are you deciding on?" calculator,
+ * Renders the project hero, decision rows, the sticky "Here's how much you'll save with CAN" calculator,
  * the project total, the Upcoming events strip, the for-every-Creator strip, the pricing card and the "Pick another" card.
  * Mounts: #canseg-top (above the Kajabi checkout) and #canseg-end (below it).
  * Config: window.CANSEG = { seg, token, checkout }  (checkout = "#section-<checkout section id>")
@@ -19,6 +19,13 @@
   var PLATFORM = /^(youtube|instagram|newsletter|other)$/.test(Q.platform || "") ? Q.platform : "";
   var STAGE_LINE = { pre: "Filtered for a business that isn't earning yet.", under100k: "Filtered for a business earning under $100k a year.", over100k: "Filtered for a business earning over $100k a year." };
 
+  function brandList(rows) {
+    var seen = {}, names = [];
+    (rows || []).forEach(function (r) { if (r.n && !seen[r.n]) { seen[r.n] = 1; names.push(r.n); } });
+    var n = names.length, top = names.slice(0, 4);
+    if (n <= 4) return top.length > 1 ? top.slice(0, -1).join(", ") + " and " + top[top.length - 1] : (top[0] || "our partners");
+    return top.join(", ") + " and " + (n - 4) + " more";
+  }
   function track(name, params) {
     var p = {}; for (var k in (params || {})) p[k] = params[k];
     p.segment = C.seg; if (STAGE) p.stage = STAGE; if (PLATFORM) p.platform = PLATFORM; if (Q.via) p.via = Q.via;
@@ -135,14 +142,16 @@
       '</div>' +
       '<div class="two">' +
         '<div>' +
-          '<div class="card grp" style="padding-top:20px;padding-bottom:16px"><h2 class="h2" style="font-size:26px;margin-bottom:4px">Pick what you\'re deciding on.</h2><p class="meta" style="margin:0">Each figure is what that discount is worth. Tap + to add a tool to your savings. Where competing platforms share a line, you\'ll pick one.</p></div>' +
+          '<div class="card grp" style="padding-top:20px;padding-bottom:16px"><h2 class="h2" style="font-size:26px;margin-bottom:6px">' + esc(seg.need_h || "Here\'s what you\'ll need.") + '</h2>' +
+            (seg.need ? '<p style="margin:0 0 10px">' + esc(seg.need) + ' We have the best discounts on ' + esc(brandList(rows)) + ' to help you do it right for the least money.</p>' : '') +
+            '<p class="meta" style="margin:0">Each figure is what that discount is worth. Tap + to add a tool to your savings. Where competing platforms share a line, you\'ll pick one.</p></div>' +
           '<div data-role="groups"></div>' +
           '<div data-role="more"></div>' +
         '</div>' +
         '<div class="card calc" id="canseg-calc">' +
           '<p class="eyebrow" style="margin-bottom:8px">Your savings</p>' +
-          '<h2 class="h2">Which of these are you deciding on?</h2>' +
-          '<p class="meta" style="margin:0">Add the tools on your list. The receipt writes itself.</p>' +
+          '<h2 class="h2">Here\'s how much you\'ll save with CAN.</h2>' +
+          '<p class="meta" style="margin:0">Add the tools you\'ll use. The receipt writes itself.</p>' +
           '<div class="rlist" data-role="rlist"><div class="empty">Nothing picked yet. Add a tool from the list.</div></div>' +
           '<div class="rtot"><span class="lab">Savings on your picks</span><span class="val" data-role="rtotal">$0</span></div>' +
           '<div class="rsub" data-role="rsub">Membership is $' + COST + '/year. Add a pick to see your net.</div>' +

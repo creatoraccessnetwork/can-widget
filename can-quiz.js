@@ -1,10 +1,12 @@
 /* CAN project quiz. v1, 2026-09-10.
- * Three or four multiple-choice questions that land on one of fifteen project offer pages.
+ * Two to four multiple-choice questions that land on one of fifteen project offer pages.
+ * v1.1, 2026-09-12: "Land more brand deals" and "Sell physical products" are direct Q1 outcomes (two questions);
+ * "Not sure yet" lists every project page (quiz_label + not_sure_extras in segments.json) above the Starter Set CTA.
  * Mounts into #can-quiz-mount. Reads segments.json (next to this script) for the page URLs.
  * Config: window.CANQUIZ = { header, sub, starterUrl, embed, label } (all optional). embed:true (2026-09-10) renders the
  * questions as a panel with no card chrome or header, for the homepage hero where the copy sits beside it.
  * Redirect: <segment url>?seg=<slug>&stage=<pre|under100k|over100k>[&platform=<youtube|instagram|newsletter|other>]&via=quiz
- * "Not sure yet" goes to the Starter Set (homepage hero form) with no further questions.
+ * "Not sure yet" shows every project page and the Starter Set CTA (homepage form) with no further questions.
  * Analytics: gtag / fbq / dataLayer when present (quiz_answer per answer, quiz_complete per finish). No email gate.
  */
 (function () {
@@ -31,6 +33,10 @@
 ".canq .nav{display:flex;justify-content:space-between;align-items:center;margin:16px 0 0;gap:12px}.canq .back{background:none;border:0;color:var(--mute);font:inherit;font-size:15px;font-weight:600;cursor:pointer;padding:8px 0}.canq .back:hover{color:var(--t)}.canq .fine{font-size:15px;line-height:22px;color:var(--mute);margin:0}" +
 ".canq .done{text-align:center;padding:12px 0}.canq .done .q{margin-bottom:8px}.canq .btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 24px;border:0;border-radius:var(--r);cursor:pointer;font-family:var(--body);font-weight:700;font-size:17px;background:var(--rust);color:#fff!important;text-decoration:none!important}" +
 ".canq .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}" +
+".canq .done.list{text-align:left;padding:4px 0 0}.canq .done.list .q{font-size:24px;margin:0 0 10px}.canq .done.list p{margin:0 0 14px;font-size:16px;line-height:24px}" +
+".canq .pages{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;margin:0 0 16px;padding:0;list-style:none}.canq .pages a{display:flex;align-items:center;gap:8px;min-height:36px;padding:6px 10px;border:1px solid var(--bd);border-radius:var(--r);background:#fff;color:var(--ink);font-weight:600;font-size:15px;line-height:20px;text-decoration:none;transition:border-color 150ms ease,background 150ms ease}.canq .pages a:hover{border-color:var(--t);background:var(--s2);color:var(--td);text-decoration:none}.canq .pages a::before{content:'';flex:none;width:6px;height:6px;border-radius:50%;background:var(--t)}" +
+".canq .starter{border-top:1px solid var(--bd);padding-top:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.canq .starter .fine{flex:1 1 200px}" +
+"@media (max-width:600px){.canq .pages{grid-template-columns:1fr}.canq .done.list .q{font-size:21px}}" +
 ".canq.embed{max-width:none}.canq .panel{background:#fff;border:1px solid var(--bd);border-radius:6px;padding:0;overflow:hidden;box-shadow:0 14px 34px rgba(26,31,44,.16);animation:canq-in 250ms ease-out both}" +
 ".canq .phead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 22px;background:var(--t);color:#fff}.canq .plabel{font-size:13px;line-height:18px;letter-spacing:1.4px;text-transform:uppercase;font-weight:800;color:#fff}.canq .phead .step{color:rgba(255,255,255,.85)}" +
 ".canq .pbody{padding:20px 22px 18px}.canq.embed .bar{margin:0 0 18px;height:6px;background:#E6EBF2;border-radius:3px;overflow:hidden}.canq.embed .bar i{background:var(--rust)}" +
@@ -47,6 +53,8 @@
   var Qs = {
     project: { text: "What's your next project?", opts: [
       { id: "money", label: "Make money from my audience", next: "how" },
+      { id: "branddeals", label: "Land more brand deals", seg: "brand-deals" },
+      { id: "physical", label: "Sell physical products or my favorite brands", seg: "physical-products" },
       { id: "grow", label: "Grow my audience", next: "where" },
       { id: "business", label: "Get the business side handled", next: "handle" },
       { id: "content", label: "Make better content, faster", next: "make" },
@@ -98,7 +106,8 @@
   }
   function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
 
-  var URLS = {}, STARTER = O.starterUrl || "https://www.creatoraccessnetwork.com/#top", HOME = "https://www.creatoraccessnetwork.com/";
+  var URLS = {}, SEGS = [], EXTRAS = [], STARTER = O.starterUrl || "https://www.creatoraccessnetwork.com/#top", HOME = "https://www.creatoraccessnetwork.com/";
+  var STARTER_COUNT = O.starterCount || 30, STARTER_VALUE = O.starterValue || "$1,750";
   var state = { history: [], answers: {}, seg: null, platform: null, cur: "project" };
 
   mount.className = (mount.className ? mount.className + " " : "") + "canq" + (EMBED ? " embed" : "");
@@ -109,7 +118,8 @@
     '<div data-role="body" aria-live="polite"></div></div>';
   var body = mount.querySelector('[data-role="body"]'), bar = mount.querySelector('[data-role="bar"]'), stepEl = mount.querySelector('[data-role="step"]');
 
-  function totalSteps() { var p = state.answers.project; if (!p) return 3; if (p === "unsure") return 1; var n = 3; if (p === "money" && state.answers.how && ["knowledge", "products", "media"].indexOf(state.answers.how) >= 0) n = LONG.money; return n; }
+  var DIRECT = { branddeals: 1, physical: 1 }; // Q1 answers that land on a page straight away: Q1 + the stage question
+  function totalSteps() { var p = state.answers.project; if (!p) return 3; if (p === "unsure") return 1; if (DIRECT[p]) return 2; var n = 3; if (p === "money" && state.answers.how && ["knowledge", "products", "media"].indexOf(state.answers.how) >= 0) n = LONG.money; return n; }
   function stepNo() { return state.history.length + 1; }
 
   function renderQ(id) {
@@ -151,11 +161,24 @@
   function finishStarter() {
     bar.style.width = "100%"; stepEl.textContent = "Done";
     track("quiz_complete", { segment: "starter", path: "project:unsure" });
-    body.innerHTML = '<div class="done"><div class="q">Start with the free Starter Set.</div><p>30 discounts, no card. Come back whenever the next project shows up.</p><a class="btn" href="' + esc(STARTER) + '">Get the Starter Set</a><div class="nav"><button type="button" class="back">← Back</button><span></span></div></div>';
+    var items = SEGS.map(function (sg) { return { label: sg.quiz_label || sg.name, slug: sg.slug }; }).concat(EXTRAS);
+    var list = items.length ? '<ul class="pages">' + items.map(function (it) {
+      var u = URLS[it.slug]; if (!u) return "";
+      return '<li><a href="' + esc(u + (u.indexOf("?") >= 0 ? "&" : "?") + "seg=" + encodeURIComponent(it.slug) + "&via=quiz-list") + '" data-slug="' + esc(it.slug) + '">' + esc(it.label) + '</a></li>';
+    }).join("") + '</ul>' : '<p><a href="' + esc(HOME + "partners") + '">Browse every partner</a>.</p>';
+    body.innerHTML = '<div class="done list"><div class="q">Not sure yet? Here\'s what we can help you build.</div>' +
+      '<p>We have all the discounts you need to launch the projects below with the best tools and services for the least money. Check out what we can help you build, or come back when you\'re ready for your next project.</p>' +
+      list +
+      '<div class="starter"><p class="fine">Or start with the free Starter Set: ' + STARTER_COUNT + ' discounts worth ' + esc(STARTER_VALUE) + '. No card required.</p><a class="btn" href="' + esc(STARTER) + '">Get the Starter Set</a></div>' +
+      '<div class="nav"><button type="button" class="back">← Back</button><span></span></div></div>';
     body.querySelector(".back").addEventListener("click", back);
-    var starterEl = document.getElementById("starter");
-    var email = (starterEl && starterEl.querySelector('input[type="email"]')) || document.querySelector('form input[type="email"]');
-    if (email && location.pathname.replace(/\/$/, "") === "" ) { try { email.scrollIntoView({ behavior: "smooth", block: "center" }); setTimeout(function () { email.focus({ preventScroll: true }); }, 400); } catch (e) {} }
+    Array.prototype.forEach.call(body.querySelectorAll(".pages a"), function (a) { a.addEventListener("click", function () { track("quiz_list_click", { segment: a.getAttribute("data-slug"), path: "project:unsure" }); }); });
+    var sb = body.querySelector(".starter .btn");
+    sb.addEventListener("click", function (e) {
+      var starterEl = document.getElementById("starter");
+      var email = starterEl && starterEl.querySelector('input[type="email"]');
+      if (email && /^#/.test(STARTER)) { e.preventDefault(); try { email.scrollIntoView({ behavior: "smooth", block: "center" }); setTimeout(function () { email.focus({ preventScroll: true }); }, 400); } catch (er) { location.hash = STARTER; } }
+    });
   }
 
   function finish(stage) {
@@ -169,7 +192,7 @@
   }
 
   function start() {
-    try { fetch(BASE + "segments.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { if (j && j.segments) { j.segments.forEach(function (s) { URLS[s.slug] = s.url; }); if (j.starter_url && !O.starterUrl) STARTER = j.starter_url; if (j.home_url) HOME = j.home_url; } }).catch(function () {}); } catch (e) {}
+    try { fetch(BASE + "segments.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { if (j && j.segments) { SEGS = j.segments; j.segments.forEach(function (s) { URLS[s.slug] = s.url; }); if (j.starter_count && !O.starterCount) STARTER_COUNT = j.starter_count; if (j.starter_value && !O.starterValue) STARTER_VALUE = j.starter_value; if (j.not_sure_extras) EXTRAS = j.not_sure_extras.map(function (x) { return { label: x.label, slug: x.seg }; }); if (j.starter_url && !O.starterUrl) STARTER = j.starter_url; if (j.home_url) HOME = j.home_url; } }).catch(function () {}); } catch (e) {}
     renderQ("project");
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
