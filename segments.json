@@ -1,5 +1,5 @@
 {
-  "_about": "CAN project segments. One entry per segment page. Row terms and eligibility come from the Notion OFFER TRACKING page (pulled 2026-09-09). Dollar figures are NOT stored here: scripts/segments.py reads them from the tracker parse and writes segments-live.json. Partner names must match the n field in cansw-data.json. count:false = shown, never enters the segment total. stage = which business stages may see the row (omit for all). trophy:false suppresses the trophy for that partner on these pages. every_creator_strip is a ranked list: the page shows the first every_creator_show names not already on that page (biggest brands first, Avi 2026-09-10). events are shown full width on every page as Upcoming events, never counted.",
+  "_about": "CAN project segments. One entry per segment page. Row terms and eligibility come from the Notion OFFER TRACKING page (pulled 2026-09-09). Dollar figures are NOT stored here: scripts/segments.py reads them from the tracker parse and writes segments-live.json. Partner names must match the n field in cansw-data.json. count:false = shown, never enters the segment total. stage = which business stages may see the row (omit for all). trophy:false suppresses the trophy for that partner on these pages. every_creator_strip is a ranked list: the page shows the first every_creator_show names not already on that page (biggest brands first, Avi 2026-09-10). events are shown full width on every page as Upcoming events, never counted. quiz_label (2026-09-12) is the verb phrase the quiz's \"Not sure yet\" list shows for the page; not_sure_extras are extra list entries that point at an existing page. need_h / need are the intro card on the page: \"Want to X? You'll need Y.\" The brand list after it is generated from the page's rows.",
   "membership_cost": 49,
   "home_url": "https://www.creatoraccessnetwork.com/",
   "quiz_url": "https://www.creatoraccessnetwork.com/#quiz",
@@ -42,8 +42,11 @@
       "slug": "brand-deals",
       "name": "Brand deals and UGC",
       "tile": "Brand deals",
+      "quiz_label": "Land more brand deals",
       "eyebrow": "For Creators landing brand deals and UGC work",
       "h1": "Get paid more, and on time, for the brand deals you land.",
+      "need_h": "Landing brand deals? Here's what you'll need.",
+      "need": "Rate data so you know what to charge, tools to find and track campaigns, and proof to brands that you're a pro.",
       "url": "https://www.creatoraccessnetwork.com/offers/JsRfwH9s/checkout",
       "decisions": [
         {
@@ -113,8 +116,11 @@
       "slug": "podcast",
       "name": "Podcast",
       "tile": "Podcast",
+      "quiz_label": "Launch a podcast",
       "eyebrow": "For Creators launching or growing a podcast",
       "h1": "Launching a podcast? Here's what members pay for the tools behind it.",
+      "need_h": "Launching a podcast? Here's what you'll need.",
+      "need": "A platform to publish, grow and monetize the show, plus licensed music and sound you can use without a copyright strike.",
       "url": "https://www.creatoraccessnetwork.com/offers/7cB6a9kr/checkout",
       "decisions": [
         {
@@ -158,8 +164,11 @@
       "slug": "newsletter",
       "name": "Newsletter",
       "tile": "Newsletter",
+      "quiz_label": "Start a newsletter",
       "eyebrow": "For Creators starting or growing a newsletter",
       "h1": "Starting a newsletter? Here's what members pay.",
+      "need_h": "Starting a newsletter? Here's what you'll need.",
+      "need": "A platform to write and send it, a growth playbook, and a faster way to write.",
       "url": "https://www.creatoraccessnetwork.com/offers/8aRwFszq/checkout",
       "decisions": [
         {
@@ -198,8 +207,11 @@
       "slug": "course",
       "name": "Course",
       "tile": "Course",
+      "quiz_label": "Launch a course",
       "eyebrow": "For Creators launching a course",
       "h1": "Launching a course? The platforms, at member prices.",
+      "need_h": "Launching a course? Here's what you'll need.",
+      "need": "A course platform, a way to sell it from your link in bio, and email to reach your students.",
       "url": "https://www.creatoraccessnetwork.com/offers/HEr4wzDV/checkout",
       "decisions": [
         {
@@ -258,8 +270,11 @@
       "slug": "coaching",
       "name": "Coaching",
       "tile": "Coaching",
+      "quiz_label": "Launch a coaching program",
       "eyebrow": "For Creators launching a coaching program",
       "h1": "Launching coaching? The platforms and booking tools, at member prices.",
+      "need_h": "Launching coaching? Here's what you'll need.",
+      "need": "A platform to host the program, a place to run it as a group, and a way to book and sell from your link in bio.",
       "url": "https://www.creatoraccessnetwork.com/offers/b3bKFgrv/checkout",
       "decisions": [
         {
@@ -318,8 +333,11 @@
       "slug": "consulting",
       "name": "Consulting",
       "tile": "Consulting",
+      "quiz_label": "Sell consulting",
       "eyebrow": "For Creators selling their expertise",
       "h1": "Selling your expertise? The tools to book, bill and deliver it, at member prices.",
+      "need_h": "Selling your expertise? Here's what you'll need.",
+      "need": "A way to charge for your time and answers, a funnel to sell packages, and a place to host client resources.",
       "url": "https://www.creatoraccessnetwork.com/offers/WwYCXcRu/checkout",
       "decisions": [
         {
@@ -383,8 +401,11 @@
       "slug": "community",
       "name": "Community or membership",
       "tile": "Community",
+      "quiz_label": "Start a paid community",
       "eyebrow": "For Creators starting a paid community or membership",
       "h1": "Starting a paid community? The platform, and everything inside it, at member prices.",
+      "need_h": "Starting a paid community? Here's what you'll need.",
+      "need": "A community platform, a checkout for paid access, and email to keep members engaged.",
       "url": "https://www.creatoraccessnetwork.com/offers/FiVQwSHQ/checkout",
       "decisions": [
         {
@@ -463,8 +484,11 @@
       "slug": "digital-products",
       "name": "Digital products",
       "tile": "Digital products",
+      "quiz_label": "Sell digital products",
       "eyebrow": "For Creators selling digital products",
       "h1": "Selling digital products? Lower fees and bigger margins from day one.",
+      "need_h": "Selling digital products? Here's what you'll need.",
+      "need": "A checkout that delivers the product, a platform to host it, and email to reach your buyers.",
       "url": "https://www.creatoraccessnetwork.com/offers/za6RTFFR/checkout",
       "decisions": [
         {
@@ -563,10 +587,13 @@
     },
     {
       "slug": "physical-products",
-      "name": "Physical products or merch",
+      "name": "Physical products, merch and affiliate",
       "tile": "Merch",
-      "eyebrow": "For Creators selling merch or physical products",
-      "h1": "Selling merch? Lower fees and bigger margins from day one.",
+      "quiz_label": "Sell merch or physical products",
+      "eyebrow": "For Creators selling merch or their favorite brands",
+      "h1": "Selling physical products? Bigger margins on your merch and on the brands you recommend.",
+      "need_h": "Selling physical products? Here's what you'll need.",
+      "need": "A store and app for your merch, a domain for the shop, and a bigger affiliate cut on the brands you already recommend.",
       "url": "https://www.creatoraccessnetwork.com/offers/Y8FKrKWD/checkout",
       "decisions": [
         {
@@ -590,7 +617,7 @@
           ]
         },
         {
-          "title": "Affiliate sales on products you don't make",
+          "title": "Earn from brands you already recommend",
           "rows": [
             {
               "n": "ShopYourLikes",
@@ -605,8 +632,11 @@
       "slug": "set-up",
       "name": "Set up a business",
       "tile": "Set up",
+      "quiz_label": "Set up the business",
       "eyebrow": "For Creators setting up the business",
       "h1": "The boring parts, cheaper: bank, books, taxes.",
+      "need_h": "Setting up the business? Here's what you'll need.",
+      "need": "Business banking, bookkeeping, and someone to file the taxes.",
       "url": "https://www.creatoraccessnetwork.com/offers/kvMsfCRA/checkout",
       "decisions": [
         {
@@ -659,8 +689,11 @@
       "slug": "protect",
       "name": "Protect a business",
       "tile": "Protect",
+      "quiz_label": "Protect the business",
       "eyebrow": "For Creators protecting the business",
       "h1": "Contracts, insurance and help, at member rates.",
+      "need_h": "Protecting the business? Here's what you'll need.",
+      "need": "A lawyer when you need one, contracts you can use today, brand-deal protection, health insurance, and help you can trust.",
       "url": "https://www.creatoraccessnetwork.com/offers/v2KambWq/checkout",
       "decisions": [
         {
@@ -750,8 +783,11 @@
       "slug": "tax",
       "name": "Pay less tax",
       "tile": "Pay less tax",
+      "quiz_label": "Pay less tax",
       "eyebrow": "For Creators paying too much tax",
       "h1": "Pay less in taxes, with the accountants and CPAs members use.",
+      "need_h": "Paying too much tax? Here's what you'll need.",
+      "need": "Tax filing and planning, bookkeeping that keeps taxes low, and banking that earns interest.",
       "url": "https://www.creatoraccessnetwork.com/offers/LUKfFdC5/checkout",
       "decisions": [
         {
@@ -799,8 +835,11 @@
       "slug": "video",
       "name": "Better video and audio",
       "tile": "Video and audio",
+      "quiz_label": "Make better video and audio",
       "eyebrow": "For Creators making better video and audio",
       "h1": "Better production, without the full-price subscriptions.",
+      "need_h": "Making better video and audio? Here's what you'll need.",
+      "need": "Collaborative editing, live production, and licensed music and sound.",
       "url": "https://www.creatoraccessnetwork.com/offers/P9WLa9op/checkout",
       "decisions": [
         {
@@ -859,8 +898,11 @@
       "slug": "save-time",
       "name": "Save time",
       "tile": "Save time",
+      "quiz_label": "Get my time back",
       "eyebrow": "For Creators who need their time back",
       "h1": "Get your time back, with the tools members use to work faster.",
+      "need_h": "Need your time back? Here's what you'll need.",
+      "need": "Dictation instead of typing, an inbox that tracks your brand deals, and an AI assistant for research and outreach.",
       "url": "https://www.creatoraccessnetwork.com/offers/ezvQgdGr/checkout",
       "decisions": [
         {
@@ -899,8 +941,11 @@
       "slug": "grow",
       "name": "Grow my audience",
       "tile": "Grow",
+      "quiz_label": "Grow my audience",
       "eyebrow": "For Creators growing an audience",
       "h1": "Growing your audience? Here's what members pay for the tools that grow it.",
+      "need_h": "Growing your audience? Here's what you'll need.",
+      "need": "A platform that turns followers into subscribers and buyers, and the growth playbooks behind the top newsletters.",
       "h1_by_platform": {
         "instagram": "Growing on Instagram? Here's what members pay for the tools that grow it.",
         "newsletter": "Growing a newsletter? Here's what members pay for the tools that grow it."
@@ -939,5 +984,17 @@
         }
       ]
     }
-  ]
+  ],
+  "not_sure_extras": [
+    {
+      "label": "Launch my own game",
+      "seg": "digital-products"
+    },
+    {
+      "label": "Earn from my favorite brands",
+      "seg": "physical-products"
+    }
+  ],
+  "starter_count": 30,
+  "starter_value": "$1,750"
 }

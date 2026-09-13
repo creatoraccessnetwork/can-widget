@@ -15,6 +15,10 @@ What it does
   * Widget block starterUrl and the pricing block's Starter Set links now point at #starter.
   * content_for_index: hero quiz, member wins, starter set, widget, founder, categories, how, FAQ, pricing, then the hidden ones.
 
+2026-09-12 (Avi's quiz feedback): the Starter Set email box STAYS in the hero (Avi: the quiz is the funnel to sales; a
+bottom-of-page section was built and reverted the same day). The hero box now teases the set's value ($1,750, Avi
+2026-09-12) and says "no card required"; the quiz has direct Q1 outcomes so the arrow line says "A few quick questions".
+
 Copy source of truth is this file (mirrors can-homepage skill rulings). The lead sentence keeps the exact
 "$36,000+" / "50" shapes the weekly deal-number sync sweeps; repoint that sync to block 1787360000008_0.
 """
@@ -30,7 +34,8 @@ from copy_lib import COPY, slot, plain   # copy.json = snapshot of the "CAN Home
 BASE = "https://creatoraccessnetwork.github.io/can-widget/"
 NUM = json.load(open(os.path.join(REPO, "numbers.json")))
 TOTAL, COUNT, MEDIAN, SUBCOUNT = NUM["total_value"], str(NUM["partner_count"]), "$400", "30"
-NUMS = {"total": TOTAL, "count": COUNT, "median": MEDIAN, "starter": SUBCOUNT}
+STARTER_VALUE = "$1,750"   # Avi, 2026-09-12: value of the 30 free discounts (hand-set; the sync does not own it)
+NUMS = {"total": TOTAL, "count": COUNT, "median": MEDIAN, "starter": SUBCOUNT, "value": STARTER_VALUE}
 COPY_SHEET = json.load(open(os.path.join(REPO, "copy_sheet.json")))["sheet_id"]
 def S(key, tag="span", cls="", extra=""): return slot(key, NUMS, tag, cls, extra)
 
@@ -120,9 +125,9 @@ HERO_HTML = """<div class="canv2 heroq" id="top">
   </div>
 </div>
 <script>window.CANCOPY = %(copycfg)s;</script>
-<script src="%(base)scan-copy.js?v=20260912a"></script>
+<script src="%(base)scan-copy.js?v=20260913a"></script>
 <script>window.CANQUIZ = %(quizcfg)s;</script>
-<script src="%(base)scan-quiz.js?v=20260912a"></script>
+<script src="%(base)scan-quiz.js?v=20260913a"></script>
 <script>window.CANSTARTER = {"form": "#starter", "source": "hero"};</script>
 <script src="%(base)scan-starter.js"></script>
 <script>(function(){function go(){if(location.hash==="#top"){var s=document.getElementById("starter");if(s){try{history.replaceState(null,"","#starter");}catch(e){}s.scrollIntoView();}}}go();window.addEventListener("hashchange",go);})();</script>""" % dict(
@@ -144,8 +149,8 @@ STARTER_CODE = """<style>
 </style>
 <div class="canv2 hero-in starter-in" id="starter">
   <p class="can-eyebrow" style="margin-bottom:12px">Free to start</p>
-  <h2 class="can-h2">Not ready to join? Start with the free Starter Set.</h2>
-  <p class="hero-sub">%s discounts, no card. Unlock them with your email and come back when the next project shows up.</p>
+  <h2 class="can-h2">Start with the free Starter Set.</h2>
+  <p class="hero-sub">%s discounts, no card required. Unlock them with your email and come back when the next project shows up.</p>
 </div>""" % (form_css, STARTER, SUBCOUNT)
 
 STARTER_META = snap.HERO_META  # "No spam, unsubscribe anytime. Or join for $49/year for 4x more savings."
