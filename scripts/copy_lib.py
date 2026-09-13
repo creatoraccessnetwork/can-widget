@@ -9,7 +9,7 @@ COPY = {r["key"]: r["text"] for r in ROWS if r.get("key")}
 
 def render(text, nums):
     """Same transform as can-copy.js: {placeholders}, then escape, then **bold**, [[teal]], [text](url), newlines."""
-    s = re.sub(r"\{(total|count|median|starter)\}", lambda m: str(nums.get(m.group(1), m.group(0))), text)
+    s = re.sub(r"\{(total|count|median|starter|trophy)\}", lambda m: "🏆" if m.group(1) == "trophy" else str(nums.get(m.group(1), m.group(0))), text)
     s = html.escape(s, quote=False)
     s = re.sub(r"\*\*(.+?)\*\*", r'<b class="lead">\1</b>', s)
     s = re.sub(r"\[\[(.+?)\]\]", r'<span class="tl">\1</span>', s)
@@ -24,4 +24,4 @@ def slot(key, nums, tag="span", cls="", extra=""):
 def plain(key, nums):
     """Placeholder-resolved text without markup (for JS config strings / attributes)."""
     assert key in COPY, key
-    return re.sub(r"\{(total|count|median|starter)\}", lambda m: str(nums.get(m.group(1), m.group(0))), COPY[key])
+    return re.sub(r"\{(total|count|median|starter|trophy)\}", lambda m: "🏆" if m.group(1) == "trophy" else str(nums.get(m.group(1), m.group(0))), COPY[key])

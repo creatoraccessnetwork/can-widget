@@ -441,7 +441,7 @@
   "section": "How it works",
   "where": "Step 2 text",
   "key": "how.step2.p",
-  "text": "Search by what you're about to buy. 🏆 means the best rate that partner offers anywhere."
+  "text": "Search by what you're about to buy. {trophy} means the best rate that partner offers anywhere."
  },
  {
   "section": "How it works",
@@ -483,7 +483,7 @@
   "section": "Founder",
   "where": "Paragraph 2",
   "key": "founder.p2",
-  "text": "CAN shrinks that bill. Most partners give members the best rate they offer anywhere (look for the 🏆) and at just $49/year, it pays for itself fast."
+  "text": "CAN shrinks that bill. Most partners give members the best rate they offer anywhere (look for the {trophy}) and at just $49/year, it pays for itself fast."
  },
  {
   "section": "Founder",
