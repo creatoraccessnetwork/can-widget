@@ -57,19 +57,19 @@
   "section": "Hero",
   "where": "Arrow line pointing at the quiz",
   "key": "hero.sub",
-  "text": "Pick your next project and see what members save on it. Three quick questions, no email needed."
+  "text": "Pick your next project and see what members save on it. A few quick questions, no email needed."
  },
  {
   "section": "Hero",
-  "where": "Email box, first line",
+  "where": "Email box, optional first line (blank = none)",
   "key": "hero.starter.q",
-  "text": "Not ready to join?"
+  "text": ""
  },
  {
   "section": "Hero",
-  "where": "Email box, second line. **double stars** = bold",
+  "where": "Email box, main line. **double stars** = bold; {value} = Starter Set value",
   "key": "hero.starter.lab",
-  "text": "**Get the free {starter}-discount Starter Set** by email."
+  "text": "**Get the free {starter}-discount Starter Set**, worth {value}, by email."
  },
  {
   "section": "Hero",
@@ -87,7 +87,7 @@
   "section": "Hero",
   "where": "Email box, small line under it",
   "key": "hero.starter.note",
-  "text": "No spam, unsubscribe anytime."
+  "text": "No card required. No spam, unsubscribe anytime."
  },
  {
   "section": "Quiz",
@@ -124,6 +124,18 @@
   "where": "Option under 'project'",
   "key": "quiz.project.money",
   "text": "Make money from my audience"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'project' (goes straight to Brand deals)",
+  "key": "quiz.project.branddeals",
+  "text": "Land more brand deals"
+ },
+ {
+  "section": "Quiz",
+  "where": "Option under 'project' (goes straight to Physical products)",
+  "key": "quiz.project.physical",
+  "text": "Sell physical products or my favorite brands"
  },
  {
   "section": "Quiz",
@@ -367,15 +379,21 @@
  },
  {
   "section": "Quiz",
-  "where": "End screen after 'Not sure yet', title",
+  "where": "End screen after 'Not sure yet', title (above the project list)",
   "key": "quiz.done.title",
-  "text": "Start with the free Starter Set."
+  "text": "Here's what we can help you build."
  },
  {
   "section": "Quiz",
   "where": "End screen after 'Not sure yet', text",
   "key": "quiz.done.text",
-  "text": "{starter} discounts, no card. Come back whenever the next project shows up."
+  "text": "We have all the discounts you need to launch the projects below with the best tools and services for the least money. Check out what we can help you build, or come back when you're ready for your next project."
+ },
+ {
+  "section": "Quiz",
+  "where": "End screen after 'Not sure yet', Starter Set line under the list ({starter} {value} = synced)",
+  "key": "quiz.done.starter",
+  "text": "Or start with the free Starter Set: {starter} discounts worth {value}. No card required."
  },
  {
   "section": "Quiz",

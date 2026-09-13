@@ -1,14 +1,14 @@
 /* can-copy.js - fills the CAN homepage text slots from the "CAN Homepage Copy" Google Sheet.
- * Config: window.CANCOPY = { sheet: "<spreadsheet id>", numbers: { total, count, median, starter } }
+ * Config: window.CANCOPY = { sheet: "<spreadsheet id>", numbers: { total, count, median, starter, value } }
  * Slots: any element with data-copy="key" (innerHTML) or data-copy + data-copy-attr="placeholder" (attribute).
  * JS-rendered widgets read window.CANCOPY_MAP and listen for the "cancopy" event.
- * Text markup (same rules as scripts/copy_lib.py): {total} {count} {median} {starter} {trophy}, **bold**, [[teal]], [text](url).
+ * Text markup (same rules as scripts/copy_lib.py): {total} {count} {median} {starter} {value} {trophy}, **bold**, [[teal]], [text](url).
  * Sheet columns: Section | Where | Text | Key. Rows without a Key, or whose Key starts with #, are ignored.
  * ?copy=off in the URL disables it. Nothing here throws: on any failure the baked text stays. */
 (function () {
   var O = window.CANCOPY || {};
   if (!O.sheet || /[?&]copy=off\b/.test(location.search)) return;
-  var NUMS = { total: "", count: "", median: "$400", starter: "30" };
+  var NUMS = { total: "", count: "", median: "$400", starter: "30", value: "$1,750" };
   for (var k in (O.numbers || {})) NUMS[k] = O.numbers[k];
   var src = (document.currentScript && document.currentScript.src) || "";
   var BASE = O.base || (src ? src.replace(/[^\/]*$/, "") : "https://creatoraccessnetwork.github.io/can-widget/");
@@ -16,7 +16,7 @@
   var SEL = { "quiz.label": ".canq .plabel", "wins.eyebrow": "#wins .cant .eyebrow", "wins.headline": "#wins .cant .h2", "wins.sub": "#wins .cant .sub" };
 
   function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
-  function fill(s) { return String(s).replace(/\{(total|count|median|starter|trophy)\}/g, function (m, k) { return k === "trophy" ? "\uD83C\uDFC6" : (NUMS[k] || m); }); }
+  function fill(s) { return String(s).replace(/\{(total|count|median|starter|value|trophy)\}/g, function (m, k) { return k === "trophy" ? "\uD83C\uDFC6" : (NUMS[k] || m); }); }
   function render(s) {
     s = esc(fill(s));
     s = s.replace(/\*\*(.+?)\*\*/g, '<b class="lead">$1</b>');
