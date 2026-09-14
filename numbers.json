@@ -1,10 +1,10 @@
 {
-  "partner_count": 50,
+  "partner_count": 51,
   "total_value": "$36,000+",
-  "total_value_exact": 36336,
+  "total_value_exact": 36576,
   "value_basis": "ceiling",
-  "updated": "2026-09-04",
-  "_source": "Updated 2026-09-04 from the Notion OFFER TRACKING parser run: 50 live partners; ceiling total 36336 published as $36,000+. total_value_exact is required - without it the widget stat tile silently falls back to the rounded figure. Uncapped-earn rows (ShopYourLikes, Insense, Driff, TopFan) count as live partners but their figures never enter the total. ShopYourLikes' '~$1,000-$1,500/yr' is an illustrative example Avi invented and must never be published. CreatorIQ is live with a one-time event ticket and contributes $0. Largest single discount remains $7,200 (CreatorCare).",
+  "updated": "2026-09-14",
+  "_source": "Updated 2026-09-14 from the Notion OFFER TRACKING parser run: 51 live partners; ceiling total 36576 published as $36,000+. Delta vs 2026-09-07 (50 / 36336): +1 partner (SubLoot, $240 ceiling), +$240. total_value_exact is required - without it the widget stat tile silently falls back to the rounded figure. Uncapped-earn rows (ShopYourLikes, Insense, Driff, TopFan) count as live partners but their figures never enter the total. CreatorIQ is live with a one-time event ticket and contributes $0. Largest single discount remains $7,200 (CreatorCare). segments/segments_updated preserved untouched from the 2026-09-10 out-of-band write; they still reflect 50 partners and need their own refresh.",
   "segments": {
     "brand-deals": {
       "partner_count": 8,
