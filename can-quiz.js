@@ -109,7 +109,7 @@
   function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
 
   var URLS = {}, SEGS = [], EXTRAS = [], STARTER = O.starterUrl || "https://www.creatoraccessnetwork.com/#top", HOME = "https://www.creatoraccessnetwork.com/";
-  var STARTER_COUNT = O.starterCount || 30, STARTER_VALUE = O.starterValue || "$1,750";
+  var STARTER_COUNT = O.starterCount || 29, STARTER_VALUE = O.starterValue || "$1,750";
   var state = { history: [], answers: {}, seg: null, platform: null, cur: "project", done: false };
 
   mount.className = (mount.className ? mount.className + " " : "") + "canq" + (EMBED ? " embed" : "");

@@ -8,7 +8,7 @@
 (function () {
   var O = window.CANCOPY || {};
   if (!O.sheet || /[?&]copy=off\b/.test(location.search)) return;
-  var NUMS = { total: "", count: "", median: "$400", starter: "30", value: "$1,750" };
+  var NUMS = { total: "", count: "", median: "$400", starter: "29", value: "$1,750" };
   for (var k in (O.numbers || {})) NUMS[k] = O.numbers[k];
   var src = (document.currentScript && document.currentScript.src) || "";
   var BASE = O.base || (src ? src.replace(/[^\/]*$/, "") : "https://creatoraccessnetwork.github.io/can-widget/");
