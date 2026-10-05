@@ -1,10 +1,10 @@
 {
   "partner_count": 51,
-  "total_value": "$36,000+",
-  "total_value_exact": 36576,
+  "total_value": "$37,000+",
+  "total_value_exact": 37100,
   "value_basis": "ceiling",
-  "updated": "2026-09-14",
-  "_source": "Updated 2026-09-14 from the Notion OFFER TRACKING parser run: 51 live partners; ceiling total 36576 published as $36,000+. Delta vs 2026-09-07 (50 / 36336): +1 partner (SubLoot, $240 ceiling), +$240. total_value_exact is required - without it the widget stat tile silently falls back to the rounded figure. Uncapped-earn rows (ShopYourLikes, Insense, Driff, TopFan) count as live partners but their figures never enter the total. CreatorIQ is live with a one-time event ticket and contributes $0. Largest single discount remains $7,200 (CreatorCare). segments/segments_updated preserved untouched from the 2026-09-10 out-of-band write; they still reflect 50 partners and need their own refresh.",
+  "updated": "2026-10-05",
+  "_source": "Updated 2026-10-05 from the Notion OFFER TRACKING parser run: 51 live partners; ceiling total 37100 published as $37,000+. Delta vs 2026-09-28 (51 / 36576): partner count unchanged; value up $525 of new ceiling because Romano Law went live ($225-$525) while Driff was moved to REMOVED PARTNERS on 2026-09-30 (company shutting down) and contributed $0 as an uncapped-earn row. Raw total moves 36576 to 37100, a 524 difference, because the unrounded sum is 37100.5 and rounds to even. total_value_exact is required - without it the widget stat tile silently falls back to the rounded figure. Uncapped-earn rows (ShopYourLikes, Insense, TopFan) count as live partners but their figures never enter the total. CreatorIQ is live with a one-time event ticket and contributes $0. Largest single discount remains $7,200 (CreatorCare). segments/segments_updated preserved untouched from the 2026-09-10 out-of-band write; they still reflect 50 partners and need their own refresh.",
   "segments": {
     "brand-deals": {
       "partner_count": 8,
