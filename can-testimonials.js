@@ -57,7 +57,7 @@
   function url(p) { return /^https?:\/\//.test(p) ? p : BASE + p; }
   function initials(n) { return String(n || "").split(/\s+/).map(function (w) { return w.charAt(0); }).join("").slice(0, 2).toUpperCase(); }
   function avatar(t, cls) {
-    return t.headshot ? '<img class="av" src="' + esc(url(t.headshot)) + '" alt="" loading="lazy" width="52" height="52">' : '<span class="av init" aria-hidden="true">' + esc(initials(t.name)) + '</span>';
+    return t.headshot ? '<img class="av" src="' + esc(url(t.headshot)) + '" alt="' + esc(t.name || "") + '" loading="lazy" width="52" height="52">' : '<span class="av init" aria-hidden="true">' + esc(initials(t.name)) + '</span>';
   }
   function memberCard(t) {
     var handle = t.handle ? (t.handle_url ? '<a href="' + esc(t.handle_url) + '" target="_blank" rel="noopener">' + esc(t.handle) + '</a>' : esc(t.handle)) + (t.platform ? ' <span class="pf">on ' + esc(t.platform) + '</span>' : '') : esc(t.title || "CAN member");
