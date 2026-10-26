@@ -1,10 +1,10 @@
 {
-  "partner_count": 52,
+  "partner_count": 53,
   "total_value": "$37,000+",
-  "total_value_exact": 37334,
+  "total_value_exact": 37574,
   "value_basis": "ceiling",
-  "updated": "2026-10-19",
-  "_source": "Updated 2026-10-19 from the Notion OFFER TRACKING parser run: 52 live partners; ceiling total 37334 published as $37,000+. Delta vs 2026-10-12 (52 / 37334): ZERO. Neither number moved. The tracker was edited 2026-10-16 but both changes were non-live rows: Memelord moved to REMOVED PARTNERS (removed 2026-10-15, deactivated their affiliate program; was Not live) and Aurelia was added as a new non-live onboarding row (DRAFT 10/15/26, not yet partner-approved). Only updated and _source changed in this file. total_value_exact is required - without it the widget stat tile silently falls back to the rounded figure. Uncapped-earn rows (ShopYourLikes, Insense, TopFan) count as live partners but their figures never enter the total. CreatorIQ is live with a one-time event ticket and contributes $0. Largest single discount remains $7,200 (CreatorCare). segments/segments_updated preserved untouched from the 2026-09-10 out-of-band write; they still reflect 50 partners and need their own refresh.",
+  "updated": "2026-10-26",
+  "_source": "Updated 2026-10-26 from the Notion OFFER TRACKING parser run: 53 live partners; ceiling total 37574 published as $37,000+. Delta vs 2026-10-19 (52 / 37334): +1 partner, +$240. Aview International moved Pending -> Live in the tracker (edited 2026-10-23); its cell reads ~$180-$240 recurring plus $195-$210 one-time, so the ceiling picks up $240. The rounded display string is unchanged at $37,000+ because 37574 still floors to 37000; only the partner count moved. total_value_exact is required - without it the widget stat tile silently falls back to the rounded figure. Uncapped-earn rows (ShopYourLikes, Insense, TopFan) count as live partners but their figures never enter the total. CreatorIQ is live with a one-time event ticket and contributes $0. Largest single discount remains $7,200 (CreatorCare); smallest is $30 (Elevate.io). segments/segments_updated preserved untouched from the 2026-09-10 out-of-band write; they still reflect 50 partners and need their own refresh.",
   "segments": {
     "brand-deals": {
       "partner_count": 8,
