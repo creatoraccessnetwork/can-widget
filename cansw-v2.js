@@ -76,9 +76,9 @@
 
   var st = document.createElement("style"); st.textContent = CSS; document.head.appendChild(st);
 
-  var ORDER = ["beehiiv","Kajabi","Mercury","Teachable","Mighty Networks","Epidemic Sound","Fourthwall","ShopYourLikes","Insense","Thematic","ClearPath","Boring Stuff","Nas.com","Pop.store","SendOwl","Wispr Flow","Elevate.io","Karat","Ratelle Law","Unbound Legal","FYPM","Creator Wizard","Creators Guild of America","Hopp","Slipstream","Buy.Video","Switcher Studios","CreatorScore","DUPAY","TopFan","Dorian","Driff","Revenews","Roster","EditHers","Valim","Built by Foundry","EssentL Creator","Growth in Reverse",".store","Pierson Ferdinand","CreatorCare"];
-  var RATE = {"ShopYourLikes":"80/20","Dorian":"100%","TopFan":"87%","Driff":"90/10"};
-  var UNCAPPED_NAMES = {"ShopYourLikes":1,"Insense":1,"Driff":1,"TopFan":1};
+  var ORDER = ["beehiiv","Kajabi","Mercury","Teachable","Mighty Networks","Epidemic Sound","Fourthwall","ShopYourLikes","Insense","Thematic","ClearPath","Boring Stuff","Nas.com","Pop.store","SendOwl","Wispr Flow","Elevate.io","Karat","Ratelle Law","Unbound Legal","FYPM","Creator Wizard","Creators Guild of America","Hopp","Slipstream","Buy.Video","Switcher Studios","CreatorScore","DUPAY","TopFan","Dorian","Revenews","Roster","EditHers","Valim","Built by Foundry","EssentL Creator","Growth in Reverse",".store","Pierson Ferdinand","CreatorCare"];
+  var RATE = {"ShopYourLikes":"80/20","Dorian":"100%","TopFan":"87%"};
+  var UNCAPPED_NAMES = {"ShopYourLikes":1,"Insense":1,"TopFan":1};
 
   function money(n){ return "$" + Math.round(n).toLocaleString("en-US"); }
   function esc(s){ return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }

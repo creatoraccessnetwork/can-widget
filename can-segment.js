@@ -107,7 +107,7 @@
     var byName = {}; (DATA.partners || []).forEach(function (p) { byName[p.n] = p; });
     var logos = DATA.logos || {};
     var COST = +CFG.membership_cost || 49;
-    var UNC = { "ShopYourLikes": 1, "Insense": 1, "Driff": 1, "TopFan": 1 };
+    var UNC = { "ShopYourLikes": 1, "Insense": 1, "TopFan": 1 };
     var picks = {}, order = [];
 
     // --- build the flat row list (stage filter, platform order) --------------------------------------
@@ -189,7 +189,7 @@
       var row = document.createElement("div"); row.className = "row" + (visible ? "" : " off"); row.setAttribute("data-n", r.n);
       var valHtml;
       if (r.nofigure) valHtml = '<span class="v" style="color:var(--mute)">—</span><span class="tag">confirming</span>';
-      else if (r.uncapped) valHtml = '<span class="v">' + esc({ "ShopYourLikes": "80/20", "TopFan": "87%", "Driff": "90/10" }[r.n] || "rate") + '</span><span class="tag">uncapped</span>';
+      else if (r.uncapped) valHtml = '<span class="v">' + esc({ "ShopYourLikes": "80/20", "TopFan": "87%" }[r.n] || "rate") + '</span><span class="tag">uncapped</span>';
       else if (r.included) valHtml = '<span class="v free">Free</span><span class="tag perk">included</span>';
       else if (r.high != null && r.high > 0) valHtml = '<span class="vl">You save</span><span class="v">' + (r.low !== r.high ? '<span class="upto">up to </span>' : "") + money(r.high) + (r.openEnded && r.low === r.high ? "+" : "") + '</span>';
       else if (r.high === 0) valHtml = '<span class="v free">Free</span>';

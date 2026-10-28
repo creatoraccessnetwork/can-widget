@@ -730,7 +730,6 @@
   var UNCAPPED = {
     "ShopYourLikes":     "+10 pts per sale",
     "TopFan":            "+2 pts per sale",
-    "Driff":             "+10 pts for 3 months",
     "Insense":           "$200+ per campaign",
     "Pierson Ferdinand": "$200/hr off",
     "CreatorCare":       "$600/mo off"
@@ -747,7 +746,7 @@
     "FYPM", "Creator Wizard", "Growth in Reverse", "Creators Guild of America",
     "Buy.Video", "Switcher Studios", "CreatorScore", "Roster", "Boring Stuff",
     "ClearPath", "EssentL Creator", "Unbound Legal", "Ratelle Law",
-    "Pierson Ferdinand", "Revenews", "DUPAY", "Valim", "TopFan", "Dorian", "Driff",
+    "Pierson Ferdinand", "Revenews", "DUPAY", "Valim", "TopFan", "Dorian",
     "Built by Foundry", "CreatorCare", "EditHers"
   ];
   var RANK_OF = {};
