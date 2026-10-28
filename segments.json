@@ -18,20 +18,7 @@
     "Ratelle Law"
   ],
   "every_creator_show": 4,
-  "events": [
-    {
-      "n": "VidSummit",
-      "term": "$100 off a VidSummit 2026 ticket, plus 13+ years of session recordings",
-      "who": "New ticket purchases",
-      "when": "Members-only dinner with CAN's founder"
-    },
-    {
-      "n": "CreatorIQ",
-      "term": "50% off a CreatorIQ Connect ticket",
-      "who": "Every member tier, capped at 25 redemptions",
-      "when": "Oct 13, 2026 · Los Angeles"
-    }
-  ],
+  "events": [],
   "desc_overrides": {
     "Greenroom Legal": "Creator Economy lawyers who protect your brand deals and help you build your brand and business, with no retainers.",
     "Pierson Ferdinand": "A major law firm's Creator practice, with a discount on consultations and hourly legal work.",

@@ -801,18 +801,5 @@
    "uncapped": false
   }
  },
- "events": {
-  "VidSummit": {
-   "low": 100.0,
-   "high": 100.0,
-   "open_ended": false,
-   "uncapped": false
-  },
-  "CreatorIQ": {
-   "low": null,
-   "high": null,
-   "open_ended": false,
-   "uncapped": false
-  }
- }
+ "events": {}
 }
