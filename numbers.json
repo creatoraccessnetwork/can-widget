@@ -1,10 +1,10 @@
 {
-  "partner_count": 53,
+  "partner_count": 54,
   "total_value": "$37,000+",
   "total_value_exact": 37574,
   "value_basis": "ceiling",
-  "updated": "2026-10-26",
-  "_source": "Updated 2026-10-26 from the Notion OFFER TRACKING parser run: 53 live partners; ceiling total 37574 published as $37,000+. Delta vs 2026-10-19 (52 / 37334): +1 partner, +$240. Aview International moved Pending -> Live in the tracker (edited 2026-10-23); its cell reads ~$180-$240 recurring plus $195-$210 one-time, so the ceiling picks up $240. The rounded display string is unchanged at $37,000+ because 37574 still floors to 37000; only the partner count moved. total_value_exact is required - without it the widget stat tile silently falls back to the rounded figure. Uncapped-earn rows (ShopYourLikes, Insense, TopFan) count as live partners but their figures never enter the total. CreatorIQ is live with a one-time event ticket and contributes $0. Largest single discount remains $7,200 (CreatorCare); smallest is $30 (Elevate.io). segments/segments_updated preserved untouched from the 2026-09-10 out-of-band write; they still reflect 50 partners and need their own refresh.",
+  "updated": "2026-10-28",
+  "_source": "Updated 2026-10-28 (launch day) to reconcile with the 2026-10-27 tracker sync: 54 live partners. Delta vs 2026-10-26 (53 / 37574): +1 partner (Zapier, newly Live), +$0 - Zapier is a free 2-week trial with no CAN-exclusive dollar savings (per Avi 10/7/26, v:null in cansw-data), so it joins the count like the uncapped-earn rows but never enters the total. total_value_exact stays 37574; display string stays $37,000+. Uncapped-earn rows (ShopYourLikes, Insense, TopFan) still count as live partners with no dollar contribution. Largest single discount remains $7,200 (CreatorCare); smallest $30 (Elevate.io). total_value_exact is required - without it the widget stat tile silently falls back to the rounded figure. segments/segments_updated untouched (still the 2026-09-10 out-of-band write at 50 partners; needs its own refresh).",
   "segments": {
     "brand-deals": {
       "partner_count": 8,
