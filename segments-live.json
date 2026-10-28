@@ -244,13 +244,6 @@
    "total_exact": 2262,
    "total_display": "$2,200+",
    "rows": {
-    "Driff": {
-     "low": null,
-     "high": null,
-     "open_ended": false,
-     "uncapped": true,
-     "counted": false
-    },
     "Flowlance": {
      "low": 139.0,
      "high": 187.0,
@@ -420,13 +413,6 @@
      "open_ended": true,
      "uncapped": false,
      "counted": true
-    },
-    "Driff": {
-     "low": null,
-     "high": null,
-     "open_ended": false,
-     "uncapped": true,
-     "counted": false
     },
     "Built by Foundry": {
      "low": 600.0,
