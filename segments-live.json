@@ -543,9 +543,9 @@
      "uncapped": false,
      "counted": true
     },
-    "GreenRoom Legal": {
-     "low": 2000.0,
-     "high": 2000.0,
+    "Greenroom Legal": {
+     "low": 3200.0,
+     "high": 3200.0,
      "open_ended": false,
      "uncapped": false,
      "counted": true
